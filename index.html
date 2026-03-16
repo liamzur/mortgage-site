@@ -414,7 +414,7 @@ function svcGo(n){
     z-index: 1100;
     pointer-events: none;
   }
-  .mobile-menu.open { pointer-events: all; }
+  .mobile-menu.open { pointer-events: all; display: block; }
 
   .mobile-overlay {
     position: absolute;
@@ -864,9 +864,9 @@ function svcGo(n){
     </ul>
     <a href="#contact" class="drawer-cta drawer-link">ייעוץ חינם ✦</a>
     <div class="drawer-contact">
-      <a href="tel:0523434916">✆ 052-3434916</a>
-      <a href="mailto:liamzur89@gmail.com" style="color:inherit;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">liamzur89@gmail.com</a>
-      <a href="https://wa.me/9720523434916" target="_blank">✦ וואטסאפ</a>
+      <a href="tel:+972523434916">✆ 052-3434916</a>
+      <a href="/cdn-cgi/l/email-protection#bad6d3dbd7c0cfc88283faddd7dbd3d694d9d5d7" style="color:inherit;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'"><span class="__cf_email__" data-cfemail="264a4f474b5c53541e1f66414b474f4a0845494b">[email&#160;protected]</span></a>
+      <a href="https://wa.me/972523434916" target="_blank">✦ וואטסאפ</a>
     </div>
   </div>
 </div>
@@ -905,12 +905,12 @@ function svcGo(n){
       </div>
       <div class="hero-stats-row">
         <div class="stat">
-          <span class="stat-num">500+</span>
+          <span class="stat-num">100+</span>
           <span class="stat-label">לקוחות מרוצים</span>
         </div>
         <div class="stat">
-          <span class="stat-num">15+</span>
-          <span class="stat-label">שנות ניסיון</span>
+          <span class="stat-num">5</span>
+          <span class="stat-label">שנים בתחום</span>
         </div>
         <div class="stat">
           <span class="stat-num">98%</span>
@@ -1314,14 +1314,14 @@ function svcGo(n){
           <div class="contact-icon">✆</div>
           <div>
             <h4>טלפון</h4>
-            <p><a href="tel:0523434916" style="color:var(--white);text-decoration:none;font-size:1.1rem;font-weight:500;letter-spacing:1px;transition:color 0.3s;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--white)'">052-3434916 <span style="font-size:0.75rem;color:var(--gold);border:1px solid rgba(201,168,76,0.4);padding:2px 8px;letter-spacing:2px;">לחץ לחיוג</span></a></p>
+            <p><a href="tel:+972523434916" style="color:var(--white);text-decoration:none;font-size:1.1rem;font-weight:500;letter-spacing:1px;transition:color 0.3s;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--white)'">052-3434916 <span style="font-size:0.75rem;color:var(--gold);border:1px solid rgba(201,168,76,0.4);padding:2px 8px;letter-spacing:2px;">לחץ לחיוג</span></a></p>
           </div>
         </div>
         <div class="contact-detail">
           <div class="contact-icon">✉</div>
           <div>
             <h4>אימייל</h4>
-            <p><a href="mailto:liamzur89@gmail.com" style="color:inherit;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">liamzur89@gmail.com</a></p>
+            <p><a href="/cdn-cgi/l/email-protection#98f4f1f9f5e2edeaa0a1d8fff5f9f1f4b6fbf7f5" style="color:inherit;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'"><span class="__cf_email__" data-cfemail="513d38303c2b2423696811363c30383d7f323e3c">[email&#160;protected]</span></a></p>
           </div>
         </div>
         <div class="contact-detail">
@@ -1342,12 +1342,6 @@ function svcGo(n){
     </div>
     <div class="reveal">
       <form class="contact-form" id="contactForm">
-          <!-- Web3Forms hidden fields -->
-          <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_KEY">
-          <input type="hidden" name="subject" value="בקשת ייעוץ חינם — ליאם צור משכנתאות">
-          <input type="hidden" name="from_name" value="אתר ליאם צור משכנתאות">
-          <input type="hidden" name="redirect" value="false">
-          <input type="checkbox" name="botcheck" style="display:none">
 
           <div class="form-row">
             <div class="form-group">
@@ -1402,7 +1396,14 @@ function svcGo(n){
           <div id="formSuccess" style="display:none;text-align:center;padding:20px;border:1px solid rgba(201,168,76,0.4);margin-top:16px;">
             <div style="font-size:1.8rem;color:var(--gold);margin-bottom:8px;">✦</div>
             <p style="color:var(--white);font-weight:600;margin-bottom:4px;">הבקשה נשלחה בהצלחה!</p>
-            <p style="color:var(--white-dim);font-size:0.85rem;">אחזור אליך בהקדם לקביעת פגישת ייעוץ ראשונית.</p>
+            <p style="color:var(--white-dim);font-size:0.85rem;margin-bottom:16px;">וואטסאפ נפתח עם הפרטים — אחזור אליך בהקדם.</p>
+            <a id="waSuccessBtn" href="#" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;font-size:0.95rem;font-weight:700;border-radius:4px;margin-top:4px;">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 0C7.163 0 0 7.163 0 16c0 2.826.738 5.477 2.031 7.775L0 32l8.438-2.012A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.258 22.637c-.35.98-1.738 1.795-2.738 2.012-.75.162-1.725.292-5.012-1.075-4.213-1.712-6.9-5.975-7.113-6.25-.2-.275-1.675-2.225-1.675-4.25s1.063-3.013 1.438-3.425c.375-.413.812-.513 1.088-.513.25 0 .5.013.712.025.238.012.563-.088.875.675.325.787 1.1 2.712 1.2 2.912.1.2.163.45.025.713-.137.262-.2.425-.4.65-.2.225-.418.5-.6.675-.2.188-.413.4-.175.775.237.375 1.062 1.75 2.262 2.837 1.55 1.388 2.863 1.825 3.262 2.025.4.2.637.162.875-.1.237-.262.987-1.15 1.25-1.55.262-.4.525-.325.887-.2.362.125 2.313.963 2.712 1.15.4.188.663.287.763.45.1.175.1.987-.25 1.962z"/>
+              </svg>
+              פתח שוב בוואטסאפ
+            </a>
           </div>
           <div id="formError" style="display:none;text-align:center;padding:12px;border:1px solid rgba(255,80,80,0.4);margin-top:16px;">
             <p style="color:#ff6b6b;font-size:0.85rem;">שגיאה בשליחה — נסה שוב או פנה ישירות ל-052-3434916</p>
@@ -1414,7 +1415,7 @@ function svcGo(n){
 </section>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/9720523434916" target="_blank" class="whatsapp-float" title="שלח הודעה בוואטסאפ">
+<a href="https://wa.me/972523434916" target="_blank" class="whatsapp-float" title="שלח הודעה בוואטסאפ">
   <div class="whatsapp-btn">
     <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Main bubble -->
@@ -1453,7 +1454,7 @@ function svcGo(n){
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   'use strict';
 
@@ -1625,7 +1626,7 @@ function svcGo(n){
     document.getElementById('reviewStep3').style.display = 'block';
   };
 
-  /* ── 4. CONTACT FORM (Web3Forms) ─────────────────────────────────── */
+  /* ── 4. CONTACT FORM → WhatsApp ──────────────────────────────────── */
   function initContactForm() {
     var form = document.getElementById('contactForm');
     if (!form) return;
@@ -1635,28 +1636,41 @@ function svcGo(n){
       var btnText = document.getElementById('submitText');
       var success = document.getElementById('formSuccess');
       var errBox  = document.getElementById('formError');
-      btn.disabled = true;
-      btnText.textContent = '\u05E9\u05D5\u05DC\u05D7...';
-      if (success) success.style.display = 'none';
+
+      // Collect form data
+      var fName    = (form.querySelector('[name="first_name"]')     || {value:''}).value.trim();
+      var lName    = (form.querySelector('[name="last_name"]')      || {value:''}).value.trim();
+      var fPhone   = (form.querySelector('[name="phone"]')          || {value:''}).value.trim();
+      var fEmail   = (form.querySelector('[name="email"]')          || {value:''}).value.trim();
+      var fService = (form.querySelector('[name="service_type"]')   || {value:''}).value;
+      var fAmount  = (form.querySelector('[name="mortgage_amount"]')|| {value:''}).value;
+      var fMsg     = (form.querySelector('[name="message"]')        || {value:''}).value.trim();
+
+      // Build WhatsApp message
+      var lines = ['\uD83D\uDCCB \u05D1\u05E7\u05E9\u05D4 \u05D7\u05D3\u05E9\u05D4 \u05DE\u05D4\u05D0\u05EA\u05E8:'];
+      lines.push('\u05E9\u05DD: ' + fName + ' ' + lName);
+      lines.push('\uD83D\uDCDE \u05D8\u05DC\u05E4\u05D5\u05DF: ' + fPhone);
+      if (fEmail)   lines.push('\uD83D\uDCE7 \u05DE\u05D9\u05D9\u05DC: ' + fEmail);
+      if (fService) lines.push('\uD83C\uDFE6 \u05E1\u05D5\u05D2 \u05D9\u05D9\u05E2\u05D5\u05E5: ' + fService);
+      if (fAmount)  lines.push('\uD83D\uDCB0 \u05E1\u05DB\u05D5\u05DD: ' + fAmount);
+      if (fMsg)     lines.push('\uD83D\uDCAC \u05D4\u05E2\u05E8\u05D5\u05EA: ' + fMsg);
+      var plainMsg = lines.join('\n');
+      var waUrl = 'https://wa.me/972523434916?text=' + encodeURIComponent(plainMsg);
+
+      // Set fallback button href
+      var waBtn = document.getElementById('waSuccessBtn');
+      if (waBtn) waBtn.href = waUrl;
+
+      // Open WhatsApp immediately
+      window.open(waUrl, '_blank');
+
+      // Show success
+      if (success) success.style.display = 'block';
       if (errBox)  errBox.style.display  = 'none';
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(j) {
-        if (j.success) {
-          if (success) success.style.display = 'block';
-          form.reset();
-          btnText.textContent = '\u05E9\u05DC\u05D7 \u05D1\u05E7\u05E9\u05D4 \u05DC\u05D9\u05D9\u05E2\u05D5\u05E5 \u05D7\u05D9\u05E0\u05DD';
-          if (success) success.scrollIntoView({behavior:'smooth',block:'center'});
-        } else { throw new Error(j.message); }
-      })
-      .catch(function() {
-        if (errBox) errBox.style.display = 'block';
-        btnText.textContent = '\u05E9\u05DC\u05D7 \u05D1\u05E7\u05E9\u05D4 \u05DC\u05D9\u05D9\u05E2\u05D5\u05E5 \u05D7\u05D9\u05E0\u05DD';
-      })
-      .finally(function() { btn.disabled = false; });
+      form.reset();
+      btn.disabled = false;
+      btnText.textContent = '\u05E9\u05DC\u05D7 \u05D1\u05E7\u05E9\u05D4 \u05DC\u05D9\u05D9\u05E2\u05D5\u05E5 \u05D7\u05D9\u05E0\u05DD';
+      if (success) success.scrollIntoView({behavior:'smooth', block:'center'});
     });
   }
 
@@ -1712,17 +1726,23 @@ function svcGo(n){
     function closeMenu() { if(hb)hb.classList.remove('open'); if(mm)mm.classList.remove('open'); document.body.style.overflow=''; }
     if (hb)  hb.addEventListener('click', function() { mm && mm.classList.contains('open') ? closeMenu() : openMenu(); });
     if (mov) mov.addEventListener('click', closeMenu);
-    document.querySelectorAll('.drawer-link').forEach(function(l) { l.addEventListener('click', closeMenu); });
-
-    // Smooth scroll (all anchor links)
-    document.querySelectorAll('a[href^="#"]:not(.service-link)').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        var t = document.querySelector(this.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    document.querySelectorAll('.drawer-link').forEach(function(l) {
+      l.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          closeMenu();
+          setTimeout(function() {
+            var target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 350);
+        } else {
+          closeMenu();
+        }
       });
     });
 
-  });
+  }); // end DOMContentLoaded
 
 })();
 </script>
