@@ -1,1 +1,198 @@
-
+<!DOCTYPE html>
+<html lang="he" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liam Zur – Mortgage Advisor</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --dark: #0A0A0A;
+    --text: #F0EDE6;
+    --text-muted: #9A9185;
+    --wa: #25D366;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--dark);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+  }
+  body::before {
+    content:''; position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(201,168,76,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(201,168,76,.05) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .card {
+    width:100%; max-width:420px;
+    background: linear-gradient(145deg,#161616 0%,#0E0E0E 50%,#141414 100%);
+    border:1px solid rgba(201,168,76,.2);
+    border-radius:24px; overflow:hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,.8), 0 0 60px rgba(201,168,76,.04);
+    animation: cardIn .8s cubic-bezier(.16,1,.3,1) both;
+    position: relative;
+  }
+  @keyframes cardIn { from{opacity:0;transform:translateY(30px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+  .card::before {
+    content:''; position:absolute; top:0; left:0; right:0;
+    height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    z-index:2;
+  }
+  .hero { position:relative; height:360px; overflow:hidden; }
+  .hero-photo {
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position: center 15%;
+    display:block;
+    filter:brightness(.78) contrast(1.05);
+  }
+  .hero-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(to bottom,transparent 0%,transparent 40%,rgba(10,10,10,.55) 68%,rgba(10,10,10,1) 100%);
+  }
+  .hero-logo { position:absolute; top:16px; left:50%; transform:translateX(-50%); height:52px; opacity:.92; z-index:1; }
+  .body { padding:0 28px 28px; }
+  .name-block { text-align:center; margin-top:-6px; margin-bottom:6px; padding: 0 4px; }
+  .name {
+    font-family:'Cormorant Garamond',serif;
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    font-weight:600; color:var(--text);
+    letter-spacing:.08em; line-height:1.1;
+    text-transform:uppercase; white-space: nowrap;
+  }
+  .title { font-size:.65rem; font-weight:500; letter-spacing:.28em; color:var(--gold); text-transform:uppercase; margin-top:6px; }
+  .divider { display:flex; align-items:center; gap:10px; margin:18px 0; }
+  .divider::before,.divider::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,.3)); }
+  .divider::after { background:linear-gradient(90deg,rgba(201,168,76,.3),transparent); }
+  .bio { font-size:.78rem; color:var(--text-muted); line-height:1.7; text-align:center; margin-bottom:20px; font-weight:300; }
+  .contacts { display:flex; flex-direction:column; gap:10px; margin-bottom:22px; }
+  .contact-item {
+    display:flex; align-items:center; gap:14px;
+    padding:11px 15px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(201,168,76,.1);
+    border-radius:10px; text-decoration:none;
+    transition:all .25s ease;
+  }
+  .contact-item:hover { background:rgba(201,168,76,.07); border-color:rgba(201,168,76,.3); transform:translateX(3px); }
+  .contact-icon { width:34px; height:34px; border-radius:8px; background:rgba(201,168,76,.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .contact-icon svg { width:16px; height:16px; fill:none; stroke:var(--gold); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .contact-label { font-size:.58rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:.2em; margin-bottom:2px; }
+  .contact-value { font-size:.82rem; color:var(--text); font-weight:400; }
+  .actions { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
+  .btn {
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    padding:11px 8px; border-radius:10px;
+    font-size:.66rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    text-decoration:none; cursor:pointer; border:none;
+    transition:all .25s ease; font-family:'Montserrat',sans-serif;
+  }
+  .btn-call { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:#0A0A0A; }
+  .btn-call:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(201,168,76,.25); }
+  .btn-wa { background:rgba(37,211,102,.12); border:1px solid rgba(37,211,102,.3); color:var(--wa); }
+  .btn-wa:hover { background:rgba(37,211,102,.2); border-color:rgba(37,211,102,.6); }
+  .btn-site { background:transparent; border:1px solid rgba(201,168,76,.3); color:var(--gold); }
+  .btn-site:hover { background:rgba(201,168,76,.08); border-color:rgba(201,168,76,.6); }
+  .btn svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+  .btn-wa svg { stroke:var(--wa); }
+  .save-btn-wrap { display:flex; justify-content:center; margin-bottom:16px; }
+  .save-contact-btn {
+    background:transparent; border:none; color:var(--text-muted);
+    font-size:.65rem; font-family:'Montserrat',sans-serif;
+    letter-spacing:.2em; text-transform:uppercase; cursor:pointer;
+    text-decoration:underline; text-underline-offset:3px; padding:4px;
+    transition:color .2s;
+  }
+  .save-contact-btn:hover { color:var(--gold); }
+  .qr-section {
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    padding:18px; background:rgba(255,255,255,.02);
+    border:1px solid rgba(201,168,76,.1); border-radius:14px;
+  }
+  .qr-label { font-size:.6rem; color:var(--text-muted); letter-spacing:.25em; text-transform:uppercase; }
+  #qrcode canvas, #qrcode img { border-radius:8px; border:3px solid rgba(201,168,76,.15); padding:6px; background:#fff; }
+  .footer { text-align:center; margin-top:16px; font-size:.6rem; color:rgba(154,145,133,.4); letter-spacing:.15em; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hero">
+    <img class="hero-photo" src="photo.png" alt="Liam Zur">
+    <div class="hero-overlay"></div>
+    <img class="hero-logo" src="logo.jpg" alt="Logo">
+  </div>
+  <div class="body">
+    <div class="name-block">
+      <div class="name">Liam Zur</div>
+      <div class="title">יועץ משכנתאות · Mortgage Advisor</div>
+    </div>
+    <div class="divider"><span style="color:var(--gold);font-size:.6rem">✦</span></div>
+    <p class="bio">
+      מלווה אתכם לאורך כל תהליך המשכנתא – מהייעוץ הראשוני ועד החתימה.<br>
+      ידע, ניסיון ויחס אישי שמביאים לתנאים הטובים ביותר עבורכם.
+    </p>
+    <div class="contacts">
+      <a class="contact-item" href="tel:0523434916">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.1.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="contact-info"><div class="contact-label">Phone</div><div class="contact-value">052-343-4916</div></div>
+      </a>
+      <a class="contact-item" href="mailto:Liamzur89@gmail.com">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="contact-info"><div class="contact-label">Email</div><div class="contact-value">Liamzur89@gmail.com</div></div>
+      </a>
+      <a class="contact-item" href="https://liamzur.co.il/" target="_blank">
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div class="contact-info"><div class="contact-label">Website</div><div class="contact-value">liamzur.co.il</div></div>
+      </a>
+    </div>
+    <div class="actions">
+      <a class="btn btn-call" href="tel:0523434916">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.1.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        התקשר
+      </a>
+      <a class="btn btn-wa" href="https://wa.me/972523434916" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-site" href="https://liamzur.co.il/" target="_blank">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        האתר
+      </a>
+    </div>
+    <div class="save-btn-wrap">
+      <button class="save-contact-btn" onclick="saveContact()">⬇ שמור לאנשי קשר</button>
+    </div>
+    <div class="qr-section">
+      <div class="qr-label">סרוק לכרטיס ביקור</div>
+      <div id="qrcode"></div>
+    </div>
+    <div class="footer">LIAM ZUR · MORTGAGE ADVISOR · 2025</div>
+  </div>
+</div>
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://liamzur.co.il/card",
+    width: 140, height: 140,
+    colorDark: "#0A0A0A", colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+  function saveContact() {
+    const vcard = ["BEGIN:VCARD","VERSION:3.0","FN:Liam Zur","N:Zur;Liam;;;",
+      "TITLE:Mortgage Advisor","TEL;TYPE=CELL:+972523434916",
+      "EMAIL:Liamzur89@gmail.com","URL:https://liamzur.co.il/","END:VCARD"].join("\n");
+    const blob = new Blob([vcard], {type:"text/vcard"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href=url; a.download="LiamZur.vcf"; a.click();
+    URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
