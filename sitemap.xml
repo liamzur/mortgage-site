@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
           <loc>https://liamzur.co.il/</loc>
-          <lastmod>2025-03-21</lastmod>
-          <changefreq>monthly</changefreq>
+          <lastmod>2025-03-22</lastmod>
+          <changefreq>weekly</changefreq>
           <priority>1.0</priority>
+    </url>
+    <url>
+          <loc>https://liamzur.co.il/blog/yoetz-mashkanta.html</loc>
+          <lastmod>2025-03-22</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.8</priority>
     </url>
 </urlset>
