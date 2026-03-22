@@ -1,1 +1,158 @@
-x
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ריבית מול קרן במשכנתא – מה קורה בשנים הראשונות? | ליאם צור</title>
+  <meta name="description" content="בשנים הראשונות של המשכנתא רוב התשלום הולך לריבית ולא לקרן. הבנת מבנה ההחזר תעזור לך לחסוך עשרות אלפי שקלים.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Heebo', sans-serif; background: #0a0a0a; color: #e8e8e8; line-height: 1.7; direction: rtl; }
+    a { color: #d4a843; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); padding: 0 24px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #2a2a2a; }
+    .nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; color: #d4a843; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: #aaa; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #d4a843; text-decoration: none; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #111 0%, #1a1500 100%); padding: 60px 24px 40px; text-align: center; border-bottom: 1px solid #2a2a2a; }
+    .series-badge { display: inline-block; background: #1a1500; border: 1px solid #d4a843; color: #d4a843; font-size: 0.78rem; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: #fff; max-width: 700px; margin: 0 auto 16px; line-height: 1.3; }
+    .hero .subtitle { font-size: 1.05rem; color: #aaa; max-width: 580px; margin: 0 auto 24px; }
+    .meta { font-size: 0.82rem; color: #666; }
+
+    /* ARTICLE */
+    .article { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    .article h2 { font-size: 1.4rem; font-weight: 700; color: #d4a843; margin: 40px 0 16px; }
+    .article h3 { font-size: 1.1rem; font-weight: 600; color: #e8e8e8; margin: 28px 0 12px; }
+    .article p { margin-bottom: 18px; color: #ccc; font-size: 1rem; }
+    .article ul, .article ol { padding-right: 24px; margin-bottom: 18px; color: #ccc; }
+    .article li { margin-bottom: 8px; }
+
+    /* HIGHLIGHT BOX */
+    .highlight { background: #111; border-right: 4px solid #d4a843; border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight p { margin: 0; color: #e8e8e8; font-size: 1.05rem; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 28px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th { background: #1a1500; color: #d4a843; padding: 10px 14px; text-align: right; border: 1px solid #2a2a2a; font-weight: 600; }
+    td { padding: 10px 14px; border: 1px solid #2a2a2a; color: #ccc; }
+    tr:nth-child(even) td { background: #111; }
+    tr:nth-child(odd) td { background: #0d0d0d; }
+
+    /* CTA */
+    .cta-box { background: linear-gradient(135deg, #1a1500, #111); border: 1px solid #d4a843; border-radius: 12px; padding: 36px 32px; margin: 56px 0 40px; text-align: center; }
+    .cta-box h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
+    .cta-box p { color: #aaa; margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: #d4a843; color: #000; font-weight: 700; font-size: 1rem; padding: 14px 36px; border-radius: 8px; transition: background 0.2s; }
+    .cta-btn:hover { background: #e8bc55; text-decoration: none; }
+
+    /* SERIES NAV */
+    .series-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid #2a2a2a; margin-top: 48px; font-size: 0.88rem; }
+    .series-nav a { color: #d4a843; }
+    .series-nav .current { color: #666; }
+
+    /* FOOTER */
+    footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 32px 24px; text-align: center; color: #555; font-size: 0.85rem; }
+    footer a { color: #d4a843; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">ליאם צור · יועץ משכנתאות</div>
+    <ul class="nav-links">
+      <li><a href="/">בית</a></li>
+      <li><a href="/blog/" class="active">בלוג</a></li>
+      <li><a href="/#contact">צור קשר</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="series-badge">📊 סדרה: 30 עובדות על המשכנתא שלא ידעתם &middot; עובדה 1 מתוך 30</div>
+  <h1>בשנים הראשונות – רוב הכסף שלך הולך לריבית, לא לקרן</h1>
+  <p class="subtitle">רוב הלווים לא יודעים כמה מהתשלום החודשי שלהם באמת מקטין את החוב. התשובה תפתיע אתכם.</p>
+  <p class="meta">ליאם צור &middot; מרץ 2025 &middot; 4 דקות קריאה</p>
+</div>
+
+<div class="article">
+
+  <div class="highlight">
+    <p>💡 <strong>עובדה #1:</strong> בחודש הראשון של משכנתא של 1,000,000 ₪ ל-25 שנה בריבית 4%, כ-70% מהתשלום החודשי הולך לריבית – ורק 30% מקטין את הקרן.</p>
+  </div>
+
+  <h2>למה זה קורה?</h2>
+  <p>המשכנתא פועלת לפי עיקרון שנקרא <strong>לוח שפיצר</strong> – שיטת החזר שבה התשלום החודשי קבוע, אך ההרכב הפנימי שלו משתנה לאורך הזמן.</p>
+  <p>בתחילת הדרך, יתרת הקרן שלך גבוהה מאוד. מכיוון שהריבית מחושבת על היתרה – הריבית החודשית גבוהה, ורק חלק קטן מהתשלום שלך "נשאר" לזכותך כהפחתת חוב.</p>
+  <p>ככל שעוברות שנים, הקרן יורדת, הריבית החודשית קטנה בהתאם, וחלק גדול יותר מהתשלום מופנה לקרן.</p>
+
+  <h2>נסתכל על מספרים אמיתיים</h2>
+  <p>משכנתא של <strong>1,000,000 ₪</strong> ל-<strong>25 שנה</strong> בריבית <strong>4% שנתי</strong>:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>חודש</th>
+          <th>תשלום חודשי</th>
+          <th>מתוכו ריבית</th>
+          <th>מתוכו קרן</th>
+          <th>יתרת חוב</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>5,278 ₪</td><td>3,333 ₪ (63%)</td><td>1,945 ₪ (37%)</td><td>998,055 ₪</td></tr>
+        <tr><td>12</td><td>5,278 ₪</td><td>3,254 ₪ (62%)</td><td>2,024 ₪ (38%)</td><td>977,070 ₪</td></tr>
+        <tr><td>60</td><td>5,278 ₪</td><td>2,952 ₪ (56%)</td><td>2,326 ₪ (44%)</td><td>884,500 ₪</td></tr>
+        <tr><td>120</td><td>5,278 ₪</td><td>2,462 ₪ (47%)</td><td>2,816 ₪ (53%)</td><td>737,900 ₪</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>שימו לב: אחרי 5 שנים (60 חודשים) שילמתם סך הכל <strong>316,680 ₪</strong> – אבל הקרן שלכם ירדה בפחות מ-<strong>116,000 ₪</strong>. למעלה מ-200,000 ₪ הלכו לריבית בלבד.</p>
+
+  <h2>מה זה אומר בפועל?</h2>
+
+  <h3>1. פירעון מוקדם שווה הרבה יותר בהתחלה</h3>
+  <p>אם יש לכם כסף פנוי, <strong>פירעון חלקי מוקדם</strong> בשנים הראשונות יחסוך לכם הרבה יותר ריבית מאשר אותו סכום שיופנה לפירעון בשנה ה-15 או ה-20.</p>
+
+  <h3>2. מחזור בזמן הנכון</h3>
+  <p>מחזור משכנתא בשנים הראשונות – כשהקרן עדיין גבוהה – יכול לחסוך עשרות ואף מאות אלפי שקלים. ירידה של 0.5% בריבית על קרן של 900,000 ₪ שווה בדיוק כפול מאשר על קרן של 450,000 ₪.</p>
+
+  <h3>3. הבנת האמינות הפיננסית שלכם</h3>
+  <p>כשאתם רואים את דף המשכנתא ומבינים שעוד שנתיים תצליחו לצמצם את הקרן ב-X אלף שקל, אתם יכולים לתכנן טוב יותר – פנסיה, שיפוץ, עסק.</p>
+
+  <div class="highlight">
+    <p>🔑 <strong>המסקנה:</strong> המשכנתא שלכם לא "עובדת לכם" באותה מידה לאורך כל הזמן. השנים הראשונות הן הקריטיות ביותר לחיסכון.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>רוצים לדעת כמה הריבית עולה לכם בפועל?</h3>
+    <p>אני בודק יחד איתכם את תמהיל המשכנתא הקיים ומוצא הזדמנויות לחיסכון.</p>
+    <a href="/#contact" class="cta-btn">לפגישת ייעוץ ללא עלות</a>
+  </div>
+
+  <div class="series-nav">
+    <span class="current">← עובדה הקודמת</span>
+    <a href="/blog/">כל המאמרים</a>
+    <a href="/blog/">עובדה הבאה →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>ליאם צור · יועץ משכנתאות מוסמך &middot; <a href="tel:+972526262060">052-626-2060</a></p>
+  <p style="margin-top:8px"><a href="/">בית</a> &middot; <a href="/blog/">בלוג</a> &middot; <a href="/#contact">צור קשר</a></p>
+</footer>
+
+</body>
+</html>
