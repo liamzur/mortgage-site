@@ -810,7 +810,28 @@ function svcGo(n){
     .news-header { flex-direction: column; align-items: flex-start; gap: 12px; }
     .news-refresh-btn { align-self: flex-start; }
   }
+
+  /* FAQ Section */
+  .faq-section { padding: 80px 0; background: var(--bg-dark); }
+  .faq-grid { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: var(--bg-card); border: 1px solid rgba(212,175,55,0.15); border-radius: 12px; overflow: hidden; transition: border-color 0.3s; }
+  .faq-item.open { border-color: rgba(212,175,55,0.4); }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; cursor: pointer; font-weight: 600; font-size: 1rem; color: var(--text-light); gap: 16px; user-select: none; }
+  .faq-question:hover { color: var(--gold); }
+  .faq-arrow { width: 20px; height: 20px; flex-shrink: 0; color: var(--gold); transition: transform 0.3s; }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .faq-item.open .faq-answer { max-height: 300px; }
+  .faq-answer p { padding: 0 24px 20px; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; }
+  @media (max-width: 768px) { .faq-question { font-size: 0.9rem; padding: 16px 18px; } .faq-answer p { padding: 0 18px 16px; } }
 </style>
+<link rel="canonical" href="https://liamzur.co.il/" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FinancialService","name":"ליאם צור - יועץ משכנתאות מורשה","url":"https://liamzur.co.il","telephone":"+972-52-3434916","address":{"@type":"PostalAddress","addressCountry":"IL","addressLocality":"ישראל"},"description":"יועץ משכנתאות מורשה עם 5 שנות ניסיון. ייעוץ לרכישת דירה, מחזור משכנתא ואיחוד הלוואות.","priceRange":"₪₪","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"19:00"},"founder":{"@type":"Person","name":"ליאם צור","jobTitle":"יועץ משכנתאות מורשה"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"שירותי ייעוץ משכנתאות","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"ייעוץ משכנתא לרכישת דירה"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"מחזור משכנתא"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"איחוד הלוואות"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"ייעוץ למחיר למשתכן"}}]}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"מה זה יועץ משכנתאות ולמה צריך אותו?","acceptedAnswer":{"@type":"Answer","text":"יועץ משכנתאות מורשה הוא מומחה פיננסי שמייצג אתכם מול הבנקים. בניגוד לפקיד הבנק, היועץ עובד בשבילכם בלבד — מנהל מו\"מ מול כל הבנקים, מוצא את הריבית הנמוכה ביותר ואת תמהיל המסלולים האידיאלי, וחוסך לכם עשרות אלפי שקלים."}},{"@type":"Question","name":"כמה עולה ייעוץ משכנתאות?","acceptedAnswer":{"@type":"Answer","text":"הפגישה הראשונה היא חינם לחלוטין ללא התחייבות. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני למשכנתא בתנאים הטובים ביותר."}},{"@type":"Question","name":"מתי כדאי למחזר משכנתא?","acceptedAnswer":{"@type":"Answer","text":"כדאי לבדוק מיחזור כאשר הריבית בשוק ירדה, חלפו יותר מ-3 שנים, השתנו נסיבותיכם הכלכליות, או שאתם מרגישים שהמשכנתא כבדה. מיחזור נכון יכול לחסוך עשרות עד מאות אלפי שקלים."}},{"@type":"Question","name":"מה זה מחיר למשתכן?","acceptedAnswer":{"@type":"Answer","text":"מחיר למשתכן היא תוכנית ממשלתית שמאפשרת לזכאים לרכוש דירה במחיר מוזל ב-20%-30% מתחת למחיר השוק. יועץ משכנתאות יסייע לכם לנצל את הזכאות בצורה המיטבית."}},{"@type":"Question","name":"האם ניתן לאחד הלוואות עם המשכנתא?","acceptedAnswer":{"@type":"Answer","text":"כן. איחוד הלוואות מאפשר להכניס הלוואות אישיות ואוברדראפט לתוך המשכנתא בריבית נמוכה יותר, מה שמפחית את ההחזר החודשי."}},{"@type":"Question","name":"כמה זמן לוקח לקבל משכנתא?","acceptedAnswer":{"@type":"Answer","text":"התהליך המלא אורך בדרך כלל 3-6 שבועות. עם יועץ מנוסה התהליך מהיר יותר כיוון שהכל מוגש מוכן לכמה בנקים בו-זמנית."}}]}
+</script>
 </head>
 <body>
 
@@ -1104,6 +1125,24 @@ function svcGo(n){
 </section>
 
 <!-- TESTIMONIALS -->
+
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">שאלות נפוצות</span>
+      <h2>כל מה שרציתם לדעת<br><span style="color:var(--gold);font-style:italic;">על משכנתאות</span></h2>
+      <p class="section-desc">תשובות לשאלות הנפוצות ביותר על ייעוץ משכנתאות, מחזור ואיחוד הלוואות</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מה זה יועץ משכנתאות ולמה צריך אותו?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>יועץ משכנתאות מורשה הוא מומחה פיננסי שמייצג אתכם מול הבנקים. בניגוד לפקיד הבנק, היועץ עובד בשבילכם בלבד — מנהל מו"מ מול כל הבנקים, מוצא את הריבית הנמוכה ביותר ואת תמהיל המסלולים האידיאלי, וחוסך לכם עשרות אלפי שקלים לאורך חיי המשכנתא.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>כמה עולה ייעוץ משכנתאות?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>הפגישה הראשונה היא חינם לחלוטין ללא התחייבות. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני למשכנתא בתנאים הטובים ביותר — כך שאתם לא מסתכנים בכלום.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מתי כדאי למחזר משכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>כדאי לבדוק מיחזור כאשר: הריבית בשוק ירדה משמעותית, חלפו יותר מ-3 שנים מאז לקחתם את המשכנתא, השתנה מצבכם הכלכלי, או שאתם מרגישים שהמשכנתא "כבדה". מיחזור נכון יכול לחסוך עשרות עד מאות אלפי שקלים.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מה זה מחיר למשתכן ואיך מנצלים אותו?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>מחיר למשתכן היא תוכנית ממשלתית שמאפשרת לזכאים לרכוש דירה במחיר מוזל ב-20%-30% מתחת למחיר השוק. יועץ משכנתאות מנוסה יסייע לכם לוודא זכאות, לבחור נכס מתאים, ולהשיג את תנאי המימון הטובים ביותר.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>האם ניתן לאחד הלוואות עם המשכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>כן! איחוד הלוואות הוא כלי פיננסי חכם שמאפשר להכניס הלוואות אישיות, אוברדראפט וחובות נוספים לתוך המשכנתא בריבית נמוכה בהרבה. התוצאה: החזר חודשי נמוך משמעותית ותזרים מזומנים טוב יותר.</p></div></div>
+      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>כמה זמן לוקח לקבל משכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>התהליך המלא אורך בדרך כלל 3-6 שבועות. עם יועץ מנוסה התהליך מהיר יותר כיוון שכל המסמכים מוגשים מוכנים לכמה בנקים בו-זמנית.</p></div></div>
+    </div>
+  </div>
+</section>
 <section id="testimonials" class="testimonials-section">
   <div class="section-label">מה אומרים הלקוחות</div>
   <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:0;">
