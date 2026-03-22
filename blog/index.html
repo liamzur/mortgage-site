@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl"> 
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>×××× ××©×× ×ª×××ª | ×××× ×¦××¨ - ×××¢×¥ ××©×× ×ª×××ª ×××¨×©×</title> 
-  <meta name="description" content="××××¨×× ××§×¦××¢××× ×¢× ××©×× ×ª×××ª, ×××××¨ ××©×× ×ª×, ×¨×××××ª ××¢××. ×××× ×¦××¨ - ×××¢×¥ ××©×× ×ª×××ª ×××¨×©×.">
+  <title>בלוג משכנתאות | ליאם צור - יועץ משכנתאות מורשה</title>
+  <meta name="description" content="מאמרים מקצועיים על משכנתאות, מחזור משכנתא, ריביות ועוד. ליאם צור - יועץ משכנתאות מורשה.">
   <link rel="canonical" href="https://liamzur.co.il/blog/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,12 @@
       --border: rgba(201,168,76,0.15);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Heebo', sans-serif; background: var(--bg-dark); color: var(--white-dim); direction: rtl; }
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg-dark);
+      color: var(--white-dim);
+      direction: rtl;
+    }
     #navbar {
       position: fixed; top: 0; right: 0; left: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
@@ -30,25 +35,58 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { color: var(--white-dim); text-decoration: none; font-size: 0.9rem; font-weight: 400; letter-spacing: 1px; transition: color 0.3s; }
+    .nav-links a {
+      color: var(--white-dim); text-decoration: none;
+      font-size: 0.9rem; font-weight: 400; letter-spacing: 1px;
+      transition: color 0.3s;
+    }
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold) !important; padding: 8px 20px; border-radius: 2px; transition: all 0.3s !important; }
+    .nav-cta {
+      background: transparent; border: 1px solid var(--gold);
+      color: var(--gold) !important; padding: 8px 20px;
+      border-radius: 2px; transition: all 0.3s !important;
+    }
     .nav-cta:hover { background: var(--gold) !important; color: var(--bg-dark) !important; }
-    .blog-hero { padding: 140px 48px 60px; text-align: center; border-bottom: 1px solid var(--border); }
-    .blog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white); margin-bottom: 16px; }
+    .blog-hero {
+      padding: 140px 48px 60px; text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--white); margin-bottom: 16px;
+    }
     .blog-hero h1 span { color: var(--gold); }
     .blog-hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
     .blog-container { max-width: 1100px; margin: 0 auto; padding: 60px 24px 80px; }
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
-    .blog-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; text-decoration: none; display: block; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .blog-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      text-decoration: none; display: block;
+    }
     .blog-card:hover { transform: translateY(-4px); border-color: var(--gold); }
-    .card-tag { background: var(--gold); color: var(--bg-dark); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; display: inline-block; margin: 20px 20px 0; border-radius: 2px; }
+    .card-tag {
+      background: var(--gold); color: var(--bg-dark);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      padding: 4px 12px; display: inline-block;
+      margin: 20px 20px 0; border-radius: 2px;
+    }
     .card-body { padding: 16px 20px 24px; }
     .card-body h2 { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.5; }
     .card-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
     .card-read-more { color: var(--gold); font-size: 0.85rem; font-weight: 600; }
-    .card-read-more::after { content: ' â'; }
-    footer { background: #0A0A0A; border-top: 1px solid var(--border); text-align: center ; padding: 32px 24px; color: var(--text-muted); font-size: 0.85rem; }
+    .card-read-more::after { content: ' ←'; }
+    footer {
+      background: #0A0A0A; border-top: 1px solid var(--border);
+      text-align: center; padding: 32px 24px;
+      color: var(--text-muted); font-size: 0.85rem;
+    }
     footer a { color: var(--gold); text-decoration: none; }
   </style>
 </head>
@@ -66,43 +104,46 @@
     </svg>
   </a>
   <ul class="nav-links">
-    <li><a href="/#services">×©××¨××ª××</a></li>
-    <li><a href="/#why">××× ×× ×</a></li>
-    <li><a href="/#process">×ª××××</a></li>
-    <li><a href="/#testimonials">××§××××ª</a></li>
-    <li><a href="/blog/" class="active">××××</a></li>
-    <li><a href="/#contact" class="nav-cta">×××¢××¥ ××× ×</a></li>
+    <li><a href="/#services">שירותים</a></li>
+    <li><a href="/#why">למה אני</a></li>
+    <li><a href="/#process">תהליך</a></li>
+    <li><a href="/#testimonials">לקוחות</a></li>
+    <li><a href="/blog/" class="active">בלוג</a></li>
+    <li><a href="/#contact" class="nav-cta">ייעוץ חינם</a></li>
   </ul>
 </nav>
 
 <section class="blog-hero">
-  <h1>×××× <span>××©×× ×ª×××ª</span></h1>
-  <p>××××¨×× ××§×¦××¢××× ×©××¢××¨× ××× ××§×× ××××××ª × ××× ××ª ××¢××× ×××©×× ×ª×××ª</p>
+  <h1>בלוג <span>משכנתאות</span></h1>
+  <p>מאמרים מקצועיים שיעזרו לכם לקבל החלטות נכונות בעולם המשכנתאות</p>
 </section>
 
 <div class="blog-container">
   <div class="blog-grid">
+
     <a href="/blog/mashkanta-ribit-keren.html" class="blog-card">
-          <span class="card-tag">30 עובדות | 1/30</span>
-          <div class="card-body">
-            <h2>בשנים הראשונות – רוב הכסף שלך הולך לריבית, לא לקרן</h2>
-            <p>רוב הלווים לא יודעים כמה מהתשלום החודשי שלהם באמת מקטין את החוב. התשובה תפתיע אתכם.</p>
-            <span class="card-read-more">קראו עוד</span>
-          </div>
-        </a>
-        <a href="/blog/yoetz-mashkanta.html" class="blog-card">
-      <span class="card-tag">×××¢×¥ ××©×× ×ª×××ª</span>
+      <span class="card-tag">30 עובדות | 1/30</span>
       <div class="card-body">
-        <h2>×× ×× ×××¢×¥ ××©×× ×ª×××ª ×××× ××ª× ×××××× ×××?</h2>
-        <p>×× ×× ×©×¦×¨×× ×××¢×ª ×¢× ×××¢×¥ ××©×× ×ª×××ª ×××¨×©× â ×× ××× ×¢××©×, ××× ×¢×××, ×××× ××× ×××¡× ××× ××¨×× ×××ª×¨ ××× ×©××ª× ×××©×××.</p>
-        <span class="card-read-more">×§×¨×× ×¢××</span>
+        <h2>בשנים הראשונות – רוב הכסף שלך הולך לריבית, לא לקרן</h2>
+        <p>רוב הלווים לא יודעים כמה מהתשלום החודשי שלהם באמת מקטין את החוב. התשובה תפתיע אתכם.</p>
+        <span class="card-read-more">קראו עוד</span>
       </div>
     </a>
+
+    <a href="/blog/yoetz-mashkanta.html" class="blog-card">
+      <span class="card-tag">יועץ משכנתאות</span>
+      <div class="card-body">
+        <h2>מה זה יועץ משכנתאות ולמה אתם חייבים אחד?</h2>
+        <p>כל מה שצריך לדעת על יועץ משכנתאות מורשה — מה הוא עושה, כמה עולה, ולמה הוא חוסך לכם הרבה יותר ממה שאתם חושבים.</p>
+        <span class="card-read-more">קראו עוד</span>
+      </div>
+    </a>
+
   </div>
 </div>
 
 <footer>
-  <p>Â© 2025 ×××× ×¦××¨ - ×××¢×¥ ××©×× ×ª×××ª ×××¨×©× | <a href="tel:0523434916">052-343-4916</a></p>
+  <p>&copy; 2025 ליאם צור - יועץ משכנתאות מורשה | <a href="tel:0523434916">052-343-4916</a></p>
 </footer>
 
 </body>
