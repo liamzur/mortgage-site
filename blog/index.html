@@ -19,22 +19,24 @@
       --text-muted: #888888;
       --border: rgba(201,168,76,0.15);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Heebo', sans-serif;
       background: var(--bg-dark);
       color: var(--white-dim);
       direction: rtl;
     }
+
+    /* ── NAVBAR ── */
     #navbar {
       position: fixed; top: 0; right: 0; left: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
       padding: 18px 48px;
-      background: rgba(13,13,13,0.95);
+      background: rgba(13,13,13,0.97);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a {
       color: var(--white-dim); text-decoration: none;
       font-size: 0.9rem; font-weight: 400; letter-spacing: 1px;
@@ -47,6 +49,41 @@
       border-radius: 2px; transition: all 0.3s !important;
     }
     .nav-cta:hover { background: var(--gold) !important; color: var(--bg-dark) !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: space-between;
+      width: 28px; height: 20px; cursor: pointer; background: none; border: none; padding: 0;
+    }
+    .hamburger span {
+      display: block; width: 100%; height: 2px;
+      background: var(--gold); border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* mobile nav drawer */
+    .mobile-nav {
+      display: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0;
+      background: rgba(13,13,13,0.98); z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 36px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--white-dim); text-decoration: none;
+      font-size: 1.4rem; font-weight: 500; letter-spacing: 2px;
+      transition: color 0.3s;
+    }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
+    .mobile-nav .nav-cta {
+      border: 1px solid var(--gold); color: var(--gold) !important;
+      padding: 12px 32px; border-radius: 2px;
+    }
+
+    /* ── HERO ── */
     .blog-hero {
       padding: 140px 48px 60px; text-align: center;
       border-bottom: 1px solid var(--border);
@@ -58,12 +95,16 @@
     }
     .blog-hero h1 span { color: var(--gold); }
     .blog-hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+
+    /* ── GRID ── */
     .blog-container { max-width: 1100px; margin: 0 auto; padding: 60px 24px 80px; }
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
     }
+
+    /* ── CARD ── */
     .blog-card {
       background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 4px; overflow: hidden;
@@ -71,30 +112,59 @@
       text-decoration: none; display: block;
     }
     .blog-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .blog-card.pinned { border-color: rgba(201,168,76,0.35); }
     .card-tag {
       background: var(--gold); color: var(--bg-dark);
       font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
       padding: 4px 12px; display: inline-block;
       margin: 20px 20px 0; border-radius: 2px;
     }
+    .pinned-label {
+      background: transparent; border: 1px solid var(--gold); color: var(--gold);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 1px;
+      padding: 2px 10px; display: inline-block;
+      margin: 20px 8px 0; border-radius: 2px; vertical-align: middle;
+    }
     .card-body { padding: 16px 20px 24px; }
-    .card-body h2 { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.5; }
+    .card-body h2 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.5; }
     .card-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
     .card-read-more { color: var(--gold); font-size: 0.85rem; font-weight: 600; }
     .card-read-more::after { content: ' ←'; }
+
+    /* ── FOOTER ── */
     footer {
       background: #0A0A0A; border-top: 1px solid var(--border);
       text-align: center; padding: 32px 24px;
       color: var(--text-muted); font-size: 0.85rem;
     }
     footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      #navbar { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .blog-hero { padding: 100px 20px 40px; }
+      .blog-hero p { font-size: 1rem; }
+
+      .blog-container { padding: 36px 16px 60px; }
+      .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      .card-body h2 { font-size: 1.1rem; }
+    }
+
+    @media (max-width: 400px) {
+      #navbar { padding: 12px 16px; }
+      .blog-hero { padding: 90px 16px 32px; }
+    }
   </style>
 </head>
 <body>
 
 <nav id="navbar">
   <a href="/" class="logo-link">
-    <svg width="148" height="58" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="120" height="47" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
@@ -111,7 +181,19 @@
     <li><a href="/blog/" class="active">בלוג</a></li>
     <li><a href="/#contact" class="nav-cta">ייעוץ חינם</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="תפריט">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="/#services">שירותים</a>
+  <a href="/#why">למה אני</a>
+  <a href="/#process">תהליך</a>
+  <a href="/#testimonials">לקוחות</a>
+  <a href="/blog/" class="active">בלוג</a>
+  <a href="/#contact" class="nav-cta">ייעוץ חינם</a>
+</div>
 
 <section class="blog-hero">
   <h1>בלוג <span>משכנתאות</span></h1>
@@ -120,6 +202,18 @@
 
 <div class="blog-container">
   <div class="blog-grid">
+
+    <!-- PINNED: תמיד ראשון -->
+    <a href="/blog/yoetz-mashkanta.html" class="blog-card pinned">
+      <span class="card-tag">יועץ משכנתאות</span><span class="pinned-label">★ נבחר</span>
+      <div class="card-body">
+        <h2>מה זה יועץ משכנתאות ולמה אתם חייבים אחד?</h2>
+        <p>כל מה שצריך לדעת על יועץ משכנתאות מורשה — מה הוא עושה, כמה עולה, ולמה הוא חוסך לכם הרבה יותר ממה שאתם חושבים.</p>
+        <span class="card-read-more">קראו עוד</span>
+      </div>
+    </a>
+
+    <!-- NEW_POSTS_HERE -->
 
     <a href="/blog/mashkanta-ribit-keren.html" class="blog-card">
       <span class="card-tag">30 עובדות | 1/30</span>
@@ -130,21 +224,27 @@
       </div>
     </a>
 
-    <a href="/blog/yoetz-mashkanta.html" class="blog-card">
-      <span class="card-tag">יועץ משכנתאות</span>
-      <div class="card-body">
-        <h2>מה זה יועץ משכנתאות ולמה אתם חייבים אחד?</h2>
-        <p>כל מה שצריך לדעת על יועץ משכנתאות מורשה — מה הוא עושה, כמה עולה, ולמה הוא חוסך לכם הרבה יותר ממה שאתם חושבים.</p>
-        <span class="card-read-more">קראו עוד</span>
-      </div>
-    </a>
-
   </div>
 </div>
 
 <footer>
   <p>&copy; 2025 ליאם צור - יועץ משכנתאות מורשה | <a href="tel:0523434916">052-343-4916</a></p>
 </footer>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const nav = document.getElementById('mobileNav');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    btn.classList.remove('open');
+    nav.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+</script>
 
 </body>
 </html>
