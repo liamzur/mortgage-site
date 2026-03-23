@@ -1,1 +1,333 @@
- 
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הבנק לא בודק כמה אתה מרוויח – הוא בודק כמה נשאר לך | ליאם צור</title>
+  <meta name="description" content="רוב האנשים חושבים שהבנק מסתכל על המשכורת. טעות. הבנק בודק כמה נשאר לך אחרי כל ההוצאות הקבועות. כך זה עובד באמת.">
+  <link rel="canonical" href="https://liamzur.co.il/blog/mashkanta-bank-check.html">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Heebo', sans-serif; background: #f8f9fb; color: #1a1a2e; direction: rtl; }
+
+    /* NAV */
+    #navbar {
+      position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px); padding: 16px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .nav-logo { font-size: 1.3rem; font-weight: 800; color: #1a1a2e; text-decoration: none; }
+    .nav-logo span { color: #c9a84c; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #555; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+    .nav-links a:hover { color: #c9a84c; }
+    .nav-cta {
+      background: linear-gradient(135deg, #c9a84c, #b8973e);
+      color: white !important; padding: 10px 22px; border-radius: 25px; font-weight: 600 !important;
+    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #1a1a2e; border-radius: 2px; transition: 0.3s; }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+    .mobile-drawer {
+      display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh;
+      background: white; z-index: 999; padding: 80px 30px 30px;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.15); overflow-y: auto;
+    }
+    .mobile-drawer.open { display: block; }
+    .mobile-overlay.open { display: block; }
+    .drawer-nav { list-style: none; }
+    .drawer-nav li { border-bottom: 1px solid #f0f0f0; }
+    .drawer-link { display: block; padding: 16px 0; text-decoration: none; color: #1a1a2e; font-size: 1.05rem; font-weight: 500; }
+    .drawer-link:hover { color: #c9a84c; }
+
+    /* HERO */
+    .post-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 130px 40px 70px; text-align: center; color: white;
+    }
+    .fact-badge {
+      display: inline-block; background: rgba(201,168,76,0.2); border: 1px solid rgba(201,168,76,0.5);
+      color: #f0d080; padding: 6px 18px; border-radius: 20px; font-size: 0.85rem;
+      font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px;
+    }
+    .post-hero h1 {
+      font-size: 2.4rem; font-weight: 800; line-height: 1.3; max-width: 750px;
+      margin: 0 auto 20px;
+    }
+    .post-hero h1 span { color: #c9a84c; }
+    .post-meta { font-size: 0.9rem; color: rgba(255,255,255,0.6); display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+    /* CONTENT */
+    .post-container { max-width: 780px; margin: 0 auto; padding: 60px 40px 80px; }
+    .post-container p { font-size: 1.08rem; line-height: 1.9; color: #2c2c3e; margin-bottom: 24px; }
+    .post-container h2 { font-size: 1.6rem; font-weight: 700; color: #1a1a2e; margin: 40px 0 18px; }
+    .post-container h3 { font-size: 1.2rem; font-weight: 600; color: #1a1a2e; margin: 28px 0 12px; }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: linear-gradient(135deg, #fff8e7, #fff3d0);
+      border-right: 4px solid #c9a84c; border-radius: 12px;
+      padding: 24px 28px; margin: 32px 0; font-size: 1.05rem; line-height: 1.8;
+    }
+    .highlight-box strong { color: #8b6914; }
+
+    /* CALC BOX */
+    .calc-box {
+      background: white; border-radius: 16px; padding: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin: 36px 0;
+      border: 2px solid #e8f4fd;
+    }
+    .calc-title {
+      font-size: 1.15rem; font-weight: 700; color: #1a1a2e;
+      margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #f0f0f0;
+    }
+    .calc-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 0; border-bottom: 1px solid #f5f5f5; font-size: 1rem;
+    }
+    .calc-row:last-child { border-bottom: none; }
+    .calc-row .label { color: #555; font-weight: 500; flex: 1; }
+    .calc-row .value { font-weight: 700; font-size: 1.1rem; color: #1a1a2e; }
+    .calc-row.minus .value { color: #e74c3c; }
+    .calc-row.equals { background: #f8f9fb; margin: 4px -8px; padding: 12px 8px; border-radius: 8px; }
+    .calc-row.equals .value { color: #2980b9; }
+    .calc-row.result { margin-top: 8px; padding-top: 16px; border-top: 2px solid #c9a84c !important; }
+    .calc-row.result .label { font-weight: 700; color: #1a1a2e; }
+    .calc-row.result .value { color: #c9a84c; font-size: 1.25rem; }
+
+    /* COMPARE CARDS */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 36px 0; }
+    .compare-card { border-radius: 16px; padding: 28px 24px; text-align: center; }
+    .compare-card.bad { background: linear-gradient(135deg, #fff5f5, #ffe8e8); border: 2px solid #f5c6c6; }
+    .compare-card.good { background: linear-gradient(135deg, #f0fff4, #e0f7e9); border: 2px solid #a8dbb5; }
+    .compare-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .compare-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+    .compare-card.bad h4 { color: #c0392b; }
+    .compare-card.good h4 { color: #27ae60; }
+    .compare-amount { font-size: 1.8rem; font-weight: 800; margin: 8px 0; }
+    .compare-card.bad .compare-amount { color: #e74c3c; }
+    .compare-card.good .compare-amount { color: #27ae60; }
+    .compare-desc { font-size: 0.88rem; color: #666; line-height: 1.5; }
+
+    /* TIP BOX */
+    .tip-box {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white; border-radius: 16px; padding: 32px;
+      margin: 36px 0;
+    }
+    .tip-box h3 { color: #c9a84c; font-size: 1.2rem; margin-bottom: 16px; }
+    .tip-box p { color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.8; margin-bottom: 12px; }
+    .tip-box p:last-child { margin-bottom: 0; }
+
+    /* SERIES NAV */
+    .series-nav {
+      background: white; border-radius: 16px; padding: 28px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin: 40px 0;
+      border: 1px solid #e8e8f0;
+    }
+    .series-nav h4 { font-size: 0.85rem; font-weight: 600; color: #999; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .series-links { display: flex; flex-direction: column; gap: 10px; }
+    .series-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; border-radius: 10px; text-decoration: none;
+      background: #f8f9fb; transition: background 0.2s; font-size: 0.95rem; color: #1a1a2e;
+    }
+    .series-link:hover { background: #f0f0f8; }
+    .series-link.current { background: linear-gradient(135deg, #fff8e7, #fff3d0); font-weight: 700; border: 1px solid #e8d090; }
+    .series-num { background: #c9a84c; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+    .series-link.current .series-num { background: #c9a84c; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #c9a84c, #b8973e);
+      border-radius: 20px; padding: 48px 40px; text-align: center; margin: 48px 0 0;
+    }
+    .cta-section h2 { color: white; font-size: 1.8rem; margin-bottom: 12px; }
+    .cta-section p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 28px; }
+    .cta-btn {
+      display: inline-block; background: white; color: #c9a84c;
+      padding: 16px 40px; border-radius: 30px; text-decoration: none;
+      font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    /* FOOTER */
+    footer { background: #1a1a2e; color: rgba(255,255,255,0.6); text-align: center; padding: 32px; font-size: 0.9rem; }
+    footer a { color: #c9a84c; text-decoration: none; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      #navbar { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .post-hero { padding: 100px 20px 50px; }
+      .post-hero h1 { font-size: 1.7rem; }
+      .post-container { padding: 36px 20px 60px; }
+      .post-container h2 { font-size: 1.35rem; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 36px 24px; }
+      .cta-section h2 { font-size: 1.5rem; }
+      .calc-box { padding: 24px 18px; }
+      .calc-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .calc-row .value { font-size: 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      .post-hero h1 { font-size: 1.45rem; }
+      .post-meta { flex-direction: column; gap: 6px; align-items: center; }
+      .series-nav { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="nav-logo">ליאם <span>צור</span></a>
+  <ul class="nav-links">
+    <li><a href="/#about">אודות</a></li>
+    <li><a href="/#services">שירותים</a></li>
+    <li><a href="/#testimonials">לקוחות</a></li>
+    <li><a href="/blog/">בלוג</a></li>
+    <li><a href="tel:0523434916" class="nav-cta">📞 התקשר עכשיו</a></li>
+  </ul>
+  <div class="hamburger" id="hamburgerBtn">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul class="drawer-nav">
+    <li><a href="/#about" class="drawer-link"><span>›</span> אודות</a></li>
+    <li><a href="/#services" class="drawer-link"><span>›</span> שירותים</a></li>
+    <li><a href="/#testimonials" class="drawer-link"><span>›</span> לקוחות</a></li>
+    <li><a href="/blog/" class="drawer-link"><span>›</span> בלוג</a></li>
+    <li><a href="tel:0523434916" class="drawer-link" style="color:#c9a84c;font-weight:700;"><span>›</span> 052-343-4916</a></li>
+  </ul>
+</div>
+
+<section class="post-hero">
+  <div class="fact-badge">עובדה #2 מתוך 30</div>
+  <h1>הבנק לא בודק <span>כמה אתה מרוויח</span> –<br>הוא בודק כמה נשאר לך בסוף החודש</h1>
+  <div class="post-meta">
+    <span>✍️ ליאם צור · יועץ משכנתאות</span>
+    <span>📅 מרץ 2026</span>
+    <span>⏱️ 3 דקות קריאה</span>
+  </div>
+</section>
+
+<main class="post-container">
+
+  <p>רוב האנשים שמגיעים אליי חושבים שהשאלה הכי חשובה היא: <strong>"כמה אני מרוויח?"</strong></p>
+  <p>אבל הבנק שואל שאלה אחרת לגמרי: <strong>"כמה נשאר לך אחרי הכל?"</strong></p>
+  <p>ההבדל הזה – בין מה שנכנס לחשבון לבין מה שנשאר – יכול לקבוע אם תקבלו משכנתא, ובאיזה סכום.</p>
+
+  <h2>הכלל שהבנקים עובדים לפיו</h2>
+
+  <p>הבנק קובע שההחזר החודשי על המשכנתא לא יעלה על <strong>40% מההכנסה הפנויה שלכם</strong> – כלומר, מה שנשאר אחרי שמפחיתים את כל ההתחייבויות הקיימות.</p>
+
+  <div class="highlight-box">
+    <strong>🔑 ההכנסה הפנויה = משכורת נטו פחות כל ההחזרים הקיימים (הלוואות, קרדיטים, ליסינג).</strong><br>
+    רק אחרי החיסור הזה, הבנק מחשב את 40% שמותר לכם לשלם על משכנתא.
+  </div>
+
+  <h2>דוגמה: איך הלוואת רכב משפיעה על המשכנתא שלכם</h2>
+
+  <p>בואו נראה מה קורה כשיש לכם הלוואת רכב של 1,800 ₪ בחודש:</p>
+
+  <div class="calc-box">
+    <div class="calc-title">📱 החישוב שהבנק עושה</div>
+    <div class="calc-row">
+      <span class="label">משכורת נטו (מה שנכנס לחשבון)</span>
+      <span class="value">15,000 ₪</span>
+    </div>
+    <div class="calc-row minus">
+      <span class="label">פחות: הלוואת רכב קיימת</span>
+      <span class="value">− 1,800 ₪</span>
+    </div>
+    <div class="calc-row equals">
+      <span class="label">הכנסה פנויה שנשאר להחזר משכנתא</span>
+      <span class="value">13,200 ₪</span>
+    </div>
+    <div class="calc-row result">
+      <span class="label">40% מ-13,200 ₪ = מקסימום החזר משכנתא</span>
+      <span class="value">5,280 ₪ לחודש</span>
+    </div>
+  </div>
+
+  <p>עכשיו תראו מה ההבדל אם אין לכם את ההלוואה הזו:</p>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-icon">😟</div>
+      <h4>עם הלוואת הרכב</h4>
+      <div class="compare-amount">5,280 ₪</div>
+      <div class="compare-desc">15,000 − 1,800 = 13,200<br>× 40% = 5,280 ₪ בחודש</div>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-icon">😊</div>
+      <h4>בלי הלוואת הרכב</h4>
+      <div class="compare-amount">6,000 ₪</div>
+      <div class="compare-desc">15,000 × 40% = 6,000 ₪ בחודש</div>
+    </div>
+  </div>
+
+  <p><strong>720 ₪ הבדל בחודש</strong> – זה לא מעט. לאורך 25 שנה, זה יכול להגיע להבדל של <strong>עשרות אלפי שקלים</strong> בסכום המשכנתא הכולל שתוכלו לקבל.</p>
+
+  <h2>מה זה אומר בפועל?</h2>
+
+  <p>לפני שניגשים לבנק לקבלת אישור משכנתא, כדאי מאוד לבדוק:</p>
+  <ul style="padding-right: 24px; margin-bottom: 24px; line-height: 2.2;">
+    <li>אילו הלוואות פתוחות יש לכם כרגע?</li>
+    <li>האם כדאי לסגור הלוואות קודם ולשפר את יכולת ההחזר?</li>
+    <li>מה ההכנסה הפנויה האמיתית שלכם לפי חישוב הבנק?</li>
+  </ul>
+
+  <div class="tip-box">
+    <h3>💡 הטיפ שיועץ משכנתאות ייתן לכם</h3>
+    <p>לפני שניגשים לבנק – בדקו אם יש הלוואות שכדאי לסגור מראש. לפעמים סגירת הלוואה אחת קטנה פותחת דלת לסכום משכנתא גבוה משמעותית.</p>
+    <p>זה בדיוק הסוג של תכנון שאני עושה עם הלקוחות שלי לפני הגשה לבנק – מסדרים את התמונה הפיננסית כך שתקבלו את התנאים הכי טובים שאפשר.</p>
+  </div>
+
+  <div class="series-nav">
+    <h4>סדרת 30 עובדות על משכנתא</h4>
+    <div class="series-links">
+      <a href="/blog/mashkanta-ribit-keren.html" class="series-link">
+        <span class="series-num">1</span>
+        <span>ריבית vs קרן – למה בהתחלה כמעט הכל הולך לריבית?</span>
+      </a>
+      <a href="/blog/mashkanta-bank-check.html" class="series-link current">
+        <span class="series-num">2</span>
+        <span>הבנק לא בודק כמה אתה מרוויח – הוא בודק כמה נשאר לך</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>רוצים לדעת כמה משכנתא אתם יכולים לקבל?</h2>
+    <p>אני אחשב יחד איתכם את ההכנסה הפנויה האמיתית שלכם ואראה מה ניתן לשפר לפני הגשה לבנק.</p>
+    <a href="tel:0523434916" class="cta-btn">📞 התקשרו עכשיו: 052-343-4916</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>ליאם צור · יועץ משכנתאות מוסמך · <a href="tel:0523434916">052-343-4916</a></p>
+  <p style="margin-top:8px;"><a href="/blog/">← חזרה לבלוג</a></p>
+</footer>
+
+<script>
+  const btn = document.getElementById('hamburgerBtn');
+  const overlay = document.getElementById('mobileOverlay');
+  const drawer = document.getElementById('mobileDrawer');
+  function openMenu() { drawer.classList.add('open'); overlay.classList.add('open'); }
+  function closeMenu() { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+  btn.addEventListener('click', openMenu);
+  overlay.addEventListener('click', closeMenu);
+  drawer.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeMenu));
+</script>
+
+</body>
+</html>
