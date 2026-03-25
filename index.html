@@ -1804,7 +1804,7 @@ function svcGo(n){
 @media(max-width:768px){#rx-nav{display:none}}
 @keyframes rx-gold-shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
 .rx-shimmer{background:linear-gradient(90deg,#c9a84c 0%,#fff8d6 50%,#c9a84c 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rx-gold-shimmer 3s linear infinite}
-section{position:relative;overflow:hidden}
+section{position:relative}
 @keyframes rx-line{0%{transform:scaleX(0);opacity:.8}100%{transform:scaleX(1);opacity:0}}
 section.rx-entering::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#c9a84c,transparent);transform-origin:right;animation:rx-line .9s ease forwards;pointer-events:none}
 .rx-parallax{will-change:transform}
@@ -1827,7 +1827,7 @@ section.rx-entering::before{content:'';position:absolute;top:0;left:0;right:0;he
   secs.forEach(function(s){so.observe(s);});
   var hBg=document.querySelector('.hero-bg'),hSec=document.querySelector('#hero');
   if(hBg&&hSec){hBg.classList.add('rx-parallax');var ticking=false;window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var y=window.scrollY;if(y<hSec.offsetHeight*1.5)hBg.style.transform='translateY('+(y*.32)+'px)';ticking=false;});ticking=true;}},{passive:true});}
-  setTimeout(function(){document.querySelectorAll('.rx-reveal,.rx-reveal-r,.rx-reveal-l').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight*.9)el.classList.add('rx-in');});},120);
+  setTimeout(function(){document.querySelectorAll('.rx-reveal,.rx-reveal-r,.rx-reveal-l').forEach(function(el){if(el.getBoundingClientRect().top<window.innerHeight*.9)el.classList.add('rx-in');});},600);
   function animCount(el,t,dur){var s=performance.now();(function tick(now){var p=Math.min((now-s)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.round(ease*t).toLocaleString('he-IL');if(p<1)requestAnimationFrame(tick);})(s);}
   var co=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var n=parseInt(e.target.textContent.replace(/\D/g,''),10);if(!isNaN(n)&&n>0)animCount(e.target,n,1600);co.unobserve(e.target);}});},{threshold:.5});
   document.querySelectorAll('.big-num,.stat-number,.hero-stat-number').forEach(function(el){co.observe(el);});
