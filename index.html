@@ -1817,7 +1817,7 @@ section.rx-entering::before{content:'';position:absolute;top:0;left:0;right:0;he
   document.body.appendChild(nav);
   var pips=Array.from(nav.querySelectorAll('.rx-pip'));
   var rSel=['.section-title','.section-label','.service-card','.process-step','.why-card-float','.why-card-main','.testimonial-card','.faq-item','.contact-detail','.contact-form','.news-card','.hero-stats'];
-  rSel.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el){if(!el.className.includes('rx-')){el.classList.add('rx-reveal');var sibs=el.parentElement.querySelectorAll(sel);if(sibs.length>1)el.style.transitionDelay=(Array.from(sibs).indexOf(el)*0.13)+'s';}});});
+  rSel.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el){if(!el.className.includes('rx-')&&!el.closest('#hero')){el.classList.add('rx-reveal');var sibs=el.parentElement.querySelectorAll(sel);if(sibs.length>1)el.style.transitionDelay=(Array.from(sibs).indexOf(el)*0.13)+'s';}});});
   document.querySelectorAll('.hero-content,.hero-text').forEach(function(el){el.classList.remove('rx-reveal');el.classList.add('rx-reveal-r');});
   document.querySelectorAll('.hero-image-wrapper,.hero-image,.hero-photo').forEach(function(el){el.classList.remove('rx-reveal');el.classList.add('rx-reveal-l');});
   document.querySelectorAll('.section-label').forEach(function(el){el.classList.add('rx-shimmer');});
