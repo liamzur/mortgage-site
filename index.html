@@ -34,14 +34,8 @@ function svcGo(n){
 <title>ליאם צור | יועץ משכנתאות מורשה | ייעוץ משכנתאות מקצועי בישראל</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aduma:wght@400;700;900&family=Aduma:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@font-face {
-    font-family: "Aduma";
-    src: url("https://db.onlinewebfonts.com/t/fcdb09898219c98697d48e80b19def35.woff2") format("woff2"),
-         url("https://db.onlinewebfonts.com/t/fcdb09898219c98697d48e80b19def35.woff") format("woff"),
-         url("https://db.onlinewebfonts.com/t/fcdb09898219c98697d48e80b19def35.ttf") format("truetype");
-}
 
   :root {
     --gold: #C9A84C;
@@ -59,7 +53,7 @@ function svcGo(n){
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Aduma', sans-serif;
+    font-family: 'Heebo', sans-serif;
     background: var(--black);
     color: var(--white);
     overflow-x: hidden;
@@ -138,7 +132,7 @@ function svcGo(n){
   .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-  .hero-title { font-family: 'Aduma', serif; font-size: clamp(2.6rem, 4.5vw, 4.4rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-title { font-family: 'Heebo', serif; font-size: clamp(2.6rem, 4.5vw, 4.4rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; animation: fadeUp 0.8s ease 0.2s both; }
   .hero-title .accent { color: var(--gold); display: block; font-style: italic; }
   .hero-sub { font-size: 1rem; color: var(--white-dim); line-height: 1.9; max-width: 440px; margin-bottom: 40px; font-weight: 300; animation: fadeUp 0.8s ease 0.4s both; }
   .hero-actions { display: flex; gap: 20px; align-items: center; animation: fadeUp 0.8s ease 0.6s both; flex-wrap: wrap; }
@@ -154,7 +148,7 @@ function svcGo(n){
   .hero-stats-row .stat:last-child { border-right: none; }
 
   .stat { text-align: center; }
-  .stat-num { font-family: 'Aduma', serif; font-size: 2.2rem; color: var(--gold); display: block; line-height: 1; }
+  .stat-num { font-family: 'Heebo', serif; font-size: 2.2rem; color: var(--gold); display: block; line-height: 1; }
   .stat-label { font-size: 0.72rem; color: var(--white-dim); letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; display: block; }
   .stat-divider { width: 1px; background: var(--black-border); align-self: stretch; }
 
@@ -245,7 +239,7 @@ function svcGo(n){
   section { padding: 120px 60px; }
   .section-label { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
-  .section-title { font-family: 'Aduma', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 60px; }
+  .section-title { font-family: 'Heebo', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 60px; }
 
   /* SERVICES */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
@@ -254,8 +248,8 @@ function svcGo(n){
   .service-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.3); }
   .service-card:hover::before { opacity: 1; }
   .service-icon { font-size: 2.4rem; margin-bottom: 24px; display: block; color: var(--gold); line-height: 1; }
-  .service-number { position: absolute; top: 24px; left: 24px; font-family: 'Aduma', serif; font-size: 4rem; font-weight: 900; color: rgba(201,168,76,0.06); line-height: 1; }
-  .service-card h3 { font-family: 'Aduma', serif; font-size: 1.4rem; margin-bottom: 16px; color: var(--white); }
+  .service-number { position: absolute; top: 24px; left: 24px; font-family: 'Heebo', serif; font-size: 4rem; font-weight: 900; color: rgba(201,168,76,0.06); line-height: 1; }
+  .service-card h3 { font-family: 'Heebo', serif; font-size: 1.4rem; margin-bottom: 16px; color: var(--white); }
   .service-card p { color: var(--white-dim); line-height: 1.8; font-size: 0.9rem; font-weight: 300;  flex: 1; }
     .service-btn {
     display: block;
@@ -267,7 +261,7 @@ function svcGo(n){
     background: transparent;
     border: 1px solid rgba(201,168,76,0.4);
     color: #C9A84C;
-    font-family: 'Aduma', sans-serif;
+    font-family: 'Heebo', sans-serif;
     font-size: 0.82rem;
     font-weight: 500;
     letter-spacing: 1.5px;
@@ -289,7 +283,7 @@ function svcGo(n){
   .why-section { background: var(--black-soft); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .why-visual { position: relative; height: 500px; }
   .why-card-main { position: absolute; inset: 0; background: linear-gradient(135deg, var(--black-card), #1a1500); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
-  .why-card-main .big-num { font-family: 'Aduma', serif; font-size: 7rem; color: var(--gold); opacity: 0.9; line-height: 1; font-weight: 900; }
+  .why-card-main .big-num { font-family: 'Heebo', serif; font-size: 7rem; color: var(--gold); opacity: 0.9; line-height: 1; font-weight: 900; }
   .why-card-main .big-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--white-dim); }
   .why-card-float { position: absolute; background: var(--black); border: 1px solid rgba(201,168,76,0.3); padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
   .why-card-float.top { top: -20px; left: -30px; }
@@ -308,7 +302,7 @@ function svcGo(n){
   .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
   .process-grid::before { content: ''; position: absolute; top: 32px; right: 12.5%; left: 12.5%; height: 1px; background: linear-gradient(to left, transparent, var(--gold), transparent); opacity: 0.3; }
   .process-step { padding: 0 24px; text-align: center; position: relative; }
-  .step-num { width: 64px; height: 64px; border: 1px solid rgba(201,168,76,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Aduma', serif; font-size: 1.4rem; color: var(--gold); margin: 0 auto 24px; background: var(--black); position: relative; z-index: 1; transition: all 0.3s; }
+  .step-num { width: 64px; height: 64px; border: 1px solid rgba(201,168,76,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Heebo', serif; font-size: 1.4rem; color: var(--gold); margin: 0 auto 24px; background: var(--black); position: relative; z-index: 1; transition: all 0.3s; }
   .process-step:hover .step-num { background: var(--gold); color: var(--black); }
   .process-step h4 { font-size: 1.05rem; margin-bottom: 12px; font-weight: 600; }
   .process-step p { font-size: 0.85rem; color: var(--white-dim); line-height: 1.7; font-weight: 300; }
@@ -318,7 +312,7 @@ function svcGo(n){
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .testimonial { background: var(--black-card); border: 1px solid var(--black-border); padding: 40px; position: relative; transition: border-color 0.3s; }
   .testimonial:hover { border-color: rgba(201,168,76,0.3); }
-  .testimonial::before { content: '"'; font-family: 'Aduma', serif; font-size: 6rem; color: var(--gold); opacity: 0.15; position: absolute; top: 10px; left: 24px; line-height: 1; }
+  .testimonial::before { content: '"'; font-family: 'Heebo', serif; font-size: 6rem; color: var(--gold); opacity: 0.15; position: absolute; top: 10px; left: 24px; line-height: 1; }
   .testimonial-text { color: var(--white-dim); font-size: 0.9rem; line-height: 1.9; margin-bottom: 28px; font-weight: 300; position: relative; }
   .testimonial-author { display: flex; align-items: center; gap: 16px; }
   .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--black); font-weight: 700; flex-shrink: 0; }
@@ -334,7 +328,7 @@ function svcGo(n){
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .form-group { display: flex; flex-direction: column; gap: 8px; }
   .form-group label { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
-  .form-group input, .form-group select, .form-group textarea { background: var(--black-card); border: 1px solid var(--black-border); color: var(--white); padding: 14px 18px; font-family: 'Aduma', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.3s; resize: vertical; }
+  .form-group input, .form-group select, .form-group textarea { background: var(--black-card); border: 1px solid var(--black-border); color: var(--white); padding: 14px 18px; font-family: 'Heebo', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.3s; resize: vertical; }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(201,168,76,0.5); }
   .form-group select option { background: var(--black-card); }
   .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(176,168,154,0.4); }
@@ -384,7 +378,7 @@ function svcGo(n){
 
   /* FOOTER */
   footer { background: var(--black-soft); border-top: 1px solid var(--black-border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
-  .footer-logo { font-family: 'Aduma', serif; font-size: 1.2rem; color: var(--gold); }
+  .footer-logo { font-family: 'Heebo', serif; font-size: 1.2rem; color: var(--gold); }
   .footer-copy { font-size: 0.8rem; color: var(--white-dim); letter-spacing: 1px; }
   .footer-links { display: flex; gap: 24px; }
   .footer-links a { color: var(--white-dim); text-decoration: none; font-size: 0.8rem; transition: color 0.3s; }
@@ -690,7 +684,7 @@ function svcGo(n){
     border: 1px solid var(--black-border);
     color: var(--white-dim);
     padding: 8px 18px;
-    font-family: 'Aduma', sans-serif;
+    font-family: 'Heebo', sans-serif;
     font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.3s;
@@ -737,7 +731,7 @@ function svcGo(n){
     flex-shrink: 0;
   }
   .news-card h4 {
-    font-family: 'Aduma', serif;
+    font-family: 'Heebo', serif;
     font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.5;
@@ -800,7 +794,7 @@ function svcGo(n){
     color: var(--gold);
     padding: 10px 24px;
     cursor: pointer;
-    font-family: 'Aduma', sans-serif;
+    font-family: 'Heebo', sans-serif;
     font-size: 0.85rem;
     transition: all 0.3s;
     display: block;
@@ -856,7 +850,7 @@ function svcGo(n){
       <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
       <!-- LIAM ZUR -->
       <text x="148" y="75" text-anchor="middle"
-        font-family="'Aduma', 'Times New Roman', Georgia, serif"
+        font-family="'Heebo', 'Times New Roman', Georgia, serif"
         font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
       <!-- MORTGAGE ADVISOR -->
       <text x="148" y="100" text-anchor="middle"
@@ -887,7 +881,7 @@ function svcGo(n){
         <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
         <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
         <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
-        <text x="148" y="75" text-anchor="middle" font-family="'Aduma', Georgia, serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+        <text x="148" y="75" text-anchor="middle" font-family="'Heebo', Georgia, serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
         <text x="148" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
       </svg>
     </div>
@@ -920,7 +914,7 @@ function svcGo(n){
           <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
           <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
           <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
-          <text x="148" y="75" text-anchor="middle" font-family="'Aduma', Georgia, serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+          <text x="148" y="75" text-anchor="middle" font-family="'Heebo', Georgia, serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
           <text x="148" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
         </svg>
       </a>
@@ -1160,7 +1154,7 @@ function svcGo(n){
       background:transparent;
       border:1px solid rgba(201,168,76,0.5);
       color:var(--gold);
-      font-family:'Aduma',sans-serif;
+      font-family:'Assistant',sans-serif;
       font-size:0.78rem;
       letter-spacing:2px;
       padding:9px 18px;
@@ -1236,14 +1230,14 @@ function svcGo(n){
     <!-- Step 1: Form -->
     <div id="reviewStep1">
       <div style="font-size:0.7rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">השאר המלצה</div>
-      <h3 style="font-family:'Aduma',serif;font-size:1.5rem;margin-bottom:28px;color:#F5F0E8;">ספר לנו על החוויה שלך</h3>
+      <h3 style="font-family:'Heebo',serif;font-size:1.5rem;margin-bottom:28px;color:#F5F0E8;">ספר לנו על החוויה שלך</h3>
 
       <div style="display:flex;flex-direction:column;gap:18px;">
         <div>
           <label style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">שם מלא</label>
           <input id="revName" type="text" placeholder="ישראל ישראלי" style="
             width:100%;background:#151515;border:1px solid #222;
-            color:#F5F0E8;padding:12px 16px;font-family:'Aduma',sans-serif;
+            color:#F5F0E8;padding:12px 16px;font-family:'Heebo',sans-serif;
             font-size:0.9rem;outline:none;transition:border-color 0.3s;
           " onfocus="this.style.borderColor='rgba(201,168,76,0.5)'" onblur="this.style.borderColor='#222'">
         </div>
@@ -1264,7 +1258,7 @@ function svcGo(n){
           <label style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">ההמלצה שלך</label>
           <textarea id="revText" rows="4" placeholder="ספר על החוויה שלך עם ליאם..." style="
             width:100%;background:#151515;border:1px solid #222;
-            color:#F5F0E8;padding:12px 16px;font-family:'Aduma',sans-serif;
+            color:#F5F0E8;padding:12px 16px;font-family:'Heebo',sans-serif;
             font-size:0.9rem;outline:none;resize:vertical;transition:border-color 0.3s;
           " onfocus="this.style.borderColor='rgba(201,168,76,0.5)'" onblur="this.style.borderColor='#222'"></textarea>
         </div>
@@ -1272,7 +1266,7 @@ function svcGo(n){
         <button onclick="goToConfirm()" style="
           background:linear-gradient(135deg,#C9A84C,#8B6914);
           color:#080808;border:none;padding:15px;
-          font-family:'Aduma',sans-serif;font-size:0.9rem;
+          font-family:'Heebo',sans-serif;font-size:0.9rem;
           font-weight:700;letter-spacing:2px;cursor:pointer;
           width:100%;transition:opacity 0.3s;
         " onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">המשך לאישור ←</button>
@@ -1282,7 +1276,7 @@ function svcGo(n){
     <!-- Step 2: Confirm -->
     <div id="reviewStep2" style="display:none;">
       <div style="font-size:0.7rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">אישור פרסום</div>
-      <h3 style="font-family:'Aduma',serif;font-size:1.4rem;margin-bottom:20px;color:#F5F0E8;">רגע לפני שמפרסמים</h3>
+      <h3 style="font-family:'Heebo',serif;font-size:1.4rem;margin-bottom:20px;color:#F5F0E8;">רגע לפני שמפרסמים</h3>
 
       <div style="
         background:#0d0d0d;border:1px solid rgba(201,168,76,0.2);
@@ -1320,13 +1314,13 @@ function svcGo(n){
       <div style="display:flex;gap:12px;">
         <button onclick="goBackToForm()" style="
           flex:1;background:transparent;border:1px solid #333;
-          color:#B0A89A;padding:13px;font-family:'Aduma',sans-serif;
+          color:#B0A89A;padding:13px;font-family:'Heebo',sans-serif;
           font-size:0.85rem;cursor:pointer;transition:all 0.3s;
         " onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C'" onmouseout="this.style.borderColor='#333';this.style.color='#B0A89A'">← חזור</button>
         <button onclick="publishReview()" style="
           flex:2;background:linear-gradient(135deg,#C9A84C,#8B6914);
           color:#080808;border:none;padding:13px;
-          font-family:'Aduma',sans-serif;font-size:0.9rem;
+          font-family:'Heebo',sans-serif;font-size:0.9rem;
           font-weight:700;letter-spacing:1px;cursor:pointer;transition:opacity 0.3s;
         " onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">✓ פרסם המלצה</button>
       </div>
@@ -1335,12 +1329,12 @@ function svcGo(n){
     <!-- Step 3: Success -->
     <div id="reviewStep3" style="display:none;text-align:center;padding:20px 0;">
       <div style="font-size:3rem;margin-bottom:16px;">✦</div>
-      <h3 style="font-family:'Aduma',serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:12px;">תודה רבה!</h3>
+      <h3 style="font-family:'Heebo',serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:12px;">תודה רבה!</h3>
       <p style="color:#B0A89A;font-size:0.9rem;line-height:1.8;">ההמלצה שלך פורסמה באתר.<br>אנחנו מעריכים את הזמן שלקחת לשתף!</p>
       <button onclick="closeReviewModal()" style="
         margin-top:24px;background:transparent;
         border:1px solid rgba(201,168,76,0.4);color:var(--gold);
-        padding:12px 28px;font-family:'Aduma',sans-serif;
+        padding:12px 28px;font-family:'Heebo',sans-serif;
         font-size:0.85rem;cursor:pointer;letter-spacing:2px;transition:all 0.3s;
       " onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">סגור</button>
     </div>
@@ -1489,7 +1483,7 @@ function svcGo(n){
       <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
       <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
       <text x="148" y="75" text-anchor="middle"
-        font-family="'Aduma', 'Times New Roman', Georgia, serif"
+        font-family="'Heebo', 'Times New Roman', Georgia, serif"
         font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
       <text x="148" y="100" text-anchor="middle"
         font-family="Georgia, serif"
