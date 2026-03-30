@@ -139,4 +139,21 @@
 </main>
 <footer><a href="/" class="logo-link"><svg width="130" height="51" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/><line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/><line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/><rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/><text x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text><text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text></svg></a><ul class="footer-links"><li><a href="/#services">שירותים</a></li><li><a href="/#why">למה אני</a></li><li><a href="/#process">תהליך</a></li><li><a href="/blog/">בלוג</a></li><li><a href="tel:0523434916">052-343-4916</a></li></ul><span class="footer-copy">© 2025 ליאם צור · יועץ משכנתאות מוסמך</span></footer>
 <script>const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');h.addEventListener('click',()=>m.classList.toggle('open'));m.querySelector('.mobile-overlay').addEventListener('click',()=>m.classList.remove('open'));m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>m.classList.remove('open')));</script>
+
+<!-- Cookie Banner -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,8,8,0.97);border-top:1px solid rgba(201,168,76,0.35);padding:18px 48px;align-items:center;justify-content:space-between;gap:24px;backdrop-filter:blur(16px);">
+  <p style="margin:0;color:#B0A89A;font-size:0.82rem;line-height:1.6;flex:1;">
+    אנו משתמשים ב<span style="color:#C9A84C;">עוגיות (Cookies)</span> לשיפור חוויית הגלישה, ניתוח תנועה באתר ושיפור השירות.
+    בהמשך הגלישה אתה מסכים למדיניות העוגיות שלנו.
+  </p>
+  <div style="display:flex;gap:12px;flex-shrink:0;">
+    <button onclick="declineCookies()" style="background:transparent;color:#B0A89A;border:1px solid rgba(176,168,154,0.3);padding:9px 22px;font-size:0.8rem;cursor:pointer;font-family:inherit;" >דחייה</button>
+    <button onclick="acceptCookies()" style="background:#C9A84C;color:#080808;border:none;padding:9px 28px;font-size:0.82rem;font-weight:700;letter-spacing:1px;cursor:pointer;font-family:inherit;">אישור</button>
+  </div>
+</div>
+<script>
+(function(){if(!localStorage.getItem('cookieConsent')){var b=document.getElementById('cookieBanner');if(b){b.style.display='flex';}}})();
+function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').style.display='none';}
+function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookieBanner').style.display='none';}
+</script>
 </body></html>
