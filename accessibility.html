@@ -87,6 +87,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
   .features-grid{grid-template-columns:1fr;}
   footer{padding:32px 24px;flex-direction:column;align-items:flex-start;gap:14px;}
 }
+@media(max-width:900px){#navbar.nav-open{flex-wrap:wrap}#navbar.nav-open .nav-links{display:flex;flex-direction:column;gap:0;width:100%;padding:8px 0 16px;border-top:1px solid var(--border);margin-top:8px}#navbar.nav-open .nav-links li{width:100%}#navbar.nav-open .nav-links a{display:block;padding:12px 4px;font-size:1rem}#navbar.nav-open .nav-links .nav-cta{text-align:center;margin-top:8px;padding:12px 20px!important}.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}}
+@media(max-width:500px){#cookieBanner{padding:16px 20px!important;flex-direction:column!important;align-items:flex-start!important}#cookieBanner>div{width:100%;justify-content:flex-end}}
+
 </style>
 </head>
 <body>
@@ -233,6 +236,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 (function(){if(!localStorage.getItem('cookieConsent')){var b=document.getElementById('cookieBanner');if(b){b.style.display='flex';}}})();
 function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').style.display='none';}
 function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookieBanner').style.display='none';}
+
+document.querySelector('.hamburger').addEventListener('click',function(){document.getElementById('navbar').classList.toggle('nav-open');this.classList.toggle('active');});
 </script>
 </body>
 </html>
