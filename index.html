@@ -825,6 +825,7 @@ function svcGo(n){
   .faq-item.open .faq-answer { max-height: 300px; }
   .faq-answer p { padding: 0 24px 20px; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; }
   @media (max-width: 768px) { .faq-question { font-size: 0.9rem; padding: 16px 18px; } .faq-answer p { padding: 0 18px 16px; } }
+.skip-link{position:absolute;top:-100px;right:0;background:var(--gold);color:var(--black);padding:12px 20px;font-weight:700;font-size:1rem;z-index:10000;border-radius:0 0 4px 4px;transition:top .2s}.skip-link:focus{top:0;outline:3px solid #fff;outline-offset:2px}:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </style>
 <link rel="canonical" href="https://liamzur.co.il/" />
 <script type="application/ld+json">
@@ -835,6 +836,8 @@ function svcGo(n){
 </script>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -900,6 +903,8 @@ function svcGo(n){
     </div>
   </div>
 </div>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -1399,26 +1404,26 @@ function svcGo(n){
 
           <div class="form-row">
             <div class="form-group">
-              <label>שם פרטי</label>
-              <input type="text" name="first_name" placeholder="ישראל" required>
+              <label for="field-firstname">שם פרטי</label>
+              <input type="text" id="field-firstname" name="first_name" placeholder="ישראל" required>
             </div>
             <div class="form-group">
-              <label>שם משפחה</label>
-              <input type="text" name="last_name" placeholder="ישראלי" required>
+              <label for="field-lastname">שם משפחה</label>
+              <input type="text" id="field-lastname" name="last_name" placeholder="ישראלי" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>טלפון</label>
-              <input type="tel" name="phone" placeholder="052-0000000" required>
+              <label for="field-phone">טלפון</label>
+              <input type="tel" id="field-phone" name="phone" placeholder="052-0000000" required>
             </div>
             <div class="form-group">
-              <label>אימייל</label>
-              <input type="email" name="email" placeholder="your@email.com">
+              <label for="field-email">אימייל</label>
+              <input type="email" id="field-email" name="email" placeholder="your@email.com">
             </div>
           </div>
           <div class="form-group">
-            <label>סוג הייעוץ הנדרש</label>
+            <label for="service">סוג הייעוץ הנדרש</label>
             <select id="serviceSelect" name="service_type">
               <option value="">בחר סוג ייעוץ...</option>
               <option value="משכנתא חדשה">משכנתא חדשה</option>
@@ -1431,8 +1436,8 @@ function svcGo(n){
           </div>
 
           <div class="form-group">
-            <label>הערות נוספות</label>
-            <textarea name="message" placeholder="ספר לי עוד על הצרכים שלך..." rows="4"></textarea>
+            <label for="field-message">הערות נוספות</label>
+            <textarea id="field-message" name="message" placeholder="ספר לי עוד על הצרכים שלך..." rows="4"></textarea>
           </div>
           <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;padding:18px;font-size:0.9rem;letter-spacing:2px;">
             <span id="submitText">שלח בקשה לייעוץ ראשוני חינם</span>
@@ -1473,6 +1478,10 @@ function svcGo(n){
     </svg>
   </div>
 </a>
+
+</main><!-- /main-content -->
+
+</main>
 
 <!-- FOOTER -->
 <footer>
