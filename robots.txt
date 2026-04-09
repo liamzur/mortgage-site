@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liamzur.co.il/sitemap.xml
