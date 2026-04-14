@@ -128,8 +128,10 @@ function svcGo(n){
   }
 
   .hero-content { position: relative; z-index: 2; max-width: 560px; padding-left: 20px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(201,168,76,0.4); padding: 6px 16px; margin-bottom: 28px; font-size: 0.75rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; animation: fadeUp 0.8s ease forwards; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(201,168,76,0.4); padding: 6px 16px; margin-bottom: 14px; font-size: 0.75rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; animation: fadeUp 0.8s ease forwards; }
   .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  .hero-miluim-tag { display: inline-flex; align-items: center; gap: 10px; background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.25); padding: 6px 16px; margin-bottom: 28px; font-size: 0.78rem; color: rgba(201,168,76,0.85); letter-spacing: 1.5px; animation: fadeUp 0.8s ease 0.1s both; }
+  .hero-miluim-tag svg { flex-shrink: 0; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
   .hero-title { font-family: 'Heebo', serif; font-size: clamp(2.6rem, 4.5vw, 4.4rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; animation: fadeUp 0.8s ease 0.2s both; }
@@ -929,12 +931,16 @@ function svcGo(n){
         </svg>
       </a>
       <div class="hero-badge">יועץ משכנתאות מורשה</div>
+      <div class="hero-miluim-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        עסק מילואימניק פעיל
+      </div>
       <h1 class="hero-title">
         יועץ משכנתאות מורשה — המשכנתא הטובה<br>
         <span class="accent">ביותר עבורכם</span>
       </h1>
       <p class="hero-sub">
-        ליווי אישי ומדויק מתוך הבנה עמוקה של הבנקים והמערכת, לצד ניסיון עבודה מבפנים במערכת הבנקאית. משרת מילואים פעיל — מביא איתי ערכים של אמינות, אחריות והתמדה לכל לקוח.
+        ליווי אישי ומדויק, מתוך הבנה עמוקה של הבנקים והמערכת ומניסיון עבודה מבפנים. אמינות, אחריות והתמדה — ערכים שגידלתי בשנות המילואים ומביא לכל לקוח.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary"><span>קבלו ייעוץ ראשוני חינם</span></a>
