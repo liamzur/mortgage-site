@@ -833,91 +833,6 @@ function svcGo(n){
   @media (max-width: 768px) { .faq-question { font-size: 0.9rem; padding: 16px 18px; } .faq-answer p { padding: 0 18px 16px; } }
 .skip-link{position:absolute;top:-100px;right:0;background:var(--gold);color:var(--black);padding:12px 20px;font-weight:700;font-size:1rem;z-index:10000;border-radius:0 0 4px 4px;transition:top .2s}.skip-link:focus{top:0;outline:3px solid #fff;outline-offset:2px}:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr 1fr}.hero-title{font-size:2rem}.section-title{font-size:1.6rem}}
-
-/* ═══════════════════════════════════════
-   PREMIUM MOTION SYSTEM
-═══════════════════════════════════════ */
-:root {
-  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* ── Service card 3D tilt + elevation ── */
-.services-grid { perspective: 1200px; }
-.service-card {
-  transition: box-shadow 0.3s var(--ease-out-quad), border-color 0.3s, transform 0.15s ease;
-  will-change: transform;
-}
-.service-card:hover {
-  box-shadow: 0 16px 48px rgba(0,0,0,0.65), 0 0 32px rgba(201,168,76,0.08) !important;
-  border-color: rgba(201,168,76,0.35) !important;
-}
-@media (hover: none) { .service-card { transform: none !important; } }
-
-/* ── Testimonial hover ── */
-.testimonial {
-  transition: border-color 0.3s, box-shadow 0.35s var(--ease-out-quad), transform 0.35s var(--ease-out-quad) !important;
-}
-.testimonial:hover {
-  box-shadow: 0 14px 44px rgba(0,0,0,0.55) !important;
-  transform: translateY(-4px) !important;
-}
-
-/* ── Blog card hover float ── */
-.blog-card-anim {
-  transition: transform 0.3s var(--ease-out-quad), border-color 0.3s !important;
-}
-.blog-card-anim:hover { transform: translateY(-7px) !important; }
-
-/* ── Process progress line fill ── */
-#processLineFill {
-  position: absolute;
-  top: 31px;
-  right: 12.5%;
-  height: 2px;
-  background: linear-gradient(to left, var(--gold), rgba(201,168,76,0.3));
-  width: 0%;
-  box-shadow: 0 0 10px rgba(201,168,76,0.45);
-  z-index: 2;
-  pointer-events: none;
-  will-change: width;
-}
-@media (max-width: 900px) { #processLineFill { display: none; } }
-
-/* ── Step num active glow ── */
-.step-num.active {
-  background: rgba(201,168,76,0.12) !important;
-  border-color: rgba(201,168,76,0.75) !important;
-  box-shadow: 0 0 18px rgba(201,168,76,0.22) !important;
-  transform: scale(1.06) !important;
-}
-
-/* ── Why cards parallax ── */
-.why-card-float { will-change: transform; transition: transform 0.12s linear; }
-
-/* ── Hero photo parallax ── */
-.hero-photo-wrap { will-change: transform; }
-
-/* ── Input focus glow ── */
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: rgba(201,168,76,0.65) !important;
-  box-shadow: 0 0 0 3px rgba(201,168,76,0.13) !important;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-/* ── Button micro-interactions ── */
-.btn-primary { transition: all 0.2s var(--ease-out-quad) !important; }
-.btn-primary:hover { transform: translateY(-2px) !important; }
-.btn-primary:active { transform: scale(0.97) translateY(0) !important; }
-
-/* ── Reduced motion: disable all new effects ── */
-@media (prefers-reduced-motion: reduce) {
-  .service-card, .testimonial, .blog-card-anim,
-  #processLineFill, .why-card-float, .hero-photo-wrap,
-  .step-num { transition: none !important; animation: none !important; transform: none !important; }
-}
 </style>
 <link rel="canonical" href="https://liamzur.co.il/" />
 <script type="application/ld+json">
@@ -1034,15 +949,15 @@ function svcGo(n){
       </div>
       <div class="hero-stats-row">
         <div class="stat">
-          <span class="stat-num" data-target="100" data-suffix="+">100+</span>
+          <span class="stat-num">100+</span>
           <span class="stat-label">לקוחות מרוצים</span>
         </div>
         <div class="stat">
-          <span class="stat-num" data-target="3" data-suffix="">3</span>
+          <span class="stat-num">3</span>
           <span class="stat-label">שנים בתחום</span>
         </div>
         <div class="stat">
-          <span class="stat-num" data-target="98" data-suffix="%">98%</span>
+          <span class="stat-num">98%</span>
           <span class="stat-label">שביעות רצון</span>
         </div>
       </div>
@@ -1203,7 +1118,6 @@ function svcGo(n){
     <h2 class="section-title reveal" style="margin-bottom:0;">4 שלבים פשוטים<br>לחיים עם משכנתא מנצחת</h2>
   </div>
   <div class="process-grid">
-    <div id="processLineFill"></div>
     <div class="process-step reveal">
       <div class="step-num">1</div>
       <h4>פגישת ייעוץ ראשונית</h4>
@@ -2015,131 +1929,6 @@ function svcGo(n){
     });
 
   }); // end DOMContentLoaded
-
-})();
-</script>
-
-<script>
-/* ── PREMIUM MOTION SYSTEM ── */
-(function() {
-  'use strict';
-  var isMobile  = window.matchMedia('(hover: none)').matches;
-  var reduced   = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* 1. HERO PARALLAX */
-  if (!reduced && !isMobile) {
-    var heroPhoto = document.querySelector('.hero-photo-wrap');
-    var heroLines = document.querySelector('.hero-lines');
-    var heroH = window.innerHeight;
-    window.addEventListener('scroll', function() {
-      var y = window.scrollY;
-      if (y > heroH) return;
-      if (heroPhoto) heroPhoto.style.transform = 'translateY(' + (y * 0.1) + 'px)';
-      if (heroLines) heroLines.style.transform = 'translateY(' + (y * 0.04) + 'px)';
-    }, { passive: true });
-  }
-
-  /* 2. COUNTER ANIMATION */
-  if (!reduced) {
-    function runCounters() {
-      document.querySelectorAll('.stat-num[data-target]').forEach(function(el) {
-        var target  = parseInt(el.getAttribute('data-target'), 10);
-        var suffix  = el.getAttribute('data-suffix') || '';
-        var start   = performance.now();
-        var dur     = 1400;
-        (function tick(now) {
-          var p    = Math.min((now - start) / dur, 1);
-          var ease = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(ease * target) + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        })(start);
-      });
-    }
-    setTimeout(runCounters, 1100);
-  }
-
-  /* 3. SERVICE CARD 3D TILT */
-  if (!reduced && !isMobile) {
-    document.querySelectorAll('.service-card').forEach(function(card) {
-      card.addEventListener('mousemove', function(e) {
-        var r  = card.getBoundingClientRect();
-        var x  = (e.clientX - r.left)  / r.width  - 0.5;
-        var y  = (e.clientY - r.top)   / r.height - 0.5;
-        card.style.transform = 'perspective(900px) rotateX(' + (y * 5) + 'deg) rotateY(' + (-x * 5) + 'deg) translateY(-4px)';
-        var num = card.querySelector('.service-number');
-        if (num) num.style.transform = 'translate(' + (-x * 10) + 'px,' + (-y * 10) + 'px)';
-      });
-      card.addEventListener('mouseleave', function() {
-        card.style.transform = '';
-        var num = card.querySelector('.service-number');
-        if (num) num.style.transform = '';
-      });
-    });
-  }
-
-  /* 4. PROCESS PROGRESS LINE */
-  if (!reduced) {
-    var processSection = document.getElementById('process');
-    var lineFill       = document.getElementById('processLineFill');
-    if (processSection && lineFill) {
-      window.addEventListener('scroll', function() {
-        var r   = processSection.getBoundingClientRect();
-        var wh  = window.innerHeight;
-        var pct = 1 - (r.bottom - wh) / (r.height + wh);
-        pct = Math.max(0, Math.min(1, pct));
-        lineFill.style.width = (pct * 75) + '%';
-      }, { passive: true });
-    }
-    var steps = document.querySelectorAll('.process-step');
-    window.addEventListener('scroll', function() {
-      steps.forEach(function(step) {
-        var top = step.getBoundingClientRect().top;
-        var num = step.querySelector('.step-num');
-        if (!num) return;
-        if (top < window.innerHeight * 0.72) num.classList.add('active');
-        else num.classList.remove('active');
-      });
-    }, { passive: true });
-  }
-
-  /* 5. WHY CARDS SCROLL DRIFT */
-  if (!reduced && !isMobile) {
-    var whySec    = document.getElementById('why');
-    var floatTop  = document.querySelector('.why-card-float.top');
-    var floatBot  = document.querySelector('.why-card-float.bottom');
-    if (whySec && (floatTop || floatBot)) {
-      window.addEventListener('scroll', function() {
-        var r   = whySec.getBoundingClientRect();
-        var wh  = window.innerHeight;
-        var pct = (wh - r.top) / (wh + r.height);
-        pct     = Math.max(0, Math.min(1, pct));
-        var d   = (pct - 0.5) * 26;
-        if (floatTop) floatTop.style.transform = 'translateY(' + (-d) + 'px)';
-        if (floatBot) floatBot.style.transform = 'translateY(' + d + 'px)';
-      }, { passive: true });
-    }
-  }
-
-  /* 6. STAGGER DELAYS */
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('#services .service-card').forEach(function(el, i) {
-      el.style.transitionDelay = (i * 80) + 'ms';
-    });
-    document.querySelectorAll('.testimonials-grid .testimonial').forEach(function(el, i) {
-      el.style.transitionDelay = (i * 100) + 'ms';
-    });
-    document.querySelectorAll('.process-step').forEach(function(el, i) {
-      el.style.transitionDelay = (i * 110) + 'ms';
-    });
-
-    /* 7. BLOG CARD HOVER FLOAT */
-    document.querySelectorAll('#blog-articles a').forEach(function(a, i) {
-      a.classList.add('blog-card-anim');
-      a.style.transitionDelay = (i * 70) + 'ms';
-      a.addEventListener('mouseover', function() { this.style.transform = 'translateY(-7px)'; });
-      a.addEventListener('mouseout',  function() { this.style.transform = ''; });
-    });
-  });
 
 })();
 </script>
