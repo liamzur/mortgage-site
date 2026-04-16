@@ -1182,6 +1182,7 @@ function svcGo(n){
     " onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">
       ✦ הוסף המלצה
     </button>
+    <button onclick="toggleAdminMode()" title="ניהול ביקורות" style="background:transparent;border:none;color:rgba(201,168,76,0.25);font-size:0.75rem;cursor:pointer;padding:4px;margin-bottom:4px;transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,0.6)'" onmouseout="this.style.color='rgba(201,168,76,0.25)'">🔒</button>
   </div>
   <div class="testimonials-grid" id="testimonialsGrid" style="margin-top:40px;">
     <div class="testimonial reveal">
@@ -1735,20 +1736,110 @@ function svcGo(n){
     });
   };
 
-  /* ── 3. REVIEW MODAL ────────────────────────────────────────────── */
+  /* ── 3. REVIEW MODAL (Supabase-backed) ──────────────────────────── */
+
+  // ── Supabase config — replace with your values after setup ──────
+  var SB_URL = 'https://YOUR-PROJECT-ID.supabase.co';
+  var SB_KEY = 'YOUR-ANON-KEY';
+  // ────────────────────────────────────────────────────────────────
+
   var selectedStars = 0;
+  var isAdminMode   = false;
+
+  function genUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0;
+      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+  }
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function buildCard(rev) {
+    var stars = '';
+    for (var i=0;i<rev.stars;i++) stars+='★';
+    for (var j=rev.stars;j<5;j++) stars+='☆';
+    var init  = rev.name.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+    var g     = rev.gradient || '#8B6914,#C9A84C';
+    var myTok = localStorage.getItem('review_token_'+rev.id);
+    var canDel = isAdminMode || !!myTok;
+    var delBtn = canDel
+      ? '<button onclick="deleteReview(\''+rev.id+'\',\''+escHtml(myTok||'')+'\')" style="'+
+        'position:absolute;top:12px;left:12px;background:rgba(180,30,30,0.12);'+
+        'border:1px solid rgba(180,30,30,0.35);color:#e05555;font-size:0.68rem;'+
+        'padding:3px 9px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all 0.2s;"'+
+        ' onmouseover="this.style.background=\'rgba(180,30,30,0.3)\'"'+
+        ' onmouseout="this.style.background=\'rgba(180,30,30,0.12)\'">✕ מחק</button>'
+      : '';
+    return '<div class="testimonial" data-id="'+rev.id+'" style="position:relative;">'+
+      delBtn+
+      '<div class="stars">'+stars+'</div>'+
+      '<p class="testimonial-text">'+escHtml(rev.text)+'</p>'+
+      '<div class="testimonial-author">'+
+        '<div class="author-avatar" style="background:linear-gradient(135deg,'+g+');">'+escHtml(init)+'</div>'+
+        '<div class="author-info"><strong>'+escHtml(rev.name)+'</strong><span>לקוח מרוצה</span></div>'+
+      '</div>'+
+    '</div>';
+  }
+
+  function loadReviews() {
+    if (!SB_URL || SB_URL.indexOf('YOUR-PROJECT') !== -1) return;
+    fetch(SB_URL+'/rest/v1/reviews?select=*&order=created_at.asc', {
+      headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer '+SB_KEY }
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(rows){
+      if (!Array.isArray(rows) || rows.length === 0) return;
+      var grid = document.getElementById('testimonialsGrid');
+      if (grid) grid.innerHTML = rows.map(buildCard).join('');
+    })
+    .catch(function(){});
+  }
+
+  window.deleteReview = function(id, userToken) {
+    if (!confirm('למחוק את הביקורת?')) return;
+    var payload = { id: id };
+    if (isAdminMode) payload.adminPassword = sessionStorage.getItem('adminPass');
+    else payload.deleteToken = userToken;
+    fetch('/.netlify/functions/delete-review', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){
+      if (r.ok) {
+        var card = document.querySelector('[data-id="'+id+'"]');
+        if (card) { card.style.opacity='0'; card.style.transition='opacity 0.3s'; setTimeout(function(){ card.remove(); }, 300); }
+        localStorage.removeItem('review_token_'+id);
+      } else { alert('לא ניתן למחוק'); }
+    })
+    .catch(function(){ alert('שגיאת רשת'); });
+  };
+
+  window.toggleAdminMode = function() {
+    if (isAdminMode) {
+      isAdminMode = false;
+      sessionStorage.removeItem('adminPass');
+      loadReviews();
+      return;
+    }
+    var pass = prompt('סיסמת ניהול:');
+    if (!pass) return;
+    sessionStorage.setItem('adminPass', pass);
+    isAdminMode = true;
+    loadReviews();
+  };
 
   window.openReviewModal = function() {
     selectedStars = 0;
-    document.getElementById('revName').value  = '';
-    document.getElementById('revText').value  = '';
+    document.getElementById('revName').value = '';
+    document.getElementById('revText').value = '';
     updateStarDisplay(0);
     document.getElementById('reviewStep1').style.display = 'block';
     document.getElementById('reviewStep2').style.display = 'none';
     document.getElementById('reviewStep3').style.display = 'none';
     document.getElementById('starError').style.display   = 'none';
-    var ov = document.getElementById('reviewModalOverlay');
-    ov.style.display = 'flex';
+    document.getElementById('reviewModalOverlay').style.display = 'flex';
     document.body.style.overflow = 'hidden';
   };
   window.closeReviewModal = function() {
@@ -1768,17 +1859,14 @@ function svcGo(n){
   window.goToConfirm = function() {
     var name = document.getElementById('revName').value.trim();
     var text = document.getElementById('revText').value.trim();
-    if (!name)         { document.getElementById('revName').focus(); return; }
-    if (!selectedStars){ document.getElementById('starError').style.display = 'block'; return; }
-    if (!text)         { document.getElementById('revText').focus(); return; }
-    var stars = '';
-    for (var i=0;i<selectedStars;i++) stars+='\u2605';
-    for (var j=selectedStars;j<5;j++) stars+='\u2606';
-    document.getElementById('previewStars').textContent = stars;
+    if (!name)          { document.getElementById('revName').focus(); return; }
+    if (!selectedStars) { document.getElementById('starError').style.display='block'; return; }
+    if (!text)          { document.getElementById('revText').focus(); return; }
+    var s=''; for(var i=0;i<selectedStars;i++) s+='★'; for(var j=selectedStars;j<5;j++) s+='☆';
+    document.getElementById('previewStars').textContent = s;
     document.getElementById('previewText').textContent  = text;
     document.getElementById('previewName').textContent  = name;
-    var init = name.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
-    document.getElementById('previewAvatar').textContent = init;
+    document.getElementById('previewAvatar').textContent = name.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
     document.getElementById('reviewStep1').style.display = 'none';
     document.getElementById('reviewStep2').style.display = 'block';
   };
@@ -1787,28 +1875,35 @@ function svcGo(n){
     document.getElementById('reviewStep1').style.display = 'block';
   };
   window.publishReview = function() {
-    var name = document.getElementById('revName').value.trim();
-    var text = document.getElementById('revText').value.trim();
-    var n    = selectedStars;
-    var stars = '';
-    for (var i=0;i<n;i++) stars+='&#9733;';
-    for (var j=n;j<5;j++) stars+='&#9734;';
-    var init  = name.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
-    var grads = ['#8B6914,#C9A84C','#6B4E2A,#C9A84C','#4E6B8B,#8BADC9'];
-    var g     = grads[Math.floor(Math.random()*grads.length)];
-    var card  = document.createElement('div');
-    card.className = 'testimonial';
-    card.style.animation = 'fadeUp 0.5s ease both';
-    card.innerHTML =
-      '<div class="stars">'+stars+'</div>'+
-      '<p class="testimonial-text">'+text+'</p>'+
-      '<div class="testimonial-author">'+
-        '<div class="author-avatar" style="background:linear-gradient(135deg,'+g+');">'+init+'</div>'+
-        '<div class="author-info"><strong>'+name+'</strong><span>\u05DC\u05E7\u05D5\u05D7 \u05DE\u05E8\u05D5\u05E6\u05D4</span></div>'+
-      '</div>';
-    document.getElementById('testimonialsGrid').appendChild(card);
-    document.getElementById('reviewStep2').style.display = 'none';
-    document.getElementById('reviewStep3').style.display = 'block';
+    var name      = document.getElementById('revName').value.trim();
+    var text      = document.getElementById('revText').value.trim();
+    var grads     = ['#8B6914,#C9A84C','#6B4E2A,#C9A84C','#4E6B8B,#8BADC9'];
+    var gradient  = grads[Math.floor(Math.random()*grads.length)];
+    var delToken  = genUUID();
+    var btn       = document.getElementById('reviewStep2').querySelector('button:last-child');
+    if (btn) { btn.disabled=true; btn.textContent='שולח...'; }
+
+    function finish(id) {
+      if (id && id !== '__local__') localStorage.setItem('review_token_'+id, delToken);
+      var rev = { id: id||'__local__', name:name, text:text, stars:selectedStars, gradient:gradient };
+      var grid = document.getElementById('testimonialsGrid');
+      grid.insertAdjacentHTML('beforeend', buildCard(rev));
+      grid.lastElementChild.style.animation = 'fadeUp 0.5s ease both';
+      document.getElementById('reviewStep2').style.display = 'none';
+      document.getElementById('reviewStep3').style.display = 'block';
+      if (btn) { btn.disabled=false; btn.textContent='פרסם המלצה'; }
+    }
+
+    if (!SB_URL || SB_URL.indexOf('YOUR-PROJECT') !== -1) { finish('__local__'); return; }
+
+    fetch(SB_URL+'/rest/v1/reviews', {
+      method: 'POST',
+      headers: { 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY, 'Content-Type':'application/json', 'Prefer':'return=representation' },
+      body: JSON.stringify({ name:name, text:text, stars:selectedStars, gradient:gradient, delete_token:delToken })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(rows){ finish(rows && rows[0] && rows[0].id); })
+    .catch(function(){ finish('__local__'); });
   };
 
   /* ── 4. CONTACT FORM (Web3Forms) ─────────────────────────────────── */
@@ -1868,6 +1963,9 @@ function svcGo(n){
 
     // Contact form
     initContactForm();
+
+    // Load reviews from Supabase
+    loadReviews();
 
     // Review modal overlay click
     var ov = document.getElementById('reviewModalOverlay');
