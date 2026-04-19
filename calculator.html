@@ -511,7 +511,7 @@
     <p>יועץ משכנתאות מנוסה יודע איך לפרוס את ההלוואה נכון, לנצל מסלולים זולים יותר ולחסוך לך עשרות עד מאות אלפי שקלים לאורך החיים.</p>
     <div class="cta-buttons">
       <a href="/#contact" class="btn-primary">ייעוץ ראשוני חינם ←</a>
-      <a href="https://wa.me/972523434916" target="_blank" rel="noopener" class="btn-secondary">שלח וואטסאפ</a>
+      <a id="waBtn" href="https://wa.me/972523434916" target="_blank" rel="noopener" class="btn-secondary">שלח וואטסאפ</a>
     </div>
   </div>
 
@@ -577,6 +577,15 @@
     totalEl.textContent    = formatILS(total);
     interestEl.textContent = formatILS(interest);
     percentEl.textContent  = pct + '%';
+
+    // Update WhatsApp pre-filled message
+    var waBtn = document.getElementById('waBtn');
+    if (waBtn) {
+      var loanFormatted = Math.round(P).toLocaleString('he-IL');
+      var monthlyFormatted = Math.round(monthly).toLocaleString('he-IL');
+      var msg = 'היי ליאם, חישבתי משכנתא של ₪' + loanFormatted + ' ל-' + years + ' שנים — ההחזר החודשי יצא ₪' + monthlyFormatted + '. אשמח לייעוץ!';
+      waBtn.href = 'https://wa.me/972523434916?text=' + encodeURIComponent(msg);
+    }
 
     // Live slider fill (Chrome)
     var loanPct  = ((loanSlider.value - loanSlider.min) / (loanSlider.max - loanSlider.min)) * 100;
