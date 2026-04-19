@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51X6NKF3ZR', {'anonymize_ip': true});
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href') || '';
+    if(h.startsWith('tel:'))           gtag('event','click_to_call',    {event_category:'contact',event_label:h,value:1});
+    else if(h.indexOf('wa.me')!==-1)   gtag('event','click_to_whatsapp',{event_category:'contact',event_label:h,value:1});
+    else if(h.startsWith('mailto:'))   gtag('event','click_to_email',   {event_category:'contact'});
+  });
+  document.addEventListener('submit', function(e){
+    if(e.target && e.target.matches('form[action*="web3forms"]'))
+      gtag('event','generate_lead',{event_category:'contact',value:10});
+  });
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>10 טיפים לחיסכון במשכנתא — המדריך המעשי | ליאם צור יועץ משכנתאות</title>
