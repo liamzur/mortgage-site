@@ -329,6 +329,11 @@ function svcGo(n){
   .process-step p { font-size: 0.85rem; color: var(--white-dim); line-height: 1.7; font-weight: 300; }
 
   /* TESTIMONIALS */
+  .banks-bar { background: var(--black-soft); border-top: 1px solid var(--black-border); border-bottom: 1px solid var(--black-border); padding: 20px 24px; text-align: center; }
+  .banks-label { font-size: 0.72rem; letter-spacing: 2px; color: rgba(176,168,154,0.45); text-transform: uppercase; margin-bottom: 14px; }
+  .banks-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 4px; }
+  .bank-name { font-size: 0.82rem; font-weight: 600; color: rgba(176,168,154,0.55); letter-spacing: 0.5px; }
+  .bank-sep { color: rgba(201,168,76,0.35); font-size: 0.9rem; }
   .testimonials-section { background: var(--black-soft); }
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .testimonial { background: var(--black-card); border: 1px solid var(--black-border); padding: 40px; position: relative; transition: border-color 0.3s; }
@@ -1030,6 +1035,24 @@ function svcGo(n){
   </p>
 </section>
 
+<!-- BANKS TRUST BAR -->
+<section class="banks-bar">
+  <p class="banks-label">עובד מול כל הבנקים המובילים</p>
+  <div class="banks-logos">
+    <span class="bank-name">בנק לאומי</span>
+    <span class="bank-sep">·</span>
+    <span class="bank-name">מזרחי טפחות</span>
+    <span class="bank-sep">·</span>
+    <span class="bank-name">בנק הפועלים</span>
+    <span class="bank-sep">·</span>
+    <span class="bank-name">בנק דיסקונט</span>
+    <span class="bank-sep">·</span>
+    <span class="bank-name">הבינלאומי</span>
+    <span class="bank-sep">·</span>
+    <span class="bank-name">מרכנתיל</span>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section id="services">
   <div class="section-label">השירותים שלי</div>
@@ -1577,8 +1600,30 @@ function svcGo(n){
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
-    "reviewCount": "100"
-  }
+    "reviewCount": "3",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "רון ומיכל אברהם"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "הגענו לייעוץ אחרי שהבנק הציע לנו ריבית גבוהה. ליאם הצליח להשיג לנו הפחתה משמעותית. ההחזר החודשי ירד ב-800 שקל!"
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "דנה לוי"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "מחזרתי משכנתא קיימת בעזרת ליאם וחסכתי 120,000 שקל לאורך תקופת ההלוואה. שירות מקצועי, מהיר ואישי מאוד."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "יוסי כהן"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "ליאם בנה לי תמהיל חכם שאיפשר לי לרכוש נכס נוסף עם הכסף שחסכתי."
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
