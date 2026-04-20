@@ -511,7 +511,7 @@
     <p>יועץ משכנתאות מנוסה יודע איך לפרוס את ההלוואה נכון, לנצל מסלולים זולים יותר ולחסוך לך עשרות עד מאות אלפי שקלים לאורך החיים.</p>
     <div class="cta-buttons">
       <a href="/#contact" class="btn-primary">ייעוץ ראשוני חינם ←</a>
-      <a id="waBtn" href="https://wa.me/972523434916" target="_blank" rel="noopener" class="btn-secondary">שלח וואטסאפ</a>
+      <a id="waBtn" href="https://wa.me/972523434916" target="_blank" rel="noopener" class="btn-secondary" onclick="(function(el){var loan=document.getElementById('loanSlider').value,years=document.getElementById('yearsSlider').value,r=4.7/100/12,n=years*12,m=loan*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1),msg='היי ליאם, חישבתי משכנתא של ₪'+Math.round(loan).toLocaleString('he-IL')+' ל-'+years+' שנים — ההחזר החודשי יצא ₪'+Math.round(m).toLocaleString('he-IL')+'. אשמח לייעוץ!';el.href='https://wa.me/972523434916?text='+encodeURIComponent(msg);})(this)">שלח וואטסאפ</a>
     </div>
   </div>
 
@@ -595,7 +595,9 @@
   }
 
   loanSlider.addEventListener('input',  calc);
+  loanSlider.addEventListener('change', calc);
   yearsSlider.addEventListener('input', calc);
+  yearsSlider.addEventListener('change', calc);
   calc(); // initial
 })();
 </script>
