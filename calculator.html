@@ -20,6 +20,7 @@
       gtag('event','generate_lead',{event_category:'contact',value:10});
   });
 </script>
+<script>(function(){var t=localStorage.getItem('lz-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>מחשבון משכנתא 2026 | ליאם צור - יועץ משכנתאות</title>
@@ -188,34 +189,19 @@
       margin-bottom: 28px;
     }
 
-    /* Result display */
-    .result-main {
-      text-align: center;
-      padding: 36px 24px 28px;
-      border-bottom: 1px solid rgba(201,168,76,0.15);
-      margin-bottom: 28px;
-    }
-    .result-label {
-      font-size: 0.78rem;
-      color: var(--white-dim);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .result-amount {
-      font-size: clamp(2.6rem, 7vw, 4.2rem);
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: -2px;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .result-currency {
-      font-size: 1.6rem;
-      font-weight: 400;
-      vertical-align: super;
-    }
-    .result-per { font-size: 0.85rem; color: var(--white-dim); }
+    /* Compare display */
+    .compare-row { display:flex; align-items:center; gap:12px; padding:28px 24px; border-bottom:1px solid rgba(201,168,76,.15); margin-bottom:28px; }
+    .compare-col { flex:1; text-align:center; }
+    .compare-label { font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; font-weight:700; }
+    .compare-bank .compare-label { color:#e05959; }
+    .compare-adv  .compare-label { color:#4caf87; }
+    .compare-amount { font-size:clamp(1.8rem,5vw,2.8rem); font-weight:800; letter-spacing:-1px; line-height:1; margin-bottom:4px; }
+    .compare-bank .compare-amount { color:#e05959; }
+    .compare-adv  .compare-amount { color:#4caf87; }
+    .compare-amount span:first-child { font-size:1rem; font-weight:400; vertical-align:super; }
+    .compare-rate { font-size:.78rem; color:var(--white-dim); }
+    .compare-divider { font-size:.85rem; color:rgba(201,168,76,.5); font-weight:700; padding:0 4px; flex-shrink:0; }
+    .compare-saving { text-align:center; font-size:.9rem; color:#4caf87; font-weight:600; margin:0 0 28px; padding:10px 16px; background:rgba(76,175,135,.08); border:1px solid rgba(76,175,135,.2); border-radius:6px; }
 
     /* Stats row */
     .stats-row {
@@ -394,6 +380,49 @@
       .cta-section { padding: 32px 20px; }
       footer { padding: 32px 20px; }
     }
+
+    /* ── HAMBURGER ── */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1300}
+    .hamburger span{display:block;width:26px;height:2px;background:var(--white);border-radius:2px;transition:all .35s cubic-bezier(.23,1,.32,1)}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:var(--gold)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:var(--gold)}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:1100;pointer-events:none}
+    .mobile-menu.open{pointer-events:all;display:block}
+    .mobile-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .4s}
+    .mobile-menu.open .mobile-overlay{background:rgba(0,0,0,.7)}
+    .mobile-drawer{position:absolute;top:0;left:0;width:78%;max-width:320px;height:100%;background:var(--black-soft);border-left:1px solid rgba(201,168,76,.15);transform:translateX(-100%);transition:transform .4s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;overflow-y:auto}
+    .mobile-menu.open .mobile-drawer{transform:translateX(0)}
+    .drawer-header{padding:28px 24px 24px;border-bottom:1px solid var(--black-border)}
+    .drawer-nav{list-style:none;padding:16px 0;flex:1}
+    .drawer-nav li a{display:flex;align-items:center;gap:14px;padding:16px 28px;color:var(--white-dim);text-decoration:none;font-size:1rem;font-weight:400;letter-spacing:1px;transition:all .25s}
+    .drawer-nav li a:hover{color:var(--gold);background:rgba(201,168,76,.05)}
+    .nav-icon{color:var(--gold);font-size:1.1rem}
+    .drawer-cta{margin:16px 24px 28px;display:block;text-align:center;border:1px solid var(--gold);color:var(--gold);padding:14px;text-decoration:none;letter-spacing:1px;font-size:.9rem;transition:all .2s}
+    .drawer-cta:hover{background:var(--gold);color:var(--black)}
+    @media(max-width:900px){.hamburger{display:flex}}
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;z-index:200}
+    .toggle-track{display:inline-flex;width:44px;height:24px;border-radius:999px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);position:relative;transition:background .3s,border-color .3s;align-items:center;padding:2px}
+    [data-theme="light"] .toggle-track{background:rgba(201,168,76,.35);border-color:rgba(201,168,76,.5)}
+    .toggle-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold);transition:transform .35s cubic-bezier(.23,1,.32,1);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+    [data-theme="light"] .toggle-thumb{transform:translateX(-20px)}
+    .theme-icon{position:fixed;top:60px;right:24px;font-size:1.6rem;opacity:0;pointer-events:none;transition:opacity .5s,transform .5s;transform:scale(.5) translateY(-8px);z-index:9999;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+    .theme-icon.show{opacity:1;transform:scale(1) translateY(0)}
+
+    /* ── LIGHT MODE ── */
+    :root[data-theme="light"]{--black:#F8F5F0;--black-soft:#EDE8E0;--black-card:#E4DDD2;--black-border:#CFC8BC;--white:#1C1A16;--white-dim:#6B6258}
+    [data-theme="light"] body{background:#F8F5F0;color:#1C1A16}
+    [data-theme="light"] nav{background:rgba(248,245,240,.95) !important;border-bottom-color:rgba(201,168,76,.2) !important}
+    [data-theme="light"] .mobile-drawer{background:#EDE8E0}
+    [data-theme="light"] .calc-card{background:#EDE8E0;border-color:rgba(201,168,76,.25)}
+    [data-theme="light"] .stat-box{background:#E4DDD2;border-color:rgba(201,168,76,.2)}
+    [data-theme="light"] .interest-badge{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3)}
+    [data-theme="light"] .cta-section{background:#EDE8E0}
+    [data-theme="light"] footer{background:#E4DDD2;border-top-color:rgba(201,168,76,.2)}
+    [data-theme="light"] .breadcrumb{color:#6B6258}
+    [data-theme="light"] input[type="range"]::-webkit-slider-track{background:#CFC8BC}
   </style>
 </head>
 <body>
@@ -417,7 +446,32 @@
     <li><a href="/calculator.html" style="color:var(--gold)">מחשבון</a></li>
     <li><a href="/#contact" class="nav-cta-btn">ייעוץ ראשוני חינם</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="החלף מצב תצוגה" title="מצב כהה / בהיר">
+    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+  </button>
+  <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
+  <button class="hamburger" id="hamburger" aria-label="תפריט">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-drawer">
+    <div class="drawer-header">
+      <a href="/" style="text-decoration:none;color:var(--gold);font-weight:700;font-size:1.1rem;letter-spacing:2px">ליאם צור</a>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="/#services" class="drawer-link"><span class="nav-icon">›</span> שירותים</a></li>
+      <li><a href="/#why" class="drawer-link"><span class="nav-icon">›</span> למה אני</a></li>
+      <li><a href="/#process" class="drawer-link"><span class="nav-icon">›</span> תהליך</a></li>
+      <li><a href="/#testimonials" class="drawer-link"><span class="nav-icon">›</span> לקוחות</a></li>
+      <li><a href="/blog/" class="drawer-link"><span class="nav-icon">›</span> בלוג</a></li>
+      <li><a href="/calculator.html" class="drawer-link"><span class="nav-icon">›</span> מחשבון משכנתא</a></li>
+    </ul>
+    <a href="tel:+972523434916" class="drawer-cta">ייעוץ ראשוני חינם — 052-343-4916</a>
+  </div>
+</div>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
@@ -438,13 +492,20 @@
 
   <!-- Result Card -->
   <div class="calc-card">
-    <div class="result-main">
-      <p class="result-label">החזר חודשי משוער</p>
-      <div class="result-amount">
-        <span class="result-currency">₪</span><span id="monthlyPayment">5,726</span>
+    <div class="compare-row">
+      <div class="compare-col compare-bank">
+        <p class="compare-label">בלי יועץ משכנתאות</p>
+        <div class="compare-amount"><span>₪</span><span id="monthlyBank">0</span></div>
+        <p class="compare-rate">ריבית 4.9%</p>
       </div>
-      <p class="result-per">לחודש · ריבית קבועה 4.7%</p>
+      <div class="compare-divider">VS</div>
+      <div class="compare-col compare-adv">
+        <p class="compare-label">עם יועץ משכנתאות</p>
+        <div class="compare-amount"><span>₪</span><span id="monthlyAdv">0</span></div>
+        <p class="compare-rate">ריבית 4.6%</p>
+      </div>
     </div>
+    <p class="compare-saving" id="compareSaving">חיסכון: ₪0 לחודש</p>
 
     <div class="stats-row">
       <div class="stat-box">
@@ -501,7 +562,7 @@
 
     <div class="interest-badge">
       <span class="badge-icon">📌</span>
-      <p>החישוב מבוסס על <strong>ריבית קבועה 4.7%</strong>. ריבית אמיתית תלויה בבנק, בפרופיל הלווה ובמבנה המשכנתא — יועץ יכול להוריד אותה.</p>
+      <p>הריבית הממוצעת ללא יועץ: <strong>4.9%</strong>. יועץ משכנתאות יכול להוריד אותה ל-<strong style="color:var(--gold)">4.6%</strong> ולחסוך לך מאות שקלים כל חודש.</p>
     </div>
   </div>
 
@@ -511,7 +572,7 @@
     <p>יועץ משכנתאות מנוסה יודע איך לפרוס את ההלוואה נכון, לנצל מסלולים זולים יותר ולחסוך לך עשרות עד מאות אלפי שקלים לאורך החיים.</p>
     <div class="cta-buttons">
       <a href="/#contact" class="btn-primary">ייעוץ ראשוני חינם ←</a>
-      <a id="waBtn" href="https://wa.me/972523434916" target="_blank" rel="noopener" class="btn-secondary" onclick="(function(el){var loan=document.getElementById('loanSlider').value,years=document.getElementById('yearsSlider').value,r=4.7/100/12,n=years*12,m=loan*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1),msg='היי ליאם, חישבתי משכנתא של ₪'+Math.round(loan).toLocaleString('he-IL')+' ל-'+years+' שנים — ההחזר החודשי יצא ₪'+Math.round(m).toLocaleString('he-IL')+'. אשמח לייעוץ!';el.href='https://wa.me/972523434916?text='+encodeURIComponent(msg);})(this)">שלח וואטסאפ</a>
+      <a id="waBtn" href="https://wa.me/972523434916" target="_blank" rel="noopener" class="btn-secondary" onclick="(function(el){var l=+document.getElementById('loanSlider').value,y=+document.getElementById('yearsSlider').value,n=y*12,rB=4.9/100/12,mB=Math.round(l*(rB*Math.pow(1+rB,n))/(Math.pow(1+rB,n)-1)),rA=4.6/100/12,mA=Math.round(l*(rA*Math.pow(1+rA,n))/(Math.pow(1+rA,n)-1)),s=mB-mA,msg='היי ליאם, חישבתי משכנתא של ₪'+l.toLocaleString('he-IL')+' ל-'+y+' שנים. בלי יועץ: ₪'+mB.toLocaleString('he-IL')+'/חודש, עם יועץ: ₪'+mA.toLocaleString('he-IL')+'/חודש (חיסכון ₪'+s.toLocaleString('he-IL')+' לחודש!). אשמח לדבר';el.href='https://wa.me/972523434916?text='+encodeURIComponent(msg);})(this)">שלח וואטסאפ</a>
     </div>
   </div>
 
@@ -533,72 +594,98 @@
 
 <script>
 (function() {
-  var loanSlider  = document.getElementById('loanSlider');
-  var yearsSlider = document.getElementById('yearsSlider');
+  var loanSlider   = document.getElementById('loanSlider');
+  var yearsSlider  = document.getElementById('yearsSlider');
   var loanDisplay  = document.getElementById('loanDisplay');
   var yearsDisplay = document.getElementById('yearsDisplay');
-  var monthlyEl   = document.getElementById('monthlyPayment');
-  var totalEl     = document.getElementById('totalPayment');
-  var interestEl  = document.getElementById('totalInterest');
-  var percentEl   = document.getElementById('interestPercent');
+  var bankEl       = document.getElementById('monthlyBank');
+  var advEl        = document.getElementById('monthlyAdv');
+  var savingEl     = document.getElementById('compareSaving');
+  var totalEl      = document.getElementById('totalPayment');
+  var interestEl   = document.getElementById('totalInterest');
+  var percentEl    = document.getElementById('interestPercent');
 
-  var ANNUAL_RATE = 4.7;
+  var BANK_RATE    = 4.9;  // בלי יועץ
+  var ADVISOR_RATE = 4.6;  // עם יועץ
 
+  function shpitzer(P, annualRate, n) {
+    var r = annualRate / 100 / 12;
+    return P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  }
   function formatILS(n) {
     return '₪' + Math.round(n).toLocaleString('he-IL');
   }
 
   function calc() {
-    var P = parseFloat(loanSlider.value);
+    var P     = parseFloat(loanSlider.value);
     var years = parseFloat(yearsSlider.value);
-    var n = years * 12;
-    var r = ANNUAL_RATE / 100 / 12;
+    var n     = years * 12;
 
-    // Shpitzer formula
-    var monthly = P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-    var total   = monthly * n;
-    var interest = total - P;
-    var pct     = Math.round((interest / total) * 100);
+    var mBank = shpitzer(P, BANK_RATE,    n);
+    var mAdv  = shpitzer(P, ADVISOR_RATE, n);
+    var saving = Math.round(mBank - mAdv);
 
     // Format loan display
-    var loanVal = parseFloat(loanSlider.value);
-    var loanStr;
-    if (loanVal >= 1000000) {
-      loanStr = '₪' + (loanVal / 1000000).toLocaleString('he-IL', {maximumFractionDigits: 1}) + 'M';
-    } else {
-      loanStr = '₪' + (loanVal / 1000).toFixed(0) + 'K';
-    }
-
+    var loanStr = P >= 1000000
+      ? '₪' + (P / 1000000).toLocaleString('he-IL', {maximumFractionDigits:1}) + 'M'
+      : '₪' + (P / 1000).toFixed(0) + 'K';
     loanDisplay.textContent  = loanStr;
     yearsDisplay.textContent = years + ' שנים';
 
-    // Update result — format without ₪ prefix for the big number
-    monthlyEl.textContent  = Math.round(monthly).toLocaleString('he-IL');
-    totalEl.textContent    = formatILS(total);
-    interestEl.textContent = formatILS(interest);
-    percentEl.textContent  = pct + '%';
+    // Compare display
+    if (bankEl)   bankEl.textContent   = Math.round(mBank).toLocaleString('he-IL');
+    if (advEl)    advEl.textContent    = Math.round(mAdv).toLocaleString('he-IL');
+    if (savingEl) savingEl.textContent = 'חיסכון: ₪' + saving.toLocaleString('he-IL') + ' לחודש';
+
+    // Stats row — based on BANK_RATE
+    var total    = mBank * n;
+    var interest = total - P;
+    var pct      = Math.round((interest / total) * 100);
+    if (totalEl)    totalEl.textContent    = formatILS(total);
+    if (interestEl) interestEl.textContent = formatILS(interest);
+    if (percentEl)  percentEl.textContent  = pct + '%';
 
     // Update WhatsApp pre-filled message
     var waBtn = document.getElementById('waBtn');
     if (waBtn) {
-      var loanFormatted = Math.round(P).toLocaleString('he-IL');
-      var monthlyFormatted = Math.round(monthly).toLocaleString('he-IL');
-      var msg = 'היי ליאם, חישבתי משכנתא של ₪' + loanFormatted + ' ל-' + years + ' שנים — ההחזר החודשי יצא ₪' + monthlyFormatted + '. אשמח לייעוץ!';
+      var mBankR = Math.round(mBank), mAdvR = Math.round(mAdv);
+      var msg = 'היי ליאם, חישבתי משכנתא של ₪' + Math.round(P).toLocaleString('he-IL') + ' ל-' + years + ' שנים. בלי יועץ: ₪' + mBankR.toLocaleString('he-IL') + '/חודש, עם יועץ: ₪' + mAdvR.toLocaleString('he-IL') + '/חודש (חיסכון ₪' + saving.toLocaleString('he-IL') + ' לחודש!). אשמח לדבר';
       waBtn.href = 'https://wa.me/972523434916?text=' + encodeURIComponent(msg);
     }
 
-    // Live slider fill (Chrome)
-    var loanPct  = ((loanSlider.value - loanSlider.min) / (loanSlider.max - loanSlider.min)) * 100;
+    // Live slider fill
+    var loanPct  = ((loanSlider.value  - loanSlider.min)  / (loanSlider.max  - loanSlider.min))  * 100;
     var yearsPct = ((yearsSlider.value - yearsSlider.min) / (yearsSlider.max - yearsSlider.min)) * 100;
-    loanSlider.style.background  = 'linear-gradient(to left, #C9A84C ' + loanPct  + '%, #222 ' + loanPct  + '%)';
-    yearsSlider.style.background = 'linear-gradient(to left, #C9A84C ' + yearsPct + '%, #222 ' + yearsPct + '%)';
+    loanSlider.style.background  = 'linear-gradient(to left, #C9A84C ' + loanPct  + '%, #333 ' + loanPct  + '%)';
+    yearsSlider.style.background = 'linear-gradient(to left, #C9A84C ' + yearsPct + '%, #333 ' + yearsPct + '%)';
   }
 
   loanSlider.addEventListener('input',  calc);
   loanSlider.addEventListener('change', calc);
   yearsSlider.addEventListener('input', calc);
   yearsSlider.addEventListener('change', calc);
-  calc(); // initial
+  calc();
+})();
+</script>
+
+<script>
+// ── Hamburger ──
+(function(){
+  var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu');
+  if(!hb||!mm)return;
+  hb.addEventListener('click',function(){mm.classList.toggle('open');hb.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''});
+  mm.querySelector('.mobile-overlay').addEventListener('click',function(){mm.classList.remove('open');hb.classList.remove('open');document.body.style.overflow=''});
+  mm.querySelectorAll('.drawer-link').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');hb.classList.remove('open');document.body.style.overflow=''})});
+})();
+// ── Theme Toggle ──
+(function(){
+  var html=document.documentElement,btn=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon'),timer=null;
+  html.setAttribute('data-theme',localStorage.getItem('lz-theme')||'dark');
+  if(btn){btn.addEventListener('click',function(){
+    var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',next);localStorage.setItem('lz-theme',next);
+    if(icon){icon.textContent=next==='dark'?'🌙':'☀️';icon.classList.add('show');if(timer)clearTimeout(timer);timer=setTimeout(function(){icon.classList.remove('show')},1800);}
+  });}
 })();
 </script>
 

@@ -20,6 +20,7 @@
       gtag('event','generate_lead',{event_category:'contact',value:10});
   });
 </script>
+<script>(function(){var t=localStorage.getItem('lz-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <meta name="google-site-verification" content="sIZ3yrYAkYjCWweOSoIuTABSwxG401oEhEaHlx_9T3g" />
 <script>  
 var _S=["",
@@ -901,6 +902,10 @@ function svcGo(n){
     <li><a href="/calculator.html">מחשבון</a></li>
     <li><a href="#contact" class="nav-cta">ייעוץ ראשוני חינם</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="החלף מצב תצוגה" title="מצב כהה / בהיר">
+    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+  </button>
+  <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
   <button class="hamburger" id="hamburger" aria-label="תפריט">
     <span></span><span></span><span></span>
   </button>
@@ -1405,6 +1410,28 @@ function svcGo(n){
   @media (max-width:480px) {
     #reviewModal { padding:28px 20px; }
   }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;z-index:200}
+  .toggle-track{display:inline-flex;width:44px;height:24px;border-radius:999px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);position:relative;transition:background .3s,border-color .3s;align-items:center;padding:2px}
+  [data-theme="light"] .toggle-track{background:rgba(201,168,76,.35);border-color:rgba(201,168,76,.5)}
+  .toggle-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold);transition:transform .35s cubic-bezier(.23,1,.32,1);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+  [data-theme="light"] .toggle-thumb{transform:translateX(-20px)}
+  .theme-icon{position:fixed;top:60px;right:24px;font-size:1.6rem;opacity:0;pointer-events:none;transition:opacity .5s,transform .5s;transform:scale(.5) translateY(-8px);z-index:9999;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+  .theme-icon.show{opacity:1;transform:scale(1) translateY(0)}
+
+  /* ── LIGHT MODE ── */
+  :root[data-theme="light"]{--black:#F8F5F0;--black-soft:#EDE8E0;--black-card:#E4DDD2;--black-border:#CFC8BC;--white:#1C1A16;--white-dim:#6B6258}
+  [data-theme="light"] body{background:#F8F5F0;color:#1C1A16}
+  [data-theme="light"] nav#navbar{background:rgba(248,245,240,.96) !important;border-bottom-color:rgba(201,168,76,.2) !important}
+  [data-theme="light"] .mobile-drawer{background:#EDE8E0}
+  [data-theme="light"] .service-card,[data-theme="light"] .stat-card,[data-theme="light"] .testimonial-card,[data-theme="light"] .blog-card{background:#E4DDD2;border-color:rgba(201,168,76,.22)}
+  [data-theme="light"] .section-divider{background:rgba(201,168,76,.2)}
+  [data-theme="light"] .faq-item{border-color:rgba(201,168,76,.2)}
+  [data-theme="light"] .faq-q{color:#1C1A16}
+  [data-theme="light"] .banks-bar{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.2)}
+  [data-theme="light"] footer{background:#E4DDD2;border-top-color:rgba(201,168,76,.2)}
+  [data-theme="light"] .hero{background:transparent}
 </style>
 
 <!-- CONTACT -->
@@ -2118,6 +2145,18 @@ function svcGo(n){
 function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').style.display='none';}
 function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookieBanner').style.display='none';}
 
+</script>
+<script>
+// ── Theme Toggle ──
+(function(){
+  var html=document.documentElement,btn=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon'),timer=null;
+  html.setAttribute('data-theme',localStorage.getItem('lz-theme')||'dark');
+  if(btn){btn.addEventListener('click',function(){
+    var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',next);localStorage.setItem('lz-theme',next);
+    if(icon){icon.textContent=next==='dark'?'🌙':'☀️';icon.classList.add('show');if(timer)clearTimeout(timer);timer=setTimeout(function(){icon.classList.remove('show')},1800);}
+  });}
+})();
 </script>
 </body>
 </html>

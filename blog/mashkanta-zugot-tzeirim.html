@@ -20,6 +20,7 @@
       gtag('event','generate_lead',{event_category:'contact',value:10});
   });
 </script>
+<script>(function(){var t=localStorage.getItem('lz-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>משכנתא לזוגות צעירים - המדריך המלא 2026 | ליאם צור</title>
@@ -129,6 +130,22 @@
       #cookieBanner>div{width:100%!important;justify-content:flex-start!important;gap:10px!important;}
       #cookieBanner>div>button{flex:1!important;padding:10px 8px!important;font-size:0.85rem!important;}
     }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;z-index:200}
+  .toggle-track{display:inline-flex;width:44px;height:24px;border-radius:999px;background:rgba(201,168,76,.2);border:1px solid rgba(201,168,76,.3);position:relative;transition:background .3s,border-color .3s;align-items:center;padding:2px}
+  [data-theme="light"] .toggle-track{background:rgba(201,168,76,.35);border-color:rgba(201,168,76,.5)}
+  .toggle-thumb{width:18px;height:18px;border-radius:50%;background:#C9A84C;transition:transform .35s cubic-bezier(.23,1,.32,1);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+  [data-theme="light"] .toggle-thumb{transform:translateX(-20px)}
+  .theme-icon{position:fixed;top:60px;right:24px;font-size:1.6rem;opacity:0;pointer-events:none;transition:opacity .5s,transform .5s;transform:scale(.5) translateY(-8px);z-index:9999;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
+  .theme-icon.show{opacity:1;transform:scale(1) translateY(0)}
+  :root[data-theme="light"]{--black:#F8F5F0;--black-soft:#EDE8E0;--black-card:#E4DDD2;--black-border:#CFC8BC;--white:#1C1A16;--white-dim:#6B6258}
+  [data-theme="light"] body{background:#F8F5F0!important;color:#1C1A16!important}
+  [data-theme="light"] nav,[data-theme="light"] #navbar{background:rgba(248,245,240,.96)!important;border-bottom-color:rgba(201,168,76,.2)!important}
+  [data-theme="light"] .mobile-drawer{background:#EDE8E0}
+  [data-theme="light"] article,[data-theme="light"] .article-container,[data-theme="light"] .article-hero{background:#F8F5F0;color:#1C1A16}
+  [data-theme="light"] .cta-box{background:#EDE8E0;border-color:rgba(201,168,76,.3)}
+  [data-theme="light"] footer{background:#E4DDD2!important;border-top-color:rgba(201,168,76,.2)!important}
   </style>
   <script type="application/ld+json">
   {
@@ -192,6 +209,10 @@
     <li><a href="/blog/">בלוג</a></li>
     <li><a href="tel:0523434916" class="nav-cta">ייעוץ ראשוני חינם</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="החלף מצב תצוגה" title="מצב כהה / בהיר">
+    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+  </button>
+  <span class="theme-icon" id="themeIcon" aria-hidden="true"></span>
   <button class="hamburger" id="hamburger" aria-label="תפריט">
     <span></span><span></span><span></span>
   </button>
@@ -428,6 +449,17 @@
 (function(){if(!localStorage.getItem('cookieConsent')){var b=document.getElementById('cookieBanner');if(b){b.style.display='flex';}}})();
 function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').style.display='none';}
 function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookieBanner').style.display='none';}
+</script>
+<script>
+(function(){
+  var html=document.documentElement,btn=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon'),timer=null;
+  html.setAttribute('data-theme',localStorage.getItem('lz-theme')||'dark');
+  if(btn){btn.addEventListener('click',function(){
+    var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',next);localStorage.setItem('lz-theme',next);
+    if(icon){icon.textContent=next==='dark'?'🌙':'☀️';icon.classList.add('show');if(timer)clearTimeout(timer);timer=setTimeout(function(){icon.classList.remove('show')},1800);}
+  });}
+})();
 </script>
 </body>
 </html>
