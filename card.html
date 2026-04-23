@@ -25,9 +25,80 @@
 <title>Liam Zur – Mortgage Advisor</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<style>:root{--gold:#C9A84C;--gold-light:#E8C97A;--dark:#0A0A0A;--text:#F0EDE6;--text-muted:#9A9185;--wa:#25D366;}*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--dark);min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;padding:20px;}body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 0%,rgba(201,168,76,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 100%,rgba(201,168,76,.05) 0%,transparent 50%);pointer-events:none;}.card{width:100%;max-width:420px;background:linear-gradient(145deg,#161616 0%,#0E0E0E 50%,#141414 100%);border:1px solid rgba(201,168,76,.2);border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 60px rgba(201,168,76,.04);animation:cardIn .8s cubic-bezier(.16,1,.3,1) both;position:relative;}@keyframes cardIn{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:2;}.hero{position:relative;height:360px;overflow:hidden;}.hero-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;filter:brightness(.78) contrast(1.05);}.hero-overlay{position:absolute;inset:0;background:linear-gradient( to bottom,transparent 0%,transparent 40%,rgba(10,10,10,.55) 68%,rgba(10,10,10,1) 100% );}.hero-logo{position:absolute;top:16px;left:50%;transform:translateX(-50%);height:52px;opacity:.92;z-index:1;}.body{padding:0 28px 28px;}.name-block{text-align:center;margin-top:-6px;margin-bottom:6px;padding:0 4px;}.name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,8vw,2.5rem);font-weight:600;color:var(--text);letter-spacing:.08em;line-height:1.1;text-transform:uppercase;white-space:nowrap;}.title{font-size:.65rem;font-weight:500;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:6px;}.divider{display:flex;align-items:center;gap:10px;margin:18px 0;}.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3));}.divider::after{background:linear-gradient(90deg,rgba(201,168,76,.3),transparent);}.bio{font-size:.78rem;color:var(--text-muted);line-height:1.7;text-align:center;margin-bottom:20px;font-weight:300;}.contacts{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}.contact-item{display:flex;align-items:center;gap:14px;padding:11px 15px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.1);border-radius:10px;text-decoration:none;transition:all .25s ease;}.contact-item:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.3);transform:translateX(3px);}.contact-icon{width:34px;height:34px;border-radius:8px;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}.contact-icon svg{width:16px;height:16px;fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.contact-label{font-size:.58rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2px;}.contact-value{font-size:.82rem;color:var(--text);font-weight:400;}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}.btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 8px;border-radius:10px;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s ease;font-family:'Montserrat',sans-serif;}.btn-call{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0A0A0A;}.btn-call:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(201,168,76,.25);}.btn-wa{background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);color:var(--wa);}.btn-wa:hover{background:rgba(37,211,102,.2);border-color:rgba(37,211,102,.6);}.btn-site{background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--gold);}.btn-site:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.6);}.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}.btn-wa svg{stroke:var(--wa);}.save-btn-wrap{display:flex;justify-content:center;margin-bottom:16px;}.save-contact-btn{background:transparent;border:none;color:var(--text-muted);font-size:.65rem;font-family:'Montserrat',sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px;transition:color .2s;}.save-contact-btn:hover{color:var(--gold);}.qr-section{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px;background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.1);border-radius:14px;}.qr-label{font-size:.6rem;color:var(--text-muted);letter-spacing:.25em;text-transform:uppercase;}#qrcode canvas,#qrcode img{border-radius:8px;border:3px solid rgba(201,168,76,.15);padding:6px;background:#fff;}.footer{text-align:center;margin-top:16px;font-size:.6rem;color:rgba(154,145,133,.4);letter-spacing:.15em;}</style>
+<style>:root{--gold:#C9A84C;--gold-light:#E8C97A;--dark:#0A0A0A;--text:#F0EDE6;--text-muted:#9A9185;--wa:#25D366;}*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--dark);min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;padding:20px;}body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 0%,rgba(201,168,76,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 100%,rgba(201,168,76,.05) 0%,transparent 50%);pointer-events:none;}.card{width:100%;max-width:420px;background:linear-gradient(145deg,#161616 0%,#0E0E0E 50%,#141414 100%);border:1px solid rgba(201,168,76,.2);border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 60px rgba(201,168,76,.04);animation:cardIn .8s cubic-bezier(.16,1,.3,1) both;position:relative;}@keyframes cardIn{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:2;}.hero{position:relative;height:360px;overflow:hidden;}.hero-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;filter:brightness(.78) contrast(1.05);}.hero-overlay{position:absolute;inset:0;background:linear-gradient( to bottom,transparent 0%,transparent 40%,rgba(10,10,10,.55) 68%,rgba(10,10,10,1) 100% );}.hero-logo{position:absolute;top:16px;left:50%;transform:translateX(-50%);height:52px;opacity:.92;z-index:1;}.body{padding:0 28px 28px;}.name-block{text-align:center;margin-top:-6px;margin-bottom:6px;padding:0 4px;}.name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,8vw,2.5rem);font-weight:600;color:var(--text);letter-spacing:.08em;line-height:1.1;text-transform:uppercase;white-space:nowrap;}.title{font-size:.65rem;font-weight:500;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:6px;}.divider{display:flex;align-items:center;gap:10px;margin:18px 0;}.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3));}.divider::after{background:linear-gradient(90deg,rgba(201,168,76,.3),transparent);}.bio{font-size:.78rem;color:var(--text-muted);line-height:1.7;text-align:center;margin-bottom:20px;font-weight:300;}.contacts{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}.contact-item{display:flex;align-items:center;gap:14px;padding:11px 15px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.1);border-radius:10px;text-decoration:none;transition:all .25s ease;}.contact-item:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.3);transform:translateX(3px);}.contact-icon{width:34px;height:34px;border-radius:8px;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}.contact-icon svg{width:16px;height:16px;fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.contact-label{font-size:.58rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2px;}.contact-value{font-size:.82rem;color:var(--text);font-weight:400;}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}.btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 8px;border-radius:10px;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s ease;font-family:'Montserrat',sans-serif;}.btn-call{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0A0A0A;}.btn-call:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(201,168,76,.25);}.btn-wa{background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);color:var(--wa);}.btn-wa:hover{background:rgba(37,211,102,.2);border-color:rgba(37,211,102,.6);}.btn-site{background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--gold);}.btn-site:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.6);}.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}.btn-wa svg{stroke:var(--wa);}.save-btn-wrap{display:flex;justify-content:center;margin-bottom:16px;}.save-contact-btn{background:transparent;border:none;color:var(--text-muted);font-size:.65rem;font-family:'Montserrat',sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px;transition:color .2s;}.save-contact-btn:hover{color:var(--gold);}.qr-section{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px;background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.1);border-radius:14px;}.qr-label{font-size:.6rem;color:var(--text-muted);letter-spacing:.25em;text-transform:uppercase;}#qrcode canvas,#qrcode img{border-radius:8px;border:3px solid rgba(201,168,76,.15);padding:6px;background:#fff;}.footer{text-align:center;margin-top:16px;font-size:.6rem;color:rgba(154,145,133,.4);letter-spacing:.15em;}  [data-theme="light"] .logo-link svg text[fill="#F5F0E8"],[data-theme="light"] .drawer-header svg text[fill="#F5F0E8"]{fill:#1A1814!important}
+
+  /* Canonical hamburger + mobile drawer */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1300;position:relative;}
+  .hamburger span{display:block;width:26px;height:2px;background:#C9A84C;border-radius:2px;transition:all .35s cubic-bezier(.23,1,.32,1);transform-origin:center;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#C9A84C;}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#C9A84C;}
+  .mobile-menu{display:none;position:fixed;inset:0;z-index:1100;pointer-events:none;}
+  .mobile-menu.open{pointer-events:all;display:block;}
+  .mobile-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .4s;}
+  .mobile-menu.open .mobile-overlay{background:rgba(0,0,0,.7);}
+  .mobile-drawer{position:absolute;top:0;left:0;width:78%;max-width:320px;height:100%;background:#111;border-left:1px solid rgba(201,168,76,.15);transform:translateX(-100%);transition:transform .4s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;padding:0;overflow-y:auto;}
+  .mobile-menu.open .mobile-drawer{transform:translateX(0);}
+  .drawer-header{padding:28px 24px 24px;border-bottom:1px solid #222;}
+  .drawer-nav{list-style:none;padding:16px 0;flex:1;margin:0;}
+  .drawer-nav li a{display:flex;align-items:center;gap:14px;padding:16px 28px;color:#B0A89A;text-decoration:none;font-size:1rem;font-weight:400;letter-spacing:1px;transition:all .25s;border-right:3px solid transparent;}
+  .drawer-nav li a:hover,.drawer-nav li a.active{color:#C9A84C;border-right-color:#C9A84C;background:rgba(201,168,76,.05);padding-right:36px;}
+  .drawer-nav li a .nav-icon{font-size:1.1rem;width:24px;text-align:center;color:#C9A84C;flex-shrink:0;}
+  .drawer-cta{margin:16px 24px 32px;display:block;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#080808!important;text-align:center;padding:16px;font-weight:700;font-size:.9rem;letter-spacing:2px;text-decoration:none;text-transform:uppercase;border:none!important;transition:opacity .3s;}
+  .drawer-cta:hover{opacity:.88;}
+  .drawer-contact{padding:20px 24px;border-top:1px solid #222;display:flex;flex-direction:column;gap:12px;}
+  .drawer-contact a{color:#B0A89A;text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:color .3s;}
+  .drawer-contact a:hover{color:#C9A84C;}
+  @media(max-width:900px){.hamburger{display:flex;}}
+  [data-theme="light"] .mobile-drawer{background:#FFFFFF;border-color:rgba(168,132,44,.2)}
+  [data-theme="light"] .drawer-nav li a{color:#5A5248}
+  [data-theme="light"] .drawer-nav li a:hover{color:#A8842C;background:rgba(168,132,44,.07)}
+  [data-theme="light"] .drawer-header{border-bottom-color:#E5DCC8}
+  [data-theme="light"] .drawer-contact{border-top-color:#E5DCC8}
+  [data-theme="light"] .drawer-contact a{color:#5A5248}
+  [data-theme="light"] .hamburger span{background:#1A1814}
+  [data-theme="light"] .hamburger.open span:nth-child(1),[data-theme="light"] .hamburger.open span:nth-child(3){background:#A8842C}
+
+  /* Floating hamburger for card page */
+  body > .hamburger{display:flex!important;position:fixed;top:18px;right:18px;z-index:1400;background:rgba(10,10,10,.65);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:10px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+</style>
 </head>
 <body>
+
+<!-- Hamburger (floating) -->
+<button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-drawer">
+    <div class="drawer-header">
+      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
+        <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+        <text x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+        <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
+      </svg>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="/#services" class="drawer-link"><span class="nav-icon">›</span> שירותים</a></li>
+      <li><a href="/#why" class="drawer-link"><span class="nav-icon">›</span> למה אני</a></li>
+      <li><a href="/#process" class="drawer-link"><span class="nav-icon">›</span> תהליך</a></li>
+      <li><a href="/#testimonials" class="drawer-link"><span class="nav-icon">›</span> לקוחות</a></li>
+      <li><a href="/blog/" class="drawer-link"><span class="nav-icon">›</span> בלוג</a></li>
+      <li><a href="/calculator.html" class="drawer-link"><span class="nav-icon">›</span> מחשבון משכנתא</a></li>
+    </ul>
+    <a href="/#contact" class="drawer-cta drawer-link">ייעוץ ראשוני חינם</a>
+    <div class="drawer-contact">
+      <a href="tel:+972523434916">✆ 052-3434916</a>
+      <a href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
+      <a href="https://wa.me/972523434916" target="_blank">וואטסאפ</a>
+    </div>
+  </div>
+</div>
+
 <div class="card">
   <div class="hero">
     <img class="hero-photo" src="card-photo-1.jpg" alt="Liam Zur">
@@ -99,6 +170,17 @@
     a.href=url; a.download="LiamZur.vcf"; a.click();
     URL.revokeObjectURL(url);
   }
+</script>
+
+<script>
+(function(){
+  var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu'),mov=document.getElementById('mobileOverlay');
+  function openM(){if(hb)hb.classList.add('open');if(mm)mm.classList.add('open');document.body.style.overflow='hidden';}
+  function closeM(){if(hb)hb.classList.remove('open');if(mm)mm.classList.remove('open');document.body.style.overflow='';}
+  if(hb)hb.addEventListener('click',function(){mm&&mm.classList.contains('open')?closeM():openM();});
+  if(mov)mov.addEventListener('click',closeM);
+  document.querySelectorAll('.drawer-link').forEach(function(l){l.addEventListener('click',function(){closeM();});});
+})();
 </script>
 </body>
 </html>

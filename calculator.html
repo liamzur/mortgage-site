@@ -189,19 +189,12 @@
       margin-bottom: 28px;
     }
 
-    /* Compare display */
-    .compare-row { display:flex; align-items:center; gap:12px; padding:28px 24px; border-bottom:1px solid rgba(201,168,76,.15); margin-bottom:28px; }
-    .compare-col { flex:1; text-align:center; }
-    .compare-label { font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; font-weight:700; }
-    .compare-bank .compare-label { color:#e05959; }
-    .compare-adv  .compare-label { color:#4caf87; }
-    .compare-amount { font-size:clamp(1.8rem,5vw,2.8rem); font-weight:800; letter-spacing:-1px; line-height:1; margin-bottom:4px; }
-    .compare-bank .compare-amount { color:#e05959; }
-    .compare-adv  .compare-amount { color:#4caf87; }
-    .compare-amount span:first-child { font-size:1rem; font-weight:400; vertical-align:super; }
-    .compare-rate { font-size:.78rem; color:var(--white-dim); }
-    .compare-divider { font-size:.85rem; color:rgba(201,168,76,.5); font-weight:700; padding:0 4px; flex-shrink:0; }
-    .compare-saving { text-align:center; font-size:.9rem; color:#4caf87; font-weight:600; margin:0 0 28px; padding:10px 16px; background:rgba(76,175,135,.08); border:1px solid rgba(76,175,135,.2); border-radius:6px; }
+    /* Result display */
+    .result-main { text-align:center; padding:24px 0; border-bottom:1px solid var(--black-border); margin-bottom:24px; }
+    .result-label { font-size:.85rem; color:var(--white-dim); margin-bottom:8px; letter-spacing:.04em; }
+    .result-amount { display:inline-flex; align-items:baseline; gap:4px; font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,3.8rem); color:var(--gold); font-weight:600; line-height:1; }
+    .result-currency { font-size:.65em; color:var(--gold-light); }
+    .result-per { font-size:.8rem; color:var(--white-dim); margin-top:8px; }
 
     /* Stats row */
     .stats-row {
@@ -475,12 +468,10 @@
   [data-theme="light"] .calc-panel,[data-theme="light"] .calculator-box,[data-theme="light"] .calc-result{background:#FFFFFF;border-color:#D8CFBE;color:#1A1814}
   [data-theme="light"] .slider-val,[data-theme="light"] .calc-label{color:#A8842C}
   [data-theme="light"] input[type="range"]{background:#E5DCC8}
-  [data-theme="light"] .compare-row{border-color:rgba(168,132,44,.25)}
-  [data-theme="light"] .compare-rate{color:#5A5248}
-  [data-theme="light"] .compare-bank .compare-label,[data-theme="light"] .compare-bank .compare-amount{color:#C23838}
-  [data-theme="light"] .compare-adv .compare-label,[data-theme="light"] .compare-adv .compare-amount{color:#2D8A5F}
-  [data-theme="light"] .compare-saving{color:#2D8A5F;background:rgba(45,138,95,.08);border-color:rgba(45,138,95,.22)}
-  [data-theme="light"] .compare-divider{color:rgba(168,132,44,.5)}
+  [data-theme="light"] .result-main{border-bottom-color:#D8CFBE}
+  [data-theme="light"] .result-amount{color:#A8842C}
+  [data-theme="light"] .result-currency{color:#C9A84C}
+  [data-theme="light"] .result-label,[data-theme="light"] .result-per{color:#5A5248}
   [data-theme="light"] .contact-section,[data-theme="light"] .contact-grid,[data-theme="light"] .contact-item{color:#1A1814}
   [data-theme="light"] .contact-label{color:#5A5248}
   [data-theme="light"] #reviewModal,[data-theme="light"] .modal-content{background:#FFFFFF;color:#1A1814;border-color:#D8CFBE}
@@ -490,6 +481,7 @@
   [data-theme="light"] th{background:#F1ECE2;color:#1A1814}
   [data-theme="light"] td{border-color:#D8CFBE;color:#1A1814}
   [data-theme="light"] .wa-float,[data-theme="light"] .call-sticky{box-shadow:0 8px 24px rgba(168,132,44,.3)}
+  [data-theme="light"] .logo-link svg text[fill="#F5F0E8"],[data-theme="light"] .drawer-header svg text[fill="#F5F0E8"]{fill:#1A1814!important}
   /* Catch-all light mode overrides for hardcoded dark colors */
   [data-theme="light"] [style*="background:#080808"],[data-theme="light"] [style*="background:#0d0d0d"],[data-theme="light"] [style*="background:#111111"],[data-theme="light"] [style*="background:#151515"],[data-theme="light"] [style*="background:var(--black)"],[data-theme="light"] [style*="background:var(--black-soft)"],[data-theme="light"] [style*="background:var(--black-card)"]{background:#FFFFFF!important;border-color:#E5DCC8!important}
   [data-theme="light"] [style*="color:var(--white)"]{color:#1A1814!important}
@@ -567,20 +559,13 @@
 
   <!-- Result Card -->
   <div class="calc-card">
-    <div class="compare-row">
-      <div class="compare-col compare-bank">
-        <p class="compare-label">בלי יועץ משכנתאות</p>
-        <div class="compare-amount"><span>₪</span><span id="monthlyBank">0</span></div>
-        <p class="compare-rate">ריבית 4.9%</p>
+    <div class="result-main">
+      <p class="result-label">החזר חודשי משוער</p>
+      <div class="result-amount">
+        <span class="result-currency">₪</span><span id="monthlyPayment">5,726</span>
       </div>
-      <div class="compare-divider">VS</div>
-      <div class="compare-col compare-adv">
-        <p class="compare-label">עם יועץ משכנתאות</p>
-        <div class="compare-amount"><span>₪</span><span id="monthlyAdv">0</span></div>
-        <p class="compare-rate">ריבית 4.6%</p>
-      </div>
+      <p class="result-per">לחודש · ריבית קבועה 4.7%</p>
     </div>
-    <p class="compare-saving" id="compareSaving">חיסכון: ₪0 לחודש</p>
 
     <div class="stats-row">
       <div class="stat-box">
@@ -673,15 +658,12 @@
   var yearsSlider  = document.getElementById('yearsSlider');
   var loanDisplay  = document.getElementById('loanDisplay');
   var yearsDisplay = document.getElementById('yearsDisplay');
-  var bankEl       = document.getElementById('monthlyBank');
-  var advEl        = document.getElementById('monthlyAdv');
-  var savingEl     = document.getElementById('compareSaving');
+  var monthlyEl    = document.getElementById('monthlyPayment');
   var totalEl      = document.getElementById('totalPayment');
   var interestEl   = document.getElementById('totalInterest');
   var percentEl    = document.getElementById('interestPercent');
 
-  var BANK_RATE    = 4.9;  // בלי יועץ
-  var ADVISOR_RATE = 4.6;  // עם יועץ
+  var ANNUAL_RATE  = 4.7;
 
   function shpitzer(P, annualRate, n) {
     var r = annualRate / 100 / 12;
@@ -696,9 +678,7 @@
     var years = parseFloat(yearsSlider.value);
     var n     = years * 12;
 
-    var mBank = shpitzer(P, BANK_RATE,    n);
-    var mAdv  = shpitzer(P, ADVISOR_RATE, n);
-    var saving = Math.round(mBank - mAdv);
+    var monthly = shpitzer(P, ANNUAL_RATE, n);
 
     // Format loan display
     var loanStr = P >= 1000000
@@ -707,13 +687,11 @@
     loanDisplay.textContent  = loanStr;
     yearsDisplay.textContent = years + ' שנים';
 
-    // Compare display
-    if (bankEl)   bankEl.textContent   = Math.round(mBank).toLocaleString('he-IL');
-    if (advEl)    advEl.textContent    = Math.round(mAdv).toLocaleString('he-IL');
-    if (savingEl) savingEl.textContent = 'חיסכון: ₪' + saving.toLocaleString('he-IL') + ' לחודש';
+    // Main monthly display
+    if (monthlyEl) monthlyEl.textContent = Math.round(monthly).toLocaleString('he-IL');
 
-    // Stats row — based on BANK_RATE
-    var total    = mBank * n;
+    // Stats row
+    var total    = monthly * n;
     var interest = total - P;
     var pct      = Math.round((interest / total) * 100);
     if (totalEl)    totalEl.textContent    = formatILS(total);
@@ -723,8 +701,9 @@
     // Update WhatsApp pre-filled message
     var waBtn = document.getElementById('waBtn');
     if (waBtn) {
-      var mBankR = Math.round(mBank), mAdvR = Math.round(mAdv);
-      var msg = 'היי ליאם, חישבתי משכנתא של ₪' + Math.round(P).toLocaleString('he-IL') + ' ל-' + years + ' שנים. בלי יועץ: ₪' + mBankR.toLocaleString('he-IL') + '/חודש, עם יועץ: ₪' + mAdvR.toLocaleString('he-IL') + '/חודש (חיסכון ₪' + saving.toLocaleString('he-IL') + ' לחודש!). אשמח לדבר';
+      var loanFormatted    = Math.round(P).toLocaleString('he-IL');
+      var monthlyFormatted = Math.round(monthly).toLocaleString('he-IL');
+      var msg = 'היי ליאם, חישבתי משכנתא של ₪' + loanFormatted + ' ל-' + years + ' שנים — ההחזר החודשי יצא ₪' + monthlyFormatted + '. אשמח לייעוץ!';
       waBtn.href = 'https://wa.me/972523434916?text=' + encodeURIComponent(msg);
     }
 

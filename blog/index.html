@@ -273,6 +273,7 @@
   [data-theme="light"] th{background:#F1ECE2;color:#1A1814}
   [data-theme="light"] td{border-color:#D8CFBE;color:#1A1814}
   [data-theme="light"] .wa-float,[data-theme="light"] .call-sticky{box-shadow:0 8px 24px rgba(168,132,44,.3)}
+  [data-theme="light"] .logo-link svg text[fill="#F5F0E8"],[data-theme="light"] .drawer-header svg text[fill="#F5F0E8"]{fill:#1A1814!important}
   /* Catch-all light mode overrides for hardcoded dark colors */
   [data-theme="light"] [style*="background:#080808"],[data-theme="light"] [style*="background:#0d0d0d"],[data-theme="light"] [style*="background:#111111"],[data-theme="light"] [style*="background:#151515"],[data-theme="light"] [style*="background:var(--black)"],[data-theme="light"] [style*="background:var(--black-soft)"],[data-theme="light"] [style*="background:var(--black-card)"]{background:#FFFFFF!important;border-color:#E5DCC8!important}
   [data-theme="light"] [style*="color:var(--white)"]{color:#1A1814!important}
@@ -282,7 +283,39 @@
   [data-theme="light"] #cookieBanner p,[data-theme="light"] #cookieBanner span,[data-theme="light"] #cookieBanner a{color:#1A1814!important}
   [data-theme="light"] .hero-bg{background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(168,132,44,0.08) 0%,transparent 60%),linear-gradient(135deg,#FAF7F2 0%,#F5EFE0 50%,#FAF7F2 100%)!important}
 
-  </style>
+  
+  /* Canonical hamburger + mobile drawer */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1300;position:relative;}
+  .hamburger span{display:block;width:26px;height:2px;background:#C9A84C;border-radius:2px;transition:all .35s cubic-bezier(.23,1,.32,1);transform-origin:center;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#C9A84C;}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#C9A84C;}
+  .mobile-menu{display:none;position:fixed;inset:0;z-index:1100;pointer-events:none;}
+  .mobile-menu.open{pointer-events:all;display:block;}
+  .mobile-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .4s;}
+  .mobile-menu.open .mobile-overlay{background:rgba(0,0,0,.7);}
+  .mobile-drawer{position:absolute;top:0;left:0;width:78%;max-width:320px;height:100%;background:#111;border-left:1px solid rgba(201,168,76,.15);transform:translateX(-100%);transition:transform .4s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;padding:0;overflow-y:auto;}
+  .mobile-menu.open .mobile-drawer{transform:translateX(0);}
+  .drawer-header{padding:28px 24px 24px;border-bottom:1px solid #222;}
+  .drawer-nav{list-style:none;padding:16px 0;flex:1;margin:0;}
+  .drawer-nav li a{display:flex;align-items:center;gap:14px;padding:16px 28px;color:#B0A89A;text-decoration:none;font-size:1rem;font-weight:400;letter-spacing:1px;transition:all .25s;border-right:3px solid transparent;}
+  .drawer-nav li a:hover,.drawer-nav li a.active{color:#C9A84C;border-right-color:#C9A84C;background:rgba(201,168,76,.05);padding-right:36px;}
+  .drawer-nav li a .nav-icon{font-size:1.1rem;width:24px;text-align:center;color:#C9A84C;flex-shrink:0;}
+  .drawer-cta{margin:16px 24px 32px;display:block;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#080808!important;text-align:center;padding:16px;font-weight:700;font-size:.9rem;letter-spacing:2px;text-decoration:none;text-transform:uppercase;border:none!important;transition:opacity .3s;}
+  .drawer-cta:hover{opacity:.88;}
+  .drawer-contact{padding:20px 24px;border-top:1px solid #222;display:flex;flex-direction:column;gap:12px;}
+  .drawer-contact a{color:#B0A89A;text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:color .3s;}
+  .drawer-contact a:hover{color:#C9A84C;}
+  @media(max-width:900px){.hamburger{display:flex;}}
+  [data-theme="light"] .mobile-drawer{background:#FFFFFF;border-color:rgba(168,132,44,.2)}
+  [data-theme="light"] .drawer-nav li a{color:#5A5248}
+  [data-theme="light"] .drawer-nav li a:hover{color:#A8842C;background:rgba(168,132,44,.07)}
+  [data-theme="light"] .drawer-header{border-bottom-color:#E5DCC8}
+  [data-theme="light"] .drawer-contact{border-top-color:#E5DCC8}
+  [data-theme="light"] .drawer-contact a{color:#5A5248}
+  [data-theme="light"] .hamburger span{background:#1A1814}
+  [data-theme="light"] .hamburger.open span:nth-child(1),[data-theme="light"] .hamburger.open span:nth-child(3){background:#A8842C}
+</style>
 </head>
 <body>
 
@@ -310,6 +343,38 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-drawer">
+    <div class="drawer-header">
+      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
+        <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+        <text x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+        <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
+      </svg>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="/#services" class="drawer-link"><span class="nav-icon">›</span> שירותים</a></li>
+      <li><a href="/#why" class="drawer-link"><span class="nav-icon">›</span> למה אני</a></li>
+      <li><a href="/#process" class="drawer-link"><span class="nav-icon">›</span> תהליך</a></li>
+      <li><a href="/#testimonials" class="drawer-link"><span class="nav-icon">›</span> לקוחות</a></li>
+      <li><a href="/blog/" class="drawer-link"><span class="nav-icon">›</span> בלוג</a></li>
+      <li><a href="/calculator.html" class="drawer-link"><span class="nav-icon">›</span> מחשבון משכנתא</a></li>
+    </ul>
+    <a href="/#contact" class="drawer-cta drawer-link">ייעוץ ראשוני חינם</a>
+    <div class="drawer-contact">
+      <a href="tel:+972523434916">✆ 052-3434916</a>
+      <a href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
+      <a href="https://wa.me/972523434916" target="_blank">וואטסאפ</a>
+    </div>
+  </div>
+</div>
+
 
 <div class="mobile-nav" id="mobileNav">
   <a href="/#services">שירותים</a>
@@ -479,6 +544,17 @@ function declineCookies(){localStorage.setItem('cookieConsent','declined');docum
     localStorage.setItem('lz-theme',next);
     if(icon)icon.textContent=next==='dark'?'🌙':'☀️';
   });}
+})();
+</script>
+
+<script>
+(function(){
+  var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu'),mov=document.getElementById('mobileOverlay');
+  function openM(){if(hb)hb.classList.add('open');if(mm)mm.classList.add('open');document.body.style.overflow='hidden';}
+  function closeM(){if(hb)hb.classList.remove('open');if(mm)mm.classList.remove('open');document.body.style.overflow='';}
+  if(hb)hb.addEventListener('click',function(){mm&&mm.classList.contains('open')?closeM():openM();});
+  if(mov)mov.addEventListener('click',closeM);
+  document.querySelectorAll('.drawer-link').forEach(function(l){l.addEventListener('click',function(){closeM();});});
 })();
 </script>
 </body>
