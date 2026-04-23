@@ -481,6 +481,15 @@
   [data-theme="light"] th{background:#F1ECE2;color:#1A1814}
   [data-theme="light"] td{border-color:#D8CFBE;color:#1A1814}
   [data-theme="light"] .wa-float,[data-theme="light"] .call-sticky{box-shadow:0 8px 24px rgba(168,132,44,.3)}
+  /* Catch-all light mode overrides for hardcoded dark colors */
+  [data-theme="light"] [style*="background:#080808"],[data-theme="light"] [style*="background:#0d0d0d"],[data-theme="light"] [style*="background:#111111"],[data-theme="light"] [style*="background:#151515"],[data-theme="light"] [style*="background:var(--black)"],[data-theme="light"] [style*="background:var(--black-soft)"],[data-theme="light"] [style*="background:var(--black-card)"]{background:#FFFFFF!important;border-color:#E5DCC8!important}
+  [data-theme="light"] [style*="color:var(--white)"]{color:#1A1814!important}
+  [data-theme="light"] [style*="color:#F5F0E8"]{color:#1A1814!important}
+  [data-theme="light"] [style*="color:#B0A89A"],[data-theme="light"] [style*="color:var(--white-dim)"]{color:#5A5248!important}
+  [data-theme="light"] #cookieBanner{background:rgba(250,247,242,.97)!important;border-top-color:rgba(168,132,44,.4)!important;color:#1A1814}
+  [data-theme="light"] #cookieBanner p,[data-theme="light"] #cookieBanner span,[data-theme="light"] #cookieBanner a{color:#1A1814!important}
+  [data-theme="light"] .hero-bg{background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(168,132,44,0.08) 0%,transparent 60%),linear-gradient(135deg,#FAF7F2 0%,#F5EFE0 50%,#FAF7F2 100%)!important}
+
   </style>
 </head>
 <body>

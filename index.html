@@ -1496,6 +1496,27 @@ function svcGo(n){
   [data-theme="light"] th{background:#F1ECE2;color:#1A1814}
   [data-theme="light"] td{border-color:#D8CFBE;color:#1A1814}
   [data-theme="light"] .wa-float,[data-theme="light"] .call-sticky{box-shadow:0 8px 24px rgba(168,132,44,.3)}
+  /* Hero background override (removes dark gradient) */
+  [data-theme="light"] .hero-bg{background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(168,132,44,0.08) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(168,132,44,0.04) 0%,transparent 50%),linear-gradient(135deg,#FAF7F2 0%,#F5EFE0 50%,#FAF7F2 100%)!important}
+  [data-theme="light"] .hero-lines::before,[data-theme="light"] .hero-lines::after{background:linear-gradient(to bottom,transparent,#A8842C,transparent);opacity:.35}
+  /* Cookie banner */
+  [data-theme="light"] #cookieBanner{background:rgba(250,247,242,.97)!important;border-top-color:rgba(168,132,44,.4)!important;color:#1A1814}
+  [data-theme="light"] #cookieBanner p,[data-theme="light"] #cookieBanner span,[data-theme="light"] #cookieBanner a{color:#1A1814!important}
+  /* Review modal inner blocks (hardcoded #111/#151 blocks) */
+  [data-theme="light"] #reviewModal [style*="background:#111111"],[data-theme="light"] #reviewModal [style*="background:#151515"],[data-theme="light"] #reviewModal [style*="background:#0d0d0d"]{background:#FFFFFF!important;border-color:#D8CFBE!important;color:#1A1814!important}
+  [data-theme="light"] #reviewModal input,[data-theme="light"] #reviewModal textarea,[data-theme="light"] #reviewModal select{background:#FFFFFF!important;color:#1A1814!important;border-color:#D8CFBE!important}
+  [data-theme="light"] #reviewModal [style*="color:#B0A89A"],[data-theme="light"] #reviewModal [style*="color:var(--white-dim)"]{color:#5A5248!important}
+  /* Blog articles section (hero card list uses var(--black)) */
+  [data-theme="light"] #blog-articles{background:#FAF7F2!important}
+  [data-theme="light"] #blog-articles a[style*="background:var(--black-card)"]{background:#FFFFFF!important;border-color:#E5DCC8!important}
+  [data-theme="light"] #blog-articles a h3{color:#1A1814!important}
+  [data-theme="light"] #blog-articles a p{color:#5A5248!important}
+  /* Contact links that use var(--white) inline */
+  [data-theme="light"] .contact-detail p,[data-theme="light"] .contact-detail a{color:#1A1814!important}
+  /* Generic catch-all: any inline hardcoded dark background */
+  [data-theme="light"] [style*="background:#080808"],[data-theme="light"] [style*="background:#0d0d0d"],[data-theme="light"] [style*="background:#111111"],[data-theme="light"] [style*="background:#151515"],[data-theme="light"] [style*="background:var(--black)"],[data-theme="light"] [style*="background:var(--black-soft)"],[data-theme="light"] [style*="background:var(--black-card)"]{background:#FFFFFF!important;border-color:#E5DCC8!important}
+  [data-theme="light"] [style*="color:var(--white)"]{color:#1A1814!important}
+  [data-theme="light"] [style*="color:#F5F0E8"]{color:#1A1814!important}
 </style>
 
 <!-- CONTACT -->
@@ -2151,11 +2172,13 @@ function svcGo(n){
     window.addEventListener('scroll', function() {
       if (!nav) return;
       if (window.scrollY > 80) {
-        nav.style.background        = 'rgba(8,8,8,0.98)';
-        nav.style.borderBottomColor = 'rgba(201,168,76,0.2)';
+        var isLight = document.documentElement.getAttribute('data-theme')==='light';
+        nav.style.background        = isLight ? 'rgba(250,247,242,0.98)' : 'rgba(8,8,8,0.98)';
+        nav.style.borderBottomColor = isLight ? 'rgba(168,132,44,0.25)' : 'rgba(201,168,76,0.2)';
       } else {
-        nav.style.background        = 'linear-gradient(to bottom,rgba(8,8,8,0.98),transparent)';
-        nav.style.borderBottomColor = 'rgba(201,168,76,0.1)';
+        var isLight = document.documentElement.getAttribute('data-theme')==='light';
+        nav.style.background        = isLight ? 'linear-gradient(to bottom,rgba(250,247,242,0.96),transparent)' : 'linear-gradient(to bottom,rgba(8,8,8,0.98),transparent)';
+        nav.style.borderBottomColor = isLight ? 'rgba(168,132,44,0.2)' : 'rgba(201,168,76,0.1)';
       }
     });
 
