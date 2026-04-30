@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "mortgage-site",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4444", "--directory", "/Users/liamzur/Desktop/mortgage-site"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "4444", "/Users/liamzur/Desktop/mortgage-site"],
       "port": 4444
     }
   ]

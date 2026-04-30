@@ -216,7 +216,8 @@
       color: var(--white);
       margin-bottom: 4px;
     }
-    .stat-value.danger { color: #e05959; }
+    .stat-value.danger { color: #FF7070; }
+    [data-theme="light"] .stat-value.danger { color: #C23838; }
     .stat-label {
       font-size: 0.74rem;
       color: var(--white-dim);
@@ -499,8 +500,8 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">
-    <svg width="90" height="36" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <a href="/" class="nav-logo" aria-label="דף הבית — ליאם צור, יועץ משכנתאות">
+    <svg width="90" height="36" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
@@ -571,7 +572,7 @@
 
   <!-- Result Card -->
   <div class="calc-card">
-    <div class="result-main">
+    <div class="result-main" role="region" aria-live="polite" aria-label="תוצאות חישוב המשכנתא">
       <p class="result-label">החזר חודשי משוער</p>
       <div class="result-amount">
         <span class="result-currency">₪</span><span id="monthlyPayment">5,726</span>
@@ -597,12 +598,12 @@
     <!-- Inputs -->
     <div class="inputs-section">
       <div class="input-group">
-        <label>
+        <label for="loanSlider">
           סכום הלוואה
           <span class="val-display" id="loanDisplay">₪800,000</span>
         </label>
         <div class="slider-wrap">
-          <input type="range" id="loanSlider" min="100000" max="5000000" step="50000" value="800000">
+          <input type="range" id="loanSlider" aria-label="סכום ההלוואה" aria-valuemin="100000" aria-valuemax="5000000" aria-valuenow="800000" min="100000" max="5000000" step="50000" value="800000">
           <div class="slider-marks">
             <span>₪100K</span>
             <span>₪1M</span>
@@ -614,12 +615,12 @@
       </div>
 
       <div class="input-group">
-        <label>
+        <label for="yearsSlider">
           תקופת ההלוואה
           <span class="val-display" id="yearsDisplay">15 שנים</span>
         </label>
         <div class="slider-wrap">
-          <input type="range" id="yearsSlider" min="5" max="30" step="1" value="15">
+          <input type="range" id="yearsSlider" aria-label="תקופת ההלוואה בשנים" aria-valuemin="5" aria-valuemax="30" aria-valuenow="15" min="5" max="30" step="1" value="15">
           <div class="slider-marks">
             <span>5</span>
             <span>10</span>
@@ -698,6 +699,10 @@
       : '₪' + (P / 1000).toFixed(0) + 'K';
     loanDisplay.textContent  = loanStr;
     yearsDisplay.textContent = years + ' שנים';
+
+    // Update aria-valuenow for screen readers
+    loanSlider.setAttribute('aria-valuenow', P);
+    yearsSlider.setAttribute('aria-valuenow', years);
 
     // Main monthly display
     if (monthlyEl) monthlyEl.textContent = Math.round(monthly).toLocaleString('he-IL');

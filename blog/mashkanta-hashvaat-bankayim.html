@@ -326,8 +326,8 @@
 <body>
 
 <nav id="navbar">
-  <a href="/" class="logo-link">
-    <svg width="148" height="58" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ליאם צור - יועץ משכנתאות">
+  <a href="/" class="logo-link" aria-label="דף הבית — ליאם צור, יועץ משכנתאות">
+    <svg width="148" height="58" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ליאם צור - יועץ משכנתאות" aria-hidden="true">
       <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
@@ -354,7 +354,7 @@
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-drawer">
     <div class="drawer-header">
-      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
         <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
         <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
@@ -509,8 +509,8 @@
 </main>
 
 <footer>
-  <a href="/" class="logo-link">
-    <svg width="130" height="51" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <a href="/" class="logo-link" aria-label="דף הבית — ליאם צור, יועץ משכנתאות">
+    <svg width="130" height="51" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
       <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
@@ -538,14 +538,14 @@
 </script>
 
 <!-- Cookie Banner -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,8,8,0.97);border-top:1px solid rgba(201,168,76,0.35);padding:18px 48px;align-items:center;justify-content:space-between;gap:24px;backdrop-filter:blur(16px);">
+<div id="cookieBanner" role="alert" aria-label="הודעת עוגיות" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,8,8,0.97);border-top:1px solid rgba(201,168,76,0.35);padding:18px 48px;align-items:center;justify-content:space-between;gap:24px;backdrop-filter:blur(16px);">
   <p style="margin:0;color:#B0A89A;font-size:0.82rem;line-height:1.6;flex:1;">
     אנו משתמשים ב<span style="color:#C9A84C;">עוגיות (Cookies)</span> לשיפור חוויית הגלישה, ניתוח תנועה באתר ושיפור השירות.
     בהמשך הגלישה אתה מסכים למדיניות העוגיות שלנו.
   </p>
   <div style="display:flex;gap:12px;flex-shrink:0;">
-    <button onclick="declineCookies()" style="background:transparent;color:#B0A89A;border:1px solid rgba(176,168,154,0.3);padding:9px 22px;font-size:0.8rem;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(176,168,154,0.6)'" onmouseout="this.style.borderColor='rgba(176,168,154,0.3)'">דחייה</button>
-    <button onclick="acceptCookies()" style="background:#C9A84C;color:#080808;border:none;padding:9px 28px;font-size:0.82rem;font-weight:700;letter-spacing:1px;cursor:pointer;font-family:inherit;transition:background 0.2s;" onmouseover="this.style.background='#E8C97A'" onmouseout="this.style.background='#C9A84C'">אישור</button>
+    <button onclick="declineCookies()" aria-label="דחיית קבלת עוגיות" style="background:transparent;color:#B0A89A;border:1px solid rgba(176,168,154,0.3);padding:9px 22px;font-size:0.8rem;cursor:pointer;font-family:inherit;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(176,168,154,0.6)'" onmouseout="this.style.borderColor='rgba(176,168,154,0.3)'">דחייה</button>
+    <button onclick="acceptCookies()" aria-label="אישור קבלת עוגיות" style="background:#C9A84C;color:#080808;border:none;padding:9px 28px;font-size:0.82rem;font-weight:700;letter-spacing:1px;cursor:pointer;font-family:inherit;transition:background 0.2s;" onmouseover="this.style.background='#E8C97A'" onmouseout="this.style.background='#C9A84C'">אישור</button>
   </div>
 </div>
 <script>
