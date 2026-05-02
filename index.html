@@ -54,7 +54,7 @@ function svcGo(n){
 <title>ליאם צור | יועץ משכנתאות מורשה | ייעוץ משכנתאות מקצועי בישראל</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
 
   :root {
@@ -285,7 +285,7 @@ function svcGo(n){
     color: #C9A84C;
     font-family: 'Heebo', sans-serif;
     font-size: 0.82rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1.5px;
     text-align: center;
     cursor: pointer;
@@ -1214,7 +1214,7 @@ function svcGo(n){
       background:transparent;
       border:1px solid rgba(201,168,76,0.5);
       color:var(--gold);
-      font-family:'Assistant',sans-serif;
+      font-family:'Heebo',sans-serif;
       font-size:0.78rem;
       letter-spacing:2px;
       padding:9px 18px;
@@ -1534,7 +1534,7 @@ function svcGo(n){
           <div class="contact-icon">✆</div>
           <div>
             <h4>טלפון</h4>
-            <p><a href="tel:+972523434916" style="color:var(--white);text-decoration:none;font-size:1.1rem;font-weight:500;letter-spacing:1px;transition:color 0.3s;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--white)'">052-3434916 <span style="font-size:0.75rem;color:var(--gold);border:1px solid rgba(201,168,76,0.4);padding:2px 8px;letter-spacing:2px;">לחץ לחיוג</span></a></p>
+            <p><a href="tel:+972523434916" style="color:var(--white);text-decoration:none;font-size:1.1rem;font-weight:600;letter-spacing:1px;transition:color 0.3s;display:inline-flex;align-items:center;gap:8px;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--white)'">052-3434916 <span style="font-size:0.75rem;color:var(--gold);border:1px solid rgba(201,168,76,0.4);padding:2px 8px;letter-spacing:2px;">לחץ לחיוג</span></a></p>
           </div>
         </div>
         <div class="contact-detail">
@@ -2137,14 +2137,26 @@ function svcGo(n){
   /* ── 5. DOM READY ───────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function() {
 
-    // News
-    setTimeout(window.loadNews, 400);
+    // News — defer until browser is idle to avoid blocking main thread
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(window.loadNews, { timeout: 2500 });
+    } else {
+      setTimeout(window.loadNews, 1000);
+    }
 
     // Contact form
     initContactForm();
 
-    // Load reviews from Supabase
-    loadReviews();
+    // Load reviews lazily — only when testimonials section scrolls into view
+    var testimonialSection = document.getElementById('testimonials');
+    if (testimonialSection && 'IntersectionObserver' in window) {
+      var reviewsObs = new IntersectionObserver(function(entries, obs) {
+        if (entries[0].isIntersecting) { loadReviews(); obs.disconnect(); }
+      }, { rootMargin: '300px' });
+      reviewsObs.observe(testimonialSection);
+    } else {
+      setTimeout(loadReviews, 1500);
+    }
 
     // Review modal overlay click
     var ov = document.getElementById('reviewModalOverlay');
@@ -2164,9 +2176,6 @@ function svcGo(n){
     } else {
       revEls.forEach(function(el) { el.classList.add('visible'); });
     }
-    setTimeout(function() {
-      revEls.forEach(function(el) { el.classList.add('visible'); });
-    }, 800);
 
     // Nav scroll
     var nav = document.getElementById('navbar');
