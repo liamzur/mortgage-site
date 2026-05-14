@@ -262,6 +262,15 @@
   [data-theme="light"] [style*="color:#6ab86a"]{color:#2D8A5F!important}
   [data-theme="light"] [style*="color:#c94444"]{color:#A82828!important}
 
+      .related-posts{margin:72px 0 0;padding-top:48px;border-top:1px solid var(--black-border);}
+    .related-posts-title{font-family:'Heebo',Georgia,serif;font-size:1.5rem;color:var(--gold);margin-bottom:28px;text-align:center;letter-spacing:1px;font-weight:700;}
+    .related-posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .related-post-card{display:flex;flex-direction:column;background:var(--black-card);border:1px solid var(--black-border);padding:24px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
+    .related-post-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+    .related-post-card h3{font-family:'Heebo',Georgia,serif;font-size:1.05rem;color:var(--white);margin:0 0 12px;line-height:1.45;font-weight:700;}
+    .related-post-card p{color:var(--white-dim);font-size:0.85rem;line-height:1.65;margin:0 0 16px;flex:1;}
+    .related-post-card .read-more{color:var(--gold);font-size:0.82rem;font-weight:700;letter-spacing:0.5px;}
+    @media(max-width:900px){.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}}
   </style>
   <script type="application/ld+json">
   {
@@ -510,6 +519,27 @@
       </a>
     </div>
   </div>
+
+    <aside class="related-posts" aria-labelledby="related-posts-title">
+    <h2 id="related-posts-title" class="related-posts-title">📚 מאמרים קשורים</h2>
+    <div class="related-posts-grid">
+      <a href="/blog/mashkanta-achuz-mimun.html" class="related-post-card">
+        <h3>אחוז מימון — למה 75% משנה הכל</h3>
+        <p>מה זה אחוז מימון, למה הבנק מגביל ל-75% בדירה ראשונה, ומה זה אומר עליך.</p>
+        <span class="read-more">קרא עוד ←</span>
+      </a>
+      <a href="/blog/yoetz-mashkanta.html" class="related-post-card">
+        <h3>מה זה יועץ משכנתאות ולמה זה חשוב</h3>
+        <p>איך יועץ חוסך לכם עשרות אלפי שקלים, מה ההבדל מהבנק, וכמה זה עולה.</p>
+        <span class="read-more">קרא עוד ←</span>
+      </a>
+      <a href="/blog/tipim-hokhmat-mashkanta.html" class="related-post-card">
+        <h3>10 טיפים לחיסכון במשכנתא — המדריך המעשי</h3>
+        <p>10 טיפים מעשיים לחיסכון עשרות אלפי שקלים על המשכנתא שלכם.</p>
+        <span class="read-more">קרא עוד ←</span>
+      </a>
+    </div>
+  </aside>
 
   <div class="cta-section">
     <h2>בואו נבנה תכנית משכנתא מותאמת לזוג שלכם</h2>
