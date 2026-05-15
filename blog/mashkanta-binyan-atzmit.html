@@ -74,7 +74,6 @@
     .cta-box{background:linear-gradient(135deg,#1a1500,#0f0f0f);border:1px solid var(--gold);border-radius:16px;padding:40px;text-align:center;margin:48px 0}
     .cta-box h3{font-size:1.5rem;font-weight:700;margin-bottom:12px}
     .cta-box p{color:var(--text-muted);margin-bottom:24px}
-    .cta-btn{display:inline-block;background:var(--gold);color:#000;padding:14px 36px;border-radius:8px;font-weight:700;font-size:1rem}
     .warning-box{background:rgba(200,50,50,0.08);border-right:4px solid #c83232;padding:20px 24px;border-radius:0 8px 8px 0;margin:28px 0}
     .warning-box p{margin:0;color:var(--text-light)}
     footer{background:#050505;border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-muted);font-size:0.85rem}
@@ -201,11 +200,6 @@
 
   
   /* ── BLOG LIGHT-MODE FIX (universal) ── */
-  [data-theme="light"] .cta-btn,
-  [data-theme="light"] .cta-btn:hover{color:#080808!important}
-  [data-theme="light"] .cta-btn{background:#A8842C!important}
-  [data-theme="light"] .cta-btn:hover{background:#8B6914!important}
-  [data-theme="light"] .rule-box{color:#2B2720;background:rgba(168,132,44,.08)!important}
   [data-theme="light"] .rule-box strong{color:#8B6914}
   [data-theme="light"] .tip-box,
   [data-theme="light"] .tip-box p{color:#2B2720}
@@ -268,6 +262,11 @@
     .related-post-card p{color:var(--white-dim);font-size:0.85rem;line-height:1.65;margin:0 0 16px;flex:1;}
     .related-post-card .read-more{color:var(--gold);font-size:0.82rem;font-weight:700;letter-spacing:0.5px;}
     @media(max-width:900px){.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}}
+  
+    .cta-btn{display:inline-block;background:#C9A84C !important;color:#1A0F00 !important;padding:16px 44px;text-decoration:none !important;font-weight:800 !important;font-size:1rem;letter-spacing:1px;transition:background 0.2s,transform 0.2s;border:none;}
+    .cta-btn:hover{background:#E8C97A !important;color:#1A0F00 !important;transform:translateY(-2px);text-decoration:none !important;}
+    [data-theme="light"] .cta-btn{background:#8B6914 !important;color:#FFFFFF !important;}
+    [data-theme="light"] .cta-btn:hover{background:#6B4F0C !important;color:#FFFFFF !important;}
   </style>
   <script type="application/ld+json">
   {

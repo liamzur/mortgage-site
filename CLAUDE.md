@@ -77,7 +77,33 @@ mortgage-site/
 2. הוסף ל-`blog/index.html` (בתחילת הרשימה, אחרי הפוסט "נבחר")
 3. הוסף ל-`sitemap.xml`
 4. הוסף כרטיס ל-`index.html` בסקשן "מאמרים מהבלוג"
-5. עשה `git add -A && git commit && git push`
+5. **חובה לכלול סקשן "מאמרים קשורים"** עם 3 לינקים פנימיים (ראה תבנית למטה)
+6. **חובה לעבור בדיקת CTA** — להריץ `python3 /tmp/validate_blog.py blog/[slug].html` לפני העלאה
+7. רק אחרי שעבר ולידציה: `git add -A && git commit && git push`
+
+### ⚠️ דרישות עיצוב חובה לכל פוסט בלוג (אסור לסטות מהן):
+
+**CSS של כפתור CTA — חובה להעתיק כמו שהוא:**
+```css
+.cta-btn{display:inline-block;background:#C9A84C !important;color:#1A0F00 !important;padding:16px 44px;text-decoration:none !important;font-weight:800 !important;font-size:1rem;letter-spacing:1px;transition:background 0.2s,transform 0.2s;border:none;}
+.cta-btn:hover{background:#E8C97A !important;color:#1A0F00 !important;transform:translateY(-2px);text-decoration:none !important;}
+[data-theme="light"] .cta-btn{background:#8B6914 !important;color:#FFFFFF !important;}
+[data-theme="light"] .cta-btn:hover{background:#6B4F0C !important;color:#FFFFFF !important;}
+```
+🛑 **אסור להשתמש ב-`var(--gold)` או `var(--black)` ב-`.cta-btn`** — המשתנים מוחלפים ב-light mode והכפתור הופך לבלתי קריא. תמיד צבעים מוחלטים עם `!important`.
+
+**CSS של מאמרים קשורים — חובה להעתיק:**
+```css
+.related-posts{margin:72px 0 0;padding-top:48px;border-top:1px solid var(--black-border);}
+.related-posts-title{font-family:'Heebo',Georgia,serif;font-size:1.5rem;color:var(--gold);margin-bottom:28px;text-align:center;letter-spacing:1px;font-weight:700;}
+.related-posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.related-post-card{display:flex;flex-direction:column;background:var(--black-card);border:1px solid var(--black-border);padding:24px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
+.related-post-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.related-post-card h3{font-family:'Heebo',Georgia,serif;font-size:1.05rem;color:var(--white);margin:0 0 12px;line-height:1.45;font-weight:700;}
+.related-post-card p{color:var(--white-dim);font-size:0.85rem;line-height:1.65;margin:0 0 16px;flex:1;}
+.related-post-card .read-more{color:var(--gold);font-size:0.82rem;font-weight:700;letter-spacing:0.5px;}
+@media(max-width:900px){.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}}
+```
 
 ### תבנית HTML לפוסט בלוג:
 ```html
