@@ -2103,24 +2103,20 @@ function svcGo(n){
       .then(function(r) { return r.json(); })
       .then(function(j) {
         if (j.success) {
-          var fName    = (form.querySelector('[name="first_name"]')    || {value:''}).value;
-          var lName    = (form.querySelector('[name="last_name"]')     || {value:''}).value;
-          var fPhone   = (form.querySelector('[name="phone"]')         || {value:''}).value;
-          var fEmail   = (form.querySelector('[name="email"]')         || {value:''}).value;
-          var fService = (form.querySelector('[name="service_type"]')  || {value:''}).value;
-          var fMsg     = (form.querySelector('[name="message"]')       || {value:''}).value;
-          var lines = ['בקשה חדשה מהאתר של ליאם צור:'];
-          lines.push('שם: ' + fName + ' ' + lName);
-          lines.push('טלפון: ' + fPhone);
-          if (fEmail)   lines.push('מייל: ' + fEmail);
-          if (fService) lines.push('סוג ייעוץ: ' + fService);
-          if (fMsg)     lines.push('הערות: ' + fMsg);
-          var waBtn = document.getElementById('waSuccessBtn');
-          if (waBtn) waBtn.href = 'https://wa.me/972523434916?text=' + encodeURIComponent(lines.join('\n'));
-          if (success) success.style.display = 'block';
-          form.reset();
-          btnText.textContent = 'שלח בקשה לייעוץ ראשוני חינם';
-          if (success) success.scrollIntoView({behavior:'smooth',block:'center'});
+          // Save form data in sessionStorage so thank-you.html can build a pre-filled WhatsApp link
+          try {
+            var data = {
+              first_name:   (form.querySelector('[name="first_name"]')    || {value:''}).value,
+              last_name:    (form.querySelector('[name="last_name"]')     || {value:''}).value,
+              phone:        (form.querySelector('[name="phone"]')         || {value:''}).value,
+              email:        (form.querySelector('[name="email"]')         || {value:''}).value,
+              service_type: (form.querySelector('[name="service_type"]')  || {value:''}).value,
+              message:      (form.querySelector('[name="message"]')       || {value:''}).value
+            };
+            sessionStorage.setItem('lead_form_data', JSON.stringify(data));
+          } catch (err) {}
+          // Redirect to thank-you page (fires GA4 conversion event on load)
+          window.location.href = '/thank-you.html';
         } else { throw new Error(j.message); }
       })
       .catch(function() {
