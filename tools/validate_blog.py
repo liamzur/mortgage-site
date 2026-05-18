@@ -43,6 +43,11 @@ REQUIRED_HTML = [
     ('class="related-posts"', "Missing 'related posts' section (3 internal links required)"),
     ('aria-label=', "Missing aria-labels (accessibility)"),
     ('application/ld+json', "Missing JSON-LD schema markup"),
+    ('property="og:image"', "Missing og:image (post will show as blank when shared on WhatsApp/Facebook)"),
+    ('property="og:title"', "Missing og:title"),
+    ('property="og:description"', "Missing og:description"),
+    ('property="og:type"', "Missing og:type"),
+    ('name="twitter:card"', "Missing Twitter Card (covers Slack/Discord/X previews)"),
 ]
 
 def validate(path):
