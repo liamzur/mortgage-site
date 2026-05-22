@@ -91,6 +91,18 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://liamzur.co.il/blog/mashkanta-ishur-ekroni.html</loc>
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://liamzur.co.il/blog/mashkanta-michzur-matima.html</loc>
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://liamzur.co.il/blog/mashkanta-hashvaat-bankayim.html</loc>
         <lastmod>2026-04-16</lastmod>
         <changefreq>monthly</changefreq>
