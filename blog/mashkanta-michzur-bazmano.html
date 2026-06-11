@@ -356,6 +356,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
 
 <script type="application/ld+json">
@@ -464,6 +478,18 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">למה אנשים לא ממחזרים — גם כשכדאי?</a></li>
+      <li><a href="#sec-2">כמה כסף מדברים — שתי סימולציות אמיתיות</a></li>
+      <li><a href="#sec-3">מתי כדאי לבדוק מחזור?</a></li>
+      <li><a href="#sec-4">איך יודעים אם כדאי למחזר — שלוש שאלות</a></li>
+      <li><a href="#sec-5">סיכום</a></li>
+    </ol>
+  </nav>
+
+
   <p>
     קחו לקוח שלקח משכנתא בשנת 2022 — שנת שיא בריביות. הוא חתם על ריבית ממוצעת של 5.8%. מאז השוק השתנה, ריביות ירדו, יועץ משכנתאות מנוסה היה יכול להשיג לו תנאים משופרים כבר לפני שנתיים. אבל הוא עדיין משלם 5.8% — כי אף אחד לא אמר לו לבדוק, והוא לא ידע שצריך.
   </p>
@@ -475,7 +501,7 @@
     <strong>עובדה 5 מתוך 30:</strong> רוב האנשים לא ממחזרים משכנתא בזמן — ומפסידים כסף בלי לשים לב. המשכנתא שחתמת עליה לפני 3 שנים כנראה כבר לא האופטימלית עבורך.
   </div>
 
-  <h2>למה אנשים לא ממחזרים — גם כשכדאי?</h2>
+  <h2 id="sec-1">למה אנשים לא ממחזרים — גם כשכדאי?</h2>
   <p>
     זה לא עצלות. זה מבנה הבעיה: הבנק לא יתקשר אליך ויגיד "הגיע הזמן לשפר את התנאים שלך". להיפך — הבנק מרוויח מהמצב הקיים. האחריות לבדוק נופלת <strong>עליך</strong>, בדיוק ברגע שאין לך כלים לדעת מתי.
   </p>
@@ -486,7 +512,7 @@
     <li><strong>חוששים מעמלת פירעון</strong> — בצדק. אבל חישוב נכון מראה מתי החיסכון גדול מהעמלה</li>
   </ul>
 
-  <h2>כמה כסף מדברים — שתי סימולציות אמיתיות</h2>
+  <h2 id="sec-2">כמה כסף מדברים — שתי סימולציות אמיתיות</h2>
   <p>משכנתא של 1,200,000 ₪, 20 שנה שנשארו. ריבית לפני מחזור: <strong>5.5%</strong>, ריבית אחרי מחזור: <strong>4.5%</strong>. שתי דרכים להרוויח מזה:</p>
 
   <h3>סימולציה א׳ — אותה תקופה, החזר נמוך יותר</h3>
@@ -561,7 +587,7 @@
     הבחירה בין שתי האסטרטגיות תלויה בתזרים החודשי שלך — ועל כך שווה לדבר עם יועץ.
   </div>
 
-  <h2>מתי כדאי לבדוק מחזור?</h2>
+  <h2 id="sec-3">מתי כדאי לבדוק מחזור?</h2>
   <p>
     אין תאריך קבוע — זה תלוי בשוק ובמשכנתא הספציפית שלך. אבל יש <strong>שלוש נקודות טריגר</strong> שכדאי לסמן ביומן:
   </p>
@@ -577,7 +603,7 @@
     <p>יועץ משכנתאות יודע בדיוק באיזה שלב כדאי להפעיל את הקלף הזה — ואיך לנסח את הבקשה כדי לקבל את התגובה הכי טובה מהבנק.</p>
   </div>
 
-  <h2>איך יודעים אם כדאי למחזר — שלוש שאלות</h2>
+  <h2 id="sec-4">איך יודעים אם כדאי למחזר — שלוש שאלות</h2>
   <p>אם עניתם "כן" לאחת מהן — שווה לבדוק:</p>
   <ul class="checklist">
     <li>האם לקחתם משכנתא לפני יותר מ-3 שנים?</li>
@@ -585,7 +611,7 @@
     <li>האם מצבכם הכלכלי השתנה לטובה מאז שחתמתם?</li>
   </ul>
 
-  <h2>סיכום</h2>
+  <h2 id="sec-5">סיכום</h2>
   <p>
     המשכנתא שחתמתם עליה לפני כמה שנים נולדה בתנאים שכבר לא קיימים. השוק השתנה, המצב שלכם השתנה, וייתכן מאוד שהיום תקבלו תנאים טובים יותר — <strong>בלי לשנות כלום בחיים שלכם, רק לבדוק</strong>.
   </p>

@@ -271,6 +271,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
   <script type="application/ld+json">
   {
@@ -394,13 +408,25 @@
   <p class="meta">נכתב על ידי <strong>ליאם צור</strong>, יועץ משכנתאות מורשה &nbsp;|&nbsp; עדכון: מרץ 2025 &nbsp;|&nbsp; זמן קריאה: 7 דקות</p>
 </div>
 <div class="article-container">
+
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">מה זה יועץ משכנתאות בכלל?</a></li>
+      <li><a href="#sec-2">מה יועץ משכנתאות עושה בפועל?</a></li>
+      <li><a href="#sec-3">יועץ משכנתאות vs. פקיד בנק</a></li>
+      <li><a href="#sec-4">כמה עולה יועץ משכנתאות?</a></li>
+      <li><a href="#sec-5">מתי בדיוק צריך יועץ משכנתאות?</a></li>
+    </ol>
+  </nav>
+
   <p>אתם עומדים לקחת את ההלוואה הגדולה ביותר בחייכם — ואתם שוקלים לעשות את זה לבד? הבנק מציע לכם "הצעה מצוינת", פקיד נחמד מסביר את התנאים, ואתם מרגישים שהכל תחת שליטה. הבעיה היחידה? <strong>הפקיד של הבנק עובד בשביל הבנק, לא בשבילכם.</strong></p>
   <p>זה בדיוק המקום שבו יועץ משכנתאות נכנס לתמונה — ועושה הבדל של עשרות אלפי שקלים לאורך חיי המשכנתא.</p>
-  <h2>מה זה יועץ משכנתאות בכלל?</h2>
+  <h2 id="sec-1">מה זה יועץ משכנתאות בכלל?</h2>
   <p>יועץ משכנתאות הוא מומחה פיננסי מורשה מטעם משרד האוצר, שתפקידו הבלעדי הוא לייצג אתכם — הלווים — מול הבנקים. הוא לא עובד עבור שום בנק, הוא לא מקבל עמלה מהבנקים, והאינטרס שלו הוא אינטרס שלכם בלבד: לקבל את המשכנתא הטובה ביותר בתנאים הטובים ביותר.</p>
   <p>יועץ משכנתאות מורשה בישראל עובר הכשרה מקצועית, בחינות רישוי, ומחויב לכללי אתיקה מחמירים. הוא מכיר לעומק את כל מוצרי המשכנתא של כל הבנקים, את מסלולי הריבית השונים, ואת הטריקים שהבנקים משתמשים בהם כדי למקסם את הרווח שלהם על חשבונכם.</p>
   <div class="callout"><p><strong>נקודה חשובה:</strong> בישראל, הבנקים אינם מחויבים להציע לכם את הריבית הנמוכה ביותר שהם יכולים לתת. הם מציעים מה שהלקוח מוכן לקבל. יועץ משכנתאות יודע מה הריבית "הנמוכה באמת" ויכול לנהל מו"מ עליה.</p></div>
-  <h2>מה יועץ משכנתאות עושה בפועל?</h2>
+  <h2 id="sec-2">מה יועץ משכנתאות עושה בפועל?</h2>
   <h3>1. אבחון פיננסי מקיף</h3>
   <p>לפני שמדברים על משכנתא בכלל, יועץ טוב מבין את התמונה הפיננסית השלמה שלכם: הכנסות, הוצאות, חסכונות, הלוואות קיימות, יעדים עתידיים. על בסיס זה הוא בונה תמהיל משכנתא שמתאים לכם — לא תמהיל גנרי שמתאים "לממוצע הישראלי".</p>
   <h3>2. הכנת תיק הגשה מקצועי</h3>
@@ -411,7 +437,7 @@
   <p>אחת ההחלטות הכי משמעותיות במשכנתא היא שילוב המסלולים — כמה ריבית קבועה, כמה משתנה, כמה פריים. החלטה שגויה כאן עלולה לעלות ביוקר. יועץ מנוסה יבנה תמהיל שמאזן בין ביטחון לחיסכון.</p>
   <h3>5. ליווי עד החתימה הסופית</h3>
   <p>יועץ טוב לא נעלם אחרי שמצאתם הצעה. הוא מלווה אתכם בכל שלבי החתימה, בודק כל מסמך, ומוודא שהתנאים הסופיים תואמים למה שסוכם — ומגן עליכם מ"הפתעות" ברגע האחרון.</p>
-  <h2>יועץ משכנתאות vs. פקיד בנק</h2>
+  <h2 id="sec-3">יועץ משכנתאות vs. פקיד בנק</h2>
   <table class="comparison-table">
     <tr><th>קריטריון</th><th>פקיד הבנק</th><th class="highlight">יועץ משכנתאות</th></tr>
     <tr><td>מייצג את</td><td>הבנק שלו</td><td class="highlight">אתכם בלבד</td></tr>
@@ -420,7 +446,7 @@
     <tr><td>תמהיל</td><td>מה שהבנק מציע</td><td class="highlight">מותאם אישית לכם</td></tr>
     <tr><td>ליווי</td><td>חלקי</td><td class="highlight">מלא עד חתימה</td></tr>
   </table>
-  <h2>כמה עולה יועץ משכנתאות?</h2>
+  <h2 id="sec-4">כמה עולה יועץ משכנתאות?</h2>
   <p>דמי הייעוץ נעים בדרך כלל בין 5,000 ₪ ל-12,000 ₪. נשמע הרבה? בואו נעשה חשבון פשוט:</p>
   <ul>
     <li>משכנתא ממוצעת בישראל: 1,200,000 ₪ ל-25 שנה</li>
@@ -429,7 +455,7 @@
     <li><strong>חיסכון נטו: 110,000-112,000 ₪</strong></li>
   </ul>
   <div class="callout"><p><strong>חשוב לדעת:</strong> אצל ליאם צור, הפגישה הראשונה היא <strong>חינם לחלוטין ללא התחייבות</strong>. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני בתנאים המוסכמים. אין סיכון.</p></div>
-  <h2>מתי בדיוק צריך יועץ משכנתאות?</h2>
+  <h2 id="sec-5">מתי בדיוק צריך יועץ משכנתאות?</h2>
   <h3>רכישת דירה ראשונה</h3>
   <p>אם אתם קונים דירה ראשונה — זה הזמן הכי חשוב לעבוד עם יועץ. אתם לא מכירים את השוק, לא יודעים מה "ריבית טובה", ולא יודעים מה שאלות לשאול. יועץ מנוסה יחסוך לכם לא רק כסף, אלא גם המון טעויות יקרות.</p>
   <h3>מחזור משכנתא</h3>

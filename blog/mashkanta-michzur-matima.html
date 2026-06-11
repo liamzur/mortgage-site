@@ -275,6 +275,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
 
 <script type="application/ld+json">
@@ -350,6 +364,17 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">3 סימנים שהמשכנתא שלך כבר לא מתאימה</a></li>
+      <li><a href="#sec-2">למה אנשים לא ממחזרים — והטעות הזו עולה ביוקר</a></li>
+      <li><a href="#sec-3">מתי כדאי לעצור הכל ולבדוק עכשיו?</a></li>
+      <li><a href="#sec-4">סיכום</a></li>
+    </ol>
+  </nav>
+
+
   <p>
     לקחת משכנתא לפני 3 שנים? 5 שנים? 7 שנים? התנאים שבחרת אז התאימו לך <strong>באותו רגע</strong> — לכלכלה שלך, להכנסה שלך, למצב הכלכלי במשק. אבל הזמן עובר, הסביבה משתנה, ואתה משתנה.
   </p>
@@ -361,7 +386,7 @@
     <strong>עובדה 10 מתוך 30:</strong> גם אם כבר יש לך משכנתא — זה לא אומר שהיא עדיין מתאימה לך. הריביות זזות, ההכנסה זזה, החיים זזים. בדיקה אחת מדי שנתיים-שלוש יכולה לחסוך לך עשרות אלפי שקלים.
   </div>
 
-  <h2>3 סימנים שהמשכנתא שלך כבר לא מתאימה</h2>
+  <h2 id="sec-1">3 סימנים שהמשכנתא שלך כבר לא מתאימה</h2>
 
   <h3>1. הריבית בשוק נמוכה מהריבית שלך ב-0.5% או יותר</h3>
   <p>
@@ -413,7 +438,7 @@
     זה לא משחק. זה כסף אמיתי שכבר שילמת — או שעדיין תשלם.
   </div>
 
-  <h2>למה אנשים לא ממחזרים — והטעות הזו עולה ביוקר</h2>
+  <h2 id="sec-2">למה אנשים לא ממחזרים — והטעות הזו עולה ביוקר</h2>
 
   <h3>"זה ייקח לי המון זמן"</h3>
   <p>
@@ -435,7 +460,7 @@
     זה התפקיד שלי. <strong>אתה לא מתעסק עם הבנק — אני כן.</strong> אתה מקבל את התוצאה: ההצעות, ההמלצה, ההחלטה.
   </p>
 
-  <h2>מתי כדאי לעצור הכל ולבדוק עכשיו?</h2>
+  <h2 id="sec-3">מתי כדאי לעצור הכל ולבדוק עכשיו?</h2>
   <ul class="checklist">
     <li>עברו 3 שנים או יותר מהיום שלקחת את המשכנתא</li>
     <li>הריבית הממוצעת בשוק ירדה ב-0.5% או יותר מהיום שחתמת</li>
@@ -451,7 +476,7 @@
     <p>הבדיקה עצמה לוקחת פגישה אחת ולא עולה כלום. ההפסד היחיד האפשרי הוא שתגלה שהמשכנתא שלך טובה ולא צריך לעשות כלום. ההפסד האמיתי הוא להמשיך לשלם 200 ₪ נוספים בחודש כי לא בדקת.</p>
   </div>
 
-  <h2>סיכום</h2>
+  <h2 id="sec-4">סיכום</h2>
   <p>
     המשכנתא שלך היא ההוצאה הקבועה הגדולה ביותר שלך — לרוב פי 2–3 מהשכר דירה שאי פעם שילמת. כל שינוי במשק, בהכנסה שלך או בחיים שלך יכול להשפיע עליה.
   </p>

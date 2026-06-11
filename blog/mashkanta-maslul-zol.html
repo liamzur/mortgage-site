@@ -258,6 +258,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
 
 <script type="application/ld+json">
@@ -364,6 +378,17 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">כמה באמת עולה עליית ריבית?</a></li>
+      <li><a href="#sec-2">שלושת המסלולים העיקריים — מה הסיכון בכל אחד?</a></li>
+      <li><a href="#sec-3">מה השאלה הנכונה לשאול?</a></li>
+      <li><a href="#sec-4">סיכום</a></li>
+    </ol>
+  </nav>
+
+
   <p>
     כשמסתכלים על ריביות המשכנתא, הרפלקס הטבעי הוא לבחור את המסלול עם הריבית הנמוכה ביותר. מסלול פריים עם ריבית של 4.5% נראה עדיף על ריבית קבועה של 5.5%. אבל <strong>ריבית פריים היא לא נקודה — היא ציר שזזה.</strong> ובשנים האחרונות, היא זזה הרבה.
   </p>
@@ -375,7 +400,7 @@
     <strong>עובדה 8 מתוך 30:</strong> המסלול הכי זול היום לא בהכרח יהיה הזול ביותר לאורך השנים. ריבית פריים זזה, וכל עליית ריבית של 1% מוסיפה מאות שקלים לתשלום החודשי — על כל מיליון שקל במסלול.
   </div>
 
-  <h2>כמה באמת עולה עליית ריבית?</h2>
+  <h2 id="sec-1">כמה באמת עולה עליית ריבית?</h2>
   <p>
     הנה מה שקורה למשכנתא של 1,000,000 ₪ ל-25 שנה, כשמדובר ב-100% מסלול פריים:
   </p>
@@ -406,7 +431,7 @@
     על פני שנה: <strong>12,648 ₪</strong> נוספים מכיסך. ובנק ישראל יכול להחליט על כך בישיבה אחת.
   </div>
 
-  <h2>שלושת המסלולים העיקריים — מה הסיכון בכל אחד?</h2>
+  <h2 id="sec-2">שלושת המסלולים העיקריים — מה הסיכון בכל אחד?</h2>
 
   <h3>פריים (ריבית משתנה)</h3>
   <p>
@@ -438,7 +463,7 @@
     </div>
   </div>
 
-  <h2>מה השאלה הנכונה לשאול?</h2>
+  <h2 id="sec-3">מה השאלה הנכונה לשאול?</h2>
   <p>
     לא "איזה מסלול הכי זול עכשיו?" אלא: <strong>"כמה אני יכול להרשות לעצמי לשלם אם הריבית תעלה ב-2%?"</strong>
   </p>
@@ -458,7 +483,7 @@
     <p>התמהיל הנכון נבנה ממידע. כמה בפריים, כמה בקבועה, כמה בצמודה — זה תלוי בך. ושווה לבנות אותו נכון מהיום הראשון, לא לתקן אחר כך.</p>
   </div>
 
-  <h2>סיכום</h2>
+  <h2 id="sec-4">סיכום</h2>
   <p>
     הריבית הנמוכה ביותר היום היא נקודת מוצא — לא תשובה. <strong>בחירת מסלול משכנתא היא בחירת רמת הסיכון שאתה מוכן לשאת</strong>, לא רק רדיפה אחרי המספר הנמוך ביותר ברגע נתון.
   </p>

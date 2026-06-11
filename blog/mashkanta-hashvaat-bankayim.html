@@ -327,6 +327,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
   <script type="application/ld+json">
   {
@@ -475,6 +489,18 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">למה יש הפרשים כאלה בין הבנקים?</a></li>
+      <li><a href="#sec-2">כמה כסף אנחנו מדברים בפועל?</a></li>
+      <li><a href="#sec-3">אז למה רוב האנשים לא משווים?</a></li>
+      <li><a href="#sec-4">מה נכון לעשות?</a></li>
+      <li><a href="#sec-5">סיכום</a></li>
+    </ol>
+  </nav>
+
+
   <p>
     רוב האנשים מגיעים לבנק הראשון, מקבלים הצעה, ומניחים שזה המחיר. אחרי הכול — אם ריבית הפריים זהה בכל הבנקים, מה כבר יכול להשתנות? התשובה תפתיע אתכם: <strong>הכל</strong>. אותה משכנתא בדיוק — אותה רמת הכנסה, אותו נכס, אותו אחוז מימון — יכולה לעלות עשרות אלפי שקלים יותר בבנק אחד לעומת בנק אחר.
   </p>
@@ -483,7 +509,7 @@
     <strong>עובדה 4 מתוך 30:</strong> אותה משכנתא בדיוק יכולה להשתנות בעשרות אלפי שקלים בין בנק לבנק — על אותו נכס, עם אותם נתונים אישיים.
   </div>
 
-  <h2>למה יש הפרשים כאלה בין הבנקים?</h2>
+  <h2 id="sec-1">למה יש הפרשים כאלה בין הבנקים?</h2>
   <p>
     ריבית הפריים היא נקודת ייחוס בלבד. מה שמשנה הוא <strong>הספרד</strong> — כלומר, כמה הבנק מוסיף על הפריים. ובספרד הזה יש פערים משמעותיים. בנוסף, כל בנק מתמחר אחרת את המסלולים הקבועים, הצמודים, ומסלולי הריבית המשתנה.
   </p>
@@ -491,7 +517,7 @@
     אבל זה לא הכל. הבנקים גם מעריכים לקוחות בצורה שונה: אותו פרופיל אשראי עשוי להיות "לקוח מצוין" בעיני בנק אחד ו"לקוח בינוני" בעיני אחר. ו<strong>ההבדל בסיווג משפיע ישירות על הריבית שתקבל</strong>.
   </p>
 
-  <h2>כמה כסף אנחנו מדברים בפועל?</h2>
+  <h2 id="sec-2">כמה כסף אנחנו מדברים בפועל?</h2>
   <p>דוגמה מספרית אמיתית — משכנתא של 1,500,000 ₪ ל-25 שנה:</p>
 
   <div class="calc-box">
@@ -535,7 +561,7 @@
     </div>
   </div>
 
-  <h2>אז למה רוב האנשים לא משווים?</h2>
+  <h2 id="sec-3">אז למה רוב האנשים לא משווים?</h2>
   <p>
     שלוש סיבות עיקריות:
   </p>
@@ -545,7 +571,7 @@
     <li><strong>"הבנק שלי יתן לי תנאים טובים"</strong> — אחת הטעויות הנפוצות ביותר. הבנק שלך לא מחויב לך יותר מבנק אחר</li>
   </ul>
 
-  <h2>מה נכון לעשות?</h2>
+  <h2 id="sec-4">מה נכון לעשות?</h2>
   <p>
     הגישה הנכונה היא לא ללכת לשלושה בנקים ולשאול "כמה ריבית תיתנו לי". כך לא עובד. הבנקים מתמחרים לפי מה שהם מעריכים שתקבלו — ואם אתם נראים כמו מישהו שמסתפק בהצעה הראשונה, לא יהיה להם אינטרס לשפר.
   </p>
@@ -559,7 +585,7 @@
     <p>אבל כמה בנקים צריך להשוות? ומה המספרים שבאמת כדאי לחפש? זה כבר תלוי בפרופיל הספציפי שלך — ועל כך שווה לדבר אישית.</p>
   </div>
 
-  <h2>סיכום</h2>
+  <h2 id="sec-5">סיכום</h2>
   <p>
     אל תניחו שהמחיר שקיבלתם הוא המחיר שצריך להיות. המשכנתא שלכם שווה בין חצי מיליון לשניים-שלושה מיליון שקל — ו<strong>כל אחוז חשוב</strong>. ההפרש בין בנק לבנק, כשמשווים נכון, יכול להגיע לעשרות ואף מאות אלפי שקלים לאורך חיי ההלוואה.
   </p>

@@ -265,6 +265,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
 
 <script type="application/ld+json">
@@ -371,6 +385,18 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">למה ההחזר לא קופץ כמו שחושבים?</a></li>
+      <li><a href="#sec-2">המספרים בפועל</a></li>
+      <li><a href="#sec-3">שלושה דרכים לקצר שנים — מבלי "לשבור את הגב"</a></li>
+      <li><a href="#sec-4">מתי לא כדאי לקצר?</a></li>
+      <li><a href="#sec-5">סיכום</a></li>
+    </ol>
+  </nav>
+
+
   <p>
     רוב האנשים מניחים שקיצור תקופת המשכנתא משמעו קפיצה גדולה בהחזר החודשי — ואז דוחים את הרעיון. אבל הנתונים מראים תמונה אחרת לגמרי. <strong>קיצור של 5 שנים במשכנתא יכול להוסיף פחות מ-500 ₪ לחודש — ולחסוך לך מאות אלפי שקלים בריבית.</strong>
   </p>
@@ -382,12 +408,12 @@
     <strong>עובדה 7 מתוך 30:</strong> אפשר לקצר שנים מהמשכנתא בלי להגדיל משמעותית את ההחזר החודשי — ולחסוך עשרות ואף מאות אלפי שקלים בריבית לאורך חיי ההלוואה.
   </div>
 
-  <h2>למה ההחזר לא קופץ כמו שחושבים?</h2>
+  <h2 id="sec-1">למה ההחזר לא קופץ כמו שחושבים?</h2>
   <p>
     כשלוקחים משכנתא ל-30 שנה, משלמים מדי חודש גם ריבית וגם קרן. בשנים הראשונות — רובו ריבית. ככל שמקצרים את התקופה, הריבית שמשלמים בכל חודש קטנה יותר מהר, כי הקרן יורדת מהר יותר. התוצאה: ההחזר החודשי עולה — אבל <strong>בצורה מתונה הרבה יותר ממה שרוב האנשים מצפים.</strong>
   </p>
 
-  <h2>המספרים בפועל</h2>
+  <h2 id="sec-2">המספרים בפועל</h2>
   <p>משכנתא של 1,500,000 ₪ בריבית ממוצעת 5.5% — כמה משנה קיצור של 5 שנים?</p>
 
   <div class="calc-box">
@@ -424,7 +450,7 @@
     זה יחס של 1 ל-500. כל שקל נוסף בחודש מחזיר כמעט 500 שקל לאורך חיי ההלוואה.
   </div>
 
-  <h2>שלושה דרכים לקצר שנים — מבלי "לשבור את הגב"</h2>
+  <h2 id="sec-3">שלושה דרכים לקצר שנים — מבלי "לשבור את הגב"</h2>
 
   <h3>1. לבחור תקופה קצרה יותר מלכתחילה</h3>
   <p>
@@ -456,7 +482,7 @@
     </div>
   </div>
 
-  <h2>מתי לא כדאי לקצר?</h2>
+  <h2 id="sec-4">מתי לא כדאי לקצר?</h2>
   <p>
     חשוב לומר: קיצור תקופת המשכנתא לא מתאים לכולם. יש מצבים שבהם דווקא כדאי לשמור על גמישות ולשמור את הכסף הפנוי לדברים אחרים — השקעות, מזומן לחירום, תקופת חוסר יציבות בהכנסות.
   </p>
@@ -473,7 +499,7 @@
     <p>כמה שנים כדאי לקצר בתרחיש הספציפי שלך? זה תלוי בנתונים שרק אתה יודע — ושווה לבדוק יחד.</p>
   </div>
 
-  <h2>סיכום</h2>
+  <h2 id="sec-5">סיכום</h2>
   <p>
     ההחזר החודשי הוא רק חלק מהתמונה. <strong>מה שבאמת משנה הוא כמה תשלם בסך הכול.</strong> ולפעמים, 500–700 ₪ נוספים בחודש — הפרש שאנשים רבים יכולים לעמוד בו — שווה יותר מ-300,000 ₪ חיסכון בריבית.
   </p>

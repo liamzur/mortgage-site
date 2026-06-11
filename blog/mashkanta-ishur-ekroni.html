@@ -268,6 +268,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
 
 <script type="application/ld+json">
@@ -374,6 +388,17 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">שלבי האישור — מה קורה אחרי "כן"</a></li>
+      <li><a href="#sec-2">4 הדברים שיכולים לפוצץ עסקה אחרי אישור עקרוני</a></li>
+      <li><a href="#sec-3">ההבדל בין "אושרתי" ל"יש לי משכנתא"</a></li>
+      <li><a href="#sec-4">איך מתכוננים נכון — 5 כללים</a></li>
+    </ol>
+  </nav>
+
+
   <p>
     קיבלתם אישור עקרוני מהבנק. אתם נושמים לרווחה, חותמים על חוזה, אולי כבר מדמיינים את הדירה החדשה. אבל <strong>אישור עקרוני הוא נקודת התחלה — לא נקודת סיום.</strong> בין האישור הזה לכסף שמועבר לחשבון יש שלבים שכל אחד מהם יכול לעצור את כל התהליך.
   </p>
@@ -385,7 +410,7 @@
     <strong>עובדה 9 מתוך 30:</strong> אישור עקרוני מהבנק הוא לא אישור סופי — הוא מותנה בשמאות, ניירת, בדיקות נוספות ותנאים שיש למלא. שמאות נמוכה, שינוי בהכנסה, או נכס שלא עובר בדיקה יכולים לפוצץ עסקה גם שבוע לפני החתימה.
   </div>
 
-  <h2>שלבי האישור — מה קורה אחרי "כן"</h2>
+  <h2 id="sec-1">שלבי האישור — מה קורה אחרי "כן"</h2>
   <p>
     הבנק לא מעביר כסף על בסיס אישור עקרוני בלבד. יש תהליך שלם שצריך לעבור, ובכל שלב יש תנאים שחייבים להתקיים:
   </p>
@@ -439,7 +464,7 @@
     </div>
   </div>
 
-  <h2>4 הדברים שיכולים לפוצץ עסקה אחרי אישור עקרוני</h2>
+  <h2 id="sec-2">4 הדברים שיכולים לפוצץ עסקה אחרי אישור עקרוני</h2>
 
   <div class="risk-grid">
     <div class="risk-card">
@@ -464,7 +489,7 @@
     </div>
   </div>
 
-  <h2>ההבדל בין "אושרתי" ל"יש לי משכנתא"</h2>
+  <h2 id="sec-3">ההבדל בין "אושרתי" ל"יש לי משכנתא"</h2>
 
   <div class="compare-grid">
     <div class="compare-card bad">
@@ -481,7 +506,7 @@
     </div>
   </div>
 
-  <h2>איך מתכוננים נכון — 5 כללים</h2>
+  <h2 id="sec-4">איך מתכוננים נכון — 5 כללים</h2>
   <ul class="checklist">
     <li>לא לחתום על חוזה רכישה עם תנאים שאתם לא בטוחים שתוכלו למלא — בדקו מראש את מצב הנכס בטאבו</li>
     <li>לא להחליף עבודה, לא לסגור עסק ולא לקחת הלוואות נוספות בתקופה שבין האישור העקרוני לחתימה</li>

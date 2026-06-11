@@ -278,6 +278,20 @@
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+    /* TABLE OF CONTENTS — תוכן עניינים */
+  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
+  .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
+  .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
+  .toc-box ol li:last-child{border-bottom:none;}
+  .toc-box ol li::before{content:counter(toc) ". ";color:var(--gold);font-weight:700;margin-left:6px;}
+  .toc-box ol li a{color:var(--white-dim);text-decoration:none;font-size:0.98rem;transition:color .2s;}
+  .toc-box ol li a:hover{color:var(--gold);}
+  [data-theme="light"] .toc-box{background:#FFFFFF;border-color:#D8CFBE;border-right-color:#A8842C;}
+  [data-theme="light"] .toc-box ol li{border-bottom-color:rgba(216,207,190,.6);}
+  [data-theme="light"] .toc-box ol li a{color:#5A5248;}
+  [data-theme="light"] .toc-box ol li a:hover{color:#A8842C;}
+
   </style>
   <script type="application/ld+json">
   {
@@ -407,19 +421,31 @@
 
 <main class="post-container">
 
+  <nav class="toc-box" aria-label="תוכן עניינים">
+    <div class="toc-title">📑 בעמוד הזה</div>
+    <ol>
+      <li><a href="#sec-1">מה זה "פרופיל לקוח" בעיני הבנק?</a></li>
+      <li><a href="#sec-2">הגורמים שמשפיעים על הריבית שתקבל</a></li>
+      <li><a href="#sec-3">כמה שווה פרופיל טוב בפועל?</a></li>
+      <li><a href="#sec-4">איך "נראים טוב" לפני הגשת הבקשה?</a></li>
+      <li><a href="#sec-5">מה הבנק לא יגיד לך</a></li>
+    </ol>
+  </nav>
+
+
   <p>שניים מהשכנים שלך קנו דירות באותו רחוב, באותו חודש, מאותו בנק. סכום המשכנתא כמעט זהה. אבל אחד קיבל ריבית של 4.8% והשני — 5.6%. הפרש של 0.8% נשמע קטן? על משכנתא של מיליון וחצי ל-25 שנה, זה <strong>למעלה מ-130,000 ₪</strong> הפרש בסך הכול. אז מה הסביר את ההבדל?</p>
 
   <div class="rule-box">
     <strong>העובדה:</strong> הבנק לא מציע ריבית "סטנדרטית" שווה לכולם. הוא מתמחר כל לקוח בנפרד — לפי הפרופיל הכלכלי שלו. הריבית שתקבל תלויה ב"איך אתה נראה" בעיני מנהל הסניף.
   </div>
 
-  <h2>מה זה "פרופיל לקוח" בעיני הבנק?</h2>
+  <h2 id="sec-1">מה זה "פרופיל לקוח" בעיני הבנק?</h2>
 
   <p>כשאתה מגיש בקשה למשכנתא, הבנק לא רואה רק את ה"כמה". הוא בונה תמונה שלמה שלך כלווה. לבנקאי יש גיליון מדרג לא כתוב — ולכל פרמטר יש משקל. ככל שנראה לו שאתה "לווה בטוח יותר", הוא ייתן לך ריבית נמוכה יותר. ככל שיזהה "סיכון", הריבית עולה.</p>
 
   <p>החלק המפתיע: חלק גדול מהפרמטרים האלה אינם קבועים. ניתן לשפר אותם לפני הגשת הבקשה — אם יודעים עליהם.</p>
 
-  <h2>הגורמים שמשפיעים על הריבית שתקבל</h2>
+  <h2 id="sec-2">הגורמים שמשפיעים על הריבית שתקבל</h2>
 
   <ul class="checklist">
     <li><strong>אחוז המימון (LTV)</strong> — כמה אחוזים מהנכס אתה מממן דרך הבנק. ככל שהשאלת פחות ביחס לשווי הנכס, הסיכון לבנק נמוך יותר — והריבית לטובתך. הבדל בין 60% מימון ל-75% יכול לשנות את הריבית ב-0.2%–0.4%.</li>
@@ -432,7 +458,7 @@
 
   <p>השאלה שנשארת פתוחה: <em>אילו מהגורמים האלה כבר מוגבלים עבורך, ואילו ניתן לשפר לפני שמגישים?</em> התשובה שונה לכל אחד — ויש משמעות כספית ממשית לזמן ה"הכנה" לפני הגשת הבקשה.</p>
 
-  <h2>כמה שווה פרופיל טוב בפועל?</h2>
+  <h2 id="sec-3">כמה שווה פרופיל טוב בפועל?</h2>
 
   <div class="calc-box">
     <div class="calc-title">💰 השוואה: משכנתא 1,500,000 ₪ · 25 שנה</div>
@@ -459,7 +485,7 @@
     <strong>216,000 ₪</strong> — זה לא הפרש בין שני בנקים. זה הפרש בין שני פרופילי לקוח באותו בנק, על אותה משכנתא.
   </div>
 
-  <h2>איך "נראים טוב" לפני הגשת הבקשה?</h2>
+  <h2 id="sec-4">איך "נראים טוב" לפני הגשת הבקשה?</h2>
 
   <p>חלק מהגורמים לא ניתנים לשינוי מיידי — הכנסה, ותק בעבודה, גיל הנכס. אבל יש כמה פעולות שניתן לבצע בחודשיים-שלושה לפני הגשת הבקשה ולשנות את הפרופיל:</p>
 
@@ -476,7 +502,7 @@
     <p>אבל כמה בדיוק שווה ההכנה הנכונה עבורך? זה תלוי בסכום, בתקופה, ובנקודות החולשה הספציפיות בפרופיל שלך — תשובה כזו לא יכולה להגיע ממאמר.</p>
   </div>
 
-  <h2>מה הבנק לא יגיד לך</h2>
+  <h2 id="sec-5">מה הבנק לא יגיד לך</h2>
 
   <p>הבנקאי לא יסביר לך מה הוריד את הציון שלך. הוא לא יגיד "אם תסגור את המינוס הזה, אני אוריד לך 0.2%". זו לא חוסר רצון — זה פשוט לא חלק מהשיחה הסטנדרטית עם הלקוח. לכן אנשים שהולכים לבנק לבד, מקבלים את ה"מחיר הראשוני" — שהוא כמעט תמיד לא המחיר הסופי שניתן להשיג.</p>
 
