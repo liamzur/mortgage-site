@@ -953,7 +953,7 @@ function svcGo(n){
     <div class="drawer-contact">
       <a href="tel:+972523434916">✆ 052-3434916</a>
       <a href="mailto:liamzur89@gmail.com" style="color:inherit;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">liamzur89@gmail.com</a>
-      <a href="https://wa.me/972523434916" target="_blank">וואטסאפ</a>
+      <a href="https://wa.me/972523434916" target="_blank" rel="noopener">וואטסאפ</a>
     </div>
   </div>
 </div>
@@ -1924,34 +1924,11 @@ function svcGo(n){
     var grid = document.getElementById('newsGrid');
     var btn  = document.getElementById('refreshBtn');
     if (!grid) return;
-    grid.innerHTML = skeletons();
     if (btn) btn.classList.add('loading');
-
-    var prompt = '\u05D0\u05EA\u05D4 \u05E2\u05D5\u05D6\u05E8 \u05DC\u05D0\u05EA\u05E8 \u05E9\u05DC \u05D9\u05D5\u05E2\u05E5 \u05DE\u05E9\u05DB\u05E0\u05EA\u05D0\u05D5\u05EA \u05D9\u05E9\u05E8\u05D0\u05DC\u05D9.\n\u05D7\u05E4\u05E9 3 \u05D9\u05D3\u05D9\u05E2\u05D5\u05EA \u05E2\u05D3\u05DB\u05E0\u05D9\u05D5\u05EA: \u05E8\u05D9\u05D1\u05D9\u05EA, \u05E0\u05D3\u05DC"\u05DF, \u05DE\u05E9\u05DB\u05E0\u05EA\u05D0\u05D5\u05EA.\n\u05D4\u05D7\u05D6\u05E8 JSON \u05D1\u05DC\u05D1\u05D3, \u05DE\u05E2\u05E8\u05DA 3: [{title,summary,source,date,url}]';
-
-    fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-        messages: [{ role: 'user', content: prompt }]
-      })
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      var tb = d.content && d.content.filter(function(b) { return b.type === 'text'; }).pop();
-      if (!tb) throw new Error('no text');
-      var raw = tb.text.trim().replace(/^```[\w]*\s*/i,'').replace(/```\s*$/i,'').trim();
-      grid.innerHTML = renderCards(JSON.parse(raw));
-    })
-    .catch(function() {
-      grid.innerHTML = renderCards(STATIC_NEWS);
-    })
-    .finally(function() {
-      if (btn) btn.classList.remove('loading');
-    });
+    // Render curated news directly. (A browser fetch to api.anthropic.com is
+    // blocked by CORS and needs a secret key, so it always failed \u2014 removed.)
+    grid.innerHTML = renderCards(STATIC_NEWS);
+    if (btn) setTimeout(function(){ btn.classList.remove('loading'); }, 150);
   };
 
   /* ── 3. REVIEW MODAL (Supabase-backed) ──────────────────────────── */
@@ -1974,22 +1951,26 @@ function svcGo(n){
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
   function buildCard(rev) {
+    // ── Harden against malicious review payloads (the anon key is public) ──
+    var st     = Math.max(0, Math.min(5, parseInt(rev.stars, 10) || 0));        // clamp stars 0-5
+    var safeId = /^[A-Za-z0-9_-]{1,64}$/.test(rev.id) ? rev.id : '';            // UUID / __local__ only
+    var g      = rev.gradient || '#8B6914,#C9A84C';
+    if (!/^#[0-9A-Fa-f]{6},\s*#[0-9A-Fa-f]{6}$/.test(g)) g = '#8B6914,#C9A84C'; // whitelist gradient → blocks CSS/HTML injection
     var stars = '';
-    for (var i=0;i<rev.stars;i++) stars+='★';
-    for (var j=rev.stars;j<5;j++) stars+='☆';
-    var init  = rev.name.split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
-    var g     = rev.gradient || '#8B6914,#C9A84C';
-    var myTok = localStorage.getItem('review_token_'+rev.id);
+    for (var i=0;i<st;i++) stars+='★';
+    for (var j=st;j<5;j++) stars+='☆';
+    var init  = String(rev.name||'').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+    var myTok = localStorage.getItem('review_token_'+safeId);
     var canDel = isAdminMode || !!myTok;
     var delBtn = canDel
-      ? '<button onclick="deleteReview(\''+rev.id+'\',\''+escHtml(myTok||'')+'\')" style="'+
+      ? '<button onclick="deleteReview(\''+safeId+'\',\''+escHtml(myTok||'')+'\')" style="'+
         'position:absolute;top:12px;left:12px;background:rgba(180,30,30,0.12);'+
         'border:1px solid rgba(180,30,30,0.35);color:#e05555;font-size:0.68rem;'+
         'padding:3px 9px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all 0.2s;"'+
         ' onmouseover="this.style.background=\'rgba(180,30,30,0.3)\'"'+
         ' onmouseout="this.style.background=\'rgba(180,30,30,0.12)\'">✕ מחק</button>'
       : '';
-    return '<div class="testimonial" data-id="'+rev.id+'" style="position:relative;">'+
+    return '<div class="testimonial" data-id="'+safeId+'" style="position:relative;">'+
       delBtn+
       '<div class="stars">'+stars+'</div>'+
       '<p class="testimonial-text">'+escHtml(rev.text)+'</p>'+
