@@ -280,7 +280,7 @@
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
     /* TABLE OF CONTENTS — תוכן עניינים */
-  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box{position:static;display:block;width:auto;backdrop-filter:none;background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
   .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
   .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
   .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
@@ -422,7 +422,7 @@
 
 <main class="post-container">
 
-  <nav class="toc-box" aria-label="תוכן עניינים">
+  <div class="toc-box" role="navigation" aria-label="תוכן עניינים">
     <div class="toc-title">📑 בעמוד הזה</div>
     <ol>
       <li><a href="#sec-1">מה זה "פרופיל לקוח" בעיני הבנק?</a></li>
@@ -431,7 +431,7 @@
       <li><a href="#sec-4">איך "נראים טוב" לפני הגשת הבקשה?</a></li>
       <li><a href="#sec-5">מה הבנק לא יגיד לך</a></li>
     </ol>
-  </nav>
+  </div>
 
 
   <p>שניים מהשכנים שלך קנו דירות באותו רחוב, באותו חודש, מאותו בנק. סכום המשכנתא כמעט זהה. אבל אחד קיבל ריבית של 4.8% והשני — 5.6%. הפרש של 0.8% נשמע קטן? על משכנתא של מיליון וחצי ל-25 שנה, זה <strong>למעלה מ-130,000 ₪</strong> הפרש בסך הכול. אז מה הסביר את ההבדל?</p>

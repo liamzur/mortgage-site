@@ -281,7 +281,7 @@
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
     /* TABLE OF CONTENTS — תוכן עניינים */
-  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box{position:static;display:block;width:auto;backdrop-filter:none;background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
   .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
   .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
   .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
@@ -442,7 +442,7 @@
 
 <main class="post-container">
 
-  <nav class="toc-box" aria-label="תוכן עניינים">
+  <div class="toc-box" role="navigation" aria-label="תוכן עניינים">
     <div class="toc-title">📑 בעמוד הזה</div>
     <ol>
       <li><a href="#sec-1">כמה הון עצמי צריך זוג צעיר בפועל?</a></li>
@@ -453,7 +453,7 @@
       <li><a href="#sec-6">שלחזור המלא: מה זוגות צעירים צריכים לעשות ב-2026</a></li>
       <li><a href="#sec-7">סיכום: זוגות צעירים יכולים לעשות את זה ב-2026</a></li>
     </ol>
-  </nav>
+  </div>
 
 
   <p>זוגות צעירים שמחפשים את הדירה הראשונה שלהם נתקלים בשאלה אחת שמציתה הרבה חרדות: "היכן אנו מתחילים?" הנתונים מדברים בעצמם — הממוצע העירוני לדירה בארץ היום עולה על 2.5 מיליון שקלים, וזה נראה בלתי אפשרי כשאתה בן 28 בשכר ממוצע. אבל כאן ההפתעה הטובה: זוגות צעירים למעשה יש להם יתרונות מיוחדים שרוב הם לא יודעים עליהם, וה-2026 הוא שנה טובה בעדיפות להתחל.</p>

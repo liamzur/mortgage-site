@@ -281,7 +281,7 @@
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
     /* TABLE OF CONTENTS — תוכן עניינים */
-  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box{position:static;display:block;width:auto;backdrop-filter:none;background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
   .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
   .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
   .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
@@ -442,7 +442,7 @@
 
 <main class="post-container">
 
-  <nav class="toc-box" aria-label="תוכן עניינים">
+  <div class="toc-box" role="navigation" aria-label="תוכן עניינים">
     <div class="toc-title">📑 בעמוד הזה</div>
     <ol>
       <li><a href="#sec-1">מה זה בכלל אחוז מימון?</a></li>
@@ -450,7 +450,7 @@
       <li><a href="#sec-3">למה שמאות הבנק חשובה כל כך?</a></li>
       <li><a href="#sec-4">מה זה אומר בפועל?</a></li>
     </ol>
-  </nav>
+  </div>
 
 
   <p>רוב האנשים מגיעים לבנק עם שאלה אחת: "כמה משכנתא אוכל לקבל?" — אבל הבנק לא מסתכל רק על ההכנסה שלך. יש עוד מספר אחד שמגדיר את התמונה כולה: <strong>אחוז המימון</strong>. הוא קובע כמה אחוז משווי הדירה הבנק מוכן לממן, ולפעמים הוא זה שסוגר — או פותח — את כל העסקה.</p>

@@ -275,7 +275,7 @@
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
     /* TABLE OF CONTENTS — תוכן עניינים */
-  .toc-box{background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
+  .toc-box{position:static;display:block;width:auto;backdrop-filter:none;background:var(--black-card);border:1px solid var(--black-border);border-right:3px solid var(--gold);padding:26px 30px;margin:0 0 44px;}
   .toc-box .toc-title{font-size:0.8rem;font-weight:700;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:16px;}
   .toc-box ol{list-style:none;counter-reset:toc;margin:0;padding:0;}
   .toc-box ol li{counter-increment:toc;padding:7px 0;border-bottom:1px solid rgba(34,34,34,.5);}
@@ -414,7 +414,7 @@
 
 <div class="article-container">
 
-  <nav class="toc-box" aria-label="תוכן עניינים">
+  <div class="toc-box" role="navigation" aria-label="תוכן עניינים">
     <div class="toc-title">📑 בעמוד הזה</div>
     <ol>
       <li><a href="#sec-1">מה זה משכנתא לבנייה עצמית?</a></li>
@@ -426,7 +426,7 @@
       <li><a href="#sec-7">תפקיד יועץ המשכנתאות בבנייה עצמית</a></li>
       <li><a href="#sec-8">שאלות נפוצות על משכנתא לבנייה עצמית</a></li>
     </ol>
-  </nav>
+  </div>
 
 
   <p>אחד הפרויקטים הגדולים שמשפחה ישראלית יכולה לקחת על עצמה הוא בנייה עצמית — לקנות קרקע, לבנות בית מא' ועד ת', ולהוציא לאוויר העולם בית שתפרו בדיוק לצרכים שלכם. אבל <strong>המשכנתא לבנייה עצמית שונה לחלוטין ממשכנתא רגילה לרכישת דירה</strong> — והבנקים לא ממהרים להסביר את ההבדלים.</p>
