@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-51X6NKF3ZR', {'anonymize_ip': true});
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href') || '';
+    if(h.startsWith('tel:'))           gtag('event','click_to_call',    {event_category:'contact',event_label:h,value:1});
+    else if(h.indexOf('wa.me')!==-1)   gtag('event','click_to_whatsapp',{event_category:'contact',event_label:h,value:1});
+    else if(h.startsWith('mailto:'))   gtag('event','click_to_email',   {event_category:'contact'});
+  });
+</script>
+<script>(function(){var t=localStorage.getItem('lz-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שאלות נפוצות על משכנתא | ליאם צור — יועץ משכנתאות</title>
+<meta name="description" content="כל השאלות הנפוצות על משכנתא במקום אחד: עלות ייעוץ, מתי למחזר, אחוז מימון, משכנתא לעצמאים וזוגות צעירים, אישור עקרוני ועוד. תשובות מקצועיות מיועץ משכנתאות מורשה.">
+<link rel="canonical" href="https://liamzur.co.il/faq.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #E2C27A;
+  --gold-dark: #C9A84C;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark2: #1a1a1a;
+  --white: #F5F0E8;
+  --white-dim: rgba(245,240,232,0.75);
+  --white-faint: rgba(245,240,232,0.35);
+  --border: rgba(226,194,122,0.18);
+}
+:root[data-theme="light"]{--gold:#A8842C;--gold-dark:#8B6914;--black:#FAF7F2;--dark:#FFFFFF;--dark2:#F1ECE2;--white:#1A1814;--white-dim:#5A5248;--white-faint:#8A8073;--border:#D8CFBE;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-padding-top:100px;scroll-behavior:smooth;font-size:16px;overflow-x:hidden;}
+body{font-family:'Heebo',sans-serif;background:var(--black);color:var(--white);direction:rtl;line-height:1.8;}
+a{color:var(--gold);text-decoration:none;transition:opacity .3s;}
+a:hover{opacity:.75;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1200;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);}
+[data-theme="light"] nav{background:rgba(250,247,242,0.97);}
+.logo-link{text-decoration:none;display:inline-block;transition:opacity .3s;}
+.logo-link:hover{opacity:.82;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{color:var(--white-dim);text-decoration:none;font-size:0.9rem;font-weight:400;letter-spacing:1px;transition:color .3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{border:1px solid var(--gold)!important;color:var(--gold)!important;padding:8px 20px!important;letter-spacing:1.5px!important;}
+.nav-cta:hover{background:var(--gold)!important;color:var(--black)!important;}
+
+/* PAGE HERO */
+.page-hero{padding:140px 60px 64px;text-align:center;border-bottom:1px solid var(--border);}
+.page-hero .label{font-size:0.72rem;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--white);margin-bottom:14px;}
+.page-hero .subtitle{font-size:0.95rem;color:var(--white-dim);max-width:520px;margin:0 auto;}
+
+/* FAQ ACCORDION */
+.content-wrap{max-width:820px;margin:0 auto;padding:64px 60px 96px;}
+.faq-item{border:1px solid var(--border);background:var(--dark);margin-bottom:14px;transition:border-color .3s;}
+.faq-item:hover{border-color:var(--gold);}
+.faq-q{width:100%;background:none;border:none;text-align:right;cursor:pointer;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'Heebo',sans-serif;font-size:1.08rem;font-weight:600;color:var(--white);transition:color .25s;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{flex-shrink:0;width:26px;height:26px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.2rem;line-height:1;transition:transform .35s,background .25s,color .25s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold);color:var(--black);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);}
+.faq-a-inner{padding:0 26px 24px;color:var(--white-dim);font-size:1rem;line-height:1.9;}
+.faq-a-inner a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+
+/* INTRO + CTA */
+.faq-intro{max-width:820px;margin:0 auto;padding:0 60px;}
+.faq-intro p{color:var(--white-dim);font-size:1.02rem;line-height:1.9;text-align:center;}
+.faq-cta{max-width:820px;margin:48px auto 0;padding:0 60px;}
+.faq-cta-box{background:var(--dark);border:1px solid var(--border);border-right:3px solid var(--gold);padding:36px 40px;text-align:center;}
+.faq-cta-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);margin-bottom:10px;}
+.faq-cta-box p{color:var(--white-dim);margin-bottom:24px;}
+.faq-cta-btn{display:inline-block;background:var(--gold);color:var(--black)!important;padding:15px 40px;font-weight:700;font-size:1rem;letter-spacing:1px;text-decoration:none;transition:background .25s,transform .2s;}
+.faq-cta-btn:hover{background:var(--gold-dark);transform:translateY(-2px);opacity:1;}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid var(--border);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.footer-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.footer-links a{font-size:0.82rem;color:var(--white-faint);transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:0.78rem;color:rgba(245,240,232,0.25);}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .page-hero{padding:110px 24px 48px;}
+  .page-hero h1{font-size:2rem;}
+  .content-wrap{padding:44px 20px 72px;}
+  .faq-intro,.faq-cta{padding:0 20px;}
+  .faq-q{padding:18px 20px;font-size:1rem;}
+  .faq-a-inner{padding:0 20px 20px;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;gap:14px;}
+}
+[data-theme="light"] .logo-link svg text[fill="#F5F0E8"],[data-theme="light"] .drawer-header svg text[fill="#F5F0E8"],[data-theme="light"] nav svg text[fill="#F5F0E8"],[data-theme="light"] footer svg text[fill="#F5F0E8"]{fill:#1A1814!important}
+
+/* Canonical hamburger + mobile drawer */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1300;position:relative;}
+.hamburger span{display:block;width:26px;height:2px;background:#C9A84C;border-radius:2px;transition:all .35s cubic-bezier(.23,1,.32,1);transform-origin:center;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:1100;pointer-events:none;}
+.mobile-menu.open{pointer-events:all;display:block;}
+.mobile-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .4s;}
+.mobile-menu.open .mobile-overlay{background:rgba(0,0,0,.7);}
+.mobile-drawer{position:absolute;top:0;left:0;width:78%;max-width:320px;height:100%;background:#111;border-left:1px solid rgba(201,168,76,.15);transform:translateX(-100%);transition:transform .4s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;padding:0;overflow-y:auto;}
+.mobile-menu.open .mobile-drawer{transform:translateX(0);}
+.drawer-header{padding:28px 24px 24px;border-bottom:1px solid #222;}
+.drawer-nav{list-style:none;padding:16px 0;flex:1;margin:0;}
+.drawer-nav li a{display:flex;align-items:center;gap:14px;padding:16px 28px;color:#B0A89A;text-decoration:none;font-size:1rem;font-weight:400;letter-spacing:1px;transition:all .25s;border-right:3px solid transparent;}
+.drawer-nav li a:hover,.drawer-nav li a.active{color:#C9A84C;border-right-color:#C9A84C;background:rgba(201,168,76,.05);padding-right:36px;}
+.drawer-nav li a .nav-icon{font-size:1.1rem;width:24px;text-align:center;color:#C9A84C;flex-shrink:0;}
+.drawer-cta{margin:16px 24px 32px;display:block;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#080808!important;text-align:center;padding:16px;font-weight:700;font-size:.9rem;letter-spacing:2px;text-decoration:none;text-transform:uppercase;border:none!important;transition:opacity .3s;}
+.drawer-cta:hover{opacity:.88;}
+.drawer-contact{padding:20px 24px;border-top:1px solid #222;display:flex;flex-direction:column;gap:12px;}
+.drawer-contact a{color:#B0A89A;text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:color .3s;}
+.drawer-contact a:hover{color:#C9A84C;}
+@media(max-width:900px){.hamburger{display:flex;}}
+[data-theme="light"] .mobile-drawer{background:#FFFFFF;border-color:rgba(168,132,44,.2)}
+[data-theme="light"] .drawer-nav li a{color:#5A5248}
+[data-theme="light"] .drawer-nav li a:hover{color:#A8842C;background:rgba(168,132,44,.07)}
+[data-theme="light"] .drawer-header{border-bottom-color:#E5DCC8}
+[data-theme="light"] .drawer-contact{border-top-color:#E5DCC8}
+[data-theme="light"] .drawer-contact a{color:#5A5248}
+[data-theme="light"] .hamburger span{background:#1A1814}
+[data-theme="light"] .hamburger.open span:nth-child(1),[data-theme="light"] .hamburger.open span:nth-child(3){background:#A8842C}
+/* SOCIAL BUTTONS */
+.social-btns{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;}
+.social-btn{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1.5px solid #C9A84C;color:#C9A84C;background:transparent;transition:all .3s cubic-bezier(.23,1,.32,1);text-decoration:none !important;flex-shrink:0;}
+.social-btn:hover{background:#C9A84C;color:#080808 !important;transform:translateY(-3px);box-shadow:0 6px 16px rgba(201,168,76,.4);border-color:#E8C97A;}
+.social-btn svg{width:20px;height:20px;fill:currentColor;display:block;transition:transform .3s;}
+.social-btn:hover svg{transform:scale(1.1);}
+[data-theme="light"] .social-btn{border-color:#A8842C;color:#A8842C;}
+[data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
+@media(max-width:600px){.social-btns{justify-content:flex-start;}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "דף הבית", "item": "https://liamzur.co.il/"},
+    {"@type": "ListItem", "position": 2, "name": "שאלות נפוצות", "item": "https://liamzur.co.il/faq.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"מה זה יועץ משכנתאות ולמה צריך אותו?","acceptedAnswer":{"@type":"Answer","text":"יועץ משכנתאות מורשה הוא מומחה פיננסי שמייצג אתכם מול הבנקים. בניגוד לפקיד הבנק שעובד עבור הבנק, היועץ עובד בשבילכם בלבד — מנהל מו\"מ מול כל הבנקים, מוצא את הריבית הנמוכה ביותר ואת תמהיל המסלולים האידיאלי, וחוסך לכם עשרות אלפי שקלים לאורך חיי המשכנתא."}},
+    {"@type":"Question","name":"כמה עולה ייעוץ משכנתאות?","acceptedAnswer":{"@type":"Answer","text":"הפגישה הראשונה היא חינם לחלוטין וללא התחייבות. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני למשכנתא בתנאים הטובים ביותר. החיסכון שיועץ טוב משיג כמעט תמיד גדול בהרבה מעלות הייעוץ."}},
+    {"@type":"Question","name":"מתי כדאי למחזר משכנתא?","acceptedAnswer":{"@type":"Answer","text":"כדאי לבדוק מיחזור כאשר הריבית בשוק ירדה, חלפו יותר מ-3 שנים מאז לקחתם את המשכנתא, השתנה מצבכם הכלכלי, או שאתם מרגישים שההחזר החודשי כבד. מיחזור נכון יכול לחסוך עשרות עד מאות אלפי שקלים."}},
+    {"@type":"Question","name":"מה זה אחוז מימון וכמה הון עצמי צריך?","acceptedAnswer":{"@type":"Answer","text":"אחוז המימון הוא היחס בין סכום המשכנתא לשווי הנכס. בדירה ראשונה הבנק מממן עד 75% — כלומר צריך לפחות 25% הון עצמי. בדירה יחידה משופרת עד 70%, ובדירה להשקעה עד 50%. ככל שאחוז המימון נמוך יותר, הריבית טובה יותר."}},
+    {"@type":"Question","name":"מה זה מחיר למשתכן ואיך מנצלים אותו?","acceptedAnswer":{"@type":"Answer","text":"מחיר למשתכן היא תוכנית ממשלתית שמאפשרת לזכאים לרכוש דירה במחיר מוזל ב-20%-30% מתחת למחיר השוק. יועץ משכנתאות יסייע לכם לנצל את הזכאות בצורה המיטבית ולבנות משכנתא מותאמת."}},
+    {"@type":"Question","name":"האם ניתן לאחד הלוואות עם המשכנתא?","acceptedAnswer":{"@type":"Answer","text":"כן. איחוד הלוואות מאפשר להכניס הלוואות אישיות, אוברדראפט וחובות נוספים לתוך המשכנתא בריבית נמוכה בהרבה — מה שמפחית משמעותית את ההחזר החודשי הכולל. חשוב לבדוק את הכדאיות מול עלות הריבית הכוללת."}},
+    {"@type":"Question","name":"כמה זמן לוקח לקבל משכנתא?","acceptedAnswer":{"@type":"Answer","text":"התהליך המלא אורך בדרך כלל 3-6 שבועות. עם יועץ מנוסה התהליך מהיר יותר כיוון שכל המסמכים מוגשים מוכנים לכמה בנקים בו-זמנית, מה שמקצר את זמן קבלת האישור העקרוני."}},
+    {"@type":"Question","name":"אישור עקרוני זה אישור סופי?","acceptedAnswer":{"@type":"Answer","text":"לא. אישור עקרוני הוא הצהרת כוונות של הבנק על בסיס הנתונים שמסרתם — הוא תקף בדרך כלל ל-90 יום וכפוף לבדיקות נוספות (שמאות, מסמכים סופיים). זו התחלה טובה אבל לא ערובה לקבלת המשכנתא בפועל."}},
+    {"@type":"Question","name":"איך עצמאי מקבל משכנתא?","acceptedAnswer":{"@type":"Answer","text":"עצמאי יכול בהחלט לקבל משכנתא מצוינת, אבל הבנק בוחן את ההכנסה אחרת — לפי דוחות שנתיים, רווח לפני מס ותלושי שכר אם יש חברה בע\"מ. תכנון מראש והכנת מסמכים נכונה הם המפתח לתנאים טובים."}},
+    {"@type":"Question","name":"איך הבנק קובע את הריבית שלי?","acceptedAnswer":{"@type":"Answer","text":"הריבית נקבעת לפי הפרופיל שלכם: אחוז המימון, ההכנסה והיציבות התעסוקתית, היסטוריית האשראי, תמהיל המסלולים ותקופת ההחזר. שני לקוחות יכולים לקבל ריביות שונות לחלוטין על אותה משכנתא — כאן נכנס היתרון של ניהול מו\"מ מקצועי."}}
+  ]
+}
+</script>
+<!-- Open Graph -->
+<meta property="og:title" content="שאלות נפוצות על משכנתא | ליאם צור — יועץ משכנתאות">
+<meta property="og:description" content="כל השאלות הנפוצות על משכנתא במקום אחד: עלות ייעוץ, מתי למחזר, אחוז מימון, משכנתא לעצמאים וזוגות צעירים, אישור עקרוני ועוד.">
+<meta property="og:image" content="https://liamzur.co.il/card-photo-1.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="ליאם צור — יועץ משכנתאות מורשה">
+<meta property="og:url" content="https://liamzur.co.il/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="ליאם צור — יועץ משכנתאות">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="שאלות נפוצות על משכנתא | ליאם צור">
+<meta name="twitter:description" content="כל השאלות הנפוצות על משכנתא במקום אחד — תשובות מקצועיות מיועץ משכנתאות מורשה.">
+<meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="logo-link" aria-label="דף הבית — ליאם צור, יועץ משכנתאות">
+    <svg width="148" height="58" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
+      <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+      <text x="148" y="75" text-anchor="middle" font-family="'Playfair Display','Times New Roman',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+      <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#services">שירותים</a></li>
+    <li><a href="/#why">למה אני</a></li>
+    <li><a href="/blog/">בלוג</a></li>
+    <li><a href="/faq.html">שאלות נפוצות</a></li>
+    <li><a href="tel:0523434916" class="nav-cta">ייעוץ ראשוני חינם</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-drawer">
+    <div class="drawer-header">
+      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
+        <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+        <text x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+        <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
+      </svg>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="/#services" class="drawer-link"><span class="nav-icon">›</span> שירותים</a></li>
+      <li><a href="/#why" class="drawer-link"><span class="nav-icon">›</span> למה אני</a></li>
+      <li><a href="/#process" class="drawer-link"><span class="nav-icon">›</span> תהליך</a></li>
+      <li><a href="/#testimonials" class="drawer-link"><span class="nav-icon">›</span> לקוחות</a></li>
+      <li><a href="/blog/" class="drawer-link"><span class="nav-icon">›</span> בלוג</a></li>
+      <li><a href="/faq.html" class="drawer-link active"><span class="nav-icon">›</span> שאלות נפוצות</a></li>
+      <li><a href="/calculator.html" class="drawer-link"><span class="nav-icon">›</span> מחשבון משכנתא</a></li>
+    </ul>
+    <a href="/#contact" class="drawer-cta drawer-link">ייעוץ ראשוני חינם</a>
+    <div class="drawer-contact">
+      <a href="tel:+972523434916">✆ 052-3434916</a>
+      <a href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
+      <a href="https://wa.me/972523434916" target="_blank" rel="noopener">וואטסאפ</a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="label">מרכז הידע</div>
+  <h1>שאלות נפוצות על משכנתא</h1>
+  <p class="subtitle">כל מה שרצית לדעת על משכנתא, מיחזור, אחוז מימון ותהליך הייעוץ — במקום אחד, בשפה פשוטה.</p>
+</div>
+
+<!-- INTRO -->
+<div class="faq-intro">
+  <p>ריכזתי כאן את השאלות שאני שומע הכי הרבה מלקוחות. לא מצאת תשובה? <a href="/#contact">דבר איתי ישירות</a> — הייעוץ הראשוני חינם.</p>
+</div>
+
+<!-- FAQ ACCORDION -->
+<div class="content-wrap">
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>מה זה יועץ משכנתאות ולמה צריך אותו?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">יועץ משכנתאות מורשה הוא מומחה פיננסי שמייצג אתכם מול הבנקים. בניגוד לפקיד הבנק שעובד עבור הבנק, היועץ עובד בשבילכם בלבד — מנהל מו"מ מול כל הבנקים, מוצא את הריבית הנמוכה ביותר ואת תמהיל המסלולים האידיאלי, וחוסך לכם עשרות אלפי שקלים. <a href="/blog/yoetz-mashkanta.html">קראו עוד על תפקיד היועץ ←</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>כמה עולה ייעוץ משכנתאות?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">הפגישה הראשונה היא חינם לחלוטין וללא התחייבות. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני למשכנתא בתנאים הטובים ביותר. החיסכון שיועץ טוב משיג כמעט תמיד גדול בהרבה מעלות הייעוץ.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>מתי כדאי למחזר משכנתא?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">כדאי לבדוק מיחזור כאשר הריבית בשוק ירדה, חלפו יותר מ-3 שנים מאז לקחתם את המשכנתא, השתנה מצבכם הכלכלי, או שאתם מרגישים שההחזר החודשי כבד. מיחזור נכון יכול לחסוך עשרות עד מאות אלפי שקלים. <a href="/blog/mashkanta-michzur-2026.html">מדריך מחזור משכנתא 2026 ←</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>מה זה אחוז מימון וכמה הון עצמי צריך?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">אחוז המימון הוא היחס בין סכום המשכנתא לשווי הנכס. בדירה ראשונה הבנק מממן עד 75% — כלומר צריך לפחות 25% הון עצמי. בדירה יחידה משופרת עד 70%, ובדירה להשקעה עד 50%. ככל שאחוז המימון נמוך יותר, הריבית טובה יותר. <a href="/blog/mashkanta-achuz-mimun.html">הסבר מלא על אחוז מימון ←</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>מה זה מחיר למשתכן ואיך מנצלים אותו?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">מחיר למשתכן היא תוכנית ממשלתית שמאפשרת לזכאים לרכוש דירה במחיר מוזל ב-20%-30% מתחת למחיר השוק. יועץ משכנתאות יסייע לכם לנצל את הזכאות בצורה המיטבית ולבנות משכנתא מותאמת.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>האם ניתן לאחד הלוואות עם המשכנתא?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">כן. איחוד הלוואות מאפשר להכניס הלוואות אישיות, אוברדראפט וחובות נוספים לתוך המשכנתא בריבית נמוכה בהרבה — מה שמפחית משמעותית את ההחזר החודשי הכולל. חשוב לבדוק את הכדאיות מול עלות הריבית הכוללת.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>כמה זמן לוקח לקבל משכנתא?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">התהליך המלא אורך בדרך כלל 3-6 שבועות. עם יועץ מנוסה התהליך מהיר יותר כיוון שכל המסמכים מוגשים מוכנים לכמה בנקים בו-זמנית, מה שמקצר את זמן קבלת האישור העקרוני.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>אישור עקרוני זה אישור סופי?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">לא. אישור עקרוני הוא הצהרת כוונות של הבנק על בסיס הנתונים שמסרתם — הוא תקף בדרך כלל ל-90 יום וכפוף לבדיקות נוספות (שמאות, מסמכים סופיים). זו התחלה טובה אבל לא ערובה לקבלת המשכנתא בפועל. <a href="/blog/mashkanta-ishur-ekroni.html">כל מה שצריך לדעת על אישור עקרוני ←</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>איך עצמאי מקבל משכנתא?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">עצמאי יכול בהחלט לקבל משכנתא מצוינת, אבל הבנק בוחן את ההכנסה אחרת — לפי דוחות שנתיים, רווח לפני מס ותלושי שכר אם יש חברה בע"מ. תכנון מראש והכנת מסמכים נכונה הם המפתח לתנאים טובים. <a href="/blog/mashkanta-atzmaim-2026.html">מדריך משכנתא לעצמאים ←</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" aria-expanded="false"><span>איך הבנק קובע את הריבית שלי?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">הריבית נקבעת לפי הפרופיל שלכם: אחוז המימון, ההכנסה והיציבות התעסוקתית, היסטוריית האשראי, תמהיל המסלולים ותקופת ההחזר. שני לקוחות יכולים לקבל ריביות שונות לחלוטין על אותה משכנתא — כאן נכנס היתרון של ניהול מו"מ מקצועי. <a href="/blog/mashkanta-ribit-klali.html">למה כל אחד מקבל ריבית אחרת ←</a></div></div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="faq-cta">
+  <div class="faq-cta-box">
+    <h2>נשארת עם שאלה?</h2>
+    <p>בוא נדבר. הייעוץ הראשוני חינם, ללא התחייבות.</p>
+    <a href="tel:0523434916" class="faq-cta-btn">📞 ייעוץ ראשוני חינם · 052-343-4916</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="logo-link" aria-label="דף הבית — ליאם צור, יועץ משכנתאות">
+    <svg width="120" height="47" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
+      <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
+      <text x="148" y="75" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
+      <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
+    </svg>
+  </a>
+  <ul class="footer-links">
+    <li><a href="/">ראשי</a></li>
+    <li><a href="/blog/">בלוג</a></li>
+    <li><a href="/faq.html">שאלות נפוצות</a></li>
+    <li><a href="/privacy.html">מדיניות פרטיות</a></li>
+    <li><a href="/accessibility.html">נגישות</a></li>
+    <li><a href="/terms.html">תקנון</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 ליאם צור · יועץ משכנתאות מוסמך</span>
+  <div class="social-btns" role="navigation" aria-label="רשתות חברתיות של ליאם צור">
+    <a href="https://www.facebook.com/share/1GigYEYUtH/" target="_blank" rel="noopener" class="social-btn" aria-label="פייסבוק של ליאם צור" title="פייסבוק">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/liamzur.mortgage" target="_blank" rel="noopener" class="social-btn" aria-label="אינסטגרם של ליאם צור" title="אינסטגרם">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://wa.me/972523434916" target="_blank" rel="noopener" class="social-btn" aria-label="וואטסאפ של ליאם צור" title="וואטסאפ">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@liam.zur" target="_blank" rel="noopener" class="social-btn" aria-label="טיקטוק של ליאם צור" title="טיקטוק">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div id="cookieBanner" role="alert" aria-label="הודעת עוגיות" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,8,8,0.97);border-top:1px solid rgba(201,168,76,0.35);padding:18px 48px;align-items:center;justify-content:space-between;gap:24px;backdrop-filter:blur(16px);">
+  <p style="margin:0;color:#B0A89A;font-size:0.82rem;line-height:1.6;flex:1;">
+    אנו משתמשים ב<span style="color:#C9A84C;">עוגיות (Cookies)</span> לשיפור חוויית הגלישה, ניתוח תנועה באתר ושיפור השירות.
+    בהמשך הגלישה אתה מסכים ל<a href="/privacy.html" style="color:#E2C27A;text-decoration:underline;">מדיניות הפרטיות והעוגיות</a> שלנו.
+  </p>
+  <div style="display:flex;gap:12px;flex-shrink:0;">
+    <button onclick="declineCookies()" aria-label="דחיית קבלת עוגיות" style="background:transparent;color:#B0A89A;border:1px solid rgba(176,168,154,0.3);padding:9px 22px;font-size:0.8rem;cursor:pointer;font-family:inherit;">דחייה</button>
+    <button onclick="acceptCookies()" aria-label="אישור קבלת עוגיות" style="background:#C9A84C;color:#080808;border:none;padding:9px 28px;font-size:0.82rem;font-weight:700;letter-spacing:1px;cursor:pointer;font-family:inherit;">אישור</button>
+  </div>
+</div>
+
+<script>
+(function(){if(!localStorage.getItem('cookieConsent')){var b=document.getElementById('cookieBanner');if(b){b.style.display='flex';}}})();
+function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').style.display='none';}
+function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookieBanner').style.display='none';}
+</script>
+
+<script>
+(function(){
+  // Hamburger drawer
+  var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu'),mov=document.getElementById('mobileOverlay');
+  function openM(){if(hb)hb.classList.add('open');if(mm)mm.classList.add('open');document.body.style.overflow='hidden';}
+  function closeM(){if(hb)hb.classList.remove('open');if(mm)mm.classList.remove('open');document.body.style.overflow='';}
+  if(hb)hb.addEventListener('click',function(){mm&&mm.classList.contains('open')?closeM():openM();});
+  if(mov)mov.addEventListener('click',closeM);
+  document.querySelectorAll('.drawer-link').forEach(function(l){l.addEventListener('click',function(){closeM();});});
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement, ans=item.querySelector('.faq-a');
+      var isOpen=item.classList.contains('open');
+      if(isOpen){
+        item.classList.remove('open'); ans.style.maxHeight=null; btn.setAttribute('aria-expanded','false');
+      } else {
+        item.classList.add('open'); ans.style.maxHeight=ans.scrollHeight+'px'; btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
