@@ -4,3 +4,19 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# HTML — תמיד לאמת מול השרת.
+# בלי זה הדפדפן מגיש עותק שמור והשינויים לא נראים אחרי deploy.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# נכסים סטטיים — אפשר לשמור, הם משתנים לעתים רחוקות
+/*.jpg
+  Cache-Control: public, max-age=604800
+/*.png
+  Cache-Control: public, max-age=604800
+/*.webp
+  Cache-Control: public, max-age=604800
