@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<script>
+  /* מסמן שה-JS חי. אלמנטים עם .reveal מוסתרים רק כשהדגל הזה קיים,
+     כך שאם ה-JS נכשל או חסום — כל התוכן נשאר גלוי. */
+  document.documentElement.className += ' js';
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
 <script>
@@ -97,7 +102,25 @@ function svcGo(n){
     background: linear-gradient(to bottom, rgba(8,8,8,0.98), transparent);
     border-bottom: 1px solid rgba(201,168,76,0.1);
     backdrop-filter: blur(12px);
-    transition: all 0.3s;
+    transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  /* מצב "נגלל" — קודם הוגדר כסגנונות inline מתוך ה-JS */
+  nav.nav-scrolled {
+    background: rgba(8,8,8,0.98);
+    border-bottom-color: rgba(201,168,76,0.2);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  }
+
+  /* פס התקדמות גלילה — נטען ב-JS, חוט זהב דק בראש העמוד */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    z-index: 1300;
+    background: linear-gradient(90deg, var(--gold), #E8C97A);
+    transform: scaleX(0);
+    transform-origin: right center; /* RTL — מתמלא מימין לשמאל */
+    pointer-events: none;
   }
   .logo-link { text-decoration: none; display: inline-block; transition: opacity 0.3s; }
   .logo-link:hover { opacity: 0.82; }
@@ -407,9 +430,44 @@ function svcGo(n){
   .footer-links a { color: var(--white-dim); text-decoration: none; font-size: 0.8rem; transition: color 0.3s; }
   .footer-links a:hover { color: var(--gold); }
 
-  /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* ─────────────────────────────────────────────
+     REVEAL — חשיפה בגלילה
+     האלמנטים מוסתרים רק תחת .js, כדי שכשל ב-JS
+     לא יסתיר תוכן. ה-easing זהה לזה של card.html.
+     ───────────────────────────────────────────── */
+  :root { --ease-out-soft: cubic-bezier(.16,1,.3,1); --reveal-dur: 0.7s; }
+
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--reveal-dur) var(--ease-out-soft),
+                transform var(--reveal-dur) var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+  }
+  /* וריאציות כיווניות — ב-RTL "מימין" הוא הכיוון הטבעי להיכנס ממנו */
+  .js .reveal-right { transform: translateX(32px); }
+  .js .reveal-left  { transform: translateX(-32px); }
+  .js .reveal-scale { transform: scale(.94); }
+  .js .reveal-fade  { transform: none; }
+
+  .js .reveal.visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  /* דירוג — כל ילד נכנס אחרי קודמו. נעצר ב-8 כדי שרשימות
+     ארוכות לא ייצרו המתנה מורגשת. */
+  .js .stagger > * { --reveal-delay: 0s; }
+  .js .stagger > *:nth-child(1) { --reveal-delay: .00s; }
+  .js .stagger > *:nth-child(2) { --reveal-delay: .07s; }
+  .js .stagger > *:nth-child(3) { --reveal-delay: .14s; }
+  .js .stagger > *:nth-child(4) { --reveal-delay: .21s; }
+  .js .stagger > *:nth-child(5) { --reveal-delay: .28s; }
+  .js .stagger > *:nth-child(6) { --reveal-delay: .35s; }
+  .js .stagger > *:nth-child(7) { --reveal-delay: .42s; }
+  .js .stagger > *:nth-child(n+8) { --reveal-delay: .49s; }
 
   /* ─── HAMBURGER ─── */
   .hamburger {
@@ -651,17 +709,21 @@ function svcGo(n){
     .why-card-float.top, .why-card-float.bottom { display: none; }
   }
 
-  /* ── MOBILE: force all .reveal visible (no JS dependency) ── */
+  /* ── MOBILE — אנימציה מכווצת, לא מבוטלת ──
+     קודם כל ה-.reveal היו כבויים כאן לגמרי (פעמיים), כך שבטלפון
+     האתר היה סטטי. הנפילה לתוכן גלוי מטופלת עכשיו ע"י דגל ה-.js,
+     אז אפשר להנפיש — רק במרחק קצר ובמשך קצר, שלא יעכב גלילה. */
   @media (max-width: 900px) {
-    .reveal { opacity: 1 !important; transform: none !important; }
-  }
-
-  /* ─── FORCE VISIBILITY — mobile safe ─── */
-  @media (max-width: 900px) {
-    .reveal {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
+    :root { --reveal-dur: 0.5s; }
+    .js .reveal { transform: translateY(16px); }
+    .js .reveal-right { transform: translateX(18px); }
+    .js .reveal-left  { transform: translateX(-18px); }
+    .js .reveal-scale { transform: scale(.97); }
+    /* דירוג צפוף יותר — במסך צר הכרטיסים מתחת לזה ומחכים יותר */
+    .js .stagger > *:nth-child(1) { --reveal-delay: .00s; }
+    .js .stagger > *:nth-child(2) { --reveal-delay: .05s; }
+    .js .stagger > *:nth-child(3) { --reveal-delay: .10s; }
+    .js .stagger > *:nth-child(n+4) { --reveal-delay: .15s; }
   }
   /* ─── NEWS SECTION ─── */
   .news-section {
@@ -864,6 +926,44 @@ function svcGo(n){
   [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
+  /* ═══════════════════════════════════════════════
+     מיקרו-אינטראקציות
+     תנועות קצרות ומאופקות. המותג הוא ייעוץ משכנתאות —
+     האנימציה אמורה לשדר דיוק, לא שעשוע.
+     ═══════════════════════════════════════════════ */
+
+  /* כרטיסי שירות — הרמה עדינה + זוהר זהב */
+  .service-card { transition: transform .4s var(--ease-out-soft), border-color .4s ease, box-shadow .4s ease; }
+  .service-card:hover { box-shadow: 0 18px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(201,168,76,.12); }
+  .service-card .service-number { transition: color .4s ease, transform .4s var(--ease-out-soft); }
+  .service-card:hover .service-number { color: var(--gold); transform: translateY(-2px); }
+
+  /* פריטי "למה אני" — הדגשת הצד בכניסת עכבר (RTL) */
+  .why-item { transition: transform .35s var(--ease-out-soft), border-color .35s ease; }
+  .why-item:hover { transform: translateX(-6px); border-bottom-color: rgba(201,168,76,.35); }
+  .why-item-icon { transition: transform .4s var(--ease-out-soft); }
+  .why-item:hover .why-item-icon { transform: scale(1.08); }
+
+  /* שאלות נפוצות */
+  .faq-item:hover { border-color: rgba(201,168,76,.35); }
+
+  /* שלבי התהליך — המספר מסתובב קלות בריחוף */
+  .process-step .step-num { transition: background .35s ease, color .35s ease, transform .45s var(--ease-out-soft); }
+  .process-step:hover .step-num { transform: scale(1.06); }
+
+  /* כרטיסי חדשות — כבר יש translateY, מוסיף עומק */
+  .news-card { transition: transform .35s var(--ease-out-soft), border-color .35s ease, box-shadow .35s ease; }
+  .news-card:hover { box-shadow: 0 14px 32px rgba(0,0,0,.45); }
+  .news-card-arrow { transition: transform .35s var(--ease-out-soft); display: inline-block; }
+  .news-card:hover .news-card-arrow { transform: translateX(-5px); }
+
+  /* מיקוד מקלדת — נגישות: אסור שהריחוף יהיה הדרך היחידה לקבל משוב */
+  a:focus-visible, button:focus-visible, .service-card:focus-visible, .news-card:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
 </style>
 <link rel="canonical" href="https://liamzur.co.il/" />
 <script type="application/ld+json">
@@ -1049,7 +1149,7 @@ function svcGo(n){
       <span class="spin" aria-hidden="true">↻</span> רענן עדכונים
     </button>
   </div>
-  <div class="news-grid" id="newsGrid">
+  <div class="news-grid stagger" id="newsGrid">
     <!-- Skeleton placeholders -->
     <div class="news-skeleton"><div class="skel skel-tag"></div><div class="skel skel-h1"></div><div class="skel skel-h2"></div><div class="skel skel-p1"></div><div class="skel skel-p2"></div><div class="skel skel-p3"></div></div>
     <div class="news-skeleton"><div class="skel skel-tag"></div><div class="skel skel-h1"></div><div class="skel skel-h2"></div><div class="skel skel-p1"></div><div class="skel skel-p2"></div><div class="skel skel-p3"></div></div>
@@ -1082,7 +1182,7 @@ function svcGo(n){
 <section id="services">
   <div class="section-label">השירותים שלי</div>
   <h2 class="section-title reveal">פתרונות משכנתא<br>מותאמים אישית</h2>
-  <div class="services-grid">
+  <div class="services-grid stagger">
     <div class="service-card reveal">
       <span class="service-number">01</span>
       <span class="service-icon">⌂</span>
@@ -1147,29 +1247,29 @@ function svcGo(n){
   <div class="reveal">
     <div class="section-label">למה לבחור בי</div>
     <h2 class="section-title">יתרונות שמדברים<br>בעד עצמם</h2>
-    <ul class="why-list">
-      <li class="why-item">
+    <ul class="why-list stagger">
+      <li class="why-item reveal">
         <div class="why-item-icon">₪</div>
         <div class="why-item-text">
           <h4>חיסכון אמיתי בכסף</h4>
           <p>אני מנהל משא ומתן אגרסיבי מול הבנקים כדי להשיג עבורכם את הריבית הנמוכה ביותר — חיסכון של עשרות אלפי שקלים.</p>
         </div>
       </li>
-      <li class="why-item">
+      <li class="why-item reveal">
         <div class="why-item-icon">◎</div>
         <div class="why-item-text">
           <h4>ייעוץ אובייקטיבי ובלתי תלוי</h4>
           <p>אני עובד בשבילכם בלבד — לא בשביל אף בנק. הייעוץ מבוסס אך ורק על האינטרסים שלכם.</p>
         </div>
       </li>
-      <li class="why-item">
+      <li class="why-item reveal">
         <div class="why-item-icon">◇</div>
         <div class="why-item-text">
           <h4>תהליך מהיר ויעיל</h4>
           <p>אני מטפל בכל הביורוקרטיה עבורכם. זמן קצר מהפגישה הראשונה ועד לאישור המשכנתא.</p>
         </div>
       </li>
-      <li class="why-item">
+      <li class="why-item reveal">
         <div class="why-item-icon">◈</div>
         <div class="why-item-text">
           <h4>ליווי לאורך כל הדרך</h4>
@@ -1186,7 +1286,7 @@ function svcGo(n){
     <div class="section-label" style="justify-content:center;">תהליך העבודה</div>
     <h2 class="section-title reveal" style="margin-bottom:0;">4 שלבים פשוטים<br>לחיים עם משכנתא מנצחת</h2>
   </div>
-  <div class="process-grid">
+  <div class="process-grid stagger">
     <div class="process-step reveal">
       <div class="step-num">1</div>
       <h4>פגישת ייעוץ ראשונית</h4>
@@ -1219,13 +1319,13 @@ function svcGo(n){
       <h2>כל מה שרציתם לדעת<br><span style="color:var(--gold);font-style:italic;">על משכנתאות</span></h2>
       <p class="section-desc">תשובות לשאלות הנפוצות ביותר על ייעוץ משכנתאות, מחזור ואיחוד הלוואות</p>
     </div>
-    <div class="faq-grid">
-      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מה זה יועץ משכנתאות ולמה צריך אותו?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>יועץ משכנתאות מורשה הוא מומחה פיננסי שמייצג אתכם מול הבנקים. בניגוד לפקיד הבנק, היועץ עובד בשבילכם בלבד — מנהל מו"מ מול כל הבנקים, מוצא את הריבית הנמוכה ביותר ואת תמהיל המסלולים האידיאלי, וחוסך לכם עשרות אלפי שקלים לאורך חיי המשכנתא.</p></div></div>
-      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>כמה עולה ייעוץ משכנתאות?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>הפגישה הראשונה היא חינם לחלוטין ללא התחייבות. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני למשכנתא בתנאים הטובים ביותר — כך שאתם לא מסתכנים בכלום.</p></div></div>
-      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מתי כדאי למחזר משכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>כדאי לבדוק מיחזור כאשר: הריבית בשוק ירדה משמעותית, חלפו יותר מ-3 שנים מאז לקחתם את המשכנתא, השתנה מצבכם הכלכלי, או שאתם מרגישים שהמשכנתא "כבדה". מיחזור נכון יכול לחסוך עשרות עד מאות אלפי שקלים.</p></div></div>
-      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מה זה מחיר למשתכן ואיך מנצלים אותו?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>מחיר למשתכן היא תוכנית ממשלתית שמאפשרת לזכאים לרכוש דירה במחיר מוזל ב-20%-30% מתחת למחיר השוק. יועץ משכנתאות מנוסה יסייע לכם לוודא זכאות, לבחור נכס מתאים, ולהשיג את תנאי המימון הטובים ביותר.</p></div></div>
-      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>האם ניתן לאחד הלוואות עם המשכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>כן! איחוד הלוואות הוא כלי פיננסי חכם שמאפשר להכניס הלוואות אישיות, אוברדראפט וחובות נוספים לתוך המשכנתא בריבית נמוכה בהרבה. התוצאה: החזר חודשי נמוך משמעותית ותזרים מזומנים טוב יותר.</p></div></div>
-      <div class="faq-item"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>כמה זמן לוקח לקבל משכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>התהליך המלא אורך בדרך כלל 3-6 שבועות. עם יועץ מנוסה התהליך מהיר יותר כיוון שכל המסמכים מוגשים מוכנים לכמה בנקים בו-זמנית.</p></div></div>
+    <div class="faq-grid stagger">
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מה זה יועץ משכנתאות ולמה צריך אותו?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>יועץ משכנתאות מורשה הוא מומחה פיננסי שמייצג אתכם מול הבנקים. בניגוד לפקיד הבנק, היועץ עובד בשבילכם בלבד — מנהל מו"מ מול כל הבנקים, מוצא את הריבית הנמוכה ביותר ואת תמהיל המסלולים האידיאלי, וחוסך לכם עשרות אלפי שקלים לאורך חיי המשכנתא.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>כמה עולה ייעוץ משכנתאות?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>הפגישה הראשונה היא חינם לחלוטין ללא התחייבות. דמי הייעוץ משולמים רק לאחר שמתקבל אישור עקרוני למשכנתא בתנאים הטובים ביותר — כך שאתם לא מסתכנים בכלום.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מתי כדאי למחזר משכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>כדאי לבדוק מיחזור כאשר: הריבית בשוק ירדה משמעותית, חלפו יותר מ-3 שנים מאז לקחתם את המשכנתא, השתנה מצבכם הכלכלי, או שאתם מרגישים שהמשכנתא "כבדה". מיחזור נכון יכול לחסוך עשרות עד מאות אלפי שקלים.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>מה זה מחיר למשתכן ואיך מנצלים אותו?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>מחיר למשתכן היא תוכנית ממשלתית שמאפשרת לזכאים לרכוש דירה במחיר מוזל ב-20%-30% מתחת למחיר השוק. יועץ משכנתאות מנוסה יסייע לכם לוודא זכאות, לבחור נכס מתאים, ולהשיג את תנאי המימון הטובים ביותר.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>האם ניתן לאחד הלוואות עם המשכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>כן! איחוד הלוואות הוא כלי פיננסי חכם שמאפשר להכניס הלוואות אישיות, אוברדראפט וחובות נוספים לתוך המשכנתא בריבית נמוכה בהרבה. התוצאה: החזר חודשי נמוך משמעותית ותזרים מזומנים טוב יותר.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-question" onclick="this.parentElement.classList.toggle('open')"><span>כמה זמן לוקח לקבל משכנתא?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div><div class="faq-answer"><p>התהליך המלא אורך בדרך כלל 3-6 שבועות. עם יועץ מנוסה התהליך מהיר יותר כיוון שכל המסמכים מוגשים מוכנים לכמה בנקים בו-זמנית.</p></div></div>
     </div>
   </div>
 </section>
@@ -1444,6 +1544,8 @@ function svcGo(n){
   :root[data-theme="light"]{--black:#FAF7F2;--black-soft:#F1ECE2;--black-card:#FFFFFF;--black-border:#D8CFBE;--white:#1A1814;--white-dim:#5A5248;--gold:#A8842C;--gold-light:#C9A84C;--gold-dark:#6B4F0C}
   [data-theme="light"] body{background:#FAF7F2;color:#1A1814}
   [data-theme="light"] nav,[data-theme="light"] #navbar{background:rgba(250,247,242,.96)!important;border-bottom:1px solid rgba(168,132,44,.22)!important;box-shadow:0 1px 20px rgba(0,0,0,.04)}
+  [data-theme="light"] nav.nav-scrolled{background:rgba(250,247,242,.99)!important;border-bottom-color:rgba(168,132,44,.3)!important;box-shadow:0 4px 20px rgba(0,0,0,.08)!important}
+  [data-theme="light"] .scroll-progress{background:linear-gradient(90deg,#A8842C,#C9A84C)}
   [data-theme="light"] .nav-links a{color:#5A5248}
   [data-theme="light"] .nav-links a:hover{color:#A8842C}
   [data-theme="light"] .nav-cta{border-color:#A8842C;color:#A8842C!important}
@@ -1541,11 +1643,31 @@ function svcGo(n){
   [data-theme="light"] [style*="background:#080808"],[data-theme="light"] [style*="background:#0d0d0d"],[data-theme="light"] [style*="background:#111111"],[data-theme="light"] [style*="background:#151515"],[data-theme="light"] [style*="background:var(--black)"],[data-theme="light"] [style*="background:var(--black-soft)"],[data-theme="light"] [style*="background:var(--black-card)"]{background:#FFFFFF!important;border-color:#E5DCC8!important}
   [data-theme="light"] [style*="color:var(--white)"]{color:#1A1814!important}
   [data-theme="light"] [style*="color:#F5F0E8"]{color:#1A1814!important}
+
+  /* ═══════════════════════════════════════════════════
+     כיבוד העדפת מערכת: תנועה מופחתת
+     משתמשים שהגדירו זאת (לרוב בגלל מיגרנה, סחרחורת או
+     רגישות וסטיבולרית) יקבלו את האתר במלואו — בלי תנועה.
+     חייב להיות אחרון בגיליון כדי לגבור על כל השאר.
+     ═══════════════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    /* התוכן חייב להישאר גלוי — לא רק "בלי תנועה" */
+    .js .reveal { opacity: 1 !important; transform: none !important; }
+    /* אנימציות רצות ברקע נעצרות לחלוטין */
+    .marquee-track, .news-ticker-track { animation: none !important; }
+    .scroll-progress { display: none !important; }
+  }
 </style>
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
-  <div class="contact-grid">
+  <div class="contact-grid stagger">
     <div class="reveal">
       <div class="section-label">צור קשר</div>
       <h2 class="section-title">קבלו ייעוץ ראשוני<br><span style="color:var(--gold);font-style:italic;">חינם ובלי התחייבות</span></h2>
@@ -1915,7 +2037,7 @@ function svcGo(n){
 
   function renderCards(items) {
     return items.map(function(item, i) {
-      return '<a class="news-card" href="' + (item.url || '#') + '" target="_blank" rel="noopener">'
+      return '<a class="news-card reveal" href="' + (item.url || '#') + '" target="_blank" rel="noopener">'
         + '<div class="news-card-tag">' + (NEWS_TAGS[i] || '') + '</div>'
         + '<h4>' + item.title + '</h4>'
         + '<p>' + item.summary + '</p>'
@@ -1933,6 +2055,8 @@ function svcGo(n){
     // Render curated news directly. (A browser fetch to api.anthropic.com is
     // blocked by CORS and needs a secret key, so it always failed \u2014 removed.)
     grid.innerHTML = renderCards(STATIC_NEWS);
+    // הכרטיסים נוצרו אחרי שה-observer כבר רץ — צריך לרשום אותם מחדש
+    if (window.__observeReveals) window.__observeReveals();
     if (btn) setTimeout(function(){ btn.classList.remove('loading'); }, 150);
   };
 
@@ -2185,33 +2309,111 @@ function svcGo(n){
       if (e.target === this) window.closeReviewModal();
     });
 
-    // Scroll reveal
-    var revEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-        });
-      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
-      revEls.forEach(function(el) { obs.observe(el); });
-    } else {
-      revEls.forEach(function(el) { el.classList.add('visible'); });
-    }
+    // ── Scroll reveal ────────────────────────────────────────────
+    // חושף אלמנטים בכניסה למסך. ניתן לקריאה חוזרת (window.__observeReveals)
+    // כדי לתפוס גם תוכן שנוצר דינמית, כמו כרטיסי החדשות.
+    var prefersReducedMotion = window.matchMedia
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Nav scroll
-    var nav = document.getElementById('navbar');
-    window.addEventListener('scroll', function() {
-      if (!nav) return;
-      if (window.scrollY > 80) {
-        var isLight = document.documentElement.getAttribute('data-theme')==='light';
-        nav.style.background        = isLight ? 'rgba(250,247,242,0.98)' : 'rgba(8,8,8,0.98)';
-        nav.style.borderBottomColor = isLight ? 'rgba(168,132,44,0.25)' : 'rgba(201,168,76,0.2)';
-      } else {
-        var isLight = document.documentElement.getAttribute('data-theme')==='light';
-        nav.style.background        = isLight ? 'linear-gradient(to bottom,rgba(250,247,242,0.96),transparent)' : 'linear-gradient(to bottom,rgba(8,8,8,0.98),transparent)';
-        nav.style.borderBottomColor = isLight ? 'rgba(168,132,44,0.2)' : 'rgba(201,168,76,0.1)';
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      // אין תמיכה, או שהמשתמש ביקש בלי תנועה — הכל גלוי מיד
+      window.__observeReveals = function() {
+        var els = document.querySelectorAll('.reveal:not(.visible)');
+        for (var i = 0; i < els.length; i++) els[i].classList.add('visible');
+      };
+    } else {
+      var revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+      window.__observeReveals = function() {
+        var els = document.querySelectorAll('.reveal:not(.visible)');
+        for (var i = 0; i < els.length; i++) revealObs.observe(els[i]);
+      };
+    }
+    window.__observeReveals();
+
+    // ── ספירה עולה למספרי ה-hero ────────────────────────────────
+    // "100+" -> סופר ל-100 ומחזיר את ה-+ ; "98%" -> שומר על ה-% .
+    (function() {
+      var nums = document.querySelectorAll('.stat-num');
+      if (!nums.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
+
+      function countUp(el) {
+        var raw = el.textContent.trim();
+        var m = raw.match(/^(\D*)(\d[\d,]*)(.*)$/);
+        if (!m) return;
+        var prefix = m[1], target = parseInt(m[2].replace(/,/g, ''), 10), suffix = m[3];
+        if (!isFinite(target) || target === 0) return;
+
+        var dur = 1400, start = null;
+        el.style.fontVariantNumeric = 'tabular-nums'; // שלא ירקוד ברוחב
+        function tick(ts) {
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+          el.textContent = prefix + Math.round(target * eased).toLocaleString('he-IL') + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
       }
-    });
+
+      var statObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (!e.isIntersecting) return;
+          countUp(e.target);
+          statObs.unobserve(e.target);
+        });
+      }, { threshold: 0.6 });
+      for (var i = 0; i < nums.length; i++) statObs.observe(nums[i]);
+    })();
+
+    // ── פס התקדמות גלילה ────────────────────────────────────────
+    (function() {
+      if (prefersReducedMotion) return;
+      var bar = document.createElement('div');
+      bar.className = 'scroll-progress';
+      bar.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(bar);
+      var ticking = false;
+      function update() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(window.scrollY / h, 1) : 0) + ')';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+      }, { passive: true });
+      update();
+    })();
+
+    // ── Nav scroll ──────────────────────────────────────────────
+    // קודם זה רץ על כל אירוע גלילה וכתב סגנונות inline בכל פעם.
+    // עכשיו: מווסת ב-rAF, וכותב רק כשהמצב באמת מתחלף.
+    var nav = document.getElementById('navbar');
+    if (nav) {
+      var navScrolled = null, navTicking = false;
+
+      function paintNav() {
+        navTicking = false;
+        var scrolled = window.scrollY > 80;
+        if (scrolled === navScrolled) return;   // אין שינוי — לא נוגעים ב-DOM
+        navScrolled = scrolled;
+        nav.classList.toggle('nav-scrolled', scrolled);
+      }
+      window.addEventListener('scroll', function() {
+        if (navTicking) return;
+        navTicking = true;
+        requestAnimationFrame(paintNav);
+      }, { passive: true });
+      paintNav();
+    }
 
     // Hamburger
     var hb  = document.getElementById('hamburger');
