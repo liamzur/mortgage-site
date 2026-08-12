@@ -18,8 +18,8 @@ Netlify Site ID: **c96420f6-9fc5-43d8-9e79-99ea1bbc9051**
 mortgage-site/
 ├── index.html          # דף הבית (302KB) - hero, services, FAQ, blog section
 ├── card.html           # כרטיס ביקור דיגיטלי (10KB - אופטימז!)
-├── card-photo-1.jpg    # תמונת פרופיל (58KB)
-├── card-photo-2.jpg    # תמונת QR (13KB)
+├── card-photo-1.jpg    # תמונת הפרופיל ב-hero (805x1024, 65KB) — רקע סטודיו שחור
+├── card-photo-2.jpg    # לוגו LIAM ZUR (13KB) — לא בשימוש בכרטיס כרגע
 ├── sitemap.xml         # 14 עמודים
 ├── accessibility.html
 ├── privacy.html
