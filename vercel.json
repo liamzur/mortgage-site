@@ -4,6 +4,22 @@
   "cleanUrls": false,
   "trailingSlash": false,
 
+  "//rewrites": "כתובות ללא סיומת .html — Cloudflare Pages הגיש אותן אוטומטית, Vercel לא. אלה rewrites ולא redirects: הכתובת בשורת הכתובת נשארת כפי שהיא, התוכן מוגש, ותגי ה-canonical (שכולם מצביעים ל-.html) נשארים הסמכות היחידה לגוגל.",
+
+  "rewrites": [
+    { "source": "/card",          "destination": "/card.html" },
+    { "source": "/faq",           "destination": "/faq.html" },
+    { "source": "/glossary",      "destination": "/glossary.html" },
+    { "source": "/calculator",    "destination": "/calculator.html" },
+    { "source": "/accessibility", "destination": "/accessibility.html" },
+    { "source": "/privacy",       "destination": "/privacy.html" },
+    { "source": "/terms",         "destination": "/terms.html" },
+    { "source": "/thank-you",     "destination": "/thank-you.html" },
+
+    { "source": "/blog/:slug([^/.]+)", "destination": "/blog/:slug.html" },
+    { "source": "/ezor/:slug([^/.]+)", "destination": "/ezor/:slug.html" }
+  ],
+
   "redirects": [
     {
       "source": "/מדריך",
