@@ -137,6 +137,49 @@
     .sources h3{font-size:0.8rem;letter-spacing:2px;color:var(--white-dim);margin-bottom:10px;}
     .sources ul li{font-size:0.85rem;line-height:1.9;}
 
+    /* ── GLOSSARY ── */
+    .glossary{display:grid;gap:12px;margin:8px 0 28px;}
+    .term{background:var(--black-card);border:1px solid var(--black-border);padding:16px 20px;}
+    .term b{display:block;color:var(--gold);font-size:1rem;margin-bottom:6px;}
+    .post-container .term p{margin:0;font-size:1rem;line-height:1.75;}
+
+    /* ── COMPARE ── */
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 24px;}
+    .cmp{background:var(--black-card);border:1px solid var(--black-border);padding:18px 20px;font-variant-numeric:tabular-nums;}
+    .cmp.was{border-top:3px solid #6ab86a;}
+    .cmp.now{border-top:3px solid #d96c6c;}
+    .cmp h4{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:10px;}
+    .cmp .row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--black-border);font-size:0.95rem;color:#c8c0b4;}
+    .cmp .row span:last-child{font-weight:700;color:var(--white);white-space:nowrap;}
+    .cmp .res{margin-top:12px;font-weight:800;font-size:1.05rem;}
+    .res.good{color:#6ab86a;}
+    .res.bad{color:#d96c6c;}
+    .post-container .note{font-size:0.88rem;color:var(--white-dim);margin-top:-8px;}
+    [data-theme="light"] .cmp .row{color:#2B2720;}
+    [data-theme="light"] .res.good{color:#2D8A5F;}
+    [data-theme="light"] .res.bad{color:#C23838;}
+    [data-theme="light"] .cmp.was{border-top-color:#2D8A5F;}
+    [data-theme="light"] .cmp.now{border-top-color:#C23838;}
+    [data-theme="light"] .post-container .note{color:#5A5248;}
+
+    /* ── PHONE ── */
+    @media(max-width:600px){
+      body .post-hero{padding:96px 18px 36px;}
+      body .post-hero h1{font-size:1.5rem;line-height:1.4;}
+      body .fact-badge{margin-bottom:18px;}
+      body .post-container{padding:28px 18px 56px;}
+      body .post-container p{font-size:1.02rem;line-height:1.85;margin-bottom:18px;}
+      body .post-container h2{font-size:1.35rem;margin:36px 0 14px;}
+      body .post-container h3{margin:22px 0 10px;}
+      body .toc-box{padding:18px 20px;margin-bottom:28px;}
+      body .rule-box{padding:18px;font-size:1rem;margin:20px 0;}
+      body .compare{grid-template-columns:1fr;}
+      body .checklist li{font-size:0.98rem;padding:10px 0;}
+      body .cta-section{padding:32px 18px;}
+      body .cta-section h2{font-size:1.35rem;}
+      body .cta-btn{display:block;padding:16px 12px;letter-spacing:0;}
+    }
+
     /* ── FOOTER ── */
     footer{background:var(--black-soft);border-top:1px solid var(--black-border);padding:48px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;}
     .footer-links{display:flex;gap:32px;list-style:none;flex-wrap:wrap;}
@@ -292,7 +335,7 @@
         "name": "מה זה יחס החזר?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "יחס החזר הוא החלק מההכנסה החודשית שהולך להחזרי הלוואות. אם משק הבית מרוויח 20,000 ש\"ח בחודש ומשלם 6,000 ש\"ח משכנתא, יחס ההחזר הוא 30%. בנק ישראל אוסר על הבנקים לאשר הלוואת דיור כשהיחס עובר 50%, ורוב הבנקים מחמירים כבר מעל 40%."
+          "text": "יחס החזר הוא החלק מההכנסה החודשית שהולך להחזרי הלוואות. אם משק הבית מרוויח 20,000 ש\"ח בחודש ומשלם 6,000 ש\"ח משכנתא, יחס ההחזר הוא 30%. בנק ישראל אוסר על הבנקים לאשר הלוואת דיור כשהיחס עובר 50%, ובפועל רוב הבקשות מאושרות רק עד כ-40%."
         }
       },
       {
@@ -402,12 +445,12 @@
 </div>
 
 <section class="post-hero">
-  <div class="fact-badge">עדכון רגולציה · אוקטובר 2026</div>
-  <h1>ההוראה החדשה של בנק ישראל: <em>הבנק יסכום את כל ההלוואות על הדירה</em>, ומה זה אומר עליכם</h1>
+  <div class="fact-badge">נכנס לתוקף ב-1.10.2026</div>
+  <h1>בנק ישראל משנה את הכללים: <em>מה זה אומר על הלוואה על הדירה שלכם</em></h1>
   <div class="post-meta">
     <span>🏠 מאת ליאם צור · יועץ משכנתאות</span>
     <span>📅 ספטמבר 2026</span>
-    <span>⏱ 3 דקות קריאה</span>
+    <span>⏱ 4 דקות קריאה</span>
   </div>
 </section>
 
@@ -416,82 +459,107 @@
   <div class="toc-box" role="navigation" aria-label="תוכן עניינים">
     <div class="toc-title">📑 בעמוד הזה</div>
     <ol>
-      <li><a href="#sec-1">מה משתנה ב-1 באוקטובר?</a></li>
-      <li><a href="#sec-2">דוגמה במספרים</a></li>
-      <li><a href="#sec-3">על מי זה משפיע</a></li>
-      <li><a href="#sec-4">נתונים שכדאי להכיר</a></li>
-      <li><a href="#sec-5">מה כדאי לעשות עכשיו</a></li>
+      <li><a href="#sec-1">מה משתנה?</a></li>
+      <li><a href="#sec-2">דוגמה: משפחת כהן</a></li>
+      <li><a href="#sec-3">על מי זה משפיע?</a></li>
+      <li><a href="#sec-4">כמה מספרים מעניינים</a></li>
+      <li><a href="#sec-5">מה כדאי לעשות?</a></li>
     </ol>
   </div>
 
-  <h2 id="sec-1">מה משתנה ב-1 באוקטובר?</h2>
+  <h2 id="sec-1">מה משתנה?</h2>
 
   <div class="rule-box">
-    <strong>בשורה אחת:</strong> מ-1 באוקטובר 2026, כשתבקשו הלוואה נוספת על דירה שכבר יש עליה משכנתא, הבנק <strong>חייב לחבר</strong> את ההחזר החדש עם ההחזר של המשכנתא הקיימת, גם אם היא בבנק אחר. אם הסכום עובר <strong>50% מההכנסה</strong>, הבנק לא יוכל לאשר.
+    <strong>בקצרה:</strong> מ-1 באוקטובר 2026, מי שיש לו משכנתא ורוצה לקחת <strong>עוד הלוואה על אותה דירה</strong> ייבדק אחרת. הבנק יחבר את התשלום החודשי של ההלוואה החדשה עם התשלום של המשכנתא, ויבדוק כמה זה יוצא ביחד מתוך המשכורת.
+  </div>
+
+  <h3>שלושה מושגים, בשפה פשוטה</h3>
+  <div class="glossary">
+    <div class="term">
+      <b>הלוואה על הדירה ("הלוואה לכל מטרה")</b>
+      <p>הלוואה שבה הדירה שלכם היא הביטחון של הבנק. לוקחים כסף לשיפוץ, לרכב, לסגירת חובות או כדי לעזור לילדים. אם מפסיקים לשלם, הבנק יכול בסוף למכור את הדירה.</p>
+    </div>
+    <div class="term">
+      <b>תשלום חודשי (החזר)</b>
+      <p>הסכום שיורד לכם מהחשבון כל חודש בשביל ההלוואה.</p>
+    </div>
+    <div class="term">
+      <b>יחס החזר</b>
+      <p>איזה חלק מהמשכורת הולך לתשלומים. נכנסים לכם 20,000 ש"ח נטו ואתם משלמים 6,000 ש"ח משכנתא? אז 30% מהמשכורת הולכים למשכנתא.</p>
+    </div>
   </div>
 
   <p>
-    <strong>יחס החזר</strong> הוא החלק מההכנסה החודשית שהולך להחזרי הלוואות. מרוויחים 20,000 ש"ח ומשלמים משכנתא של 6,000 ש"ח? יחס ההחזר שלכם הוא 30%.
-  </p>
-  <p>
-    עד היום, כשמישהו עם משכנתא ביקש <strong>"הלוואה לכל מטרה"</strong> על הדירה (לשיפוץ, לסגירת חובות או לעזרה לילדים), הרבה בנקים בדקו את ההלוואה החדשה לבד. מעכשיו הכול נספר יחד. ההוראה נקבעה ליולי ונדחתה בשלושה חודשים לבקשת הבנקים. המטרה של בנק ישראל היא למנוע ממשפחות להגיע למצב שבו יותר ממחצית ההכנסה הולכת להלוואות.
+    לפי הכללים של בנק ישראל, סך התשלומים על הלוואות לדיור לא יכול לעבור <strong>חצי מהמשכורת נטו (50%)</strong>. בפועל, רוב הבקשות מאושרות רק עד כ-40%.
   </p>
 
-  <h2 id="sec-2">דוגמה במספרים</h2>
+  <h3>מה היה עד עכשיו?</h3>
   <p>
-    משפחת כהן: הכנסה של <strong>20,000 ש"ח</strong>, משכנתא של <strong>6,000 ש"ח</strong> בחודש. הם מבקשים הלוואה לשיפוץ עם החזר של <strong>5,000 ש"ח</strong>.
+    הרבה בנקים בדקו את ההלוואה החדשה לבד. הם הורידו את המשכנתא מהמשכורת, ובדקו אם ההלוואה החדשה "נכנסת" במה שנשאר. ככה משפחה יכלה להגיע לתשלומים של יותר מחצי מהמשכורת, בלי שמישהו יעצור אותה.
   </p>
 
-  <table class="info-table">
-    <thead>
-      <tr>
-        <th>שיטת הבדיקה</th>
-        <th>החישוב</th>
-        <th>התוצאה</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>השיטה הישנה (ההלוואה החדשה לבד)</td>
-        <td>5,000 מתוך 14,000 שנשארו אחרי המשכנתא</td>
-        <td><span style="color:#6ab86a;">~36%, מאושר</span></td>
-      </tr>
-      <tr>
-        <td>השיטה החדשה (הכול יחד)</td>
-        <td>6,000 + 5,000 = 11,000 מתוך 20,000</td>
-        <td><span style="color:#d96c6c;">55%, לא ניתן לאשר</span></td>
-      </tr>
-    </tbody>
-  </table>
-
+  <h3>מה יהיה מעכשיו?</h3>
   <p>
-    אותה משפחה ואותה בקשה, ותוצאה הפוכה. לפי הכללים החדשים ההחזר על ההלוואה יכול להיות לכל היותר 4,000 ש"ח, ובפועל רוב הבנקים יאשרו פחות.
+    הבנק חייב לחבר את <strong>כל</strong> התשלומים על הדירה, כולל המשכנתא, גם אם היא בבנק אחר. אם הסכום עובר חצי מהמשכורת, אסור לו לאשר.
+  </p>
+  <p>
+    ההוראה פורסמה בפברואר 2026 ותוכננה ליולי. הבנקים ביקשו עוד זמן להתארגן, ובנק ישראל דחה אותה ל-1 באוקטובר.
   </p>
 
-  <h2 id="sec-3">על מי זה משפיע</h2>
+  <h2 id="sec-2">דוגמה: משפחת כהן</h2>
   <p>
-    <strong>לא משתנה לכם כלום</strong> אם יש לכם משכנתא ואתם לא מתכננים עוד הלוואה על הדירה. ההחזר החודשי שלכם נשאר כמו שהוא.
+    משפחת כהן מרוויחה <strong>20,000 ש"ח נטו</strong> בחודש ומשלמת משכנתא של <strong>6,000 ש"ח</strong>. הם רוצים הלוואה לשיפוץ, עם תשלום של <strong>5,000 ש"ח</strong> בחודש.
   </p>
-  <p><strong>כדאי לשים לב</strong> אם:</p>
+
+  <div class="compare">
+    <div class="cmp was">
+      <h4>עד 30 בספטמבר</h4>
+      <div class="row"><span>המשכורת אחרי המשכנתא</span><span>14,000 ש"ח</span></div>
+      <div class="row"><span>ההלוואה החדשה</span><span>5,000 ש"ח</span></div>
+      <div class="row"><span>חלק ממה שנשאר</span><span>כ-36%</span></div>
+      <div class="res good">✓ עוברת את הבדיקה</div>
+    </div>
+    <div class="cmp now">
+      <h4>מ-1 באוקטובר</h4>
+      <div class="row"><span>משכנתא + הלוואה</span><span>11,000 ש"ח</span></div>
+      <div class="row"><span>המשכורת</span><span>20,000 ש"ח</span></div>
+      <div class="row"><span>חלק מהמשכורת</span><span>55%</span></div>
+      <div class="res bad">✗ אסור לאשר</div>
+    </div>
+  </div>
+
+  <p>
+    אותה משפחה, אותה משכורת, אותה בקשה, ותוצאה הפוכה.
+  </p>
+  <p>
+    <strong>אז כמה כן אפשר?</strong> לכל היותר תשלום של 4,000 ש"ח על ההלוואה החדשה. ככה המשכנתא וההלוואה יחד מגיעות ל-10,000 ש"ח, בדיוק חצי מהמשכורת. ובגלל שרוב הבקשות מאושרות רק עד כ-40%, סביר שהבנק יציע פחות: תשלום של עד כ-2,000 ש"ח בחודש.
+  </p>
+
+  <h2 id="sec-3">על מי זה משפיע?</h2>
+  <div class="rule-box">
+    <strong>לא משתנה לכם כלום</strong> אם יש לכם משכנתא ואתם לא מבקשים עוד הלוואה על הדירה. התשלום החודשי שלכם נשאר בדיוק אותו דבר.
+  </div>
+  <p><strong>כדאי לשים לב אם:</strong></p>
   <ul class="checklist">
-    <li>תכננתם הלוואה לכל מטרה על הדירה, לשיפוץ או לסגירת חובות.</li>
-    <li>אתם הורים שרוצים לעזור לילדים בהון עצמי דרך הלוואה על הדירה שלכם.</li>
-    <li>יש לכם כבר כמה הלוואות על אותה דירה, בבנקים שונים.</li>
+    <li>אתם מתכננים לקחת הלוואה על הדירה לשיפוץ, לרכב או לסגירת חובות.</li>
+    <li>אתם הורים שרוצים לעזור לילדים לקנות דירה בעזרת הלוואה על הדירה שלכם.</li>
+    <li>יש לכם כבר כמה הלוואות על אותה דירה.</li>
   </ul>
 
-  <h2 id="sec-4">נתונים שכדאי להכיר</h2>
+  <h2 id="sec-4">כמה מספרים מעניינים</h2>
   <ul class="checklist">
-    <li><strong>630 מיליארד ש"ח</strong> הוא חוב המשכנתאות בישראל, יותר מפי 2 מלפני עשור (מבקר המדינה, יוני 2026).</li>
-    <li><strong>5,800 ש"ח</strong> הוא ההחזר החודשי הממוצע היום, לעומת 4,200 ש"ח ב-2019.</li>
-    <li><strong>כמעט שליש</strong> מההלוואות מוגדרות "בסיכון גבוה", לעומת 20% ב-2022.</li>
-    <li><strong>מ-24% ליותר מ-40%:</strong> כך קופץ יחס ההחזר הממוצע של מי שלוקח הלוואה לכל מטרה, ברגע שמחברים אותה למשכנתא.</li>
+    <li><span><strong>630 מיליארד ש"ח</strong> הוא כל החוב של הישראלים על משכנתאות (נכון ליוני 2025). לפני עשור הוא היה בערך חצי מזה.</span></li>
+    <li><span><strong>5,800 ש"ח</strong> היה התשלום החודשי הממוצע על משכנתא ב-2024-2025. ב-2019 הוא היה 4,200 ש"ח.</span></li>
+    <li><span><strong>כמעט 1 מכל 3</strong> משכנתאות מוגדרת "בסיכון גבוה" (31% ביולי 2025), לעומת 1 מכל 5 בתחילת 2022.</span></li>
+    <li><span><strong>מ-24% ליותר מ-40%:</strong> מי שלוקח הלוואה על הדירה משלם עליה בממוצע כ-24% מהמשכורת. כשמוסיפים את המשכנתא, הממוצע עובר 40%. לכן הרבה אנשים ירגישו את השינוי.</span></li>
   </ul>
+  <p class="note">שלושת הנתונים הראשונים מדוח מבקר המדינה (יוני 2026). הנתון הרביעי פורסם ב-ynet.</p>
 
-  <h2 id="sec-5">מה כדאי לעשות עכשיו</h2>
+  <h2 id="sec-5">מה כדאי לעשות?</h2>
   <ul class="checklist">
-    <li><strong>תעשו חשבון:</strong> חברו את כל ההחזרים על הדירה וחלקו בהכנסה הנטו.</li>
-    <li><strong>בדקו מחזור ואיחוד:</strong> לפעמים איחוד המשכנתא עם ההלוואה החדשה לתקופה ארוכה יותר פותר את הבעיה. (קראו עוד על <a href="/blog/mashkanta-michzur-2026.html">מחזור משכנתא ב-2026</a>.)</li>
-    <li><strong>היזהרו מגופים חוץ-בנקאיים</strong> שמאשרים "בלי שאלות". הריבית שם גבוהה בהרבה.</li>
+    <li><span><strong>תעשו חשבון פשוט:</strong> חברו את כל התשלומים החודשיים על הדירה וחלקו במשכורת נטו של כל הבית. יצא מעל 40%? כדאי להתייעץ לפני שמגישים בקשה.</span></li>
+    <li><span><strong>בדקו מחזור:</strong> מחזור הוא החלפה של המשכנתא הקיימת במשכנתא חדשה. לפעמים אפשר לאחד אותה עם הכסף שאתם צריכים ולפרוס על יותר שנים, כך שהתשלום החודשי יורד. שימו לב: יותר שנים זה בדרך כלל יותר ריבית בסך הכול. (<a href="/blog/mashkanta-michzur-2026.html">קראו עוד על מחזור משכנתא</a>)</span></li>
+    <li><span><strong>היזהרו מחברות הלוואה שאינן בנק</strong> ומבטיחות אישור "בלי שאלות". הריבית אצלן בדרך כלל גבוהה בהרבה.</span></li>
   </ul>
 
   <div class="sources">
