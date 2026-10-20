@@ -324,55 +324,79 @@
 <meta name="twitter:title" content="לקצר שנים במשכנתא בלי להגדיל את ההחזר — איך זה עובד? | ליאם צור">
 <meta name="twitter:description" content="אפשר לקצר 5 שנים מהמשכנתא ולשלם רק כמה מאות שקלים יותר בחודש — ולחסוך מאות אלפי שקלים בריבית. המספרים מפתיעים.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
+  <link rel="stylesheet" href="/site-nav.css?v=4">
+  <script src="/site-nav.js?v=4" defer></script>
 </head>
 <body>
 
-<nav id="navbar">
-  <a href="/" class="logo-link" aria-label="דף הבית — ליאם צור, יועץ משכנתאות">
-    <svg width="148" height="58" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ליאם צור - יועץ משכנתאות">
-      <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
-      <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
-      <text x="148" y="75" text-anchor="middle" font-family="'Heebo','Times New Roman',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
-      <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
-    </svg>
-  </a>
-  <ul class="nav-links">
-    <li><a href="/#services">שירותים</a></li>
-    <li><a href="/#why">למה אני</a></li>
-    <li><a href="/#process">תהליך</a></li>
-    <li><a href="/#testimonials">לקוחות</a></li>
-    <li><a href="/blog/">בלוג</a></li>
-    <li><a href="tel:0523434916" class="nav-cta">ייעוץ ראשוני חינם</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="החלף מצב תצוגה" title="מצב כהה / בהיר"><span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span><span class="toggle-track"><span class="toggle-thumb"></span></span></button>
-  <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-drawer">
-    <div class="drawer-header">
-      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
-        <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
-        <text x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
-        <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
+<!-- LZ-NAV:START — נוצר ע"י tools/sync_nav.py, לא לערוך ידנית -->
+<div class="lz-header" id="lzHeader" role="banner">
+  <div class="lz-inner">
+    <a class="lz-logo" href="/" aria-label="ליאם צור — יועץ משכנתאות, לדף הבית">
+      <svg viewBox="0 0 296 116" aria-hidden="true" focusable="false">
+        <line class="lz-logo-line" x1="148" y1="4" x2="96" y2="40" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="lz-logo-line" x1="148" y1="4" x2="200" y2="40" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="lz-logo-line" x1="78" y1="40" x2="218" y2="40" stroke-width="2"/>
+        <rect class="lz-logo-line" x="138" y="15" width="20" height="17" stroke-width="2.5"/>
+        <text class="lz-logo-ink" x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" letter-spacing="6">LIAM ZUR</text>
+        <text class="lz-logo-gold" x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" letter-spacing="5.5">MORTGAGE ADVISOR</text>
       </svg>
+    </a>
+    <div class="lz-navwrap" role="navigation" aria-label="תפריט ראשי"><ul class="lz-links">
+      <li><a class="lz-link" href="/#services">שירותים</a></li>
+      <li><a class="lz-link" href="/#why">למה אני</a></li>
+      <li><a class="lz-link" href="/#process">תהליך</a></li>
+      <li><a class="lz-link" href="/#testimonials">לקוחות</a></li>
+      <li><a class="lz-link" href="/blog/">בלוג</a></li>
+      <li><a class="lz-link" href="/faq.html">שאלות נפוצות</a></li>
+      <li class="lz-drop">
+        <button class="lz-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">כלים <svg class="lz-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5L5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="lz-menu">
+          <li><a href="/michzur.html"><span class="lz-mt">בדיקת מחזור <span class="lz-new">חדש</span></span><span class="lz-md">5 שאלות, 30 שניות: כדאי לך למחזר?</span></a></li>
+          <li><a href="/calculator.html"><span class="lz-mt">מחשבון משכנתא</span><span class="lz-md">החזר חודשי וסך הריבית לפי סכום ושנים</span></a></li>
+          <li><a href="/glossary.html"><span class="lz-mt">מילון מונחים</span><span class="lz-md">כל מושגי המשכנתא בשפה פשוטה</span></a></li>
+        </ul>
+      </li>
+    </ul></div>
+    <div class="lz-actions">
+      <a class="lz-cta" href="/#contact">ייעוץ ראשוני חינם</a>
+      <button class="lz-theme" id="lzTheme" type="button" aria-label="מצב כהה או בהיר" title="מצב כהה / בהיר">
+        <svg class="lz-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+        <svg class="lz-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+      </button>
+      <button class="lz-burger" id="lzBurger" type="button" aria-label="פתיחת התפריט" aria-expanded="false" aria-controls="lzDrawer"><span></span><span></span><span></span></button>
     </div>
-    <ul class="drawer-nav">
-      <li><a href="/#services"><span class="nav-icon">›</span> שירותים</a></li>
-      <li><a href="/#why"><span class="nav-icon">›</span> למה אני</a></li>
-      <li><a href="/#process"><span class="nav-icon">›</span> תהליך</a></li>
-      <li><a href="/#testimonials"><span class="nav-icon">›</span> לקוחות</a></li>
-      <li><a href="/blog/"><span class="nav-icon">›</span> בלוג</a></li>
-    </ul>
-    <a href="tel:0523434916" class="drawer-cta">ייעוץ ראשוני חינם · 052-343-4916</a>
   </div>
 </div>
+<div class="lz-drawer" id="lzDrawer" aria-hidden="true">
+  <div class="lz-scrim"></div>
+  <div class="lz-panel" role="dialog" aria-modal="true" aria-label="תפריט">
+    <div class="lz-dgroup" role="navigation" aria-label="עמודים">
+      <a class="lz-dlink" href="/#services">שירותים</a>
+      <a class="lz-dlink" href="/#why">למה אני</a>
+      <a class="lz-dlink" href="/#process">תהליך</a>
+      <a class="lz-dlink" href="/#testimonials">לקוחות</a>
+      <a class="lz-dlink" href="/blog/">בלוג</a>
+      <a class="lz-dlink" href="/faq.html">שאלות נפוצות</a>
+    </div>
+    <div class="lz-dsep"></div>
+    <div class="lz-dgroup" role="group" aria-label="כלים">
+      <span class="lz-dlabel">כלים</span>
+      <a class="lz-dlink" href="/michzur.html">בדיקת מחזור<span class="lz-new">חדש</span></a>
+      <a class="lz-dlink" href="/calculator.html">מחשבון משכנתא</a>
+      <a class="lz-dlink" href="/glossary.html">מילון מונחים</a>
+    </div>
+    <a class="lz-dcta" href="/#contact">ייעוץ ראשוני חינם</a>
+    <div class="lz-dcontact">
+      <a href="tel:+972523434916"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>052-343-4916</a>
+      <a href="https://wa.me/972523434916" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88zm8.41-18.3A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41z"/></svg>וואטסאפ</a>
+    </div>
+    <a class="lz-dmail" href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
+  </div>
+</div>
+<!-- LZ-NAV:END -->
+
+
 
 <section class="post-hero">
   <div class="fact-badge">30 עובדות | 7/30</div>
@@ -597,14 +621,6 @@
   </div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-  mobileOverlay.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
-</script>
 
 <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(8,8,8,0.97);border-top:1px solid rgba(201,168,76,0.35);padding:18px 48px;align-items:center;justify-content:space-between;gap:24px;backdrop-filter:blur(16px);">
   <p style="margin:0;color:#B0A89A;font-size:0.82rem;line-height:1.6;flex:1;">אנו משתמשים ב<span style="color:#C9A84C;">עוגיות (Cookies)</span> לשיפור חוויית הגלישה, ניתוח תנועה באתר ושיפור השירות. בהמשך הגלישה אתה מסכים למדיניות העוגיות שלנו.</p>
