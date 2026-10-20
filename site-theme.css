@@ -103,6 +103,3 @@ footer p, footer .footer-copy{ opacity:1 !important; }
 [data-theme="light"] .blog-hero p{ color:#4F483F !important; }
 [data-theme="light"] .series-section-divider span{ color:#7E5F10 !important; }
 
-/* ── 14. דף התודה ── */
-.ty-icon{ color:#1A0F00 !important; background:linear-gradient(135deg,#E3C878,#C9A84C) !important; }
-[data-theme="light"] .ty-icon{ color:#FFFFFF !important; background:#7E5F10 !important; }
