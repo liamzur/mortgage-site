@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root{--gold:#C9A84C;--gold-light:#E8C97A;--gold-dark:#8B6914;--black:#080808;--black-soft:#111111;--black-card:#151515;--black-border:#222222;--white:#F5F0E8;--white-dim:#B0A89A;}
-  :root[data-theme="light"]{--black:#FAF7F2;--black-soft:#F1ECE2;--black-card:#FFFFFF;--black-border:#D8CFBE;--white:#1A1814;--white-dim:#5A5248;--gold:#A8842C;--gold-light:#C9A84C;--gold-dark:#6B4F0C}
+  :root[data-theme="light"]{--black:#FAF7F2;--black-soft:#F1ECE2;--black-card:#FFFFFF;--black-border:#D8CFBE;--white:#1A1814;--white-dim:#5A5248;--gold:#7E5F10;--gold-light:#C9A84C;--gold-dark:#6B4F0C}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html { scroll-behavior: smooth; scroll-padding-top: 100px; }
   body{font-family:'Heebo',sans-serif;background:var(--black);color:var(--white);direction:rtl;line-height:1.7;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
@@ -39,7 +39,7 @@
   .toggle-track{display:inline-flex;width:40px;height:22px;border-radius:999px;background:rgba(201,168,76,.22);border:1px solid rgba(201,168,76,.35);align-items:center;padding:2px;}
   [data-theme="light"] .toggle-track{background:rgba(168,132,44,.3);border-color:rgba(168,132,44,.5);}
   .toggle-thumb{width:16px;height:16px;border-radius:50%;background:#C9A84C;transition:transform .35s;}
-  [data-theme="light"] .toggle-thumb{transform:translateX(-18px);background:#A8842C;}
+  [data-theme="light"] .toggle-thumb{transform:translateX(-18px);background:#7E5F10;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
   .hamburger span{display:block;width:26px;height:2px;background:var(--gold);border-radius:2px;transition:.35s;}
   .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -93,8 +93,8 @@
   .social-btn:hover{background:#C9A84C;color:#080808 !important;transform:translateY(-3px);box-shadow:0 6px 16px rgba(201,168,76,.4);border-color:#E8C97A;}
   .social-btn svg{width:20px;height:20px;fill:currentColor;display:block;transition:transform .3s;}
   .social-btn:hover svg{transform:scale(1.1);}
-  [data-theme="light"] .social-btn{border-color:#A8842C;color:#A8842C;}
-  [data-theme="light"] .social-btn:hover{background:#A8842C;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
+  [data-theme="light"] .social-btn{border-color:#7E5F10;color:#7E5F10;}
+  [data-theme="light"] .social-btn:hover{background:#7E5F10;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
   @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
   </style>
@@ -114,8 +114,9 @@
 <meta name="twitter:title" content="404 — הדף לא נמצא | ליאם צור">
 <meta name="twitter:description" content="הדף שחיפשת לא קיים. חזור לעמוד הבית או צור קשר עם ליאם צור — יועץ משכנתאות מורשה.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=4">
-  <script src="/site-nav.js?v=4" defer></script>
+  <link rel="stylesheet" href="/site-nav.css?v=5">
+  <script src="/site-nav.js?v=5" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=5">
 </head>
 <body>
 

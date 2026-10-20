@@ -12,7 +12,7 @@ sync_nav.py — מכניס את התפריט העליון האחיד לכל עמ
 import glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = '4'
+VERSION = '5'
 SKIP = {'card.html'}                       # כרטיס הביקור הדיגיטלי — בלי תפריט אתר
 # עמודים שהתפריט הישן שלהם היה "דביק" (חלק מזרימת העמוד) — צריכים מרווח מתחת לבר הקבוע
 SPACER = {'calculator.html', 'michzur.html', 'blog/mashkanta-binyan-atzmit.html', 'blog/yoetz-mashkanta.html'}
@@ -142,10 +142,14 @@ def process(rel):
     h = drop_legacy_menu_js(h)
     css = f'<link rel="stylesheet" href="/site-nav.css?v={VERSION}">'
     js = f'<script src="/site-nav.js?v={VERSION}" defer></script>'
+    theme = f'<link rel="stylesheet" href="/site-theme.css?v={VERSION}">'
     h = re.sub(r'<link rel="stylesheet" href="/site-nav\.css[^"]*">', css, h)
     h = re.sub(r'<script src="/site-nav\.js[^"]*" defer></script>', js, h)
+    h = re.sub(r'<link rel="stylesheet" href="/site-theme\.css[^"]*">', theme, h)
     if css not in h:
         h = h.replace('</head>', f'  {css}\n</head>', 1)
+    if theme not in h:
+        h = h.replace('</head>', f'  {theme}\n</head>', 1)
     if js not in h:
         h = h.replace('</head>', f'  {js}\n</head>', 1)
     if h != orig:
