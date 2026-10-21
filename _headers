@@ -20,3 +20,8 @@
   Cache-Control: public, max-age=604800
 /*.webp
   Cache-Control: public, max-age=604800
+
+# כרטיס איש קשר — iPhone פותח ישירות את מסך "איש קשר חדש"
+/*.vcf
+  Content-Type: text/vcard; charset=utf-8
+  Cache-Control: public, max-age=3600

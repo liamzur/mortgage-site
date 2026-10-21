@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
@@ -14,62 +14,186 @@
     if(h.startsWith('tel:'))           gtag('event','click_to_call',    {event_category:'contact',event_label:h,value:1});
     else if(h.indexOf('wa.me')!==-1)   gtag('event','click_to_whatsapp',{event_category:'contact',event_label:h,value:1});
     else if(h.startsWith('mailto:'))   gtag('event','click_to_email',   {event_category:'contact'});
-  });
-  document.addEventListener('submit', function(e){
-    if(e.target && e.target.matches('form[action*="web3forms"]'))
-      gtag('event','generate_lead',{event_category:'contact',value:10});
+    else if(h.indexOf('.vcf')!==-1)    gtag('event','save_contact',     {event_category:'contact',value:1});
   });
 </script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>כרטיס ביקור דיגיטלי | ליאם צור — יועץ משכנתאות מורשה</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>:root{--gold:#C9A84C;--gold-light:#E8C97A;--dark:#0A0A0A;--text:#F0EDE6;--text-muted:#9A9185;--wa:#25D366;}*{margin:0;padding:0;box-sizing:border-box;}body{background:var(--dark);min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;padding:20px;}body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 0%,rgba(201,168,76,.07) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 100%,rgba(201,168,76,.05) 0%,transparent 50%);pointer-events:none;}.card{width:100%;max-width:420px;background:linear-gradient(145deg,#161616 0%,#0E0E0E 50%,#141414 100%);border:1px solid rgba(201,168,76,.2);border-radius:24px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.8),0 0 60px rgba(201,168,76,.04);animation:cardIn .8s cubic-bezier(.16,1,.3,1) both;position:relative;}@keyframes cardIn{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:2;}.hero{position:relative;height:360px;overflow:hidden;}.hero-photo{width:100%;height:100%;object-fit:cover;object-position:center 8%;display:block;filter:brightness(1.06) contrast(1.04);}.hero-overlay{position:absolute;inset:0;background:linear-gradient( to bottom,transparent 0%,transparent 58%,rgba(10,10,10,.5) 80%,rgba(10,10,10,1) 100% );}.hero-logo{position:absolute;top:16px;left:50%;transform:translateX(-50%);height:52px;opacity:.92;z-index:1;}.body{padding:0 28px 28px;}.name-block{text-align:center;margin-top:-6px;margin-bottom:6px;padding:0 4px;}.name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,8vw,2.5rem);font-weight:600;color:var(--text);letter-spacing:.08em;line-height:1.1;text-transform:uppercase;white-space:nowrap;}.title{font-size:.65rem;font-weight:600;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:6px;}.divider{display:flex;align-items:center;gap:10px;margin:18px 0;}.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3));}.divider::after{background:linear-gradient(90deg,rgba(201,168,76,.3),transparent);}.bio{font-size:.78rem;color:var(--text-muted);line-height:1.7;text-align:center;margin-bottom:20px;font-weight:300;}.contacts{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}.contact-item{display:flex;align-items:center;gap:14px;padding:11px 15px;background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.1);border-radius:10px;text-decoration:none;transition:all .25s ease;}.contact-item:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.3);transform:translateX(3px);}.contact-icon{width:34px;height:34px;border-radius:8px;background:rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}.contact-icon svg{width:16px;height:16px;fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.contact-label{font-size:.58rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2px;}.contact-value{font-size:.82rem;color:var(--text);font-weight:400;}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}.btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 8px;border-radius:10px;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:all .25s ease;font-family:'Montserrat',sans-serif;}.btn-call{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0A0A0A;}.btn-call:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(201,168,76,.25);}.btn-wa{background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);color:var(--wa);}.btn-wa:hover{background:rgba(37,211,102,.2);border-color:rgba(37,211,102,.6);}.btn-site{background:transparent;border:1px solid rgba(201,168,76,.3);color:var(--gold);}.btn-site:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.6);}.btn svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}.btn-wa svg{stroke:var(--wa);}.save-btn-wrap{display:flex;justify-content:center;margin-bottom:16px;}.save-contact-btn{background:transparent;border:none;color:var(--text-muted);font-size:.65rem;font-family:'Montserrat',sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:4px;transition:color .2s;}.save-contact-btn:hover{color:var(--gold);}.footer{text-align:center;margin-top:16px;font-size:.6rem;color:rgba(154,145,133,.4);letter-spacing:.15em;}  [data-theme="light"] .logo-link svg text[fill="#F5F0E8"],[data-theme="light"] .nav-logo svg text[fill="#F5F0E8"],[data-theme="light"] .drawer-header svg text[fill="#F5F0E8"],[data-theme="light"] nav svg text[fill="#F5F0E8"],[data-theme="light"] footer svg text[fill="#F5F0E8"]{fill:#1A1814!important}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="ליאם צור — יועץ משכנתאות מורשה. חייגו, שלחו וואטסאפ או שמרו אותי באנשי הקשר בלחיצה אחת. שיחת היכרות ראשונה ללא עלות.">
+<title>ליאם צור | כרטיס ביקור — יועץ משכנתאות מורשה</title>
+<link rel="canonical" href="https://liamzur.co.il/card.html">
+<link rel="preload" as="image" href="card-photo-1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;
+  --surface:rgba(255,255,255,.055);
+  --surface-2:rgba(255,255,255,.08);
+  --hairline:rgba(255,255,255,.09);
+  --text:#F5F5F7;
+  --text-2:#A1A1A6;
+  --text-3:#6E6E73;
+  --gold:#C9A84C;
+  --gold-2:#E8C97A;
+  --gold-ink:#1A0F00;
+  --wa:#25D366;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Hebrew","Heebo","Segoe UI",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{background:var(--bg);}
+body{background:var(--bg);color:var(--text);font-family:var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(60% 40% at 50% 0%,rgba(201,168,76,.10),transparent 70%),radial-gradient(50% 30% at 50% 100%,rgba(201,168,76,.05),transparent 70%);}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:12px;}
 
-  /* Canonical hamburger + mobile drawer */
-  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1300;position:relative;}
-  .hamburger span{display:block;width:26px;height:2px;background:#C9A84C;border-radius:2px;transition:all .35s cubic-bezier(.23,1,.32,1);transform-origin:center;}
-  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#C9A84C;}
-  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);background:#C9A84C;}
-  .mobile-menu{display:none;position:fixed;inset:0;z-index:1100;pointer-events:none;}
-  .mobile-menu.open{pointer-events:all;display:block;}
-  .mobile-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .4s;}
-  .mobile-menu.open .mobile-overlay{background:rgba(0,0,0,.7);}
-  .mobile-drawer{position:absolute;top:0;left:0;width:78%;max-width:320px;height:100%;background:#111;border-left:1px solid rgba(201,168,76,.15);transform:translateX(-100%);transition:transform .4s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;padding:0;overflow-y:auto;}
-  .mobile-menu.open .mobile-drawer{transform:translateX(0);}
-  .drawer-header{padding:28px 24px 24px;border-bottom:1px solid #222;}
-  .drawer-nav{list-style:none;padding:16px 0;flex:1;margin:0;}
-  .drawer-nav li a{display:flex;align-items:center;gap:14px;padding:16px 28px;color:#B0A89A;text-decoration:none;font-size:1rem;font-weight:400;letter-spacing:1px;transition:all .25s;border-right:3px solid transparent;}
-  .drawer-nav li a:hover,.drawer-nav li a.active{color:#C9A84C;border-right-color:#C9A84C;background:rgba(201,168,76,.05);padding-right:36px;}
-  .drawer-nav li a .nav-icon{font-size:1.1rem;width:24px;text-align:center;color:#C9A84C;flex-shrink:0;}
-  .drawer-cta{margin:16px 24px 32px;display:block;background:linear-gradient(135deg,#C9A84C,#8B6914);color:#080808!important;text-align:center;padding:16px;font-weight:700;font-size:.9rem;letter-spacing:2px;text-decoration:none;text-transform:uppercase;border:none!important;transition:opacity .3s;}
-  .drawer-cta:hover{opacity:.88;}
-  .drawer-contact{padding:20px 24px;border-top:1px solid #222;display:flex;flex-direction:column;gap:12px;}
-  .drawer-contact a{color:#B0A89A;text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:10px;transition:color .3s;}
-  .drawer-contact a:hover{color:#C9A84C;}
-  @media(max-width:900px){.hamburger{display:flex;}}
-  [data-theme="light"] .mobile-drawer{background:#FFFFFF;border-color:rgba(168,132,44,.2)}
-  [data-theme="light"] .drawer-nav li a{color:#5A5248}
-  [data-theme="light"] .drawer-nav li a:hover{color:#7E5F10;background:rgba(168,132,44,.07)}
-  [data-theme="light"] .drawer-header{border-bottom-color:#E5DCC8}
-  [data-theme="light"] .drawer-contact{border-top-color:#E5DCC8}
-  [data-theme="light"] .drawer-contact a{color:#5A5248}
-  [data-theme="light"] .hamburger span{background:#1A1814}
-  [data-theme="light"] .hamburger.open span:nth-child(1),[data-theme="light"] .hamburger.open span:nth-child(3){background:#7E5F10}
+.card{position:relative;width:100%;max-width:440px;margin:0 auto;padding-bottom:calc(110px + env(safe-area-inset-bottom));}
+@media(min-width:520px){
+  body{padding:48px 0;}
+  .card{border-radius:36px;overflow:hidden;background:#050505;border:1px solid var(--hairline);box-shadow:0 50px 120px rgba(0,0,0,.9),0 0 0 1px rgba(201,168,76,.06);padding-bottom:40px;}
+}
 
-  /* Floating hamburger for card page */
-  body > .hamburger{display:flex!important;position:fixed;top:18px;right:18px;z-index:1400;background:rgba(10,10,10,.65);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:10px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-  /* SOCIAL BUTTONS — שיתופים חברתיים */
-  .social-btns{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;}
-  .social-btn{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1.5px solid #C9A84C;color:#C9A84C;background:transparent;transition:all .3s cubic-bezier(.23,1,.32,1);text-decoration:none !important;flex-shrink:0;}
-  .social-btn:hover{background:#C9A84C;color:#080808 !important;transform:translateY(-3px);box-shadow:0 6px 16px rgba(201,168,76,.4);border-color:#E8C97A;}
-  .social-btn svg{width:20px;height:20px;fill:currentColor;display:block;transition:transform .3s;}
-  .social-btn:hover svg{transform:scale(1.1);}
-  [data-theme="light"] .social-btn{border-color:#7E5F10;color:#7E5F10;}
-  [data-theme="light"] .social-btn:hover{background:#7E5F10;color:#FFFFFF !important;border-color:#8B6914;box-shadow:0 6px 16px rgba(168,132,44,.35);}
-  @media(max-width:600px){.social-btns{justify-content:flex-start;}}
+/* ── HERO ── */
+.hero{position:relative;aspect-ratio:4/4.4;overflow:hidden;}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block;transform:scale(1.06);animation:heroIn 1.6s var(--ease) forwards;}
+@keyframes heroIn{to{transform:scale(1);}}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,transparent 18%,transparent 48%,rgba(0,0,0,.75) 78%,#000 100%);}
+@media(min-width:520px){.hero::after{background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,transparent 18%,transparent 48%,rgba(5,5,5,.75) 78%,#050505 100%);}}
+.wordmark{position:absolute;top:calc(18px + env(safe-area-inset-top));left:0;right:0;text-align:center;z-index:2;font-size:.68rem;font-weight:600;letter-spacing:.42em;color:rgba(255,255,255,.82);direction:ltr;padding-left:.42em;}
+.hero-text{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:0 24px 6px;text-align:center;}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 14px;border-radius:999px;background:rgba(20,20,20,.55);border:1px solid rgba(201,168,76,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:.74rem;font-weight:500;color:var(--gold-2);margin-bottom:14px;}
+.badge svg{width:14px;height:14px;}
+h1{font-size:clamp(2.6rem,12vw,3.3rem);font-weight:700;letter-spacing:-.025em;line-height:1;}
+.role{margin-top:10px;font-size:1.02rem;color:var(--text-2);font-weight:400;}
 
+/* ── SECTIONS ── */
+.section{padding:0 20px;margin-top:36px;}
+.lead{text-align:center;padding:0 8px;}
+.lead h2{font-size:clamp(1.55rem,6.6vw,1.85rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;background:linear-gradient(180deg,#fff 30%,#B9B9BE);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lead h2 em{font-style:normal;background:linear-gradient(135deg,var(--gold-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.lead p{margin-top:12px;font-size:1rem;line-height:1.6;color:var(--text-2);}
+
+/* CTAs */
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:28px;}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:56px;border-radius:16px;font-size:1.05rem;font-weight:600;letter-spacing:-.005em;transition:transform .25s var(--ease),background .25s,box-shadow .25s;}
+.btn:active{transform:scale(.97);}
+.btn svg{width:20px;height:20px;flex-shrink:0;}
+.btn-primary{background:var(--gold) !important;color:var(--gold-ink) !important;box-shadow:0 10px 30px -8px rgba(201,168,76,.55);}
+.btn-primary:hover{background:var(--gold-2) !important;}
+.btn-secondary{background:var(--surface-2);color:var(--text);border:1px solid var(--hairline);}
+.btn-secondary:hover{background:rgba(255,255,255,.12);}
+.reassure{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;font-size:.84rem;color:var(--text-2);}
+.reassure svg{width:15px;height:15px;color:var(--gold);flex-shrink:0;}
+
+/* Save contact */
+.save{display:flex;align-items:center;gap:14px;padding:16px;border-radius:22px;background:linear-gradient(135deg,rgba(201,168,76,.14),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.28);transition:transform .25s var(--ease),border-color .25s;}
+.save:hover{border-color:rgba(201,168,76,.55);}
+.save:active{transform:scale(.98);}
+.save-avatar{position:relative;width:56px;height:56px;flex-shrink:0;}
+.save-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 8%;border:1.5px solid rgba(201,168,76,.6);}
+.save-avatar span{position:absolute;bottom:-2px;left:-2px;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--gold-ink);display:flex;align-items:center;justify-content:center;border:2px solid #0b0b0b;}
+.save-avatar span svg{width:12px;height:12px;}
+.save-text{flex:1;min-width:0;}
+.save-text strong{display:block;font-size:1.02rem;font-weight:600;}
+.save-text small{display:block;margin-top:3px;font-size:.82rem;line-height:1.45;color:var(--text-2);}
+.save-chev{width:18px;height:18px;color:var(--gold);flex-shrink:0;}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-radius:22px;background:var(--surface);border:1px solid var(--hairline);}
+.stat{padding:18px 6px;text-align:center;}
+.stat + .stat{border-right:1px solid var(--hairline);}
+.stat b{display:block;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;direction:ltr;}
+.stat b i{font-style:normal;color:var(--gold);font-size:1.1rem;}
+.stat span{display:block;margin-top:4px;font-size:.76rem;color:var(--text-2);}
+
+/* Section heading */
+.eyebrow{font-size:.78rem;font-weight:600;color:var(--gold);letter-spacing:.06em;margin-bottom:6px;}
+.h3{font-size:1.35rem;font-weight:700;letter-spacing:-.015em;margin-bottom:16px;}
+
+/* Testimonials */
+.reviews{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -20px;padding:0 20px 4px;}
+.reviews::-webkit-scrollbar{display:none;}
+.review{flex:0 0 86%;scroll-snap-align:center;padding:22px;border-radius:22px;background:var(--surface);border:1px solid var(--hairline);display:flex;flex-direction:column;}
+.review .num{font-size:1.9rem;font-weight:700;letter-spacing:-.025em;color:var(--gold-2);direction:rtl;}
+.review .num small{display:block;font-size:.8rem;font-weight:500;color:var(--text-2);letter-spacing:0;margin-top:2px;}
+.review p{margin-top:14px;font-size:.95rem;line-height:1.6;color:#E3E3E6;flex:1;}
+.review footer{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--hairline);font-size:.8rem;color:var(--text-2);}
+.review footer b{color:var(--text);font-weight:600;display:block;font-size:.86rem;}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.8rem;}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:14px;}
+.dots i{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.22);transition:all .3s var(--ease);}
+.dots i.on{width:18px;background:var(--gold);}
+
+/* Grouped list (iOS settings style) */
+.group{border-radius:22px;background:var(--surface);border:1px solid var(--hairline);overflow:hidden;}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;min-height:62px;transition:background .2s;}
+.row:hover{background:rgba(255,255,255,.04);}
+.row:active{background:rgba(255,255,255,.07);}
+.row + .row{box-shadow:inset 0 1px 0 var(--hairline);}
+.ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(201,168,76,.13);color:var(--gold-2);}
+.ico svg{width:18px;height:18px;}
+.ico.wa{background:rgba(37,211,102,.14);color:var(--wa);}
+.row-text{flex:1;min-width:0;}
+.row-text b{display:block;font-size:.98rem;font-weight:500;}
+.row-text small{display:block;margin-top:2px;font-size:.8rem;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.row-text small.ltr{direction:ltr;text-align:right;}
+.tag{font-size:.7rem;font-weight:600;color:var(--gold-ink);background:var(--gold);padding:3px 8px;border-radius:99px;flex-shrink:0;}
+.chev{width:16px;height:16px;color:var(--text-3);flex-shrink:0;}
+
+/* Socials + share */
+.socials{display:flex;justify-content:center;gap:12px;}
+.soc{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--hairline);color:var(--text);transition:all .25s var(--ease);}
+.soc:hover{color:var(--gold-2);border-color:rgba(201,168,76,.45);transform:translateY(-2px);}
+.soc svg{width:20px;height:20px;fill:currentColor;}
+.share-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+.pill{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:14px;background:var(--surface);border:1px solid var(--hairline);font-size:.92rem;font-weight:500;transition:background .2s;}
+.pill:hover{background:var(--surface-2);}
+.pill svg{width:17px;height:17px;color:var(--gold-2);}
+.share-hint{text-align:center;margin-top:12px;font-size:.8rem;color:var(--text-3);line-height:1.5;}
+
+.foot{text-align:center;margin-top:40px;padding:0 20px;font-size:.74rem;color:var(--text-3);line-height:1.8;}
+.foot a{color:var(--text-2);}
+
+/* Sticky dock */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translate(-50%,140%);width:calc(100% - 24px);max-width:416px;display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:8px;padding:8px;border-radius:24px;background:rgba(28,28,30,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);box-shadow:0 20px 50px rgba(0,0,0,.6);z-index:50;transition:transform .5s var(--ease),opacity .5s;opacity:0;}
+.dock.show{transform:translate(-50%,0);opacity:1;}
+.dock a{display:flex;align-items:center;justify-content:center;gap:7px;height:48px;border-radius:16px;font-size:.9rem;font-weight:600;background:rgba(255,255,255,.08);}
+.dock a.main{background:var(--gold) !important;color:var(--gold-ink) !important;}
+.dock svg{width:18px;height:18px;}
+
+/* QR sheet */
+.sheet{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,0);pointer-events:none;visibility:hidden;transition:background .35s,visibility 0s .45s;}
+.sheet.open{background:rgba(0,0,0,.6);pointer-events:auto;visibility:visible;transition:background .35s;}
+.sheet-box{width:100%;max-width:440px;background:#1C1C1E;border-radius:28px 28px 0 0;padding:14px 24px calc(28px + env(safe-area-inset-bottom));text-align:center;transform:translateY(100%);transition:transform .45s var(--ease);}
+@media(min-width:520px){.sheet{align-items:center;}.sheet-box{border-radius:28px;transform:translateY(24px) scale(.96);opacity:0;transition:transform .45s var(--ease),opacity .3s;}.sheet.open .sheet-box{opacity:1;transform:none;}}
+.sheet.open .sheet-box{transform:translateY(0);}
+.grab{width:38px;height:5px;border-radius:99px;background:rgba(255,255,255,.2);margin:0 auto 18px;}
+.sheet-box h3{font-size:1.2rem;font-weight:700;}
+.sheet-box p{font-size:.88rem;color:var(--text-2);margin-top:6px;}
+.qr{width:220px;height:220px;margin:22px auto;background:#fff;border-radius:20px;padding:14px;display:flex;align-items:center;justify-content:center;color:#000;font-size:.8rem;}
+.qr svg{width:100%;height:100%;}
+.sheet-close{width:100%;height:50px;border-radius:14px;background:rgba(255,255,255,.1);font-weight:600;}
+
+.toast{position:fixed;top:calc(18px + env(safe-area-inset-top));left:50%;transform:translate(-50%,-160%);background:rgba(44,44,46,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 20px;border-radius:99px;font-size:.88rem;font-weight:500;z-index:120;transition:transform .45s var(--ease);}
+.toast.show{transform:translate(-50%,0);}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+.hero-text > *{opacity:0;transform:translateY(16px);animation:up .9s var(--ease) forwards;}
+.hero-text > :nth-child(2){animation-delay:.12s;}
+.hero-text > :nth-child(3){animation-delay:.22s;}
+@keyframes up{to{opacity:1;transform:none;}}
+.intro{opacity:0;transform:translateY(16px);animation:up 1s var(--ease) .35s forwards;}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;}
+  .reveal,.intro,.hero-text > *{opacity:1;transform:none;}
+  .hero img{transform:none;}
+}
 </style>
 
 <script type="application/ld+json">
@@ -77,160 +201,313 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "דף הבית",
-      "item": "https://liamzur.co.il/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "כרטיס ביקור דיגיטלי",
-      "item": "https://liamzur.co.il/card.html"
-    }
+    {"@type": "ListItem","position": 1,"name": "דף הבית","item": "https://liamzur.co.il/"},
+    {"@type": "ListItem","position": 2,"name": "כרטיס ביקור דיגיטלי","item": "https://liamzur.co.il/card.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "ליאם צור",
+  "alternateName": "Liam Zur",
+  "jobTitle": "יועץ משכנתאות מורשה",
+  "telephone": "+972523434916",
+  "email": "mailto:Liamzur89@gmail.com",
+  "url": "https://liamzur.co.il/",
+  "image": "https://liamzur.co.il/card-photo-1.jpg",
+  "sameAs": [
+    "https://www.instagram.com/liamzur.mortgage",
+    "https://www.facebook.com/share/1GigYEYUtH/",
+    "https://www.tiktok.com/@liam.zur"
   ]
 }
 </script>
 <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
-<meta property="og:title" content="ליאם צור — כרטיס ביקור דיגיטלי">
-<meta property="og:description" content="יועץ משכנתאות מורשה. חייגו, שלחו וואטסאפ או שמרו אותי לאנשי הקשר בלחיצה אחת. 052-343-4916">
+<meta property="og:title" content="ליאם צור — יועץ משכנתאות מורשה">
+<meta property="og:description" content="חייגו, שלחו וואטסאפ או שמרו אותי באנשי הקשר בלחיצה אחת. שיחת היכרות ראשונה ללא עלות.">
 <meta property="og:image" content="https://liamzur.co.il/card-photo-1.jpg">
 <meta property="og:image:width" content="805">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:alt" content="ליאם צור — יועץ משכנתאות מורשה">
 <meta property="og:url" content="https://liamzur.co.il/card.html">
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="ליאם צור — יועץ משכנתאות">
-<!-- Twitter Cards (bonus coverage for Slack/Discord/X) -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ליאם צור — כרטיס ביקור דיגיטלי">
-<meta name="twitter:description" content="יועץ משכנתאות מורשה. חייגו, שלחו וואטסאפ או שמרו אותי לאנשי הקשר בלחיצה אחת. 052-343-4916">
+<meta name="twitter:title" content="ליאם צור — יועץ משכנתאות מורשה">
+<meta name="twitter:description" content="חייגו, שלחו וואטסאפ או שמרו אותי באנשי הקשר בלחיצה אחת. שיחת היכרות ראשונה ללא עלות.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
 </head>
 <body>
 
-<!-- Hamburger (floating) -->
-<button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 00-3.48-8.41z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M3 7l9 6 9-6"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5a14.5 14.5 0 010 19M12 2.5a14.5 14.5 0 000 19"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3-1-3.1L5.2 6.3l1-3 3.2.1z"/><path fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M8 12.2l2.6 2.6L16 9.4"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12v6.5A2.5 2.5 0 007.5 21h9a2.5 2.5 0 002.5-2.5V12"/></g></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v.01M14 21h.01M17.5 21H21v-3.5"/></g></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 01-15.5 6.2L3 15.5M3 12a9 9 0 0115.5-6.2L21 8.5"/><path d="M21 3.5v5h-5M3 20.5v-5h5"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M3 20h18M6 16l4-5 3 3 5-7M15 7h3v3"/></symbol>
+  <symbol id="i-crane" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V8l6-4v17M11 10h8v11M8 9v.01M8 13v.01M8 17v.01M14 14h2M14 17h2"/></symbol>
+</svg>
 
-<!-- MOBILE DRAWER -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-drawer">
-    <div class="drawer-header">
-      <svg width="110" height="44" viewBox="0 0 296 116" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="148" y1="4" x2="96" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="148" y1="4" x2="200" y2="40" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="78" y1="40" x2="218" y2="40" stroke="#C9A84C" stroke-width="2"/>
-        <rect x="138" y="15" width="20" height="17" stroke="#C9A84C" stroke-width="2.5" fill="none"/>
-        <text x="148" y="75" text-anchor="middle" font-family="'Heebo',Georgia,serif" font-size="30" font-weight="700" fill="#F5F0E8" letter-spacing="6">LIAM ZUR</text>
-        <text x="148" y="100" text-anchor="middle" font-family="Georgia,serif" font-size="11.5" font-weight="400" fill="#C9A84C" letter-spacing="5.5">MORTGAGE ADVISOR</text>
-      </svg>
-    </div>
-    <ul class="drawer-nav">
-      <li><a href="/#services" class="drawer-link"><span class="nav-icon">›</span> שירותים</a></li>
-      <li><a href="/#why" class="drawer-link"><span class="nav-icon">›</span> למה אני</a></li>
-      <li><a href="/#process" class="drawer-link"><span class="nav-icon">›</span> תהליך</a></li>
-      <li><a href="/#testimonials" class="drawer-link"><span class="nav-icon">›</span> לקוחות</a></li>
-      <li><a href="/blog/" class="drawer-link"><span class="nav-icon">›</span> בלוג</a></li>
-      <li><a href="/faq.html" class="drawer-link"><span class="nav-icon">›</span> שאלות נפוצות</a></li>
-      <li><a href="/glossary.html" class="drawer-link"><span class="nav-icon">›</span> מילון מונחים</a></li>
-      <li><a href="/calculator.html" class="drawer-link"><span class="nav-icon">›</span> מחשבון משכנתא</a></li>
-    </ul>
-    <a href="/#contact" class="drawer-cta drawer-link">ייעוץ ראשוני חינם</a>
-    <div class="drawer-contact">
-      <a href="tel:+972523434916">✆ 052-3434916</a>
-      <a href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
-      <a href="https://wa.me/972523434916" target="_blank" rel="noopener">וואטסאפ</a>
-    </div>
-  </div>
-</div>
+<main class="card">
 
-<div class="card">
-  <div class="hero">
-    <img class="hero-photo" src="card-photo-1.jpg" alt="ליאם צור — יועץ משכנתאות מורשה">
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="body">
-    <div class="name-block">
-      <div class="name">Liam Zur</div>
-      <div class="title">יועץ משכנתאות · Mortgage Advisor</div>
+  <!-- HERO -->
+  <header class="hero">
+    <img src="card-photo-1.jpg" alt="ליאם צור — יועץ משכנתאות מורשה" width="805" height="1024" fetchpriority="high">
+    <div class="wordmark">LIAM ZUR</div>
+    <div class="hero-text">
+      <div><span class="badge"><svg aria-hidden="true"><use href="#i-check"/></svg>יועץ משכנתאות מורשה</span></div>
+      <h1>ליאם צור</h1>
+      <p class="role">ייעוץ וליווי משכנתאות · Mortgage Advisor</p>
     </div>
-    <div class="divider"><span style="color:var(--gold);font-size:.6rem">✦</span></div>
-    <p class="bio">
-      מלווה אתכם לאורך כל תהליך המשכנתא – מהייעוץ הראשוני ועד החתימה.<br>
-      ידע, ניסיון ויחס אישי שמביאים לתנאים הטובים ביותר עבורכם.
-    </p>
-    <div class="contacts">
-      <a class="contact-item" href="tel:0523434916">
-        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.1.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <div class="contact-info"><div class="contact-label">Phone</div><div class="contact-value">052-343-4916</div></div>
+  </header>
+
+  <!-- PROMISE + PRIMARY CTA -->
+  <section class="section lead intro">
+    <h2>המשכנתא שלכם יכולה<br><em>לעלות הרבה פחות.</em></h2>
+    <p>אני עובד בשבילכם — לא בשביל הבנק. ליווי אישי מהשיחה הראשונה ועד החתימה, עם היכרות מבפנים של איך הבנקים חושבים.</p>
+    <div class="ctas" id="mainCtas">
+      <a class="btn btn-primary" id="waMain" href="https://wa.me/972523434916" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>שלחו לי הודעה בוואטסאפ
       </a>
-      <a class="contact-item" href="mailto:Liamzur89@gmail.com">
-        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <div class="contact-info"><div class="contact-label">Email</div><div class="contact-value">Liamzur89@gmail.com</div></div>
-      </a>
-      <a class="contact-item" href="https://liamzur.co.il/" target="_blank" rel="noopener">
-        <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-        <div class="contact-info"><div class="contact-label">Website</div><div class="contact-value">liamzur.co.il</div></div>
+      <a class="btn btn-secondary" href="tel:+972523434916">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>חייגו אליי · 052-343-4916
       </a>
     </div>
-    <div class="actions">
-      <a class="btn btn-call" href="tel:0523434916">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.1.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        התקשר
-      </a>
-      <a class="btn btn-wa" href="https://wa.me/972523434916" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        WhatsApp
-      </a>
-      <a class="btn btn-site" href="https://liamzur.co.il/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-        האתר
-      </a>
-    </div>
-    <div class="save-btn-wrap">
-      <button class="save-contact-btn" onclick="saveContact()">⬇ שמור לאנשי קשר</button>
-    </div>
-    <div class="social-btns" role="navigation" aria-label="רשתות חברתיות של ליאם צור" style="margin:28px 0 8px;">
-      <a href="https://www.facebook.com/share/1GigYEYUtH/" target="_blank" rel="noopener" class="social-btn" aria-label="פייסבוק" title="פייסבוק">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/liamzur.mortgage" target="_blank" rel="noopener" class="social-btn" aria-label="אינסטגרם" title="אינסטגרם">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-      <a href="https://wa.me/972523434916" target="_blank" rel="noopener" class="social-btn" aria-label="וואטסאפ" title="וואטסאפ">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@liam.zur" target="_blank" rel="noopener" class="social-btn" aria-label="טיקטוק של ליאם צור" title="טיקטוק">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg>
+    <div class="reassure"><svg aria-hidden="true"><use href="#i-shield"/></svg>שיחת היכרות ראשונה — ללא עלות וללא התחייבות</div>
+  </section>
+
+  <!-- SAVE CONTACT -->
+  <section class="section reveal">
+    <a class="save" href="/liamzur.vcf" id="saveBtn" aria-label="שמירת ליאם צור באנשי הקשר">
+      <div class="save-avatar">
+        <img src="card-photo-1.jpg" alt="" loading="lazy">
+        <span><svg aria-hidden="true"><use href="#i-plus"/></svg></span>
+      </div>
+      <div class="save-text">
+        <strong>שמרו אותי באנשי הקשר</strong>
+        <small>כשתגיע הדירה, המחזור או שאלה של חבר — אהיה במרחק לחיצה.</small>
+      </div>
+      <svg class="save-chev" aria-hidden="true"><use href="#i-chev"/></svg>
     </a>
+  </section>
+
+  <!-- STATS -->
+  <section class="section reveal">
+    <div class="stats">
+      <div class="stat"><b>3<i>+</i></b><span>שנות ניסיון</span></div>
+      <div class="stat"><b>5.0<i>★</i></b><span>דירוג לקוחות</span></div>
+      <div class="stat"><b><i>₪</i>0</b><span>שיחת היכרות</span></div>
     </div>
-    <div class="footer">LIAM ZUR · MORTGAGE ADVISOR · 2025</div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section reveal" aria-label="המלצות לקוחות">
+    <div class="eyebrow">תוצאות של לקוחות</div>
+    <div class="h3">מספרים שמדברים בעד עצמם</div>
+    <div class="reviews" id="reviews">
+      <article class="review">
+        <div class="num">₪120,000<small>חיסכון במחזור משכנתא</small></div>
+        <p>״מחזרתי משכנתא קיימת בעזרת ליאם וחסכתי 120,000 שקל לאורך תקופת ההלוואה. שירות מקצועי, מהיר ואישי מאוד.״</p>
+        <footer><div><b>דנה לוי</b>מחזור משכנתא · רחובות</div><span class="stars">★★★★★</span></footer>
+      </article>
+      <article class="review">
+        <div class="num">₪800 פחות<small>בהחזר החודשי</small></div>
+        <p>״הגענו לייעוץ אחרי שהבנק הציע לנו ריבית גבוהה. ליאם הצליח להשיג לנו הפחתה משמעותית. ההחזר החודשי ירד ב-800 שקל!״</p>
+        <footer><div><b>רון ומיכל אברהם</b>דירה ראשונה · תל אביב</div><span class="stars">★★★★★</span></footer>
+      </article>
+      <article class="review">
+        <div class="num">נכס נוסף<small>בזכות תמהיל חכם</small></div>
+        <p>״כמשקיע נדל״ן, חשוב לי למקסם את המינוף הפיננסי. ליאם בנה לי תמהיל חכם שאיפשר לי לרכוש נכס נוסף עם הכסף שחסכתי.״</p>
+        <footer><div><b>יוסי כהן</b>משקיע נדל״ן · ירושלים</div><span class="stars">★★★★★</span></footer>
+      </article>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  </section>
+
+  <!-- HOW I HELP -->
+  <section class="section reveal">
+    <div class="eyebrow">במה אני מלווה</div>
+    <div class="h3">בוחרים מאיפה להתחיל</div>
+    <nav class="group" aria-label="שירותים">
+      <a class="row" href="/michzur.html">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-refresh"/></svg></span>
+        <span class="row-text"><b>מחזור משכנתא</b><small>בדיקה חינם תוך 30 שניות</small></span>
+        <span class="tag">חינם</span>
+      </a>
+      <a class="row" href="/blog/mashkanta-zugot-tzeirim.html">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-home"/></svg></span>
+        <span class="row-text"><b>דירה ראשונה</b><small>מהאישור העקרוני ועד המפתח</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+      <a class="row" href="/blog/mashkanta-binyan-atzmit.html">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-crane"/></svg></span>
+        <span class="row-text"><b>בנייה עצמית</b><small>משכנתא בשלבים, בלי הפתעות</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+      <a class="row" href="/calculator.html">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+        <span class="row-text"><b>מחשבון משכנתא</b><small>כמה תשלמו בחודש — עכשיו</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+    </nav>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section reveal">
+    <div class="eyebrow">יצירת קשר</div>
+    <div class="h3">אני כאן בשבילכם</div>
+    <div class="group">
+      <a class="row" href="tel:+972523434916">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <span class="row-text"><b>טלפון</b><small class="ltr">052-343-4916</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+      <a class="row wa-link" href="https://wa.me/972523434916" target="_blank" rel="noopener">
+        <span class="ico wa"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
+        <span class="row-text"><b>וואטסאפ</b><small>הדרך הכי מהירה לתפוס אותי</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+      <a class="row" href="mailto:Liamzur89@gmail.com">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <span class="row-text"><b>אימייל</b><small class="ltr">Liamzur89@gmail.com</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+      <a class="row" href="https://liamzur.co.il/">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+        <span class="row-text"><b>האתר</b><small class="ltr">liamzur.co.il</small></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- SOCIAL + SHARE -->
+  <section class="section reveal">
+    <div class="socials" role="navigation" aria-label="רשתות חברתיות">
+      <a class="soc" href="https://www.instagram.com/liamzur.mortgage" target="_blank" rel="noopener" aria-label="אינסטגרם">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+      </a>
+      <a class="soc" href="https://www.facebook.com/share/1GigYEYUtH/" target="_blank" rel="noopener" aria-label="פייסבוק">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.45 18.63.07 12 .07S0 5.45 0 12.07c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08v-3.47h3.05V9.43c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.47h-2.8v8.38C19.61 23.03 24 18.06 24 12.07z"/></svg>
+      </a>
+      <a class="soc" href="https://www.tiktok.com/@liam.zur" target="_blank" rel="noopener" aria-label="טיקטוק">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.3 0 .6.04.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg>
+      </a>
+    </div>
+    <div class="share-row">
+      <button class="pill" id="shareBtn" type="button"><svg aria-hidden="true"><use href="#i-share"/></svg>שיתוף הכרטיס</button>
+      <button class="pill" id="qrBtn" type="button"><svg aria-hidden="true"><use href="#i-qr"/></svg>קוד QR</button>
+    </div>
+    <p class="share-hint">מכירים מישהו שקונה דירה או משלם משכנתא יקרה מדי?<br>שתפו — זה יכול לחסוך לו הרבה כסף.</p>
+  </section>
+
+  <footer class="foot">
+    © <span id="yr">2026</span> ליאם צור · יועץ משכנתאות מורשה<br>
+    <a href="/privacy.html">פרטיות</a> · <a href="/accessibility.html">נגישות</a>
+  </footer>
+</main>
+
+<!-- Sticky dock -->
+<nav class="dock" id="dock" aria-label="פעולות מהירות">
+  <a class="main wa-link" href="https://wa.me/972523434916" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>וואטסאפ</a>
+  <a href="tel:+972523434916"><svg aria-hidden="true"><use href="#i-phone"/></svg>חיוג</a>
+  <a href="/liamzur.vcf"><svg aria-hidden="true"><use href="#i-plus"/></svg>שמירה</a>
+</nav>
+
+<!-- QR sheet -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="qrTitle" aria-hidden="true">
+  <div class="sheet-box">
+    <div class="grab"></div>
+    <h3 id="qrTitle">סרקו לפתיחת הכרטיס</h3>
+    <p>מכוונים מצלמה של טלפון — והכרטיס נפתח</p>
+    <div class="qr" id="qr">טוען…</div>
+    <button class="sheet-close" id="sheetClose" type="button">סגירה</button>
   </div>
 </div>
-<script>
-  function saveContact() {
-    const vcard = ["BEGIN:VCARD","VERSION:3.0","FN:Liam Zur","N:Zur;Liam;;;",
-      "TITLE:Mortgage Advisor","TEL;TYPE=CELL:+972523434916",
-      "EMAIL:Liamzur89@gmail.com","URL:https://liamzur.co.il/","END:VCARD"].join("\n");
-    const blob = new Blob([vcard], {type:"text/vcard"});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href=url; a.download="LiamZur.vcf"; a.click();
-    URL.revokeObjectURL(url);
-  }
-</script>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function(){
-  var hb=document.getElementById('hamburger'),mm=document.getElementById('mobileMenu'),mov=document.getElementById('mobileOverlay');
-  function openM(){if(hb)hb.classList.add('open');if(mm)mm.classList.add('open');document.body.style.overflow='hidden';}
-  function closeM(){if(hb)hb.classList.remove('open');if(mm)mm.classList.remove('open');document.body.style.overflow='';}
-  if(hb)hb.addEventListener('click',function(){mm&&mm.classList.contains('open')?closeM():openM();});
-  if(mov)mov.addEventListener('click',closeM);
-  document.querySelectorAll('.drawer-link').forEach(function(l){l.addEventListener('click',function(){closeM();});});
+  var CARD_URL = 'https://liamzur.co.il/card.html';
+  var WA_TEXT = 'היי ליאם, הגעתי מהכרטיס הדיגיטלי שלך ואשמח לשמוע על ייעוץ משכנתא 🙂';
+  var waHref = 'https://wa.me/972523434916?text=' + encodeURIComponent(WA_TEXT);
+  document.querySelectorAll('#waMain, .wa-link').forEach(function(a){ a.href = waHref; });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function track(name){ try{ gtag('event', name, {event_category:'card'}); }catch(e){} }
+  var toastEl = document.getElementById('toast'), toastT;
+  function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200); }
+
+  // Reveal on scroll
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'}) : null;
+  document.querySelectorAll('.reveal').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
+
+  // Dock: show once the main CTAs scroll out of view
+  var dock = document.getElementById('dock'), ctas = document.getElementById('mainCtas');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      var e = es[0]; dock.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(ctas);
+  }
+
+  // Testimonials dots + gentle autoplay
+  var rv = document.getElementById('reviews'), dots = document.querySelectorAll('#dots i'), cards = rv.children, idx = 0, auto;
+  function current(){
+    var c = rv.getBoundingClientRect(), mid = c.left + c.width/2, best = 0, bd = 1e9;
+    for(var i=0;i<cards.length;i++){ var r = cards[i].getBoundingClientRect(), d = Math.abs(r.left + r.width/2 - mid); if(d<bd){bd=d;best=i;} }
+    return best;
+  }
+  rv.addEventListener('scroll', function(){ idx = current(); dots.forEach(function(d,i){ d.classList.toggle('on', i===idx); }); }, {passive:true});
+  function go(i){ var r = cards[i].getBoundingClientRect(), c = rv.getBoundingClientRect(); rv.scrollTo({left: rv.scrollLeft + (r.left + r.width/2) - (c.left + c.width/2), behavior:'smooth'}); }
+  function startAuto(){ if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; auto = setInterval(function(){ go((idx+1) % cards.length); }, 5000); }
+  function stopAuto(){ clearInterval(auto); }
+  ['touchstart','pointerdown','wheel'].forEach(function(ev){ rv.addEventListener(ev, stopAuto, {passive:true}); });
+  startAuto();
+
+  // Share
+  document.getElementById('shareBtn').addEventListener('click', function(){
+    track('share_card');
+    var data = {title:'ליאם צור — יועץ משכנתאות', text:'יועץ המשכנתאות שאני ממליץ עליו:', url:CARD_URL};
+    if(navigator.share){ navigator.share(data).catch(function(){}); return; }
+    if(navigator.clipboard){ navigator.clipboard.writeText(CARD_URL).then(function(){ toast('הקישור הועתק ✓'); }, function(){ toast(CARD_URL); }); }
+    else toast(CARD_URL);
+  });
+
+  // QR sheet (library loads only when needed)
+  var sheet = document.getElementById('sheet'), qrBox = document.getElementById('qr'), qrDone = false;
+  function renderQR(){
+    try{ var q = qrcode(0,'M'); q.addData(CARD_URL); q.make(); qrBox.innerHTML = q.createSvgTag({cellSize:6, margin:0, scalable:true}); qrDone = true; }
+    catch(e){ qrBox.textContent = 'לא ניתן להציג QR כרגע'; }
+  }
+  function openSheet(){
+    track('show_qr');
+    sheet.classList.add('open'); sheet.setAttribute('aria-hidden','false');
+    if(qrDone) return;
+    if(window.qrcode){ renderQR(); return; }
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js';
+    s.onload = renderQR; s.onerror = function(){ qrBox.textContent = 'לא ניתן להציג QR כרגע'; };
+    document.head.appendChild(s);
+  }
+  function closeSheet(){ sheet.classList.remove('open'); sheet.setAttribute('aria-hidden','true'); }
+  document.getElementById('qrBtn').addEventListener('click', openSheet);
+  document.getElementById('sheetClose').addEventListener('click', closeSheet);
+  sheet.addEventListener('click', function(e){ if(e.target === sheet) closeSheet(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeSheet(); });
 })();
 </script>
 </body>
