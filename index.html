@@ -789,9 +789,11 @@ function svcGo(n){
 
   .news-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
   }
+  .news-grid > * { grid-column: span 2; }
+  .news-grid > .news-card:nth-child(n+4) { grid-column: span 3; }
   .news-card {
     background: var(--black-card);
     border: 1px solid var(--black-border);
@@ -895,6 +897,7 @@ function svcGo(n){
   @media (max-width: 900px) {
     .news-section { padding: 64px 20px; }
     .news-grid { grid-template-columns: 1fr; gap: 14px; }
+    .news-grid > *, .news-grid > .news-card:nth-child(n+4) { grid-column: auto; }
     .news-card h4 { font-size: 0.95rem; }
     .news-card p { font-size: 0.8rem; }
     .news-header { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -1185,7 +1188,7 @@ function svcGo(n){
     <div class="news-skeleton"><div class="skel skel-tag"></div><div class="skel skel-h1"></div><div class="skel skel-h2"></div><div class="skel skel-p1"></div><div class="skel skel-p2"></div><div class="skel skel-p3"></div></div>
   </div>
   <p style="text-align:center;font-size:0.72rem;color:rgba(176,168,154,0.45);margin-top:24px;letter-spacing:1px;">
-    ✦ המידע מופק על ידי AI ומבוסס על מקורות ציבוריים עדכניים — אינו מהווה ייעוץ פיננסי
+    ✦ החדשות נבחרות ומאומתות מול בנק ישראל, הלמ"ס ותקשורת כלכלית · מתעדכן מדי חודש — אינו מהווה ייעוץ פיננסי
   </p>
 </section>
 
@@ -2055,12 +2058,13 @@ function svcGo(n){
   };
 
   /* ── 2. NEWS SECTION ────────────────────────────────────────────── */
-  var NEWS_TAGS = ['\u05E8\u05D9\u05D1\u05D9\u05EA \u05D1\u05E0\u05E7 \u05D9\u05E9\u05E8\u05D0\u05DC', '\u05E9\u05D5\u05E7 \u05D4\u05E0\u05D3\u05DC"\u05DF', '\u05DE\u05E9\u05DB\u05E0\u05EA\u05D0\u05D5\u05EA'];
-
+  // עודכן: נובמבר 2026 — כל ידיעה אומתה מול מקור רשמי או 2+ כלי תקשורת. רענון חודשי.
   var STATIC_NEWS = [
-    { title: '\u05D1\u05E0\u05E7 \u05D9\u05E9\u05E8\u05D0\u05DC \u05D4\u05D5\u05EA\u05D9\u05E8 \u05D0\u05EA \u05D4\u05E8\u05D9\u05D1\u05D9\u05EA \u05E2\u05DC 4.5% \u2014 \u05DE\u05E9\u05E7\u05D9\u05E2\u05D9\u05DD \u05DE\u05E6\u05E4\u05D9\u05DD \u05DC\u05E7\u05D9\u05E6\u05D5\u05E5', summary: '\u05D4\u05D5\u05D5\u05E2\u05D3\u05D4 \u05D4\u05DE\u05D5\u05E0\u05D9\u05D8\u05E8\u05D9\u05EA \u05E6\u05D9\u05D9\u05E0\u05D4 \u05E9\u05D9\u05E8\u05D9\u05D3\u05EA \u05D0\u05D9\u05E0\u05E4\u05DC\u05E6\u05D9\u05D4 \u05E2\u05E9\u05D5\u05D9\u05D4 \u05DC\u05D0\u05E4\u05E9\u05E8 \u05D4\u05D5\u05E8\u05D3\u05EA \u05E8\u05D9\u05D1\u05D9\u05EA \u05D1\u05E8\u05D1\u05E2\u05D5\u05DF \u05D4\u05E7\u05E8\u05D5\u05D1.', source: '\u05D1\u05E0\u05E7 \u05D9\u05E9\u05E8\u05D0\u05DC', date: '\u05DE\u05E8\u05E5 2026', url: 'https://www.boi.org.il' },
-    { title: '\u05DE\u05D7\u05D9\u05E8\u05D9 \u05D4\u05D3\u05D9\u05E8\u05D5\u05EA \u05E2\u05DC\u05D5 \u05D1-6.2% \u2014 \u05D4\u05DE\u05E8\u05DB\u05D6 \u05DE\u05D5\u05D1\u05D9\u05DC', summary: '\u05DC\u05E4\u05D9 \u05E0\u05EA\u05D5\u05E0\u05D9 \u05D4\u05DC\u05DE\u05E1, \u05DE\u05D7\u05D9\u05E8\u05D9 \u05D4\u05D3\u05D9\u05E8\u05D5\u05EA \u05DE\u05DE\u05E9\u05D9\u05DB\u05D9\u05DD \u05DC\u05E2\u05DC\u05D5\u05EA \u05DB\u05D0\u05E9\u05E8 \u05D0\u05D6\u05D5\u05E8 \u05D4\u05DE\u05E8\u05DB\u05D6 \u05E8\u05E9\u05DD \u05D0\u05EA \u05D4\u05E2\u05DC\u05D9\u05D9\u05D4 \u05D4\u05D7\u05D3\u05D4 \u05D1\u05D9\u05D5\u05EA\u05E8.', source: '\u05D4\u05DC\u05DE"\u05E1', date: '\u05E4\u05D1\u05E8\u05D5\u05D0\u05E8 2026', url: 'https://www.cbs.gov.il' },
-    { title: '\u05D1\u05E0\u05E7\u05D9\u05DD \u05DE\u05E6\u05D9\u05E2\u05D9\u05DD \u05DE\u05E1\u05DC\u05D5\u05DC\u05D9 \u05E4\u05E8\u05D9\u05D9\u05DD \u05DE\u05E1\u05D5\u05D1\u05E1\u05D3\u05D9\u05DD \u2014 \u05DB\u05D3\u05D0\u05D9 \u05DC\u05D1\u05D3\u05D5\u05E7 \u05DE\u05D7\u05D6\u05D5\u05E8', summary: '\u05DE\u05E1\u05DC\u05D5\u05DC\u05D9 \u05DE\u05E9\u05DB\u05E0\u05EA\u05D0 \u05DE\u05D9\u05D5\u05D7\u05D3\u05D9\u05DD \u05D4\u05E6\u05DE\u05D5\u05D3\u05D9\u05DD \u05DC\u05E4\u05E8\u05D9\u05D9\u05DD \u05E2\u05DD \u05D4\u05D8\u05D1\u05D5\u05EA \u05DC\u05E8\u05D5\u05DB\u05E9\u05D9\u05DD \u05D7\u05D3\u05E9\u05D9\u05DD \u05D5\u05DC\u05DE\u05D7\u05D6\u05E8\u05D9\u05DD.', source: '\u05D2\u05DC\u05D5\u05D1\u05E1', date: '\u05DE\u05E8\u05E5 2026', url: 'https://www.globes.co.il' }
+    { tag: 'ריבית בנק ישראל', title: 'בנק ישראל הותיר את הריבית על 3.25% — הפריים נשאר 4.75%', summary: 'בהחלטה מ-21 באוקטובר, שבוע לפני הבחירות, הריבית נותרה ללא שינוי אחרי הורדה בספטמבר. זו הרמה הנמוכה מאז סוף 2022, ובבנק ישראל לא שוללים הורדה נוספת.', source: 'בנק ישראל', date: 'אוקטובר 2026', url: 'https://www.mako.co.il/news-money/2026_q4/Article-00f811eb45e51a1026.htm' },
+    { tag: 'משכנתאות', title: '88.3 מיליארד ₪ במשכנתאות מתחילת השנה — עלייה של 12%', summary: 'בספטמבר נלקחו 8.67 מיליארד ₪. הירידה מול אוגוסט נובעת מימי החגים — ההיקף הממוצע ליום עסקים דווקא עלה ב-3%.', source: 'בנק ישראל', date: 'אוקטובר 2026', url: 'https://www.ynet.co.il/economy/article/bj6xzjg3ge' },
+    { tag: 'מחירי הדירות', title: 'מחירי הדירות חזרו לרדת: 0.6% בחודש ו-1.8% בשנה', summary: 'מדד הלמ"ס ליולי–אוגוסט. הירידה השנתית החדה ביותר במחוז המרכז (2.7%) ובתל אביב (1.9%).', source: 'הלמ"ס', date: 'אוקטובר 2026', url: 'https://www.nadlancenter.co.il/article/15581' },
+    { tag: 'שוק הנדל"ן', title: 'שיא חדש: 85,680 דירות חדשות לא נמכרו', summary: 'מלאי של 26.7 חודשי מכירה בקצב הנוכחי. כ-36% מהדירות החדשות נמכרו בסבסוד ממשלתי — יש מקום למשא ומתן מול קבלנים.', source: 'הלמ"ס', date: 'אוקטובר 2026', url: 'https://www.bizportal.co.il/realestates/news/article/20044750' },
+    { tag: 'אינפלציה', title: 'האינפלציה השנתית 1.6% — חדשות טובות למשכנתאות צמודות', summary: 'מדד ספטמבר ירד ב-0.5%, והאינפלציה נמוכה מאמצע יעד בנק ישראל. מנגד, שכר הדירה המשיך לעלות (0.4% בחודש).', source: 'הלמ"ס', date: 'אוקטובר 2026', url: 'https://finance.walla.co.il/item/3872387' }
   ];
 
   function skeletons() {
@@ -2070,9 +2074,9 @@ function svcGo(n){
   }
 
   function renderCards(items) {
-    return items.map(function(item, i) {
+    return items.map(function(item) {
       return '<a class="news-card reveal" href="' + (item.url || '#') + '" target="_blank" rel="noopener">'
-        + '<div class="news-card-tag">' + (NEWS_TAGS[i] || '') + '</div>'
+        + '<div class="news-card-tag">' + (item.tag || '') + '</div>'
         + '<h4>' + item.title + '</h4>'
         + '<p>' + item.summary + '</p>'
         + '<div class="news-card-meta"><span class="news-card-source">' + item.source + '</span>'
