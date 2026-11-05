@@ -22,7 +22,8 @@ MAIN = [('/#services', 'שירותים'), ('/#why', 'למה אני'), ('/#proces
 TOOLS = [('/michzur.html', 'בדיקת מחזור', '5 שאלות, 30 שניות: כדאי לך למחזר?', True),
          ('/calculator.html', 'מחשבון משכנתא', 'החזר חודשי וסך הריבית לפי סכום ושנים', False),
          ('/glossary.html', 'מילון מונחים', 'כל מושגי המשכנתא בשפה פשוטה', False),
-         ('/doch-yitra-siluk-mashkanta.html', 'דוח יתרה לסילוק', 'איך מוציאים דוח יתרה מכל בנק — מדריך מלא', True)]
+         ('/doch-yitra-siluk-mashkanta.html', 'דוח יתרה לסילוק', 'איך מוציאים דוח יתרה מכל בנק — מדריך מלא', False),
+         ('/ichud-halvaot.html', 'סימולטור איחוד הלוואות', 'כמה אפשר להפחית בהחזר החודשי? בדיקה מהירה', True)]
 CTA = ('/#contact', 'ייעוץ ראשוני חינם')
 
 LOGO = '''<svg viewBox="0 0 296 116" aria-hidden="true" focusable="false">
