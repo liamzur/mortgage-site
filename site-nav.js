@@ -6,6 +6,31 @@
   var burger = document.getElementById('lzBurger');
   var root = document.documentElement;
 
+  /* ── mobile action bar: call / WhatsApp / free consult (shown ≤768px, see site-nav.css) ── */
+  var mbar = document.querySelector('.lz-mbar');
+  if (!mbar) {
+    var icon = function (sel) { var s = drawer && drawer.querySelector(sel + ' svg'); return s ? s.outerHTML : ''; };
+    mbar = document.createElement('div');
+    mbar.className = 'lz-mbar';
+    mbar.setAttribute('role', 'navigation');
+    mbar.setAttribute('aria-label', 'יצירת קשר מהירה');
+    mbar.innerHTML =
+      '<a href="tel:+972523434916">' + icon('.lz-dcontact a[href^="tel"]') + 'התקשרו</a>' +
+      '<a href="https://wa.me/972523434916?text=' + encodeURIComponent('היי ליאם, אשמח לייעוץ משכנתא') + '" target="_blank" rel="noopener">' + icon('.lz-dcontact a[href*="wa.me"]') + 'וואטסאפ</a>' +
+      '<a class="lz-mbar-main" href="/#contact">ייעוץ ראשוני חינם</a>';
+    document.body.appendChild(mbar);
+  }
+  root.classList.add('lz-has-mbar');
+  /* step aside while the contact form is on screen or a field is being typed in */
+  var mHide = { form: false, typing: false };
+  function mPaint() { mbar.classList.toggle('is-hidden', mHide.form || mHide.typing); }
+  var contact = document.getElementById('contact');
+  if (contact && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { mHide.form = es[0].isIntersecting; mPaint(); }, { threshold: 0.15 }).observe(contact);
+  }
+  document.addEventListener('focusin', function (e) { if (e.target.matches('input,textarea,select')) { mHide.typing = true; mPaint(); } });
+  document.addEventListener('focusout', function (e) { if (e.target.matches('input,textarea,select')) { mHide.typing = false; mPaint(); } });
+
   /* ── current page ── */
   var path = location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
   if (path.length > 1) path = path.replace(/\/$/, '');
@@ -69,7 +94,7 @@
   }
 
   /* ── same-page section links: smooth scroll under the fixed bar ── */
-  document.querySelectorAll('.lz-header a[href*="#"], .lz-drawer a[href*="#"]').forEach(function (a) {
+  document.querySelectorAll('.lz-header a[href*="#"], .lz-drawer a[href*="#"], .lz-mbar a[href*="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var u; try { u = new URL(a.getAttribute('href'), location.href); } catch (x) { return; }
       var here = u.pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, '');
