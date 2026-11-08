@@ -12,10 +12,10 @@ sync_nav.py — מכניס את התפריט העליון האחיד לכל עמ
 import glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = '6'
+VERSION = '7'
 SKIP = {'card.html'}                       # כרטיס הביקור הדיגיטלי — בלי תפריט אתר
 # עמודים שהתפריט הישן שלהם היה "דביק" (חלק מזרימת העמוד) — צריכים מרווח מתחת לבר הקבוע
-SPACER = {'calculator.html', 'michzur.html', 'blog/mashkanta-binyan-atzmit.html', 'blog/yoetz-mashkanta.html'}
+SPACER = {'calculator.html', 'michzur.html', 'kama-ole-yoetz-mashkanta.html', 'checklist-pgisha-babank.html', 'blog/mashkanta-binyan-atzmit.html', 'blog/yoetz-mashkanta.html'}
 
 MAIN = [('/#services', 'שירותים'), ('/#why', 'למה אני'), ('/#process', 'תהליך'),
         ('/#testimonials', 'לקוחות'), ('/blog/', 'בלוג'), ('/faq.html', 'שאלות נפוצות')]

@@ -146,14 +146,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
 /* === shared: new content pages === */
-.pg-wrap{max-width:820px;margin:0 auto;padding:56px 60px 24px;}
-.pg-answer{background:var(--dark);border:1px solid var(--border);border-right:3px solid var(--gold);padding:26px 30px;font-size:1.08rem;line-height:1.9;color:var(--white);}
+.page-hero{display:none;}
+.pg-answer{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.35);border-radius:18px;margin-bottom:22px;padding:26px 30px;font-size:1.08rem;line-height:1.9;color:var(--white);}
 .pg-answer strong{color:var(--gold);}
 .pg-sec{margin-top:56px;}
 .pg-sec h2{font-family:'Heebo',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.35;}
 .pg-sec > p{color:var(--white-dim);font-size:1.02rem;line-height:1.9;margin-bottom:12px;}
 .pg-steps{display:grid;gap:14px;counter-reset:s;margin-top:18px;}
-.pg-step{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;background:var(--dark);border:1px solid var(--border);padding:20px 22px;}
+.pg-step{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.14);border-radius:14px;padding:18px 20px;}
 .pg-step::before{counter-increment:s;content:counter(s);grid-row:span 2;width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem;}
 .pg-step h3{font-size:1.08rem;font-weight:700;color:var(--white);}
 .pg-step p{color:var(--white-dim);font-size:.96rem;line-height:1.8;}
@@ -174,27 +174,28 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 [data-theme="light"] .cta-btn:hover{background:#6B4F0C !important;color:#FFFFFF !important;}
 .ghost-btn{display:inline-block;border:1px solid var(--gold);color:var(--gold) !important;padding:15px 28px;font-weight:700;font-size:.95rem;background:transparent;cursor:pointer;font-family:'Heebo',sans-serif;text-decoration:none !important;}
 .ghost-btn:hover{background:var(--gold);color:var(--black) !important;opacity:1;}
-.related-posts{margin:72px 0 0;padding-top:48px;border-top:1px solid var(--border);}
+.pg-faq .faq-item,.ui-card .faq-item{border-radius:14px;overflow:hidden;}
+.related-posts{margin:56px 0 0;padding-top:48px;border-top:1px solid var(--border);}
 .related-posts-title{font-family:'Heebo',Georgia,serif;font-size:1.5rem;color:var(--gold);margin-bottom:28px;text-align:center;letter-spacing:1px;font-weight:700;}
 .related-posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.related-post-card{display:flex;flex-direction:column;background:var(--dark);border:1px solid var(--border);padding:24px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
+.related-post-card{display:flex;flex-direction:column;background:var(--dark);border:1px solid var(--border);border-radius:16px;padding:24px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
 .related-post-card:hover{border-color:var(--gold);transform:translateY(-3px);opacity:1;}
 .related-post-card h3{font-family:'Heebo',Georgia,serif;font-size:1.05rem;color:var(--white);margin:0 0 12px;line-height:1.45;font-weight:700;}
 .related-post-card p{color:var(--white-dim);font-size:0.85rem;line-height:1.65;margin:0 0 16px;flex:1;}
 .related-post-card .read-more{color:var(--gold);font-size:0.82rem;font-weight:700;letter-spacing:0.5px;}
 /* checklist tool */
-.ck-progress{position:sticky;top:76px;z-index:5;background:var(--black);padding:14px 0 12px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.ck-progress{position:sticky;top:76px;z-index:5;background:var(--black);padding:14px 4px 12px;margin-bottom:14px;}
 .ck-progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--white-dim);margin-bottom:8px;}
 .ck-progress-top b{color:var(--gold);font-size:1.05rem;}
-.ck-bar{height:6px;background:var(--dark2);overflow:hidden;}
-.ck-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease;}
-.ck-group{margin-top:36px;}
+.ck-bar{height:8px;background:var(--dark2);overflow:hidden;border-radius:999px;}
+.ck-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#B8963E,#E3C878);transition:width .35s ease;}
+.ck-group{margin-top:0;}
 .ck-group h2{font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:10px;}
 .ck-group h2 .ck-count{font-size:.8rem;font-weight:600;color:var(--gold);border:1px solid var(--border);padding:1px 10px;border-radius:20px;}
 .ck-group > p{color:var(--white-dim);font-size:.95rem;margin-bottom:12px;}
-.ck-item{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start;background:var(--dark);border:1px solid var(--border);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .2s;}
+.ck-item{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.14);border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .2s;}
 .ck-item:hover{border-color:var(--gold);}
-.ck-item input{appearance:none;-webkit-appearance:none;width:24px;height:24px;border:1.5px solid var(--gold);margin:2px 0 0;cursor:pointer;display:grid;place-content:center;background:transparent;grid-row:span 2;}
+.ck-item input{appearance:none;-webkit-appearance:none;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--gold);margin:2px 0 0;cursor:pointer;display:grid;place-content:center;background:transparent;grid-row:span 2;}
 .ck-item input::before{content:"";width:12px;height:7px;border-left:2.5px solid var(--black);border-bottom:2.5px solid var(--black);transform:rotate(-45deg) translate(1px,-1px);opacity:0;}
 .ck-item input:checked{background:var(--gold);}
 .ck-item input:checked::before{opacity:1;}
@@ -204,7 +205,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 .ck-item.done .t{color:var(--white-dim);text-decoration:line-through;text-decoration-color:var(--gold);}
 .ck-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
 @media print{.lz-header,.lz-drawer,footer,#cookieBanner,.ck-actions,.pg-ctas,.related-posts,.ck-progress{display:none !important;}body{background:#fff;color:#000;}.ck-item{break-inside:avoid;}}
-@media(max-width:900px){.pg-wrap{padding:40px 20px 16px;}.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}.pg-answer{padding:22px 20px;}.pg-sec h2{font-size:1.35rem;}.pg-table td:first-child{white-space:normal;}.ck-progress{top:64px;}}
+@media(max-width:900px){.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}.pg-answer{padding:22px 20px;}.pg-sec h2{font-size:1.35rem;}.pg-table td:first-child{white-space:normal;}.ck-progress{top:64px;}}
 </style>
 
 <script type="application/ld+json">
@@ -365,9 +366,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 <meta name="twitter:title" content="צ'קליסט לפגישה בבנק למשכנתא | ליאם צור">
 <meta name="twitter:description" content="צ'קליסט אינטראקטיבי לפגישת משכנתא בבנק: מסמכים להביא, 8 שאלות שחייבים לשאול, מה לבקש בכתב ועל מה לא לחתום. מסמנים ישר מהנייד, בחינם.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=6">
-  <script src="/site-nav.js?v=6" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=6">
+  <link rel="stylesheet" href="/site-nav.css?v=7">
+  <script src="/site-nav.js?v=7" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=7">
 </head>
 <body>
 
@@ -442,16 +443,20 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <a class="lz-dmail" href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
   </div>
 </div>
+<div class="lz-nav-spacer" aria-hidden="true"></div>
 <!-- LZ-NAV:END -->
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="label">כלי חינמי</div>
-  <h1>צ'קליסט לפגישה בבנק</h1>
-  <p class="subtitle">מה להביא, מה לשאול, מה לבקש בכתב ועל מה לא לחתום. פותחים בנייד ומסמנים תוך כדי הפגישה.</p>
-</div>
+<!-- BREADCRUMB -->
+<div class="ui-breadcrumb"><a href="/">דף הבית</a><span>›</span>צ'קליסט לפגישה בבנק</div>
 
-<main class="pg-wrap">
+<!-- HERO -->
+<section class="ui-hero">
+  <div class="ui-tag">כלי חינמי</div>
+  <h1>צ'קליסט <span>לפגישה בבנק</span></h1>
+  <p class="ui-sub">מה להביא, מה לשאול, מה לבקש בכתב ועל מה לא לחתום. פותחים בנייד ומסמנים תוך כדי הפגישה.</p>
+</section>
+
+<main class="ui-main">
 
   <div class="pg-answer">
     <strong>איך משתמשים:</strong> פותחים את העמוד בנייד לפני הפגישה ובזמן הפגישה, ומסמנים כל דבר שטופל. הסימונים נשמרים במכשיר שלכם בלבד. בסוף אפשר לשלוח לעצמכם את מה שנשאר פתוח, או לשלוח לי את ההצעה שקיבלתם לחוות דעת.
@@ -462,7 +467,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <div class="ck-bar" role="progressbar" aria-valuemin="0" aria-valuemax="22" aria-valuenow="0" id="ckBar"><i></i></div>
   </div>
 
-  <section class="ck-group" aria-labelledby="h-docs">
+  <section class="ck-group ui-card" aria-labelledby="h-docs">
     <h2 id="h-docs">לפני הפגישה: מה להביא <span class="ck-count" data-group="docs">0/7</span></h2>
     <p>הרשימה הבסיסית. הבנק עשוי לבקש מסמכים נוספים לפי התיק.</p>
     <label class="ck-item" for="docs-0"><input type="checkbox" id="docs-0" data-group="docs"><span class="t">תעודות זהות של כל הלווים, כולל ספח</span><span class="d"></span></label>
@@ -473,7 +478,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <label class="ck-item" for="docs-5"><input type="checkbox" id="docs-5" data-group="docs"><span class="t">אישור על ההון העצמי</span><span class="d">דפי חשבון, חסכונות, קופות גמל או מכתב מתנה מההורים.</span></label>
     <label class="ck-item" for="docs-6"><input type="checkbox" id="docs-6" data-group="docs"><span class="t">דוח יתרה לסילוק</span><span class="d">במחזור משכנתא בלבד. מראה את היתרה בכל מסלול ואת עמלת הפירעון.</span></label>
   </section>
-  <section class="ck-group" aria-labelledby="h-ask">
+  <section class="ck-group ui-card" aria-labelledby="h-ask">
     <h2 id="h-ask">בפגישה: מה לשאול <span class="ck-count" data-group="ask">0/8</span></h2>
     <p>שאלות שהתשובות עליהן משנות את העלות האמיתית של המשכנתא.</p>
     <label class="ck-item" for="ask-0"><input type="checkbox" id="ask-0" data-group="ask"><span class="t">מה הריבית בכל מסלול, ולכמה זמן היא קבועה?</span><span class="d">לא רק "ריבית ממוצעת". כל מסלול בנפרד.</span></label>
@@ -485,14 +490,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <label class="ck-item" for="ask-6"><input type="checkbox" id="ask-6" data-group="ask"><span class="t">עד מתי ההצעה בתוקף?</span><span class="d">כדי לדעת כמה זמן יש להשוות לבנקים אחרים.</span></label>
     <label class="ck-item" for="ask-7"><input type="checkbox" id="ask-7" data-group="ask"><span class="t">יש עמלת פתיחת תיק? אפשר לוותר עליה?</span><span class="d">זה חלק לגיטימי מהמשא ומתן.</span></label>
   </section>
-  <section class="ck-group" aria-labelledby="h-writing">
+  <section class="ck-group ui-card" aria-labelledby="h-writing">
     <h2 id="h-writing">בקשו בכתב <span class="ck-count" data-group="writing">0/3</span></h2>
     <p>מה שלא כתוב, קשה להשוות וקשה לדרוש אחר כך.</p>
     <label class="ck-item" for="writing-0"><input type="checkbox" id="writing-0" data-group="writing"><span class="t">הצעה מפורטת עם כל המסלולים, הריביות והתקופות</span><span class="d"></span></label>
     <label class="ck-item" for="writing-1"><input type="checkbox" id="writing-1" data-group="writing"><span class="t">לוח סילוקין לכל מסלול</span><span class="d">מראה כמה מכל תשלום הולך לריבית וכמה לקרן.</span></label>
     <label class="ck-item" for="writing-2"><input type="checkbox" id="writing-2" data-group="writing"><span class="t">גם את הצעת "הסלים האחידים" של הבנק</span><span class="d">הבנקים נדרשים להציג אותם לפי הוראות בנק ישראל, וזה עוזר להשוות בין בנקים.</span></label>
   </section>
-  <section class="ck-group" aria-labelledby="h-dont">
+  <section class="ck-group ui-card" aria-labelledby="h-dont">
     <h2 id="h-dont">לא לחתום לפני ש... <span class="ck-count" data-group="dont">0/4</span></h2>
     <label class="ck-item" for="dont-0"><input type="checkbox" id="dont-0" data-group="dont"><span class="t">קיבלתם הצעה גם מבנק אחר, לפחות אחד</span><span class="d">בלי השוואה אין דרך לדעת אם ההצעה טובה.</span></label>
     <label class="ck-item" for="dont-1"><input type="checkbox" id="dont-1" data-group="dont"><span class="t">בדקתם ביטוח חיים וביטוח מבנה גם מחוץ לבנק</span><span class="d">מותר לבחור חברת ביטוח אחרת מזו שהבנק מציע.</span></label>
@@ -500,11 +505,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <label class="ck-item" for="dont-3"><input type="checkbox" id="dont-3" data-group="dont"><span class="t">יודעים מה ההחזר החודשי בתרחיש של עליית ריבית</span><span class="d"></span></label>
   </section>
 
-  <div class="ck-actions">
+  <div class="ui-actions" style="margin-top:8px">
     <a class="cta-btn" id="ckLiam" href="https://wa.me/972523434916?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%90%D7%9D%2C%20%D7%94%D7%99%D7%99%D7%AA%D7%99%20%D7%91%D7%A4%D7%92%D7%99%D7%A9%D7%94%20%D7%91%D7%91%D7%A0%D7%A7%20%D7%95%D7%A7%D7%99%D7%91%D7%9C%D7%AA%D7%99%20%D7%94%D7%A6%D7%A2%D7%94.%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%97%D7%95%D7%95%D7%AA%20%D7%93%D7%A2%D7%AA." target="_blank" rel="noopener">קיבלתם הצעה? שלחו לי לחוות דעת</a>
-    <a class="ghost-btn" id="ckSelf" href="https://wa.me/" target="_blank" rel="noopener">שלחו לעצמכם את מה שנשאר</a>
-    <button class="ghost-btn" type="button" id="ckPrint">הדפסה</button>
-    <button class="ghost-btn" type="button" id="ckReset">איפוס</button>
+    <a class="ui-btn-ghost" id="ckSelf" href="https://wa.me/" target="_blank" rel="noopener">שלחו לעצמכם את מה שנשאר</a>
+    <button class="ui-btn-ghost" type="button" id="ckPrint">הדפסה</button>
+    <button class="ui-btn-ghost" type="button" id="ckReset">איפוס</button>
   </div>
   <p class="pg-note">הרשימה היא כלי עזר כללי ואינה ייעוץ אישי. כל בנק וכל תיק עשויים לדרוש מסמכים או בדיקות נוספים.</p>
 

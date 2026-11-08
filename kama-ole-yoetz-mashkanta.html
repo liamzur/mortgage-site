@@ -146,14 +146,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 @media(max-width:600px){.social-btns{justify-content:flex-start;}}
 
 /* === shared: new content pages === */
-.pg-wrap{max-width:820px;margin:0 auto;padding:56px 60px 24px;}
-.pg-answer{background:var(--dark);border:1px solid var(--border);border-right:3px solid var(--gold);padding:26px 30px;font-size:1.08rem;line-height:1.9;color:var(--white);}
+.page-hero{display:none;}
+.pg-answer{background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.35);border-radius:18px;margin-bottom:22px;padding:26px 30px;font-size:1.08rem;line-height:1.9;color:var(--white);}
 .pg-answer strong{color:var(--gold);}
 .pg-sec{margin-top:56px;}
 .pg-sec h2{font-family:'Heebo',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.35;}
 .pg-sec > p{color:var(--white-dim);font-size:1.02rem;line-height:1.9;margin-bottom:12px;}
 .pg-steps{display:grid;gap:14px;counter-reset:s;margin-top:18px;}
-.pg-step{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;background:var(--dark);border:1px solid var(--border);padding:20px 22px;}
+.pg-step{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.14);border-radius:14px;padding:18px 20px;}
 .pg-step::before{counter-increment:s;content:counter(s);grid-row:span 2;width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem;}
 .pg-step h3{font-size:1.08rem;font-weight:700;color:var(--white);}
 .pg-step p{color:var(--white-dim);font-size:.96rem;line-height:1.8;}
@@ -174,27 +174,28 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 [data-theme="light"] .cta-btn:hover{background:#6B4F0C !important;color:#FFFFFF !important;}
 .ghost-btn{display:inline-block;border:1px solid var(--gold);color:var(--gold) !important;padding:15px 28px;font-weight:700;font-size:.95rem;background:transparent;cursor:pointer;font-family:'Heebo',sans-serif;text-decoration:none !important;}
 .ghost-btn:hover{background:var(--gold);color:var(--black) !important;opacity:1;}
-.related-posts{margin:72px 0 0;padding-top:48px;border-top:1px solid var(--border);}
+.pg-faq .faq-item,.ui-card .faq-item{border-radius:14px;overflow:hidden;}
+.related-posts{margin:56px 0 0;padding-top:48px;border-top:1px solid var(--border);}
 .related-posts-title{font-family:'Heebo',Georgia,serif;font-size:1.5rem;color:var(--gold);margin-bottom:28px;text-align:center;letter-spacing:1px;font-weight:700;}
 .related-posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.related-post-card{display:flex;flex-direction:column;background:var(--dark);border:1px solid var(--border);padding:24px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
+.related-post-card{display:flex;flex-direction:column;background:var(--dark);border:1px solid var(--border);border-radius:16px;padding:24px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
 .related-post-card:hover{border-color:var(--gold);transform:translateY(-3px);opacity:1;}
 .related-post-card h3{font-family:'Heebo',Georgia,serif;font-size:1.05rem;color:var(--white);margin:0 0 12px;line-height:1.45;font-weight:700;}
 .related-post-card p{color:var(--white-dim);font-size:0.85rem;line-height:1.65;margin:0 0 16px;flex:1;}
 .related-post-card .read-more{color:var(--gold);font-size:0.82rem;font-weight:700;letter-spacing:0.5px;}
 /* checklist tool */
-.ck-progress{position:sticky;top:76px;z-index:5;background:var(--black);padding:14px 0 12px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.ck-progress{position:sticky;top:76px;z-index:5;background:var(--black);padding:14px 4px 12px;margin-bottom:14px;}
 .ck-progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--white-dim);margin-bottom:8px;}
 .ck-progress-top b{color:var(--gold);font-size:1.05rem;}
-.ck-bar{height:6px;background:var(--dark2);overflow:hidden;}
-.ck-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease;}
-.ck-group{margin-top:36px;}
+.ck-bar{height:8px;background:var(--dark2);overflow:hidden;border-radius:999px;}
+.ck-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#B8963E,#E3C878);transition:width .35s ease;}
+.ck-group{margin-top:0;}
 .ck-group h2{font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:10px;}
 .ck-group h2 .ck-count{font-size:.8rem;font-weight:600;color:var(--gold);border:1px solid var(--border);padding:1px 10px;border-radius:20px;}
 .ck-group > p{color:var(--white-dim);font-size:.95rem;margin-bottom:12px;}
-.ck-item{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start;background:var(--dark);border:1px solid var(--border);padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .2s;}
+.ck-item{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.14);border-radius:14px;padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:border-color .2s;}
 .ck-item:hover{border-color:var(--gold);}
-.ck-item input{appearance:none;-webkit-appearance:none;width:24px;height:24px;border:1.5px solid var(--gold);margin:2px 0 0;cursor:pointer;display:grid;place-content:center;background:transparent;grid-row:span 2;}
+.ck-item input{appearance:none;-webkit-appearance:none;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--gold);margin:2px 0 0;cursor:pointer;display:grid;place-content:center;background:transparent;grid-row:span 2;}
 .ck-item input::before{content:"";width:12px;height:7px;border-left:2.5px solid var(--black);border-bottom:2.5px solid var(--black);transform:rotate(-45deg) translate(1px,-1px);opacity:0;}
 .ck-item input:checked{background:var(--gold);}
 .ck-item input:checked::before{opacity:1;}
@@ -204,7 +205,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 .ck-item.done .t{color:var(--white-dim);text-decoration:line-through;text-decoration-color:var(--gold);}
 .ck-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
 @media print{.lz-header,.lz-drawer,footer,#cookieBanner,.ck-actions,.pg-ctas,.related-posts,.ck-progress{display:none !important;}body{background:#fff;color:#000;}.ck-item{break-inside:avoid;}}
-@media(max-width:900px){.pg-wrap{padding:40px 20px 16px;}.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}.pg-answer{padding:22px 20px;}.pg-sec h2{font-size:1.35rem;}.pg-table td:first-child{white-space:normal;}.ck-progress{top:64px;}}
+@media(max-width:900px){.related-posts-grid{grid-template-columns:1fr;}.related-posts{margin:48px 0 0;padding-top:36px;}.pg-answer{padding:22px 20px;}.pg-sec h2{font-size:1.35rem;}.pg-table td:first-child{white-space:normal;}.ck-progress{top:64px;}}
 </style>
 
 <script type="application/ld+json">
@@ -319,9 +320,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 <meta name="twitter:title" content="כמה עולה ייעוץ משכנתאות? | ליאם צור">
 <meta name="twitter:description" content="כמה עולה ייעוץ משכנתאות אצל ליאם צור: פגישה ראשונה ללא עלות, שכר טרחה קבוע לפי מורכבות התיק, מחצית בהתחלה ומחצית בסיום. וגם: כל העלויות הנוספות בעסקה.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=6">
-  <script src="/site-nav.js?v=6" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=6">
+  <link rel="stylesheet" href="/site-nav.css?v=7">
+  <script src="/site-nav.js?v=7" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=7">
 </head>
 <body>
 
@@ -396,22 +397,26 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <a class="lz-dmail" href="mailto:liamzur89@gmail.com">liamzur89@gmail.com</a>
   </div>
 </div>
+<div class="lz-nav-spacer" aria-hidden="true"></div>
 <!-- LZ-NAV:END -->
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="label">מחיר שקוף</div>
-  <h1>כמה עולה ייעוץ משכנתאות?</h1>
-  <p class="subtitle">פגישה ראשונה ללא עלות, שכר טרחה קבוע שמוסכם מראש, ותשלום בשני חלקים. כל הפרטים, כולל העלויות שאינן שכר הטרחה.</p>
-</div>
+<!-- BREADCRUMB -->
+<div class="ui-breadcrumb"><a href="/">דף הבית</a><span>›</span>כמה עולה ייעוץ משכנתאות</div>
 
-<main class="pg-wrap">
+<!-- HERO -->
+<section class="ui-hero">
+  <div class="ui-tag">מחיר שקוף</div>
+  <h1>כמה עולה <span>ייעוץ משכנתאות?</span></h1>
+  <p class="ui-sub">פגישה ראשונה ללא עלות, שכר טרחה קבוע שמוסכם מראש, ותשלום בשני חלקים. כל הפרטים, כולל העלויות שאינן שכר הטרחה.</p>
+</section>
+
+<main class="ui-main">
 
   <div class="pg-answer">
     <strong>בקצרה:</strong> הפגישה הראשונה היא ללא עלות וללא התחייבות. אם תבחרו להמשיך, נסכם מראש על <strong>שכר טרחה קבוע</strong> לפי מורכבות התיק, ותשלמו אותו בשני חלקים: <strong>מחצית בתחילת התהליך ומחצית בסיומו</strong>. בלי אחוזים מגובה המשכנתא ובלי הפתעות.
   </div>
 
-  <section class="pg-sec">
+  <section class="ui-card">
     <h2>איך זה עובד, שלב אחרי שלב</h2>
     <div class="pg-steps">
       <div class="pg-step"><h3>פגישה ראשונה, ללא עלות</h3><p>מכירים את התיק: הכנסות, הון עצמי, סוג העסקה ומה חשוב לכם. בסוף הפגישה תקבלו כיוון ראשוני, ותדעו מה יהיה שכר הטרחה אם תרצו להמשיך.</p></div>
@@ -421,7 +426,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     </div>
   </section>
 
-  <section class="pg-sec">
+  <section class="ui-card">
     <h2>מה קובע את גובה שכר הטרחה?</h2>
     <p>המחיר נקבע לפי כמות העבודה שהתיק דורש. אלה הגורמים העיקריים:</p>
     <ul class="pg-list">
@@ -432,7 +437,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     </ul>
   </section>
 
-  <section class="pg-sec">
+  <section class="ui-card">
     <h2>עלויות נוספות בעסקה, שאינן שכר הטרחה שלי</h2>
     <p>חשוב להכיר אותן מראש כדי לא להיות מופתעים. הסכומים משתנים לפי הבנק, הנכס והעסקה.</p>
     <table class="pg-table">
@@ -448,12 +453,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     <p class="pg-note">מחזור משכנתא עשוי לכלול גם עמלת פירעון מוקדם בבנק הנוכחי. את הסכום רואים בדוח יתרה לסילוק. <a href="/doch-yitra-siluk-mashkanta.html">איך מוציאים דוח יתרה ←</a></p>
   </section>
 
-  <section class="pg-sec">
+  <section class="ui-card">
     <h2>למה מחיר קבוע ולא אחוז מהמשכנתא?</h2>
     <p>כשהמחיר נגזר מגובה המשכנתא, ליועץ יש אינטרס שתיקחו משכנתא גדולה יותר. כשהמחיר קבוע ומוסכם מראש, האינטרס שלי פשוט: שתקבלו את המשכנתא שמתאימה לכם, בתנאים הכי טובים שאפשר להשיג.</p>
   </section>
 
-  <section class="pg-sec">
+  <section class="ui-card">
     <h2>שאלות נפוצות על המחיר</h2>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false"><span>האם הפגישה הראשונה באמת ללא עלות?</span><span class="faq-icon" aria-hidden="true">+</span></button>
@@ -477,12 +482,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
     </div>
   </section>
 
-  <section class="pg-sec">
+  <section class="ui-card">
     <h2>רוצים לדעת כמה זה יעלה בתיק שלכם?</h2>
     <p>קובעים פגישה ראשונה ללא עלות, ובסופה תדעו את המחיר המדויק.</p>
-    <div class="pg-ctas">
+    <div class="ui-actions" style="margin-top:20px">
       <a class="cta-btn" href="https://wa.me/972523434916?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%90%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A4%D7%92%D7%99%D7%A9%D7%94%20%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94%20%D7%95%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%9B%D7%9E%D7%94%20%D7%99%D7%A2%D7%9C%D7%94%20%D7%94%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%91%D7%AA%D7%99%D7%A7%20%D7%A9%D7%9C%D7%99." target="_blank" rel="noopener">לקביעת פגישה בוואטסאפ</a>
-      <a class="ghost-btn" href="tel:+972523434916">חיוג · 052-343-4916</a>
+      <a class="ui-btn-ghost" href="tel:+972523434916">חיוג · 052-343-4916</a>
     </div>
   </section>
 
