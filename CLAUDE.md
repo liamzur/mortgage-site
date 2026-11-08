@@ -4,12 +4,14 @@
 שמי **ליאם צור**, יועץ משכנתאות מורשה ישראלי.  
 האתר: **https://liamzur.co.il**  
 GitHub: **https://github.com/liamzur/mortgage-site**  
-Netlify Site ID: **c96420f6-9fc5-43d8-9e79-99ea1bbc9051**  
+Hosting: **Vercel**, פרויקט `mortgage-site` (team `team_m1M3YUUoP43dXzPvDBpowmo6`, project `prj_HOHXLTO0PAh3RabrAoOeVCQOCp6d`)  
 טלפון: 052-343-4916
 
 ## ארכיטקטורת האתר
 - **סטטי לחלוטין** — HTML/CSS/JS בלבד, ללא framework
-- **Netlify** — hosting + CDN. כל push ל-main מעלה אוטומטית
+- **Vercel** — hosting + CDN. כל push ל-`main` עולה לאתר (production). push לבראנץ' אחר יוצר רק תצוגה מקדימה (preview).
+  - ההגדרות (rewrites, redirects, headers) נמצאות ב-`vercel.json`. הקבצים `netlify.toml` ו-`netlify/` נשארו מתקופת Netlify, **ולא פעילים**.
+  - ⚠️ פונקציות השרת שב-`netlify/functions/` (`lead-whatsapp`, `delete-review`) **לא רצות ב-Vercel** (הכתובת `/.netlify/functions/...` מחזירה 404). לידים מהטפסים מגיעים במייל דרך Web3Forms. ההתראה בוואטסאפ לא נשלחת, עד שהפונקציה תועבר ל-`api/` של Vercel.
 - **GitHub** — repo: `liamzur/mortgage-site`
 - **עיצוב**: רקע שחור `#080808`, זהב `#C9A84C`, פונט Heebo, RTL עברית
 
@@ -155,13 +157,15 @@ mortgage-site/
 ### כשמעדכנים index.html:
 הקובץ גדול (302KB) — תמיד קרא חלקים ספציפיים עם grep/sed ואל תקרא את כולו
 
-### כשמ-deploy ל-Netlify:
+### כשמעלים לאתר (Vercel):
 ```bash
 git add -A
 git commit -m "הוספת פוסט: [כותרת]"
 git push origin main
-# Netlify יעדכן אוטומטית תוך ~1 דקה
+# Vercel מעדכן אוטומטית תוך ~30–60 שניות
 ```
+- **לדחוף רק ל-`main`.** אם אותו קומיט נדחף גם לבראנץ' אחר, Vercel עלול לבנות רק preview ולדלג על ה-production.
+- **תמיד לוודא שהשינוי באוויר**: `curl -s "https://liamzur.co.il/<עמוד>?nc=$RANDOM" | grep -c "<טקסט חדש>"`. אם אחרי 2 דקות אין שינוי, לבדוק ב-Vercel (`list_deployments`) שיש deployment עם `target: production` לקומיט החדש. אם אין, לדחוף ל-`main` קומיט ריק (`git commit --allow-empty`).
 
 ## Skills זמינים
 - `mortgage-social-media` — יוצר פוסטים לסושיאל מדיה
@@ -189,7 +193,7 @@ git push origin main
 2. `git pull origin main` (לוודא עדכון)
 3. עשה את השינויים
 4. `git add -A && git commit -m "תיאור" && git push`
-5. Netlify מעדכן תוך ~60 שניות
+5. Vercel מעדכן תוך ~30–60 שניות. לוודא באתר החי (ראו "כשמעלים לאתר")
 
 ---
 *קובץ זה נוצר על ידי Claude (Cowork) בשיחה מאפריל 2026*
