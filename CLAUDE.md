@@ -12,7 +12,7 @@ Hosting: **Vercel**, פרויקט `mortgage-site` (team `team_m1M3YUUoP43dXzPvDB
 - **Vercel** — hosting + CDN. כל push ל-`main` עולה לאתר (production). push לבראנץ' אחר יוצר רק תצוגה מקדימה (preview).
   - ההגדרות (rewrites, redirects, headers) נמצאות ב-`vercel.json`.
   - פונקציות שרת נמצאות ב-`api/` (Vercel Functions):
-    - `api/lead.js`: התראת וואטסאפ לליאם (דרך CallMeBot) על כל ליד. משתני סביבה: `CALLMEBOT_PHONE`, `CALLMEBOT_APIKEY`.
+    - `api/lead.js`: התראת וואטסאפ לליאם על כל ליד. קודם מנסה וואטסאפ רשמי של Meta, עם תבנית `lead_alert` שיש בה 3 משתנים: שם, טלפון ופרטים. משתני סביבה: `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_ID`, `WHATSAPP_TO` ו-`WHATSAPP_TEMPLATE`, `WHATSAPP_LANG` (לא חובה). אם Meta לא עובד, הגיבוי הוא CallMeBot, עם `CALLMEBOT_PHONE` ו-`CALLMEBOT_APIKEY`.
     - `api/delete-review.js`: מחיקת ביקורת. משתני סביבה: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `ADMIN_PASS`.
   - **כל טופס ליד שולח בשני ערוצים במקביל**: מייל (Web3Forms) וגם וואטסאפ (`/api/lead`). הליד נחשב שהתקבל אם לפחות אחד מהם הצליח. **טופס ליד חדש חייב לעבוד באותה שיטה**, עם שדה `form` שמזהה ממנו הגיע הליד (למשל `michzur.html`, `ichud-halvaot.html` או טופס הקשר ב-`index.html`).
 - **GitHub** — repo: `liamzur/mortgage-site`
