@@ -4,6 +4,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/.netlify/functions/lead-whatsapp",
+      "destination": "/api/lead"
+    },
+    {
+      "source": "/.netlify/functions/delete-review",
+      "destination": "/api/delete-review"
+    },
+    {
       "source": "/card",
       "destination": "/card.html"
     },

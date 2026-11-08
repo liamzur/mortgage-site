@@ -2174,7 +2174,7 @@ function svcGo(n){
     var payload = { id: id };
     if (isAdminMode) payload.adminPassword = sessionStorage.getItem('adminPass');
     else payload.deleteToken = userToken;
-    fetch('/.netlify/functions/delete-review', {
+    fetch('/api/delete-review', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -2293,13 +2293,18 @@ function svcGo(n){
       btnText.textContent = '\u05E9\u05D5\u05DC\u05D7...';
       if (success) success.style.display = 'none';
       if (errBox)  errBox.style.display  = 'none';
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(j) {
-        if (j.success) {
+      var val = function(n){ return (form.querySelector('[name="'+n+'"]') || {value:''}).value; };
+      /* שני ערוצים במקביל: מייל (Web3Forms) והתראת וואטסאפ (/api/lead). הליד נחשב שהתקבל אם לפחות אחד מהם הצליח. */
+      var email = fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+        .then(function(r){ return r.json(); }).then(function(j){ return !!j.success; }, function(){ return false; });
+      var wa = fetch('/api/lead', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ form: 'טופס יצירת קשר (דף הבית)', name: (val('first_name')+' '+val('last_name')).trim(),
+          phone: val('phone'), email: val('email'), service_type: val('service_type'), message: val('message'), botcheck: !!(form.querySelector('[name="botcheck"]') || {}).checked })
+      }).then(function(r){ return r.json().then(function(j){ return !!(r.ok && j.ok); }); }).catch(function(){ return false; });
+      Promise.all([email, wa])
+      .then(function(r) {
+        if (r[0] || r[1]) {
           // Save form data in sessionStorage so /thanks can build a pre-filled WhatsApp link
           try {
             var data = {
@@ -2314,7 +2319,7 @@ function svcGo(n){
           } catch (err) {}
           // Redirect to thank-you page (fires GA4 conversion event on load)
           window.location.href = '/thanks';
-        } else { throw new Error(j.message); }
+        } else { throw new Error('send failed'); }
       })
       .catch(function() {
         if (errBox) errBox.style.display = 'block';

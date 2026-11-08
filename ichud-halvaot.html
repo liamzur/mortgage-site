@@ -1164,9 +1164,14 @@
     fd.append('from_name', 'סימולטור איחוד הלוואות');
     fd.append('message', 'פנייה מסימולטור איחוד הלוואות. '+det);
     fd.append('botcheck', '');
-    fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
-      .then(function(x){return x.json();})
-      .then(function(j){
+    var email = fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
+      .then(function(x){return x.json();}).then(function(j){return !!j.success;}, function(){return false;});
+    var wa = fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({form:'סימולטור איחוד הלוואות',name:name,phone:phone,message:det})})
+      .then(function(r){return r.json().then(function(j){return !!(r.ok&&j.ok);});}).catch(function(){return false;});
+    Promise.all([email, wa])
+      .then(function(r){
+        if (!r[0] && !r[1]) throw new Error('send failed');
         form.hidden=true; $('done').hidden=false;
         if (window.gtag) gtag('event','generate_lead',{event_category:'contact',event_label:'consolidation_sim',value:12});
       })

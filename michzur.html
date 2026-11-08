@@ -1252,10 +1252,10 @@
         message: summaryLines()
       })
     }).then(ok, function () { return false; });
-    var whatsapp = fetch('/.netlify/functions/lead-whatsapp', {
+    var whatsapp = fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, phone: phone, result: resultText, source: SOURCE, answers: summaryLines().split('\n') })
+      body: JSON.stringify({ form: 'בדיקת מחזור', name: name, phone: phone, result: resultText, source: SOURCE, answers: summaryLines().split('\n') })
     }).then(ok, function () { return false; });
     Promise.all([email, whatsapp])
       .then(function (r) {

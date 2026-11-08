@@ -10,8 +10,11 @@ Hosting: **Vercel**, פרויקט `mortgage-site` (team `team_m1M3YUUoP43dXzPvDB
 ## ארכיטקטורת האתר
 - **סטטי לחלוטין** — HTML/CSS/JS בלבד, ללא framework
 - **Vercel** — hosting + CDN. כל push ל-`main` עולה לאתר (production). push לבראנץ' אחר יוצר רק תצוגה מקדימה (preview).
-  - ההגדרות (rewrites, redirects, headers) נמצאות ב-`vercel.json`. הקבצים `netlify.toml` ו-`netlify/` נשארו מתקופת Netlify, **ולא פעילים**.
-  - ⚠️ פונקציות השרת שב-`netlify/functions/` (`lead-whatsapp`, `delete-review`) **לא רצות ב-Vercel** (הכתובת `/.netlify/functions/...` מחזירה 404). לידים מהטפסים מגיעים במייל דרך Web3Forms. ההתראה בוואטסאפ לא נשלחת, עד שהפונקציה תועבר ל-`api/` של Vercel.
+  - ההגדרות (rewrites, redirects, headers) נמצאות ב-`vercel.json`.
+  - פונקציות שרת נמצאות ב-`api/` (Vercel Functions):
+    - `api/lead.js`: התראת וואטסאפ לליאם (דרך CallMeBot) על כל ליד. משתני סביבה: `CALLMEBOT_PHONE`, `CALLMEBOT_APIKEY`.
+    - `api/delete-review.js`: מחיקת ביקורת. משתני סביבה: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `ADMIN_PASS`.
+  - **כל טופס ליד שולח בשני ערוצים במקביל**: מייל (Web3Forms) וגם וואטסאפ (`/api/lead`). הליד נחשב שהתקבל אם לפחות אחד מהם הצליח. **טופס ליד חדש חייב לעבוד באותה שיטה**, עם שדה `form` שמזהה ממנו הגיע הליד (למשל `michzur.html`, `ichud-halvaot.html` או טופס הקשר ב-`index.html`).
 - **GitHub** — repo: `liamzur/mortgage-site`
 - **עיצוב**: רקע שחור `#080808`, זהב `#C9A84C`, פונט Heebo, RTL עברית
 
