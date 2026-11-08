@@ -20,6 +20,7 @@ SPACER = {'calculator.html', 'michzur.html', 'blog/mashkanta-binyan-atzmit.html'
 MAIN = [('/#services', 'שירותים'), ('/#why', 'למה אני'), ('/#process', 'תהליך'),
         ('/#testimonials', 'לקוחות'), ('/blog/', 'בלוג'), ('/faq.html', 'שאלות נפוצות')]
 TOOLS = [('/michzur.html', 'בדיקת מחזור', '5 שאלות, 30 שניות: כדאי לך למחזר?', True),
+         ('/checklist-pgisha-babank.html', "צ'קליסט לפגישה בבנק", 'מה להביא, מה לשאול ועל מה לא לחתום', True),
          ('/calculator.html', 'מחשבון משכנתא', 'החזר חודשי וסך הריבית לפי סכום ושנים', False),
          ('/glossary.html', 'מילון מונחים', 'כל מושגי המשכנתא בשפה פשוטה', False),
          ('/doch-yitra-siluk-mashkanta.html', 'דוח יתרה לסילוק', 'איך מוציאים דוח יתרה מכל בנק — מדריך מלא', False),

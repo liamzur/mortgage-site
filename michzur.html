@@ -574,6 +574,20 @@
   .rc-important{color:var(--white-dim);font-size:.82rem;text-align:right;line-height:1.6}
   .rc-important b{color:var(--white)}
 
+  .rc-clock h3,.rc-remind h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+  .rc-clock > p,.rc-remind > p{color:var(--white-dim);font-size:.92rem;margin-bottom:14px}
+  .rc-clock-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rc-clock-fields label{display:grid;gap:6px;font-size:.85rem;color:var(--white-dim)}
+  .rc-clock-fields input{width:100%;background:var(--black);border:1px solid var(--black-border);color:var(--white);padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1rem;direction:ltr;text-align:right}
+  .rc-clock-fields input:focus{outline:none;border-color:var(--gold)}
+  .rc-clock-out{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+  .rc-clock-out > div{border:1px solid var(--black-border);padding:14px;text-align:center}
+  .rc-clock-num{display:block;font-size:1.7rem;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1.2}
+  .rc-clock-lbl{font-size:.8rem;color:var(--white-dim)}
+  .rc-clock-note{font-size:.8rem;color:var(--white-dim);opacity:.8;margin-top:12px;line-height:1.6}
+  .rc-clock .rc-link,.rc-remind .rc-link{display:inline-block;margin-top:10px}
+  @media(max-width:520px){.rc-clock-fields,.rc-clock-out{grid-template-columns:1fr}}
+  [data-theme="light"] .rc-clock-num{color:#7E5F10}
   .rc-lead h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
   .rc-lead > p{color:var(--white-dim);margin-bottom:18px;font-size:.95rem}
   .rc-lead form{display:grid;gap:8px}
@@ -751,6 +765,7 @@
         <button class="lz-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">כלים <svg class="lz-caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5L5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <ul class="lz-menu">
           <li><a href="/michzur.html"><span class="lz-mt">בדיקת מחזור <span class="lz-new">חדש</span></span><span class="lz-md">5 שאלות, 30 שניות: כדאי לך למחזר?</span></a></li>
+          <li><a href="/checklist-pgisha-babank.html"><span class="lz-mt">צ'קליסט לפגישה בבנק <span class="lz-new">חדש</span></span><span class="lz-md">מה להביא, מה לשאול ועל מה לא לחתום</span></a></li>
           <li><a href="/calculator.html"><span class="lz-mt">מחשבון משכנתא</span><span class="lz-md">החזר חודשי וסך הריבית לפי סכום ושנים</span></a></li>
           <li><a href="/glossary.html"><span class="lz-mt">מילון מונחים</span><span class="lz-md">כל מושגי המשכנתא בשפה פשוטה</span></a></li>
           <li><a href="/doch-yitra-siluk-mashkanta.html"><span class="lz-mt">דוח יתרה לסילוק</span><span class="lz-md">איך מוציאים דוח יתרה מכל בנק — מדריך מלא</span></a></li>
@@ -783,6 +798,7 @@
     <div class="lz-dgroup" role="group" aria-label="כלים">
       <span class="lz-dlabel">כלים</span>
       <a class="lz-dlink" href="/michzur.html">בדיקת מחזור<span class="lz-new">חדש</span></a>
+      <a class="lz-dlink" href="/checklist-pgisha-babank.html">צ'קליסט לפגישה בבנק<span class="lz-new">חדש</span></a>
       <a class="lz-dlink" href="/calculator.html">מחשבון משכנתא</a>
       <a class="lz-dlink" href="/glossary.html">מילון מונחים</a>
       <a class="lz-dlink" href="/doch-yitra-siluk-mashkanta.html">דוח יתרה לסילוק</a>
@@ -880,6 +896,27 @@
         <p>אחזור אליך בהקדם. כדי לחסוך זמן, אפשר כבר להזמין מהבנק דוח יתרות לסילוק.</p>
       </div>
       <a class="rc-wa" id="waLiam" href="https://wa.me/972523434916" target="_blank" rel="noopener">או כתבו לי ישר בוואטסאפ</a>
+    </div>
+
+    <div class="rc-card rc-clock" id="clock">
+      <h3>שעון הריבית: כמה המשכנתא עולה לך ביום?</h3>
+      <p>חישוב מהיר ואופציונלי. המספרים לא נשלחים לשום מקום.</p>
+      <div class="rc-clock-fields">
+        <label for="cBal">יתרת המשכנתא (₪)<input id="cBal" type="text" inputmode="numeric" placeholder="למשל 900,000" autocomplete="off"></label>
+        <label for="cRate">ריבית ממוצעת (%)<input id="cRate" type="text" inputmode="decimal" placeholder="למשל 4.5" autocomplete="off"></label>
+      </div>
+      <div class="rc-clock-out" id="cOut" aria-live="polite" hidden>
+        <div><span class="rc-clock-num" id="cDay"></span><span class="rc-clock-lbl">ריבית ביום, בערך</span></div>
+        <div><span class="rc-clock-num" id="cMonth"></span><span class="rc-clock-lbl">ריבית בחודש, בערך</span></div>
+      </div>
+      <p class="rc-clock-note">הערכה גסה: יתרה × ריבית ÷ 365. לא כולל הצמדה למדד, ולכן במסלולים צמודים העלות בפועל גבוהה יותר. את הריבית הממוצעת אפשר למצוא בדוח יתרה לסילוק.</p>
+      <a class="rc-link" id="cShare" href="https://wa.me/" target="_blank" rel="noopener" hidden>שלחו את החישוב לבן/בת הזוג</a>
+    </div>
+
+    <div class="rc-card rc-remind" id="remind" hidden>
+      <h3>לא עכשיו? תזכורת לבדוק שוב בעוד חצי שנה</h3>
+      <p>הריביות והמצב שלך משתנים. הוסיפו תזכורת ליומן, ובעוד חצי שנה תעשו את הבדיקה שוב בחצי דקה.</p>
+      <a class="rc-link" id="remindCal" href="#" target="_blank" rel="noopener">הוספה ליומן Google</a>
     </div>
 
     <div class="rc-actions">
@@ -1115,7 +1152,39 @@
     $('waLiam').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('היי ליאם, עשיתי את בדיקת המחזור באתר ויצא לי: ' + res.title + '. אשמח שתבדוק לי את המשכנתא.');
     $('leadForm').hidden = false; $('done').hidden = true; $('err').textContent = '';
     v.focus({ preventScroll: true });
+    $('remind').hidden = res.verdict === 'yes';
   }
+
+  /* תזכורת ליומן: אירוע של יום שלם בעוד 6 חודשים */
+  (function () {
+    var d = new Date(); d.setMonth(d.getMonth() + 6);
+    var p = function (n) { return (n < 10 ? '0' : '') + n; };
+    var a = d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate());
+    var e = new Date(d.getTime() + 864e5);
+    var b = e.getFullYear() + p(e.getMonth() + 1) + p(e.getDate());
+    $('remindCal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text=' + encodeURIComponent('לבדוק שוב מחזור משכנתא')
+      + '&dates=' + a + '/' + b
+      + '&details=' + encodeURIComponent('בדיקה של 30 שניות: https://liamzur.co.il/michzur.html');
+  })();
+
+  /* שעון הריבית: יתרה × ריבית ÷ 365 */
+  function num(v) { return parseFloat(String(v || '').replace(/[^\d.]/g, '')); }
+  function ils(n) { return '₪' + Math.round(n).toLocaleString('he-IL'); }
+  function clock() {
+    var bal = num($('cBal').value), rate = num($('cRate').value);
+    var ok = bal > 10000 && bal < 2e8 && rate > 0 && rate < 25;
+    $('cOut').hidden = !ok; $('cShare').hidden = !ok;
+    if (!ok) return;
+    var day = bal * rate / 100 / 365;
+    $('cDay').textContent = ils(day);
+    $('cMonth').textContent = ils(day * 365 / 12);
+    $('cShare').href = 'https://wa.me/?text=' + encodeURIComponent('בדקתי: המשכנתא שלנו עולה לנו בערך ' + ils(day) + ' ריבית ביום (' + ils(day * 365 / 12) + ' בחודש). אולי שווה לבדוק מחזור: https://liamzur.co.il/michzur.html');
+  }
+  $('cBal').addEventListener('input', function () {
+    var n = num(this.value); this.value = isNaN(n) ? '' : Math.floor(n).toLocaleString('en-US'); clock();
+  });
+  $('cRate').addEventListener('input', clock);
 
   function phoneOk(p) {
     var t = String(p || '').replace(/[-\s().]/g, '');
