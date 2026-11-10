@@ -1,0 +1,58 @@
+# ליאם צור — יועץ משכנתאות
+
+> אתר של ליאם צור, יועץ משכנתאות עצמאי בישראל. האתר כולל מדריכים בעברית פשוטה על משכנתאות, מחשבונים וכלים חינמיים, ומידע על שירות הייעוץ: רכישת דירה, מחזור משכנתא ואיחוד הלוואות.
+
+עובדות עיקריות:
+
+- שם: ליאם צור. תחום: ייעוץ משכנתאות. חבר בהתאחדות יועצי המשכנתאות.
+- יועץ עצמאי: עובד מול כל הבנקים המובילים ומייצג את הלקוח בלבד, לא את הבנק.
+- שירותים: ייעוץ משכנתא לרכישת דירה, מחזור משכנתא, איחוד הלוואות, משכנתא לבנייה עצמית, משכנתא לעצמאים.
+- מחיר: הפגישה הראשונה ללא עלות וללא התחייבות. שכר טרחה קבוע שמסוכם מראש לפי מורכבות התיק (לא אחוז מגובה המשכנתא), מחצית בתחילת התהליך ומחצית בסיומו.
+- אזור שירות: ראשון לציון, נס ציונה, רחובות, חולון, בת ים, תל אביב, גוש דן, השרון והמרכז, ולקוחות מכל הארץ.
+- שעות: ימים א'–ה', 09:00–19:00.
+- יצירת קשר: טלפון 052-343-4916, וואטסאפ https://wa.me/972523434916, אתר https://liamzur.co.il
+- שפה: עברית. המידע באתר כללי ואינו מהווה ייעוץ אישי; כל תיק נבדק לגופו.
+
+## עמודים ראשיים
+
+- [דף הבית](https://liamzur.co.il/): השירותים, תהליך העבודה, המלצות ויצירת קשר
+- [כמה עולה ייעוץ משכנתאות](https://liamzur.co.il/kama-ole-yoetz-mashkanta.html): מודל התשלום, מה קובע את שכר הטרחה, והעלויות הנוספות בעסקה
+- [שאלות נפוצות על משכנתא](https://liamzur.co.il/faq.html): תשובות קצרות לשאלות הנפוצות ביותר
+- [מילון מונחי משכנתא](https://liamzur.co.il/glossary.html): הסבר פשוט לכל מושג, מפריים ועד גרייס
+- [כרטיס ביקור דיגיטלי](https://liamzur.co.il/card.html): פרטי קשר
+
+## כלים חינמיים
+
+- [מחשבון משכנתא](https://liamzur.co.il/calculator.html): חישוב החזר חודשי וסך הריבית
+- [בדיקת מחזור משכנתא](https://liamzur.co.il/michzur.html): חמש שאלות שבודקות אם כדאי לבחון מחזור
+- [סימולטור איחוד הלוואות](https://liamzur.co.il/ichud-halvaot.html): כמה אפשר להפחית מההחזר החודשי
+- [צ'קליסט לפגישה בבנק](https://liamzur.co.il/checklist-pgisha-babank.html): מה להביא ומה לשאול
+- [דוח יתרה לסילוק משכנתא](https://liamzur.co.il/doch-yitra-siluk-mashkanta.html): איך מוציאים את הדוח בכל בנק ואיך קוראים אותו
+
+## מדריכים
+
+- [מה זה יועץ משכנתאות ולמה צריך אותו](https://liamzur.co.il/blog/yoetz-mashkanta.html)
+- [מחזור משכנתא: מתי כדאי, כמה עולה ואיך עושים](https://liamzur.co.il/blog/mashkanta-michzur-2026.html)
+- [מחזור משכנתא בזמן](https://liamzur.co.il/blog/mashkanta-michzur-bazmano.html)
+- [האם המשכנתא שלקחתם עדיין מתאימה לכם: 3 סימנים](https://liamzur.co.il/blog/mashkanta-michzur-matima.html)
+- [משכנתא לזוגות צעירים](https://liamzur.co.il/blog/mashkanta-zugot-tzeirim.html)
+- [אחוז מימון: כלל ה-75%](https://liamzur.co.il/blog/mashkanta-achuz-mimun.html)
+- [איך הבנק בודק יכולת החזר](https://liamzur.co.il/blog/mashkanta-bank-check.html)
+- [ריבית וקרן: לאן הולך הכסף בשנים הראשונות](https://liamzur.co.il/blog/mashkanta-ribit-keren.html)
+- [ריבית אישית: למה שני לקוחות מקבלים ריביות שונות](https://liamzur.co.il/blog/mashkanta-ribit-klali.html)
+- [המסלול הזול ביותר במשכנתא](https://liamzur.co.il/blog/mashkanta-maslul-zol.html)
+- [לקצר שנים בלי להגדיל את ההחזר](https://liamzur.co.il/blog/mashkanta-kitzur-shanim.html)
+- [אישור עקרוני מהבנק](https://liamzur.co.il/blog/mashkanta-ishur-ekroni.html)
+- [השוואת בנקים למשכנתא](https://liamzur.co.il/blog/mashkanta-hashvaat-bankayim.html)
+- [משכנתא לעצמאים](https://liamzur.co.il/blog/mashkanta-atzmaim-2026.html)
+- [משכנתא לבנייה עצמית](https://liamzur.co.il/blog/mashkanta-binyan-atzmit.html)
+- [הוראת בנק ישראל למשכנתאות מ-1 באוקטובר 2026](https://liamzur.co.il/blog/mashkanta-horaat-bank-israel-2026.html)
+- [10 טיפים לחיסכון במשכנתא](https://liamzur.co.il/blog/tipim-hokhmat-mashkanta.html)
+- [כל המאמרים](https://liamzur.co.il/blog/)
+
+## אזורי שירות
+
+- [יועץ משכנתאות בתל אביב](https://liamzur.co.il/ezor/yoetz-mashkanta-tel-aviv.html)
+- [יועץ משכנתאות בגוש דן](https://liamzur.co.il/ezor/yoetz-mashkanta-gush-dan.html)
+- [יועץ משכנתאות במרכז](https://liamzur.co.il/ezor/yoetz-mashkanta-merkaz.html)
+- [יועץ משכנתאות בשרון](https://liamzur.co.il/ezor/yoetz-mashkanta-sharon.html)
