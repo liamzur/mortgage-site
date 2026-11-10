@@ -16,6 +16,7 @@
 ## עמודים ראשיים
 
 - [דף הבית](https://liamzur.co.il/): השירותים, תהליך העבודה, המלצות ויצירת קשר
+- [מי אני ואיך אני עובד](https://liamzur.co.il/odot.html): מי ליאם צור, שלבי הליווי, עקרונות העבודה ואיך נכתב המידע באתר
 - [כמה עולה ייעוץ משכנתאות](https://liamzur.co.il/kama-ole-yoetz-mashkanta.html): מודל התשלום, מה קובע את שכר הטרחה, והעלויות הנוספות בעסקה
 - [שאלות נפוצות על משכנתא](https://liamzur.co.il/faq.html): תשובות קצרות לשאלות הנפוצות ביותר
 - [מילון מונחי משכנתא](https://liamzur.co.il/glossary.html): הסבר פשוט לכל מושג, מפריים ועד גרייס
@@ -35,6 +36,7 @@
 - [מחזור משכנתא: מתי כדאי, כמה עולה ואיך עושים](https://liamzur.co.il/blog/mashkanta-michzur-2026.html)
 - [מחזור משכנתא בזמן](https://liamzur.co.il/blog/mashkanta-michzur-bazmano.html)
 - [האם המשכנתא שלקחתם עדיין מתאימה לכם: 3 סימנים](https://liamzur.co.il/blog/mashkanta-michzur-matima.html)
+- [כמה משכנתא אפשר לקבל: חישוב לפי הכנסה והון עצמי](https://liamzur.co.il/blog/kama-mashkanta-efshar-lekabel.html)
 - [משכנתא לזוגות צעירים](https://liamzur.co.il/blog/mashkanta-zugot-tzeirim.html)
 - [אחוז מימון: כלל ה-75%](https://liamzur.co.il/blog/mashkanta-achuz-mimun.html)
 - [איך הבנק בודק יכולת החזר](https://liamzur.co.il/blog/mashkanta-bank-check.html)
@@ -54,5 +56,6 @@
 
 - [יועץ משכנתאות בתל אביב](https://liamzur.co.il/ezor/yoetz-mashkanta-tel-aviv.html)
 - [יועץ משכנתאות בגוש דן](https://liamzur.co.il/ezor/yoetz-mashkanta-gush-dan.html)
+- [יועץ משכנתאות בראשון לציון](https://liamzur.co.il/ezor/yoetz-mashkanta-rishon-lezion.html)
 - [יועץ משכנתאות במרכז](https://liamzur.co.il/ezor/yoetz-mashkanta-merkaz.html)
 - [יועץ משכנתאות בשרון](https://liamzur.co.il/ezor/yoetz-mashkanta-sharon.html)
