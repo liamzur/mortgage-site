@@ -1430,7 +1430,6 @@ function svcGo(n){
     " onmouseover="this.style.background='rgba(201,168,76,0.1)'" onmouseout="this.style.background='transparent'">
       ✦ הוסף המלצה
     </button>
-    <button onclick="toggleAdminMode()" title="ניהול ביקורות" style="background:transparent;border:none;color:rgba(201,168,76,0.25);font-size:0.75rem;cursor:pointer;padding:4px;margin-bottom:4px;transition:color 0.2s;" onmouseover="this.style.color='rgba(201,168,76,0.6)'" onmouseout="this.style.color='rgba(201,168,76,0.25)'">🔒</button>
   </div>
   <div class="testimonials-grid" id="testimonialsGrid" style="margin-top:40px;">
     <div class="testimonial reveal">
@@ -1538,21 +1537,21 @@ function svcGo(n){
 
     <!-- Step 2: Confirm -->
     <div id="reviewStep2" style="display:none;">
-      <div style="font-size:0.7rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">אישור פרסום</div>
-      <h3 style="font-family:'Heebo',serif;font-size:1.4rem;margin-bottom:20px;color:#F5F0E8;">רגע לפני שמפרסמים</h3>
+      <div style="font-size:0.7rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">אישור שליחה</div>
+      <h3 style="font-family:'Heebo',serif;font-size:1.4rem;margin-bottom:20px;color:#F5F0E8;">רגע לפני ששולחים</h3>
 
       <div style="
         background:#0d0d0d;border:1px solid rgba(201,168,76,0.2);
         padding:20px;margin-bottom:24px;
       ">
         <p style="font-size:0.85rem;color:#B0A89A;line-height:1.8;">
-          ◆ <strong style="color:#F5F0E8;">שים לב:</strong> בלחיצה על "פרסם המלצה" אתה מאשר כי:
+          ◆ <strong style="color:#F5F0E8;">שים לב:</strong> בלחיצה על "שלח המלצה" אתה מאשר כי:
         </p>
         <ul style="margin-top:12px;padding-right:20px;color:#B0A89A;font-size:0.82rem;line-height:2;">
-          <li>ההמלצה שכתבת תפורסם <strong style="color:#F5F0E8;">לכל המבקרים באתר</strong></li>
+          <li>ההמלצה שכתבת תפורסם, אחרי אישור, <strong style="color:#F5F0E8;">לכל המבקרים באתר</strong></li>
           <li>שמך המלא יוצג לצד ההמלצה</li>
           <li>הדירוג שבחרת יוצג בכוכבים</li>
-          <li>המידע נשמר ומוצג בגלוי לציבור</li>
+          <li>ההמלצה נשלחת לליאם ומתפרסמת רק אחרי אישור</li>
         </ul>
       </div>
 
@@ -1580,20 +1579,21 @@ function svcGo(n){
           color:#B0A89A;padding:13px;font-family:'Heebo',sans-serif;
           font-size:0.85rem;cursor:pointer;transition:all 0.3s;
         " onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C'" onmouseout="this.style.borderColor='#333';this.style.color='#B0A89A'">← חזור</button>
-        <button onclick="publishReview()" style="
+        <button id="revSendBtn" onclick="publishReview()" style="
           flex:2;background:linear-gradient(135deg,#C9A84C,#8B6914);
           color:#080808;border:none;padding:13px;
           font-family:'Heebo',sans-serif;font-size:0.9rem;
           font-weight:700;letter-spacing:1px;cursor:pointer;transition:opacity 0.3s;
-        " onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">✓ פרסם המלצה</button>
+        " onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">✓ שלח המלצה</button>
       </div>
+      <p id="revSendError" role="alert" style="display:none;color:#e07a7a;font-size:0.85rem;margin-top:14px;text-align:center;">השליחה לא הצליחה. אפשר לנסות שוב, או לשלוח את ההמלצה בוואטסאפ: 052-343-4916</p>
     </div>
 
     <!-- Step 3: Success -->
     <div id="reviewStep3" style="display:none;text-align:center;padding:20px 0;">
       <div style="font-size:3rem;margin-bottom:16px;">✦</div>
       <h3 style="font-family:'Heebo',serif;font-size:1.5rem;color:#F5F0E8;margin-bottom:12px;">תודה רבה!</h3>
-      <p style="color:#B0A89A;font-size:0.9rem;line-height:1.8;">ההמלצה שלך פורסמה באתר.<br>אנחנו מעריכים את הזמן שלקחת לשתף!</p>
+      <p style="color:#B0A89A;font-size:0.9rem;line-height:1.8;">ההמלצה נשלחה לליאם ותופיע באתר אחרי אישור.<br>תודה על הזמן שלקחת לשתף!</p>
       <button onclick="closeReviewModal()" style="
         margin-top:24px;background:transparent;
         border:1px solid rgba(201,168,76,0.4);color:var(--gold);
@@ -2062,7 +2062,7 @@ function svcGo(n){
     </a>
   </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function() {
   'use strict';
 
@@ -2138,103 +2138,11 @@ function svcGo(n){
     if (btn) setTimeout(function(){ btn.classList.remove('loading'); }, 150);
   };
 
-  /* ── 3. REVIEW MODAL (Supabase-backed) ──────────────────────────── */
-
-  // ── Supabase config — replace with your values after setup ──────
-  var SB_URL = 'https://alpktyqmtgrdxcxdriwf.supabase.co';
-  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFscGt0eXFtdGdyZHhjeGRyaXdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNjgyOTQsImV4cCI6MjA5MTk0NDI5NH0.Pf6DTM8h_4NL6gb4aH09oDugp4zbY3Cj76wIr62rZEk';
-  // ────────────────────────────────────────────────────────────────
+  /* ── 3. REVIEW MODAL ─────────────────────────────────────────────
+     ההמלצה נשלחת לליאם במייל (Web3Forms) לאישור. היא לא מתפרסמת
+     באתר אוטומטית: ליאם מוסיף אותה ידנית אחרי שאישר. */
 
   var selectedStars = 0;
-  var isAdminMode   = false;
-
-  function genUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0;
-      return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-  }
-  function escHtml(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  function buildCard(rev) {
-    // ── Harden against malicious review payloads (the anon key is public) ──
-    var st     = Math.max(0, Math.min(5, parseInt(rev.stars, 10) || 0));        // clamp stars 0-5
-    var safeId = /^[A-Za-z0-9_-]{1,64}$/.test(rev.id) ? rev.id : '';            // UUID / __local__ only
-    var g      = rev.gradient || '#8B6914,#C9A84C';
-    if (!/^#[0-9A-Fa-f]{6},\s*#[0-9A-Fa-f]{6}$/.test(g)) g = '#8B6914,#C9A84C'; // whitelist gradient → blocks CSS/HTML injection
-    var stars = '';
-    for (var i=0;i<st;i++) stars+='★';
-    for (var j=st;j<5;j++) stars+='☆';
-    var init  = String(rev.name||'').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
-    var myTok = localStorage.getItem('review_token_'+safeId);
-    var canDel = isAdminMode || !!myTok;
-    var delBtn = canDel
-      ? '<button onclick="deleteReview(\''+safeId+'\',\''+escHtml(myTok||'')+'\')" style="'+
-        'position:absolute;top:12px;left:12px;background:rgba(180,30,30,0.12);'+
-        'border:1px solid rgba(180,30,30,0.35);color:#e05555;font-size:0.68rem;'+
-        'padding:3px 9px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all 0.2s;"'+
-        ' onmouseover="this.style.background=\'rgba(180,30,30,0.3)\'"'+
-        ' onmouseout="this.style.background=\'rgba(180,30,30,0.12)\'">✕ מחק</button>'
-      : '';
-    return '<div class="testimonial" data-id="'+safeId+'" style="position:relative;">'+
-      delBtn+
-      '<div class="stars">'+stars+'</div>'+
-      '<p class="testimonial-text">'+escHtml(rev.text)+'</p>'+
-      '<div class="testimonial-author">'+
-        '<div class="author-avatar" style="background:linear-gradient(135deg,'+g+');">'+escHtml(init)+'</div>'+
-        '<div class="author-info"><strong>'+escHtml(rev.name)+'</strong><span>לקוח מרוצה</span></div>'+
-      '</div>'+
-    '</div>';
-  }
-
-  function loadReviews() {
-    if (!SB_URL || SB_URL.indexOf('YOUR-PROJECT') !== -1) return;
-    fetch(SB_URL+'/rest/v1/reviews?select=*&order=created_at.asc', {
-      headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer '+SB_KEY }
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(rows){
-      if (!Array.isArray(rows) || rows.length === 0) return;
-      var grid = document.getElementById('testimonialsGrid');
-      if (grid) grid.innerHTML = rows.map(buildCard).join('');
-    })
-    .catch(function(){});
-  }
-
-  window.deleteReview = function(id, userToken) {
-    if (!confirm('למחוק את הביקורת?')) return;
-    var payload = { id: id };
-    if (isAdminMode) payload.adminPassword = sessionStorage.getItem('adminPass');
-    else payload.deleteToken = userToken;
-    fetch('/api/delete-review', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(r){
-      if (r.ok) {
-        var card = document.querySelector('[data-id="'+id+'"]');
-        if (card) { card.style.opacity='0'; card.style.transition='opacity 0.3s'; setTimeout(function(){ card.remove(); }, 300); }
-        localStorage.removeItem('review_token_'+id);
-      } else { alert('לא ניתן למחוק'); }
-    })
-    .catch(function(){ alert('שגיאת רשת'); });
-  };
-
-  window.toggleAdminMode = function() {
-    if (isAdminMode) {
-      isAdminMode = false;
-      sessionStorage.removeItem('adminPass');
-      loadReviews();
-      return;
-    }
-    var pass = prompt('סיסמת ניהול:');
-    if (!pass) return;
-    sessionStorage.setItem('adminPass', pass);
-    isAdminMode = true;
-    loadReviews();
-  };
 
   window.openReviewModal = function() {
     selectedStars = 0;
@@ -2281,35 +2189,30 @@ function svcGo(n){
     document.getElementById('reviewStep1').style.display = 'block';
   };
   window.publishReview = function() {
-    var name      = document.getElementById('revName').value.trim();
-    var text      = document.getElementById('revText').value.trim();
-    var grads     = ['#8B6914,#C9A84C','#6B4E2A,#C9A84C','#4E6B8B,#8BADC9'];
-    var gradient  = grads[Math.floor(Math.random()*grads.length)];
-    var delToken  = genUUID();
-    var btn       = document.getElementById('reviewStep2').querySelector('button:last-child');
-    if (btn) { btn.disabled=true; btn.textContent='שולח...'; }
-
-    function finish(id) {
-      if (id && id !== '__local__') localStorage.setItem('review_token_'+id, delToken);
-      var rev = { id: id||'__local__', name:name, text:text, stars:selectedStars, gradient:gradient };
-      var grid = document.getElementById('testimonialsGrid');
-      grid.insertAdjacentHTML('beforeend', buildCard(rev));
-      grid.lastElementChild.style.animation = 'fadeUp 0.5s ease both';
-      document.getElementById('reviewStep2').style.display = 'none';
-      document.getElementById('reviewStep3').style.display = 'block';
-      if (btn) { btn.disabled=false; btn.textContent='פרסם המלצה'; }
-    }
-
-    if (!SB_URL || SB_URL.indexOf('YOUR-PROJECT') !== -1) { finish('__local__'); return; }
-
-    fetch(SB_URL+'/rest/v1/reviews', {
-      method: 'POST',
-      headers: { 'apikey':SB_KEY, 'Authorization':'Bearer '+SB_KEY, 'Content-Type':'application/json', 'Prefer':'return=representation' },
-      body: JSON.stringify({ name:name, text:text, stars:selectedStars, gradient:gradient, delete_token:delToken })
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(rows){ finish(rows && rows[0] && rows[0].id); })
-    .catch(function(){ finish('__local__'); });
+    var name = document.getElementById('revName').value.trim();
+    var text = document.getElementById('revText').value.trim();
+    var btn  = document.getElementById('revSendBtn');
+    var err  = document.getElementById('revSendError');
+    if (err) err.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.textContent = 'שולח...'; }
+    var stars = ''; for (var i=0;i<selectedStars;i++) stars += '★';
+    var fd = new FormData();
+    fd.append('access_key', '53582e2d-6806-460d-9881-3197dd6bedaf');
+    fd.append('subject', 'המלצה חדשה מהאתר, ממתינה לאישור שלך');
+    fd.append('from_name', 'liamzur.co.il · המלצות');
+    fd.append('form', 'טופס המלצה (דף הבית)');
+    fd.append('name', name);
+    fd.append('rating', selectedStars + ' מתוך 5 ' + stars);
+    fd.append('review', text);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if (!j || !j.success) throw new Error('send'); })
+      .then(function(){
+        document.getElementById('reviewStep2').style.display = 'none';
+        document.getElementById('reviewStep3').style.display = 'block';
+      })
+      .catch(function(){ if (err) err.style.display = 'block'; })
+      .then(function(){ if (btn) { btn.disabled = false; btn.textContent = '✓ שלח המלצה'; } });
   };
 
   /* ── 4. CONTACT FORM (Web3Forms) ─────────────────────────────────── */
@@ -2374,17 +2277,6 @@ function svcGo(n){
 
     // Contact form
     initContactForm();
-
-    // Load reviews lazily — only when testimonials section scrolls into view
-    var testimonialSection = document.getElementById('testimonials');
-    if (testimonialSection && 'IntersectionObserver' in window) {
-      var reviewsObs = new IntersectionObserver(function(entries, obs) {
-        if (entries[0].isIntersecting) { loadReviews(); obs.disconnect(); }
-      }, { rootMargin: '300px' });
-      reviewsObs.observe(testimonialSection);
-    } else {
-      setTimeout(loadReviews, 1500);
-    }
 
     // Review modal overlay click
     var ov = document.getElementById('reviewModalOverlay');
