@@ -56,19 +56,19 @@
     </url>
     <url>
         <loc>https://liamzur.co.il/glossary.html</loc>
-        <lastmod>2026-06-25</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://liamzur.co.il/faq.html</loc>
-        <lastmod>2026-11-12</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/yoetz-mashkanta.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -92,7 +92,7 @@
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-binyan-atzmit.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -110,7 +110,7 @@
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/tipim-hokhmat-mashkanta.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -122,19 +122,19 @@
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-michzur-bazmano.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-kitzur-shanim.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-maslul-zol.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -146,7 +146,7 @@
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-horaat-bank-israel-2026.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -158,19 +158,31 @@
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-hashvaat-bankayim.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/mashkanta-atzmaim-2026.html</loc>
-        <lastmod>2026-11-10</lastmod>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://liamzur.co.il/blog/kama-mashkanta-efshar-lekabel.html</loc>
         <lastmod>2026-11-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://liamzur.co.il/blog/hotzaot-nilvot-kniyat-dira.html</loc>
+        <lastmod>2026-11-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://liamzur.co.il/blog/mashkanta-meshaprei-diyur.html</loc>
+        <lastmod>2026-11-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
