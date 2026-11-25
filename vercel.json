@@ -58,6 +58,11 @@
   ],
   "redirects": [
     {
+      "source": "/pratim",
+      "destination": "/#contact",
+      "permanent": false
+    },
+    {
       "source": "/מדריך",
       "destination": "/blog/mashkanta-binyan-atzmit.html?lid=291da5226c23",
       "permanent": true
