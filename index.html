@@ -824,7 +824,7 @@ function svcGo(n){
     background: var(--gold);
     flex-shrink: 0;
   }
-  .news-card h4 {
+  .news-card :is(h3,h4) {
     font-family: 'Heebo', serif;
     font-size: 1.05rem;
     font-weight: 700;
@@ -901,7 +901,7 @@ function svcGo(n){
     .news-section { padding: 64px 20px; }
     .news-grid { grid-template-columns: 1fr; gap: 14px; }
     .news-grid > *, .news-grid > .news-card:nth-child(n+4) { grid-column: auto; }
-    .news-card h4 { font-size: 0.95rem; }
+    .news-card :is(h3,h4) { font-size: 0.95rem; }
     .news-card p { font-size: 0.8rem; }
     .news-header { flex-direction: column; align-items: flex-start; gap: 12px; }
     .news-refresh-btn { align-self: flex-start; }
@@ -2148,7 +2148,7 @@ function svcGo(n){
     return items.map(function(item) {
       return '<a class="news-card reveal" href="' + (item.url || '#') + '" target="_blank" rel="noopener">'
         + '<div class="news-card-tag">' + (item.tag || '') + '</div>'
-        + '<h4>' + item.title + '</h4>'
+        + '<h3>' + item.title + '</h3>'
         + '<p>' + item.summary + '</p>'
         + '<div class="news-card-meta"><span class="news-card-source">' + item.source + '</span>'
         + '<span>' + item.date + '</span><span class="news-card-arrow">\u2190</span></div>'
