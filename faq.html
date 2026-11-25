@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -175,9 +178,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 <meta name="twitter:title" content="שאלות נפוצות על משכנתא | ליאם צור">
 <meta name="twitter:description" content="שאלות ותשובות על משכנתא לפי נושאים: עלות ייעוץ, הון עצמי, אישור עקרוני, ריבית ומסלולים, מחזור, איחוד הלוואות, עצמאים, זוגות צעירים ודירה להשקעה.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 <style>
 .faq-topics{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 44px;}
 .faq-topics a{border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:999px;padding:9px 18px;font-size:0.88rem;font-weight:600;transition:background .2s,color .2s;}
@@ -380,7 +383,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 
   <div class="faq-item">
     <button class="faq-q" aria-expanded="false"><span>מה ההבדל בין ריבית קבועה לריבית משתנה?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-    <div class="faq-a"><div class="faq-a-inner">בריבית קבועה הריבית לא משתנה לאורך כל התקופה. בריבית משתנה היא מתעדכנת: במסלול הפריים היא זזה יחד עם ריבית בנק ישראל, ובמסלולים אחרים היא מתעדכנת אחת לכמה שנים. במסלול צמוד למדד גם יתרת החוב מתעדכנת לפי מדד המחירים לצרכן.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">בריבית קבועה הריבית לא משתנה לאורך כל התקופה. בריבית משתנה היא מתעדכנת: במסלול הפריים היא זזה יחד עם ריבית בנק ישראל, ובמסלולים אחרים היא מתעדכנת אחת לכמה שנים. במסלול צמוד למדד גם יתרת החוב מתעדכנת לפי מדד המחירים לצרכן. <a href="/blog/maslulei-mashkanta.html">מסלולי משכנתא ←</a></div></div>
   </div>
 
   <div class="faq-item">
@@ -434,7 +437,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:40px 6
 
   <div class="faq-item">
     <button class="faq-q" aria-expanded="false"><span>קונים דירה חדשה מקבלן. על מה לשים לב במשכנתא?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-    <div class="faq-a"><div class="faq-a-inner">בדירה מקבלן חלק מהמחיר צמוד למדד תשומות הבנייה, ולכן הסכום הסופי יכול לעלות עד המסירה. חשוב לתאם את לוח התשלומים לקבלן עם מועדי שחרור הכספים מהבנק.</div></div>
+    <div class="faq-a"><div class="faq-a-inner">בדירה מקבלן חלק מהמחיר צמוד למדד תשומות הבנייה, ולכן הסכום הסופי יכול לעלות עד המסירה. חשוב לתאם את לוח התשלומים לקבלן עם מועדי שחרור הכספים מהבנק. <a href="/blog/mashkanta-dira-mikablan.html">משכנתא לדירה מקבלן ←</a></div></div>
   </div>
 
   <div class="faq-item">

@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -334,9 +337,9 @@
 <meta name="twitter:title" content="המסלול הזול ביותר במשכנתא — לא תמיד מה שנראה | ליאם צור">
 <meta name="twitter:description" content="ריבית פריים נמוכה היום — אבל כל עליית ריבית של 1% מוסיפה מאות שקלים לתשלום החודשי. איך בוחרים מסלול משכנתא נכון לאורך זמן?">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "איזה מסלול משכנתא הכי זול?", "acceptedAnswer": {"@type": "Answer", "text": "אין מסלול אחד שהוא הזול ביותר לכולם. משווים לפי סך ההחזר הצפוי ולפי רמת הסיכון, ולא רק לפי הריבית ההתחלתית, ובדרך כלל משלבים כמה מסלולים בתמהיל אחד."}}, {"@type": "Question", "name": "מה הסיכון במסלול הפריים?", "acceptedAnswer": {"@type": "Answer", "text": "הריבית במסלול הפריים משתנה יחד עם ריבית בנק ישראל. במשכנתא של 1,000,000 ₪ ל-25 שנה, עלייה של 2% בריבית, מ-4.5% ל-6.5%, מוסיפה כ-1,194 ₪ להחזר החודשי."}}, {"@type": "Question", "name": "מה ההבדל בין ריבית קבועה צמודה לקבועה לא צמודה?", "acceptedAnswer": {"@type": "Answer", "text": "בשני המסלולים הריבית לא משתנה. בקבועה לא צמודה גם ההחזר החודשי קבוע. בקבועה צמודה למדד יתרת החוב מתעדכנת לפי מדד המחירים לצרכן, ולכן ההחזר עולה כשיש אינפלציה."}}, {"@type": "Question", "name": "איזה חלק מהמשכנתא מותר לקחת במסלול הפריים?", "acceptedAnswer": {"@type": "Answer", "text": "לפי הוראות בנק ישראל, עד שני שלישים מהמשכנתא. לפחות שליש חייב להיות בריבית קבועה."}}]}
 </script>
@@ -525,6 +528,8 @@
     </div>
   </div>
 
+  <p>הסבר מפורט על כל מסלול, עם טבלת השוואה והכללים של בנק ישראל, במדריך <a href="/blog/maslulei-mashkanta.html">מסלולי משכנתא</a>.</p>
+
   <h2 id="sec-3">מה השאלה הנכונה לשאול?</h2>
   <p>
     לא "איזה מסלול הכי זול עכשיו?" אלא: <strong>"כמה אני יכול להרשות לעצמי לשלם אם הריבית תעלה ב-2%?"</strong>
@@ -614,7 +619,7 @@
 @media(max-width:600px){.lz-author{flex-direction:column;text-align:center;padding:22px 18px;}}
 </style>
 <aside class="lz-author" aria-label="על הכותב">
-  <img src="/card-photo-1.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy">
+  <img src="/card-photo-avatar.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy" decoding="async">
   <div>
     <p class="lz-author-label">על הכותב</p>
     <p class="lz-author-name">ליאם צור, יועץ משכנתאות</p>

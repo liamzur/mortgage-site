@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -24,7 +27,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>השוואת בנקים למשכנתא: עשרות אלפי שקלים הפרש | ליאם צור</title>
-  <meta name="description" content="אותה משכנתא בדיוק יכולה להשתנות בעשרות אלפי שקלים בין בנק לבנק. כך תשווה נכון ותחסוך — מדריך מעשי לשנת 2026." />
+  <meta name="description" content="אותה משכנתא בדיוק יכולה לעלות עשרות אלפי שקלים יותר בבנק אחד מאשר באחר. דוגמה במספרים, מה משווים בין ההצעות ואיך משתמשים בסלים האחידים כדי להשוות נכון." />
   <link rel="canonical" href="https://liamzur.co.il/blog/mashkanta-hashvaat-bankayim.html" />
 
 <script type="application/ld+json">
@@ -37,7 +40,7 @@
     "@id": "https://liamzur.co.il/blog/mashkanta-hashvaat-bankayim.html"
   },
   "headline": "השוואת בנקים למשכנתא — אותה משכנתא, עשרות אלפי שקלים הפרש",
-  "description": "אותה משכנתא בדיוק יכולה להשתנות בעשרות אלפי שקלים בין בנק לבנק. כך תשווה נכון ותחסוך — מדריך מעשי לשנת 2026.",
+  "description": "אותה משכנתא בדיוק יכולה לעלות עשרות אלפי שקלים יותר בבנק אחד מאשר באחר. דוגמה במספרים, מה משווים בין ההצעות ואיך משתמשים בסלים האחידים כדי להשוות נכון.",
   "image": "https://liamzur.co.il/card-photo-1.jpg",
   "inLanguage": "he",
   "datePublished": "2026-04-16",
@@ -385,7 +388,7 @@
 </script>
 <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
 <meta property="og:title" content="השוואת בנקים למשכנתא: עשרות אלפי שקלים הפרש | ליאם צור">
-<meta property="og:description" content="אותה משכנתא בדיוק יכולה להשתנות בעשרות אלפי שקלים בין בנק לבנק. כך תשווה נכון ותחסוך — מדריך מעשי לשנת 2026.">
+<meta property="og:description" content="אותה משכנתא בדיוק יכולה לעלות עשרות אלפי שקלים יותר בבנק אחד מאשר באחר. דוגמה במספרים, מה משווים בין ההצעות ואיך משתמשים בסלים האחידים כדי להשוות נכון.">
 <meta property="og:image" content="https://liamzur.co.il/card-photo-1.jpg">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="1200">
@@ -397,11 +400,11 @@
 <!-- Twitter Cards (bonus coverage for Slack/Discord/X) -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="השוואת בנקים למשכנתא: עשרות אלפי שקלים הפרש | ליאם צור">
-<meta name="twitter:description" content="אותה משכנתא בדיוק יכולה להשתנות בעשרות אלפי שקלים בין בנק לבנק. כך תשווה נכון ותחסוך — מדריך מעשי לשנת 2026.">
+<meta name="twitter:description" content="אותה משכנתא בדיוק יכולה לעלות עשרות אלפי שקלים יותר בבנק אחד מאשר באחר. דוגמה במספרים, מה משווים בין ההצעות ואיך משתמשים בסלים האחידים כדי להשוות נכון.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 </head>
 <body>
 
@@ -663,7 +666,7 @@
 @media(max-width:600px){.lz-author{flex-direction:column;text-align:center;padding:22px 18px;}}
 </style>
 <aside class="lz-author" aria-label="על הכותב">
-  <img src="/card-photo-1.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy">
+  <img src="/card-photo-avatar.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy" decoding="async">
   <div>
     <p class="lz-author-label">על הכותב</p>
     <p class="lz-author-name">ליאם צור, יועץ משכנתאות</p>

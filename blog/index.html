@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -410,9 +413,10 @@
 <meta name="twitter:title" content="בלוג משכנתאות | ליאם צור - יועץ משכנתאות מורשה">
 <meta name="twitter:description" content="מדריכים על משכנתאות בשפה פשוטה: אחוז מימון, מסלולי ריבית, מחזור משכנתא, משכנתא לעצמאים ולזוגות צעירים, עם דוגמאות במספרים. ליאם צור - יועץ משכנתאות מורשה.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
+<style>/* LZ-FILTERS */.blog-filters{margin:0 auto 28px;}.blog-grid [hidden]{display:none !important;}</style>
 </head>
 <body>
 
@@ -507,10 +511,17 @@
 </section>
 
 <div class="blog-container">
+  <div class="blog-filters ui-chips" role="group" aria-label="סינון מאמרים לפי נושא">
+    <button type="button" class="ui-chip" data-topic="all" aria-pressed="true">כל המאמרים</button>
+    <button type="button" class="ui-chip" data-topic="kniya" aria-pressed="false">רכישת דירה</button>
+    <button type="button" class="ui-chip" data-topic="michzur" aria-pressed="false">מחזור והלוואות</button>
+    <button type="button" class="ui-chip" data-topic="ribit" aria-pressed="false">ריבית ומסלולים</button>
+    <button type="button" class="ui-chip" data-topic="yeutz" aria-pressed="false">ייעוץ וטיפים</button>
+  </div>
   <div class="blog-grid">
 
     <!-- PINNED: תמיד ראשון -->
-    <a href="/blog/yoetz-mashkanta.html" class="blog-card pinned" data-date="2026-03-22">
+    <a href="/blog/yoetz-mashkanta.html" class="blog-card pinned" data-topics="yeutz" data-date="2026-03-22">
       <span class="card-tag">יועץ משכנתאות</span><span class="pinned-label">★ נבחר</span>
       <div class="card-body">
         <h2>מה זה יועץ משכנתאות ולמה אתם חייבים אחד?</h2>
@@ -520,7 +531,25 @@
     </a>
 
     <!-- NEW POSTS 2026 -->
-    <a href="/blog/hotzaot-nilvot-kniyat-dira.html" class="blog-card" data-date="2026-11-15">
+    <a href="/blog/maslulei-mashkanta.html" class="blog-card" data-topics="ribit" data-date="2026-11-25">
+      <span class="card-tag">מדריך</span>
+      <div class="card-body">
+        <h2>מסלולי משכנתא: פריים, קבועה, משתנה וצמודה</h2>
+        <p>ההבדלים בין המסלולים, טבלת השוואה, הכללים של בנק ישראל והסלים האחידים.</p>
+        <span class="card-read-more">קראו עוד</span>
+      </div>
+    </a>
+
+    <a href="/blog/mashkanta-dira-mikablan.html" class="blog-card" data-topics="kniya" data-date="2026-11-25">
+      <span class="card-tag">מדריך</span>
+      <div class="card-body">
+        <h2>משכנתא לדירה מקבלן: לוח תשלומים, הצמדה וליווי בנקאי</h2>
+        <p>לוח התשלומים, ההצמדה למדד תשומות הבנייה, פנקס שוברים ומבצעי מימון של קבלנים.</p>
+        <span class="card-read-more">קראו עוד</span>
+      </div>
+    </a>
+
+    <a href="/blog/hotzaot-nilvot-kniyat-dira.html" class="blog-card" data-topics="kniya" data-date="2026-11-15">
       <span class="card-tag">מדריך</span>
       <div class="card-body">
         <h2>הוצאות נלוות לקניית דירה: כמה כסף צריך מעבר להון העצמי</h2>
@@ -529,7 +558,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-meshaprei-diyur.html" class="blog-card" data-date="2026-11-15">
+    <a href="/blog/mashkanta-meshaprei-diyur.html" class="blog-card" data-topics="kniya" data-date="2026-11-15">
       <span class="card-tag">מדריך</span>
       <div class="card-body">
         <h2>משכנתא למשפרי דיור: מוכרים דירה וקונים אחרת</h2>
@@ -538,7 +567,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-dira-shniya-hashkaa.html" class="blog-card" data-date="2026-11-12">
+    <a href="/blog/mashkanta-dira-shniya-hashkaa.html" class="blog-card" data-topics="kniya" data-date="2026-11-12">
       <span class="card-tag">מדריך</span>
       <div class="card-body">
         <h2>משכנתא לדירה שנייה ולהשקעה: הון עצמי, מס רכישה ומה הבנק בודק</h2>
@@ -547,7 +576,7 @@
       </div>
     </a>
 
-    <a href="/blog/kama-mashkanta-efshar-lekabel.html" class="blog-card" data-date="2026-11-10">
+    <a href="/blog/kama-mashkanta-efshar-lekabel.html" class="blog-card" data-topics="kniya" data-date="2026-11-10">
       <span class="card-tag">חישוב</span>
       <div class="card-body">
         <h2>כמה משכנתא אפשר לקבל? חישוב לפי הכנסה והון עצמי</h2>
@@ -556,7 +585,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-horaat-bank-israel-2026.html" class="blog-card" data-date="2026-10-10">
+    <a href="/blog/mashkanta-horaat-bank-israel-2026.html" class="blog-card" data-topics="michzur" data-date="2026-10-10">
       <span class="card-tag">עדכון רגולציה</span>
       <div class="card-body">
         <h2>בנק ישראל משנה את הכללים: מה זה אומר על הלוואה על הדירה שלכם</h2>
@@ -565,7 +594,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-michzur-matima.html" class="blog-card" data-date="2026-05-11" data-series-num="10">
+    <a href="/blog/mashkanta-michzur-matima.html" class="blog-card" data-topics="michzur" data-date="2026-05-11" data-series-num="10">
       <span class="card-tag">30 עובדות | 10/30</span>
       <div class="card-body">
         <h2>המשכנתא שלקחת לפני שנים — האם היא עדיין מתאימה לך?</h2>
@@ -574,7 +603,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-ishur-ekroni.html" class="blog-card" data-date="2026-05-11" data-series-num="9">
+    <a href="/blog/mashkanta-ishur-ekroni.html" class="blog-card" data-topics="kniya" data-date="2026-05-11" data-series-num="9">
       <span class="card-tag">30 עובדות | 9/30</span>
       <div class="card-body">
         <h2>אישור עקרוני למשכנתא: מה זה, כמה זמן תקף ואיך מקבלים</h2>
@@ -583,7 +612,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-maslul-zol.html" class="blog-card" data-date="2026-05-09" data-series-num="8">
+    <a href="/blog/mashkanta-maslul-zol.html" class="blog-card" data-topics="ribit" data-date="2026-05-09" data-series-num="8">
       <span class="card-tag">30 עובדות | 8/30</span>
       <div class="card-body">
         <h2>המסלול הכי זול היום — לא בהכרח יהיה הזול ביותר לאורך השנים</h2>
@@ -592,7 +621,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-ribit-klali.html" class="blog-card" data-date="2026-04-28" data-series-num="6">
+    <a href="/blog/mashkanta-ribit-klali.html" class="blog-card" data-topics="ribit" data-date="2026-04-28" data-series-num="6">
       <span class="card-tag">30 עובדות | 6/30</span>
       <div class="card-body">
         <h2>הריבית שלך לא סטנדרטית — הבנק מתמחר אותך באופן אישי</h2>
@@ -601,7 +630,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-michzur-bazmano.html" class="blog-card" data-date="2026-04-19" data-series-num="5">
+    <a href="/blog/mashkanta-michzur-bazmano.html" class="blog-card" data-topics="michzur" data-date="2026-04-19" data-series-num="5">
       <span class="card-tag">30 עובדות | 5/30</span>
       <div class="card-body">
         <h2>רוב האנשים לא ממחזרים משכנתא בזמן — ומפסידים עשרות אלפי שקלים</h2>
@@ -610,25 +639,25 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-kitzur-shanim.html" class="blog-card" data-date="2026-05-03" data-series-num="7">
+    <a href="/blog/mashkanta-kitzur-shanim.html" class="blog-card" data-topics="michzur ribit" data-date="2026-05-03" data-series-num="7">
       <span class="card-tag">30 עובדות | 7/30</span>
       <div class="card-body">
         <h2>אפשר לקצר שנים מהמשכנתא — בלי להגדיל משמעותית את ההחזר</h2>
-        <p>תוספת של 641 ₪ בחודש יכולה לחסוך לך 318,000 ₪ בריבית. המספרים מפתיעים — כך זה עובד.</p>
+        <p>תוספת של כ-694 ₪ בחודש יכולה לחסוך כ-303,000 ₪ בריבית. המספרים מפתיעים — כך זה עובד.</p>
         <span class="card-read-more">קראו עוד</span>
       </div>
     </a>
 
-    <a href="/blog/mashkanta-hashvaat-bankayim.html" class="blog-card" data-date="2026-04-16" data-series-num="4">
+    <a href="/blog/mashkanta-hashvaat-bankayim.html" class="blog-card" data-topics="kniya ribit" data-date="2026-04-16" data-series-num="4">
       <span class="card-tag">30 עובדות | 4/30</span>
       <div class="card-body">
         <h2>אותה משכנתא — עשרות אלפי שקלים הפרש בין בנק לבנק</h2>
-        <p>הפרש של חצי אחוז בריבית שווה מעל 115,000 ₪ לאורך חיי המשכנתא. למה זה קורה ואיך להשוות נכון?</p>
+        <p>הפרש של חצי אחוז בריבית שווה כ-130,000 ₪ לאורך חיי המשכנתא. למה זה קורה ואיך להשוות נכון?</p>
         <span class="card-read-more">קראו עוד</span>
       </div>
     </a>
 
-    <a href="/blog/mashkanta-atzmaim-2026.html" class="blog-card" data-date="2026-04-15">
+    <a href="/blog/mashkanta-atzmaim-2026.html" class="blog-card" data-topics="kniya" data-date="2026-04-15">
       <span class="card-tag">מדריך עצמאיים</span>
       <div class="card-body">
         <h2>משכנתא לעצמאיים 2026 – אתגרים, פתרונות וכל מה שצריך לדעת</h2>
@@ -637,7 +666,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-michzur-2026.html" class="blog-card" data-date="2026-03-24">
+    <a href="/blog/mashkanta-michzur-2026.html" class="blog-card" data-topics="michzur" data-date="2026-03-24">
       <span class="card-tag">מדריך מקיף</span>
       <div class="card-body">
         <h2>מחזור משכנתא 2026 - כל מה שצריך לדעת</h2>
@@ -646,7 +675,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-zugot-tzeirim.html" class="blog-card" data-date="2026-03-24">
+    <a href="/blog/mashkanta-zugot-tzeirim.html" class="blog-card" data-topics="kniya" data-date="2026-03-24">
       <span class="card-tag">זוגות צעירים</span>
       <div class="card-body">
         <h2>משכנתא לזוגות צעירים - המדריך המלא 2026</h2>
@@ -655,7 +684,7 @@
       </div>
     </a>
 
-    <a href="/blog/tipim-hokhmat-mashkanta.html" class="blog-card" data-date="2026-03-24">
+    <a href="/blog/tipim-hokhmat-mashkanta.html" class="blog-card" data-topics="yeutz" data-date="2026-03-24">
       <span class="card-tag">טיפים וחיסכון</span>
       <div class="card-body">
         <h2>10 טיפים לחסכון במשכנתא שהבנקים לא יספרו לכם</h2>
@@ -664,7 +693,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-binyan-atzmit.html" class="blog-card" data-date="2026-04-07">
+    <a href="/blog/mashkanta-binyan-atzmit.html" class="blog-card" data-topics="kniya" data-date="2026-04-07">
       <span class="card-tag">מדריך מקצועי</span>
       <div class="card-body">
         <h2>משכנתא לבנייה עצמית — המדריך המלא לשנת 2026</h2>
@@ -673,7 +702,7 @@
       </div>
     </a>
 
-    <a href="/blog/mashkanta-achuz-mimun.html" class="blog-card" data-date="2026-03-24" data-series-num="3">
+    <a href="/blog/mashkanta-achuz-mimun.html" class="blog-card" data-topics="kniya" data-date="2026-03-24" data-series-num="3">
       <span class="card-tag">30 עובדות | 3/30</span>
       <div class="card-body">
         <h2>אחוז המימון — למה 75% משנה הכל במשכנתא שלך</h2>
@@ -681,7 +710,7 @@
         <span class="card-read-more">קראו עוד</span>
       </div>
     </a>
-      <a href="/blog/mashkanta-bank-check.html" class="blog-card" data-date="2026-03-23" data-series-num="2">
+      <a href="/blog/mashkanta-bank-check.html" class="blog-card" data-topics="kniya" data-date="2026-03-23" data-series-num="2">
         <span class="card-tag">30 עובדות | 2/30</span>
         <div class="card-body">
           <h2>הבנק לא בודק כמה אתה מרוויח – הוא בודק כמה נשאר לך</h2>
@@ -690,7 +719,7 @@
         </div>
       </a>
 
-    <a href="/blog/mashkanta-ribit-keren.html" class="blog-card" data-date="2026-03-22" data-series-num="1">
+    <a href="/blog/mashkanta-ribit-keren.html" class="blog-card" data-topics="ribit" data-date="2026-03-22" data-series-num="1">
       <span class="card-tag">30 עובדות | 1/30</span>
       <div class="card-body">
         <h2>בשנים הראשונות – רוב הכסף שלך הולך לריבית, לא לקרן</h2>
@@ -703,7 +732,7 @@
 </div>
 
 <footer>
-  <p>&copy; 2025 ליאם צור - יועץ משכנתאות מורשה | <a href="tel:0523434916">052-343-4916</a></p>
+  <p>&copy; 2026 ליאם צור - יועץ משכנתאות מורשה | <a href="tel:0523434916">052-343-4916</a></p>
   <div class="social-btns" role="navigation" aria-label="רשתות חברתיות של ליאם צור">
     <a href="https://www.facebook.com/share/1GigYEYUtH/" target="_blank" rel="noopener" class="social-btn" aria-label="פייסבוק של ליאם צור" title="פייסבוק">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -796,6 +825,26 @@ function declineCookies(){localStorage.setItem('cookieConsent','declined');docum
     grid.appendChild(divider);
     series.forEach(function(c){ grid.appendChild(c); });
   }
+})();
+</script>
+<script>
+/* סינון מאמרים לפי נושא */
+(function(){
+  var bar=document.querySelector('.blog-filters'), grid=document.querySelector('.blog-grid');
+  if(!bar||!grid) return;
+  var cards=[].slice.call(grid.querySelectorAll('a.blog-card'));
+  var chips=[].slice.call(bar.querySelectorAll('.ui-chip'));
+  function has(c,t){ return (' '+(c.getAttribute('data-topics')||'')+' ').indexOf(' '+t+' ')>-1; }
+  chips.forEach(function(ch){
+    var t=ch.getAttribute('data-topic');
+    var n=t==='all'?cards.length:cards.filter(function(c){return has(c,t);}).length;
+    var s=document.createElement('span'); s.className='ui-chip-count'; s.textContent=n; ch.appendChild(s);
+    ch.addEventListener('click',function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', x===ch?'true':'false'); });
+      cards.forEach(function(c){ c.hidden = !(t==='all'||has(c,t)); });
+      var d=grid.querySelector('.series-section-divider'); if(d) d.hidden = t!=='all';
+    });
+  });
 })();
 </script>
 </body>

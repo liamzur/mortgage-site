@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -309,7 +312,7 @@
   "image": "https://liamzur.co.il/card-photo-1.jpg",
   "inLanguage": "he",
   "datePublished": "2026-03-24",
-  "dateModified": "2026-11-10",
+  "dateModified": "2026-11-25",
   "author": {
     "@type": "Person",
     "@id": "https://liamzur.co.il/#liam-zur",
@@ -358,7 +361,7 @@
       "name": "כמה אפשר לחסוך במחזור משכנתא?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "זה תלוי ביתרה, בשנים שנותרו ובהפרש הריבית. לדוגמה, הפרש של 0.5% בריבית על יתרה של מיליון ₪ ל-20 שנה שווה כ-60,000 ₪ לאורך התקופה. מהחיסכון צריך להפחית את עלויות המחזור כדי לדעת אם זה משתלם."
+        "text": "זה תלוי ביתרה, בשנים שנותרו ובהפרש הריבית. לדוגמה, ירידה של 0.5% בריבית, למשל מ-4.5% ל-4%, על יתרה של מיליון ₪ ל-20 שנה שווה כ-64,000 ₪ לאורך התקופה. מהחיסכון צריך להפחית את עלויות המחזור כדי לדעת אם זה משתלם."
       }
     },
     {
@@ -423,9 +426,9 @@
 <meta name="twitter:title" content="מחזור משכנתא 2026: מתי כדאי, כמה עולה ואיך עושים | ליאם צור">
 <meta name="twitter:description" content="מחזור משכנתא בשפה פשוטה: מה זה, מתי כדאי למחזר, אילו עמלות פירעון מוקדם יש, כמה אפשר לחסוך ואיך עושים את זה שלב אחרי שלב. מדריך מעודכן ל-2026.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 </head>
 <body>
 
@@ -668,7 +671,7 @@
   <p>העלויות מתחלקות לשתיים: עמלת פירעון מוקדם בבנק הנוכחי, שתלויה במסלולים ויכולה להיות אפסית או משמעותית, ועלויות פתיחת המשכנתא החדשה כמו שמאות, פתיחת תיק ורישום, שמסתכמות בדרך כלל בכמה אלפי שקלים. את עמלת הפירעון המדויקת רואים בדוח יתרה לסילוק.</p>
 
   <h3>כמה אפשר לחסוך במחזור משכנתא?</h3>
-  <p>זה תלוי ביתרה, בשנים שנותרו ובהפרש הריבית. לדוגמה, הפרש של 0.5% בריבית על יתרה של מיליון ₪ ל-20 שנה שווה כ-60,000 ₪ לאורך התקופה. מהחיסכון צריך להפחית את עלויות המחזור כדי לדעת אם זה משתלם.</p>
+  <p>זה תלוי ביתרה, בשנים שנותרו ובהפרש הריבית. לדוגמה, ירידה של 0.5% בריבית, למשל מ-4.5% ל-4%, על יתרה של מיליון ₪ ל-20 שנה שווה כ-64,000 ₪ לאורך התקופה. מהחיסכון צריך להפחית את עלויות המחזור כדי לדעת אם זה משתלם.</p>
 
   <h3>האם חייבים לעבור בנק כדי למחזר?</h3>
   <p>לא. אפשר למחזר גם בבנק הנוכחי, וזה נקרא מחזור פנימי. עם זאת, הצעה כתובה מבנק מתחרה היא בדרך כלל הדרך הטובה ביותר לשפר את התנאים, גם אם בסוף נשארים באותו בנק.</p>
@@ -721,7 +724,7 @@
 @media(max-width:600px){.lz-author{flex-direction:column;text-align:center;padding:22px 18px;}}
 </style>
 <aside class="lz-author" aria-label="על הכותב">
-  <img src="/card-photo-1.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy">
+  <img src="/card-photo-avatar.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy" decoding="async">
   <div>
     <p class="lz-author-label">על הכותב</p>
     <p class="lz-author-name">ליאם צור, יועץ משכנתאות</p>

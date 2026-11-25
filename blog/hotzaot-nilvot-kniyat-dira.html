@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -431,9 +434,9 @@
 <meta name="twitter:title" content="הוצאות נלוות לקניית דירה: כמה כסף צריך מעבר להון העצמי | ליאם צור">
 <meta name="twitter:description" content="הוצאות נלוות לקניית דירה: מס רכישה, עורך דין, תיווך, שמאי ועלויות הבנק. כמה כסף צריך מעבר להון העצמי, עם דוגמה מלאה במספרים.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 </head>
 <body>
 
@@ -585,6 +588,7 @@
     <li><span><strong>הוצאות משפטיות של הקבלן.</strong> משלמים השתתפות בהוצאות המשפטיות של הקבלן, בסכום שמוגבל בחוק. זה בנוסף לעורך הדין שלכם.</span></li>
     <li><span><strong>תיווך.</strong> ברכישה ישירות מהקבלן בדרך כלל אין דמי תיווך.</span></li>
   </ul>
+  <p>איך עובדים לוח התשלומים וההצמדה למדד, במדריך <a href="/blog/mashkanta-dira-mikablan.html">משכנתא לדירה מקבלן</a>.</p>
 
   <h2 id="sec-5">דוגמה מלאה במספרים</h2>
   <p>דירת יד שנייה במחיר של 2,500,000 ₪, שהיא הדירה היחידה של הקונים:</p>
@@ -683,7 +687,7 @@
 @media(max-width:600px){.lz-author{flex-direction:column;text-align:center;padding:22px 18px;}}
 </style>
 <aside class="lz-author" aria-label="על הכותב">
-  <img src="/card-photo-1.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy">
+  <img src="/card-photo-avatar.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy" decoding="async">
   <div>
     <p class="lz-author-label">על הכותב</p>
     <p class="lz-author-name">ליאם צור, יועץ משכנתאות</p>

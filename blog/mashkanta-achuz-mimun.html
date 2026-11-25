@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -370,9 +373,9 @@
 <meta name="twitter:title" content="אחוז המימון — למה 75% משנה הכל במשכנתא שלך | ליאם צור">
 <meta name="twitter:description" content="מה זה אחוז מימון במשכנתא, למה הבנק מגביל ל-75% בדירה ראשונה ו-50% בדירה שנייה, ואיך שמאות הבנק משפיעה על כמה כסף תקבל — הסבר פשוט עם דוגמאות מספריות.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 </head>
 <body>
 
@@ -632,7 +635,7 @@
 @media(max-width:600px){.lz-author{flex-direction:column;text-align:center;padding:22px 18px;}}
 </style>
 <aside class="lz-author" aria-label="על הכותב">
-  <img src="/card-photo-1.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy">
+  <img src="/card-photo-avatar.jpg" alt="ליאם צור, יועץ משכנתאות" width="76" height="76" loading="lazy" decoding="async">
   <div>
     <p class="lz-author-label">על הכותב</p>
     <p class="lz-author-name">ליאם צור, יועץ משכנתאות</p>

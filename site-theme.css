@@ -112,7 +112,7 @@ footer p, footer .footer-copy{ opacity:1 !important; }
    חל על כל הכפתורים הקיימים. כפתור חדש: להשתמש ב-.ui-btn / .ui-btn-ghost
    (או ב-.cta-btn בפוסטים), והוא יקבל את המראה הזה אוטומטית.
    ═══════════════════════════════════════════════════════════════ */
-:is(.cta-btn,.btn-primary,.btn-secondary,.btn,.ghost-btn,.rc-cta,.faq-cta-btn,.ty-btn,.service-btn,.refi-promo-btn,.whatsapp-btn,.lz-cta,.ui-btn,.ui-btn-ghost,#submitBtn){
+:is(.cta-btn,.btn-primary,.btn-secondary,.btn,.ghost-btn,.rc-cta,.faq-cta-btn,.ty-btn,.service-btn,.refi-promo-btn,.whatsapp-btn,.lz-cta,.ui-btn,.ui-btn-ghost,.ui-chip,#submitBtn){
   border-radius:999px !important;
 }
 /* כפתור זהב ראשי: אותו מעבר צבע כמו "ייעוץ ראשוני חינם" בסרגל הנייד */
@@ -155,6 +155,14 @@ footer p, footer .footer-copy{ opacity:1 !important; }
 .ui-btn-ghost:hover{background:var(--gold,#C9A84C);color:#1A0F00 !important;transform:translateY(-2px);}
 [data-theme="light"] .ui-btn-ghost:hover{color:#FFFFFF !important;}
 .ui-actions{display:flex;flex-wrap:wrap;gap:12px;}
+/* כפתור סינון ("צ'יפ"): מסגרת זהב, והנבחר מקבל את מעבר הזהב */
+.ui-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.ui-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;font:600 .92rem/1.2 'Heebo',sans-serif;background:transparent;color:var(--gold,#C9A84C) !important;border:1.5px solid rgba(201,168,76,.45);cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.ui-chip:hover{border-color:var(--gold,#C9A84C);}
+.ui-chip[aria-pressed="true"]{background-image:linear-gradient(180deg,#E3C878,#C9A84C 60%,#B8963E);color:#1A0F00 !important;border-color:transparent;}
+.ui-chip-count{font-size:.75rem;font-weight:700;opacity:.7;}
+[data-theme="light"] .ui-chip{color:#7E5F10 !important;border-color:rgba(126,95,16,.45);}
+[data-theme="light"] .ui-chip[aria-pressed="true"]{background-image:none;background-color:#7E5F10;color:#FFFFFF !important;border-color:transparent;}
 [data-theme="light"] .ui-hero{background:linear-gradient(180deg,#FAF7F2 0%,#F1ECE2 100%);}
 [data-theme="light"] .ui-hero h1{color:#1A1814;}
 [data-theme="light"] .ui-card{background:#FFFFFF;border-color:#D8CFBE;}
@@ -177,3 +185,12 @@ footer p, footer .footer-copy{ opacity:1 !important; }
 [data-theme="light"] .lz-tldr ul li{color:#1A1814;}
 [data-theme="light"] .lz-tldr ul li::before{background:#8B6914;}
 @media(max-width:680px){.lz-tldr{padding:18px 18px 16px;border-radius:14px;margin-bottom:28px;}.lz-tldr ul li{font-size:.96rem;}}
+
+/* ═══════════════════════════════════════════════════════════════
+   17. קישורים בתוך מאמרים — זהב עם קו תחתון, במקום הכחול של הדפדפן
+   (קישורים עם class, כמו כרטיסים וכפתורים, לא מושפעים)
+   ═══════════════════════════════════════════════════════════════ */
+:is(.post-container,.article-container) a:not([class]){color:var(--gold,#C9A84C);text-decoration:underline;text-underline-offset:3px;}
+:is(.post-container,.article-container) a:not([class]):hover{color:#E8C97A;}
+[data-theme="light"] :is(.post-container,.article-container) a:not([class]){color:#7E5F10;}
+[data-theme="light"] :is(.post-container,.article-container) a:not([class]):hover{color:#5C4509;}

@@ -2,7 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR"></script>
+<script>
+  /* Google Analytics נטען אחרי שהדף מוצג, כדי שלא יאט את הטעינה */
+  window.addEventListener('load',function(){var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-51X6NKF3ZR';document.head.appendChild(s);};if('requestIdleCallback' in window){requestIdleCallback(go,{timeout:3000});}else{setTimeout(go,1);}});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -720,9 +723,9 @@
 <meta name="twitter:title" content="איחוד הלוואות — סימולטור הפחתת החזר חודשי | ליאם צור">
 <meta name="twitter:description" content="סימולטור איחוד הלוואות של ליאם צור: בדקו תוך 60 שניות כמה ההחזר החודשי שלכם יכול לרדת על ידי איחוד ההלוואות למסלול אחד זול יותר. חינם ומיידי.">
 <meta name="twitter:image" content="https://liamzur.co.il/card-photo-1.jpg">
-  <link rel="stylesheet" href="/site-nav.css?v=8">
-  <script src="/site-nav.js?v=8" defer></script>
-  <link rel="stylesheet" href="/site-theme.css?v=8">
+  <link rel="stylesheet" href="/site-nav.css?v=9">
+  <script src="/site-nav.js?v=9" defer></script>
+  <link rel="stylesheet" href="/site-theme.css?v=9">
 <style>
   /* SIMULATOR additions */
   .sim-trust{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:26px;font-size:.82rem;color:var(--white-dim)}
