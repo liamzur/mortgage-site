@@ -12,7 +12,7 @@ sync_nav.py — מכניס את התפריט העליון האחיד לכל עמ
 import glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = '9'
+VERSION = '10'
 SKIP = {'card.html'}                       # כרטיס הביקור הדיגיטלי — בלי תפריט אתר
 # עמודים שהתפריט הישן שלהם היה "דביק" (חלק מזרימת העמוד) — צריכים מרווח מתחת לבר הקבוע
 SPACER = {'calculator.html', 'michzur.html', 'kama-ole-yoetz-mashkanta.html', 'checklist-pgisha-babank.html', 'odot.html', 'blog/mashkanta-binyan-atzmit.html', 'blog/yoetz-mashkanta.html'}
@@ -63,6 +63,7 @@ def build(spacer):
       </li>
     </ul></div>
     <div class="lz-actions">
+      <a class="lz-tel" href="tel:+972523434916" aria-label="התקשרו 052-343-4916">{TEL_ICON}<span dir="ltr">052-343-4916</span></a>
       <a class="lz-cta" href="{CTA[0]}">{CTA[1]}</a>
       <button class="lz-theme" id="lzTheme" type="button" aria-label="מצב כהה או בהיר" title="מצב כהה / בהיר">
         <svg class="lz-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
